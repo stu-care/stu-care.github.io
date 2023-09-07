@@ -1,10 +1,15 @@
 <script>
-    import data from "../lib/data.json";
-    import { formattedDate, pools } from "../lib";
+    import { baseData } from "../stores.js";
+    import { formattedDate } from "../lib";
     export let game;
+    export let pools;
 
-    $: teamA = data.teams?.find((team) => team.short === game.teams[0].team);
-    $: teamB = data.teams?.find((team) => team.short === game.teams[1].team);
+    $: teamA = $baseData.teams?.find(
+        (team) => team.short === game.teams[0].team
+    );
+    $: teamB = $baseData.teams?.find(
+        (team) => team.short === game.teams[1].team
+    );
     $: if (teamA) {
         teamA.pool = {
             ...pools[teamA.pool]?.teams.find((t) => t.team === teamA.short)

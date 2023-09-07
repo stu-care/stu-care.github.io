@@ -1,5 +1,5 @@
 <script>
-    import { teams as dataTeams } from "../lib";
+    export let dataTeams;
     export let pool;
     const teams = pool.teams.sort((a, b) => a.position - b.position);
 </script>

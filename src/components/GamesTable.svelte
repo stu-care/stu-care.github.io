@@ -1,14 +1,14 @@
 <script>
-    import data from "../lib/data.json";
+    import { baseData } from "../stores.js";
     import { formattedDate } from "../lib";
     export let games;
     export let handleGameClick;
 
     const processedGames = games.map((game) => {
-        const teamA = data.teams.find(
+        const teamA = $baseData.teams.find(
             (team) => team.short === game.teams[0].team
         );
-        const teamB = data.teams.find(
+        const teamB = $baseData.teams.find(
             (team) => team.short === game.teams[1].team
         );
         return {

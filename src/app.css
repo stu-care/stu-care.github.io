@@ -1,3 +1,13 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+:root {
+  --c-navy: #000044;
+  --c-aqua: #00d9c1;
+  --c-fuchsia: #f71378;
+  --c-yellow: #eef85d;
+  --c-green: #a3d34e;
+  --c-blurple: #402ca0;
+
+--pool-a: var(--c-yellow);
+--pool-b: var(--c-green);
+--pool-c: var(--c-fuchsia);
+--pool-d: var(--c-blurple);
+}
