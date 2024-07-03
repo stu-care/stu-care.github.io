@@ -5,6 +5,7 @@ import Error404 from "./layouts/Error404";
 import RolemasterLandingPage from "./pages/RolemasterLandingPage";
 import InfoPage from "./pages/InfoPage";
 import CharacterPage from "./pages/CharacterPage";
+import RollPage from "./pages/RollPage";
 
 export const router = createHashRouter([
     {
@@ -21,6 +22,11 @@ export const router = createHashRouter([
             {
                 path: "/rolemaster/character",
                 element: <CharacterPage />,
+            },
+
+            {
+                path: "/rolemaster/roll",
+                element: <RollPage />,
             },
         ],
     },

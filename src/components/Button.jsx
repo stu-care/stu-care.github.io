@@ -10,6 +10,7 @@ export const Button = ({
     disabled = false,
     colour = "primary",
     size = "md",
+    ...rest
 }) => {
     return (
         <button
@@ -37,6 +38,7 @@ export const Button = ({
                         colour === "secondary" && outline,
                 },
             ])}
+            {...rest}
         >
             {children}
         </button>

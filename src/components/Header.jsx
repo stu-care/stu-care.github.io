@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { byPrefixAndName } from "@awesome.me/kit-96c2265b03/icons";
 import { useApp } from "../contexts/AppContext";
+import { useGame } from "../contexts/GameContext";
 
 const Header = () => {
     const { menu } = useApp();
+    const { reset } = useGame();
 
     return (
         <header className="relative flex items-baseline justify-between gap-4 p-4 bg-slate-900 shadow shadow-black z-50">
@@ -22,7 +24,7 @@ const Header = () => {
                     Rolemaster
                 </Link>
             </div>
-            <div className="leading-none" onClick={() => localStorage.clear()}>
+            <div className="leading-none" onClick={() => reset()}>
                 stu<span className="text-slate-600">.care</span>
             </div>
         </header>
