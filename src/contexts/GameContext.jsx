@@ -1,7 +1,6 @@
 import React, { createContext, useContext, useEffect } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import faldrinImgUrl from "../assets/faldrin.webp";
-import elvenImgUrl from "../assets/elven.webp";
 
 export const GameContext = createContext(undefined);
 
@@ -105,12 +104,17 @@ const scenario = {
 
 export const GameProvider = ({ children }) => {
     const [characters, setCharacters, clearCharacters] = useLocalStorage(
-        "characters",
+        "rm.characters",
         characterList.map(({ character }) => character.name)
     );
 
+    const [rollsHistory, setRollsHistory, clearRollsHistory] = useLocalStorage(
+        "rm.rolls",
+        []
+    );
+
     const [selectedCharacter, setSelectedCharacter, clearSelectedCharacter] =
-        useLocalStorage("selectedCharacter", null);
+        useLocalStorage("rm.selectedCharacter", null);
 
     const selectCharacter = (characterName) => {
         setSelectedCharacter(
@@ -135,6 +139,8 @@ export const GameProvider = ({ children }) => {
                 characters,
                 selectedCharacter,
                 selectCharacter,
+                rollsHistory,
+                setRollsHistory,
                 scenario,
                 reset,
             }}

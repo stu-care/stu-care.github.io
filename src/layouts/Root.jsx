@@ -5,7 +5,7 @@ import Menu from "../components/Menu";
 const Root = () => {
     return (
         <>
-            <div className="rolemaster flex flex-col bg-slate-800 text-slate-200 h-screen w-full overflow relative">
+            <div className="rolemaster flex flex-col bg-slate-700 text-slate-200 h-[100dvh] w-full overflow relative">
                 <Header />
                 <Menu />
                 <div className="overflow-y-auto h-full">

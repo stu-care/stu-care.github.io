@@ -14,7 +14,7 @@ const Menu = () => {
     return (
         <>
             <div
-                className="relative flex justify-between items-center p-4 select-none cursor-pointer bg-slate-600 shadow shadow-black z-10"
+                className="relative flex justify-between items-center p-4 select-none cursor-pointer bg-slate-600 shadow shadow-black z-10 font-['Grenze_Gotisch']"
                 onClick={menu.toggle}
                 role="button"
             >
@@ -36,16 +36,16 @@ const Menu = () => {
                 <nav
                     aria-expanded={menu.isExpanded}
                     className={cx([
-                        "absolute flex flex-col w-full justify-between items-center bg-slate-400 text-slate-900 backdrop-blur shadow shadow-black z-[9] transition-all duration-200 ease-in-out",
+                        "absolute flex flex-col w-full justify-between items-center bg-slate-400 text-slate-900 backdrop-blur shadow shadow-black z-[9] transition-all duration-200 ease-in-out font-['Grenze_Gotisch']",
                         {
                             "top-0": menu.isExpanded,
-                            "-top-[calc(3.25em*5)]": !menu.isExpanded,
+                            "-top-[calc(3.25em*7)]": !menu.isExpanded,
                         },
                     ])}
                     role="navigation"
                 >
                     <NavLink
-                        to="/rolemaster"
+                        to="/rm"
                         className="flex gap-2 p-4 items-center justify-between w-full leading-none"
                         onClick={() => menu.close()}
                     >
@@ -56,7 +56,7 @@ const Menu = () => {
                         />
                     </NavLink>
                     <NavLink
-                        to="/rolemaster/info"
+                        to="/rm/info"
                         className="flex gap-2 p-4 items-center justify-between w-full leading-none"
                         onClick={() => menu.close()}
                     >
@@ -67,7 +67,18 @@ const Menu = () => {
                         />
                     </NavLink>
                     <NavLink
-                        to="/rolemaster/character"
+                        to="/rm/maps"
+                        className="flex gap-2 p-4 items-center justify-between w-full leading-none"
+                        onClick={() => menu.close()}
+                    >
+                        Maps
+                        <FontAwesomeIcon
+                            icon={byPrefixAndName.fas["map-location"]}
+                            fixedWidth={true}
+                        />
+                    </NavLink>
+                    <NavLink
+                        to="/rm/character"
                         className="flex gap-2 p-4 items-center justify-between w-full leading-none"
                         onClick={() => menu.close()}
                     >
@@ -78,13 +89,25 @@ const Menu = () => {
                         />
                     </NavLink>
                     <NavLink
-                        to="/rolemaster/roll"
+                        to="/rm/roll"
                         className="flex gap-2 p-4 items-center justify-between w-full leading-none"
                         onClick={() => menu.close()}
                     >
                         Roll
                         <FontAwesomeIcon
                             icon={byPrefixAndName.fas["dice"]}
+                            fixedWidth={true}
+                        />
+                    </NavLink>
+
+                    <NavLink
+                        to="/rm/test"
+                        className="flex gap-2 p-4 items-center justify-between w-full leading-none"
+                        onClick={() => menu.close()}
+                    >
+                        Debug
+                        <FontAwesomeIcon
+                            icon={byPrefixAndName.fas["bug"]}
                             fixedWidth={true}
                         />
                     </NavLink>

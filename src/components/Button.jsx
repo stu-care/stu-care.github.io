@@ -10,6 +10,7 @@ export const Button = ({
     disabled = false,
     colour = "primary",
     size = "md",
+    classNames,
     ...rest
 }) => {
     return (
@@ -18,9 +19,10 @@ export const Button = ({
             type={type}
             role={role}
             className={cx([
-                "transition-all duration-200 ease-in-out flex items-center justify-center border-2",
+                "transition-all duration-200 ease-in-out flex items-center justify-center border-2 select-none",
                 {
                     "cursor-not-allowed opacity-75": disabled,
+                    "cursor-pointer": !disabled,
                     "rounded-full": pill,
                     rounded: !pill,
                     "py-0 px-1 text-xs": size === "xs",
@@ -34,9 +36,10 @@ export const Button = ({
                         colour === "secondary" && !outline,
                     "border-slate-500 text-slate-500 hover:bg-slate-500 hover:text-white active:border-slate-600 active:bg-slate-600 active:text-white disabled:border-slate-300 disabled:text-slate-300 disabled:hover:bg-transparent":
                         colour === "primary" && outline,
-                    "border-slate-500 text-slate-500 hover:bg-slate-500 hover:text-white active:border-slate-600 active:bg-slate-600 active:text-white disabled:border-slate-300 disabled:text-slate-300 disabled:hover:bg-transparent":
+                    "border-sky-500 text-sky-500 hover:bg-sky-500 hover:text-white active:border-sky-600 active:bg-sky-600 active:text-white disabled:border-sky-300 disabled:text-sky-300 disabled:hover:bg-transparent":
                         colour === "secondary" && outline,
                 },
+                classNames,
             ])}
             {...rest}
         >
