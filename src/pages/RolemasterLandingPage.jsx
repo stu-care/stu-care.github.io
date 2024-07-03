@@ -4,20 +4,21 @@ import CharacterSelect from "../components/CharacterSelect";
 import { useGame } from "../contexts/GameContext";
 import "./RolemasterLandingPage.css";
 import { renderModifier } from "../helpers/format";
+import Markdown from "marked-react";
 
 const RolemasterLandingPage = () => {
     const { selectedCharacter, selectCharacter, scenario } = useGame();
 
     return (
         <main className="relative grid grid-flow-row auto-rows-auto p-4 gap-4">
-            <section>
+            <section className="grid gap-4">
                 <h2 className="text-xl  font-semibold mb-2">
                     {scenario.title}
                 </h2>
-                <p>{scenario.description}</p>
             </section>
-            <section>
-                <h3 className="text-xl  font-semibold mb-2">Characters</h3>
+            <hr className="border-slate-700" />
+            <section className="grid gap-4">
+                <h3 className="">Characters</h3>
                 <div className="grid grid-flow-row auto-rows-fr gap-4">
                     {scenario.characters.map(
                         ({ img, character, stats }, index) => (
@@ -43,8 +44,8 @@ const RolemasterLandingPage = () => {
                                     />
                                 </div>
                                 <div class="info">
-                                    <div class="name font-semibold text-lg">
-                                        <span>{character.name}</span>
+                                    <div class="name">
+                                        <h3>{character.name}</h3>
                                     </div>
                                     <div class="race flex flex-col items-end">
                                         <span className="font-light">
@@ -122,6 +123,11 @@ const RolemasterLandingPage = () => {
                         )
                     )}
                 </div>
+            </section>
+            <hr className="border-slate-700" />
+
+            <section className="grid gap-4">
+                <Markdown>{scenario.description}</Markdown>
             </section>
         </main>
     );

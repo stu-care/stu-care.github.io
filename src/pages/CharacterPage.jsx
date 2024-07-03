@@ -1,9 +1,8 @@
 import React from "react";
-import cx from "classnames";
-import CharacterSelect from "../components/CharacterSelect";
 import { useGame } from "../contexts/GameContext";
 import "./RolemasterLandingPage.css";
 import { renderModifier } from "../helpers/format";
+import Markdown from "marked-react";
 
 const CharacterPage = () => {
     const { selectedCharacter } = useGame();
@@ -22,9 +21,7 @@ const CharacterPage = () => {
                         alt={img.alt}
                         className="squircle w-auto aspect-square object-cover"
                     />
-                    <h2 className="text-2xl text-center leading-none font-semibold">
-                        {character.name}
-                    </h2>
+                    <h2 className="text-center">{character.name}</h2>
                     <hr className="border-slate-700" />
                     <div className="flex justify-between items-center px-4 text-lg">
                         <span className="font-semibold">{character.race}</span>
@@ -33,10 +30,8 @@ const CharacterPage = () => {
                         </span>
                     </div>
                     <hr className="border-slate-700" />
-                    <p>{character.description}</p>
-                    <hr className="border-slate-700" />
                     <div className="grid grid-flow-row auto-rows-fr font-medium text-center">
-                        <h4 className="text-xl">Stats</h4>
+                        <h3>Stats</h3>
                         <div className="grid grid-flow-col auto-cols-fr gap-2">
                             <div>Stat</div>
                             <div>Temp</div>
@@ -50,7 +45,10 @@ const CharacterPage = () => {
                         {Object.entries(stats).map(([key, value], index) => (
                             <div className="grid grid-flow-col auto-cols-fr gap-2 font-extralight text-center">
                                 <div className="font-semibold">
-                                    {key.charAt(0).toUpperCase() + key.slice(1)}
+                                    {key == "sd"
+                                        ? key.toUpperCase()
+                                        : key.charAt(0).toUpperCase() +
+                                          key.slice(1)}
                                 </div>
                                 <div>{value.temp}</div>
                                 <div>{value.pot}</div>
@@ -67,13 +65,7 @@ const CharacterPage = () => {
                         ))}
                     </div>
                     <hr className="border-slate-700" />
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Blanditiis, ipsa iusto laudantium, iure aperiam quis
-                        cumque eius corrupti repellat provident nihil architecto
-                        quam natus id nemo voluptatibus! Doloremque, natus
-                        quisquam!
-                    </p>
+                    <Markdown>{character.description}</Markdown>
                 </section>
             )}
         </main>

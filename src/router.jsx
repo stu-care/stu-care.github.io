@@ -6,6 +6,7 @@ import RolemasterLandingPage from "./pages/RolemasterLandingPage";
 import InfoPage from "./pages/InfoPage";
 import CharacterPage from "./pages/CharacterPage";
 import RollPage from "./pages/RollPage";
+import TestPage from "./pages/TestPage";
 
 export const router = createHashRouter([
     {
@@ -27,6 +28,10 @@ export const router = createHashRouter([
             {
                 path: "/rolemaster/roll",
                 element: <RollPage />,
+            },
+            {
+                path: "/rolemaster/test",
+                element: <TestPage />,
             },
         ],
     },
