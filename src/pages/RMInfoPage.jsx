@@ -30,7 +30,7 @@ const RMInfoPage = () => {
                             </em>
                         </p>
                     </div>
-                    <hr className="border-slate-700" />
+                    <hr />
 
                     <div>
                         <h4 className="flex gap-2 items-baseline justify-between">
@@ -54,7 +54,7 @@ const RMInfoPage = () => {
                             </em>
                         </p>
                     </div>
-                    <hr className="border-slate-700" />
+                    <hr />
                     <div>
                         <h4 className="flex gap-2 items-baseline justify-between">
                             Agility{" "}
@@ -75,7 +75,7 @@ const RMInfoPage = () => {
                             </em>
                         </p>
                     </div>
-                    <hr className="border-slate-700" />
+                    <hr />
                     <div>
                         <h4 className="flex gap-2 items-baseline justify-between">
                             Memory{" "}
@@ -103,7 +103,7 @@ const RMInfoPage = () => {
                             </em>
                         </p>
                     </div>
-                    <hr className="border-slate-700" />
+                    <hr />
                     <div>
                         <h4 className="flex gap-2 items-baseline justify-between">
                             Reasoning
@@ -126,7 +126,7 @@ const RMInfoPage = () => {
                             </em>
                         </p>
                     </div>
-                    <hr className="border-slate-700" />
+                    <hr />
                     <div>
                         <h4 className="flex gap-2 items-baseline justify-between">
                             Strength{" "}
@@ -148,7 +148,7 @@ const RMInfoPage = () => {
                             </em>
                         </p>
                     </div>
-                    <hr className="border-slate-700" />
+                    <hr />
                     <div>
                         <h4 className="flex gap-2 items-baseline justify-between">
                             Quickness
@@ -169,7 +169,7 @@ const RMInfoPage = () => {
                             </em>
                         </p>
                     </div>
-                    <hr className="border-slate-700" />
+                    <hr />
                     <div>
                         <h4 className="flex gap-2 items-baseline justify-between">
                             Presence{" "}
@@ -193,7 +193,7 @@ const RMInfoPage = () => {
                             </em>
                         </p>
                     </div>
-                    <hr className="border-slate-700" />
+                    <hr />
                     <div>
                         <h4 className="flex gap-2 items-baseline justify-between">
                             Intuition
@@ -215,7 +215,7 @@ const RMInfoPage = () => {
                             </em>
                         </p>
                     </div>
-                    <hr className="border-slate-700" />
+                    <hr />
                     <div>
                         <h4 className="flex gap-2 items-baseline justify-between">
                             Empathy
@@ -238,7 +238,7 @@ const RMInfoPage = () => {
                             </em>
                         </p>
                     </div>
-                    <hr className="border-slate-700" />
+                    <hr />
                     <div>
                         <h4 className="flex gap-2 items-baseline justify-between">
                             Appearance

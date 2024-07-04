@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import faldrinImgUrl from "../assets/faldrin.webp";
+import { herbList } from "../content/herbList";
 
 export const GameContext = createContext(undefined);
 
@@ -187,6 +188,7 @@ export const GameProvider = ({ children }) => {
                 scenario,
                 currency,
                 reset,
+                herbList,
             }}
         >
             {children}
