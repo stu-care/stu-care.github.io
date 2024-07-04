@@ -31,7 +31,7 @@ const RMCharacterPage = () => {
                     <hr className="border-slate-700" />
                     <div className="grid grid-flow-row auto-rows-fr font-medium text-center">
                         <h3>Stats</h3>
-                        <div className="grid grid-flow-col auto-cols-fr gap-2">
+                        <div className="grid grid-flow-col font-g auto-cols-fr gap-2 text-slate-400">
                             <div>Stat</div>
                             <div>Temp</div>
                             <div>Pot</div>
@@ -43,7 +43,7 @@ const RMCharacterPage = () => {
                         </div>
                         {Object.entries(stats).map(([key, value], index) => (
                             <div className="grid grid-flow-col auto-cols-fr gap-2 font-light text-center">
-                                <div className="font-semibold">
+                                <div className="font-semibold font-g ">
                                     {key == "sd"
                                         ? key.toUpperCase()
                                         : key.charAt(0).toUpperCase() +

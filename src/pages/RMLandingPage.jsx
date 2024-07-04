@@ -4,9 +4,11 @@ import { useGame } from "../contexts/GameContext";
 import "./RMLandingPage.css";
 import { renderModifier } from "../helpers/format";
 import Markdown from "marked-react";
+import { useNavigate } from "react-router-dom";
 
 const RMLandingPage = () => {
     const { selectedCharacter, selectCharacter, scenario } = useGame();
+    const navigate = useNavigate();
 
     return (
         <main className="relative grid grid-flow-row auto-rows-auto p-4 gap-4">
@@ -23,8 +25,11 @@ const RMLandingPage = () => {
                         ({ img, character, stats }, index) => (
                             <div
                                 key={index}
-                                className="character-card gap-2"
-                                onClick={() => selectCharacter(character.name)}
+                                className="character-card gap-2 group cursor-pointer"
+                                onClick={() => {
+                                    selectCharacter(character.name);
+                                    navigate("/rm/character");
+                                }}
                             >
                                 <div className="picture">
                                     <img
@@ -32,7 +37,7 @@ const RMLandingPage = () => {
                                         alt={img.alt}
                                         type={img.type}
                                         className={cx([
-                                            "w-28 h-28 object-cover transition-all duration-300 ease-in-out squircle hover:saturate-100",
+                                            "w-28 h-28 object-cover transition-all duration-300 ease-in-out squircle group-hover:saturate-100",
                                             {
                                                 "saturate-0":
                                                     character.name !==
@@ -55,7 +60,7 @@ const RMLandingPage = () => {
                                         </span>
                                     </div>
                                     <div className="stats text-xs self-end text-center">
-                                        <div className="grid grid-flow-col auto-cols-fr font-semibold text-slate-50">
+                                        <div className="grid grid-flow-col auto-cols-fr font-semibold font-g text-slate-50">
                                             <div title="Constitution">Co</div>
                                             <div title="Self Discipline">
                                                 SD

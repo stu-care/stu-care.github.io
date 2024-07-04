@@ -2,14 +2,17 @@ import React from "react";
 import cx from "classnames";
 import { useGame } from "../contexts/GameContext";
 import { useApp } from "../contexts/AppContext";
+import { useNavigate } from "react-router-dom";
 
 const CharacterSelect = ({ classnames }) => {
     const { characters, selectedCharacter, selectCharacter } = useGame();
+    const navigate = useNavigate();
     const { menu } = useApp();
 
     const handleCharacterChange = (event) => {
         selectCharacter(event.target.value);
         menu.close();
+        navigate("/rm/character");
     };
 
     return (

@@ -34,16 +34,20 @@ const RMHerbListPage = () => {
     return (
         <main className="grid grid-flow-row auto-rows-auto p-4 gap-4">
             <h2>Herb List</h2>
-            <div className="grid grid-flow-row gap-2">
-                <label>Filter</label>
+            <div className="grid grid-flow-row gap-1">
+                <label className="uppercase font-g text-sm text-slate-400">
+                    Filter
+                </label>
                 <Input
                     value={filterValue}
                     onChange={handleFilterChange}
                     placeholder="Filter (e.g. 'eC6' or 'Ingest')"
                 />
             </div>
-            <div className="grid grid-flow-row gap-2">
-                <label>Type</label>
+            <div className="grid grid-flow-row gap-1">
+                <label className="uppercase font-g text-sm text-slate-400">
+                    Type
+                </label>
                 <Select onChange={handleTypeChange}>
                     <option value="">All</option>
                     <option value="herb">Herb</option>
@@ -112,13 +116,13 @@ const RMHerbListPage = () => {
                                 </div>
                                 <div className="p-2 grid grid-flow-row auto-rows-auto gap-4 text-sm">
                                     <div className="flex justify-between items-start">
-                                        <div className="font-g">
+                                        <div className="font-g font-light">
                                             <div>{herb.temperate}</div>
                                             <div>{herb.environment}</div>
                                         </div>
                                         <div>{herb.formPrep}</div>
                                     </div>
-                                    <div className="text-center">
+                                    <div className="text-center p-4 tracking-wide">
                                         {herb.effect}
                                     </div>
                                     <div className="grid grid-flow-col auto-cols-fr text-center">
