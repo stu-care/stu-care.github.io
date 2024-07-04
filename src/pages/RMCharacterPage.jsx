@@ -24,7 +24,7 @@ const RMCharacterPage = () => {
                     <hr className="border-slate-700" />
                     <div className="flex justify-between items-center px-4 text-lg">
                         <span className="font-semibold">{character.race}</span>
-                        <span className="font-extralight">
+                        <span className="font-light">
                             {character.profession}
                         </span>
                     </div>
