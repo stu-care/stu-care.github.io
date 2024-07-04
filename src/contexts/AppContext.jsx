@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState } from "react";
+import pkg from "../../package.json";
 
 export const AppContext = createContext({
     menu: {
@@ -35,6 +36,7 @@ export const AppProvider = ({ children }) => {
                     close: closeMenu,
                     isExpanded: menuExpanded,
                 },
+                version: pkg.version,
             }}
         >
             {children}

@@ -6,9 +6,9 @@ import RMLandingPage from "./pages/RMLandingPage";
 import RMInfoPage from "./pages/RMInfoPage";
 import RMCharacterPage from "./pages/RMCharacterPage";
 import RMRollPage from "./pages/RMRollPage";
-import RMTestPage from "./pages/RMTestPage";
 import RMMapsPage from "./pages/RMMapsPage";
 import RMMoneyPage from "./pages/RMMoneyPage";
+import RMDebugPage from "./pages/RMDebugPage";
 
 export const router = createHashRouter([
     {
@@ -39,8 +39,8 @@ export const router = createHashRouter([
                 element: <RMMoneyPage />,
             },
             {
-                path: "/rm/test",
-                element: <RMTestPage />,
+                path: "/rm/debug",
+                element: <RMDebugPage />,
             },
         ],
     },

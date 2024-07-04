@@ -113,7 +113,7 @@ const Menu = () => {
                     </NavLink>
 
                     <NavLink
-                        to="/rm/test"
+                        to="/rm/debug"
                         className="flex gap-2 p-4 items-center justify-between w-full leading-none"
                         onClick={() => menu.close()}
                     >
