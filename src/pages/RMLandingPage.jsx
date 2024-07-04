@@ -70,7 +70,7 @@ const RMLandingPage = () => {
                                             <div title="Empathy">Em</div>
                                             <div title="Appearance">Ap</div>
                                         </div>
-                                        <div className="grid grid-flow-col auto-cols-fr font-extralight">
+                                        <div className="grid grid-flow-col auto-cols-fr font-light">
                                             <div>{stats.co.temp}</div>
                                             <div>{stats.sd.temp}</div>
                                             <div>{stats.ag.temp}</div>
@@ -83,7 +83,7 @@ const RMLandingPage = () => {
                                             <div>{stats.em.temp}</div>
                                             <div>{stats.ap.temp}</div>
                                         </div>
-                                        <div className="grid grid-flow-col text-[0.66rem] auto-cols-fr font-extralight">
+                                        <div className="grid grid-flow-col text-[0.66rem] auto-cols-fr font-light">
                                             <div>
                                                 {renderModifier(stats.co.total)}
                                             </div>

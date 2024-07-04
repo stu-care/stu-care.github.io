@@ -71,6 +71,12 @@ const RMMoneyPage = () => {
                 fromCurrency,
                 toCurrency
             );
+
+            if (isNaN(conversionResult)) {
+                setResult("");
+                return;
+            }
+
             setResult(`${conversionResult.toLocaleString()} ${toCurrency}`);
         } catch (error) {
             setResult("");
