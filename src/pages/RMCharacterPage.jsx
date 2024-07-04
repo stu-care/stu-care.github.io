@@ -42,7 +42,7 @@ const RMCharacterPage = () => {
                             <div>Dv Pts</div>
                         </div>
                         {Object.entries(stats).map(([key, value], index) => (
-                            <div className="grid grid-flow-col auto-cols-fr gap-2 font-extralight text-center">
+                            <div className="grid grid-flow-col auto-cols-fr gap-2 font-light text-center">
                                 <div className="font-semibold">
                                     {key == "sd"
                                         ? key.toUpperCase()

@@ -102,6 +102,49 @@ const scenario = {
     characters: characterList,
 };
 
+const currency = {
+    rates: {
+        mp: 10000,
+        gp: 100,
+        sp: 10,
+        bp: 1,
+        cp: 0.1,
+        tp: 0.01,
+        ip: 0.001,
+    },
+    abbreviations: {
+        mp: "Mithril Piece",
+        gp: "Gold Piece",
+        sp: "Silver Piece",
+        bp: "Bronze Piece",
+        cp: "Copper Piece",
+        tp: "Tin Piece",
+        ip: "Iron Piece",
+    },
+    parseValueAbbr: function (valueAbbr) {
+        const amount = parseFloat(valueAbbr);
+        const abbr = valueAbbr.replace(amount, "").trim();
+        if (isNaN(amount) || !this.rates[abbr]) {
+            throw new Error("Invalid value abbreviation");
+        }
+        return { amount, abbr };
+    },
+    convert: function (amount, from, to) {
+        if (!this.rates[from] || !this.rates[to]) {
+            throw new Error("Invalid currency abbreviation");
+        }
+        const baseAmount = amount * this.rates[from];
+        const convertedAmount = baseAmount / this.rates[to];
+        return convertedAmount;
+    },
+};
+
+String.prototype.to = function (toAbbr) {
+    const { amount, abbr } = currency.parseValueAbbr(this);
+    const convertedAmount = currency.convert(amount, abbr, toAbbr);
+    return `${convertedAmount}${toAbbr}`;
+};
+
 export const GameProvider = ({ children }) => {
     const [characters, setCharacters, clearCharacters] = useLocalStorage(
         "rm.characters",
@@ -142,6 +185,7 @@ export const GameProvider = ({ children }) => {
                 rollsHistory,
                 setRollsHistory,
                 scenario,
+                currency,
                 reset,
             }}
         >

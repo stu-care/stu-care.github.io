@@ -8,6 +8,7 @@ import RMCharacterPage from "./pages/RMCharacterPage";
 import RMRollPage from "./pages/RMRollPage";
 import RMTestPage from "./pages/RMTestPage";
 import RMMapsPage from "./pages/RMMapsPage";
+import RMMoneyPage from "./pages/RMMoneyPage";
 
 export const router = createHashRouter([
     {
@@ -25,7 +26,6 @@ export const router = createHashRouter([
                 path: "/rm/character",
                 element: <RMCharacterPage />,
             },
-
             {
                 path: "/rm/roll",
                 element: <RMRollPage />,
@@ -33,6 +33,10 @@ export const router = createHashRouter([
             {
                 path: "/rm/maps",
                 element: <RMMapsPage />,
+            },
+            {
+                path: "/rm/currency",
+                element: <RMMoneyPage />,
             },
             {
                 path: "/rm/test",

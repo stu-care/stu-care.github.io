@@ -39,7 +39,7 @@ const Menu = () => {
                         "absolute flex flex-col w-full justify-between items-center bg-slate-400 text-slate-900 backdrop-blur shadow shadow-black z-[9] transition-all duration-200 ease-in-out font-['Grenze_Gotisch']",
                         {
                             "top-0": menu.isExpanded,
-                            "-top-[calc(3.25em*7)]": !menu.isExpanded,
+                            "-top-[calc(3.25em*8)]": !menu.isExpanded,
                         },
                     ])}
                     role="navigation"
@@ -96,6 +96,18 @@ const Menu = () => {
                         Roll
                         <FontAwesomeIcon
                             icon={byPrefixAndName.fas["dice"]}
+                            fixedWidth={true}
+                        />
+                    </NavLink>
+
+                    <NavLink
+                        to="/rm/currency"
+                        className="flex gap-2 p-4 items-center justify-between w-full leading-none"
+                        onClick={() => menu.close()}
+                    >
+                        Currency
+                        <FontAwesomeIcon
+                            icon={byPrefixAndName.fas["coin"]}
                             fixedWidth={true}
                         />
                     </NavLink>

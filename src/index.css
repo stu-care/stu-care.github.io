@@ -24,6 +24,14 @@
     @apply border-slate-600;
 }
 
+.rolemaster .font-g {
+    font-family: "Grenze", serif;
+}
+
+.rolemaster .font-gg {
+    font-family: "Grenze Gotisch", serif;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
