@@ -10,6 +10,7 @@ import RMMapsPage from "./pages/RMMapsPage";
 import RMMoneyPage from "./pages/RMMoneyPage";
 import RMDebugPage from "./pages/RMDebugPage";
 import RMHerbListPage from "./pages/RMHerbListPage";
+import RNSkillsListPage from "./pages/RMSkillsListPage";
 
 export const router = createHashRouter([
     {
@@ -42,6 +43,10 @@ export const router = createHashRouter([
             {
                 path: "/rm/herbs",
                 element: <RMHerbListPage />,
+            },
+            {
+                path: "/rm/skills",
+                element: <RNSkillsListPage />,
             },
             {
                 path: "/rm/debug",

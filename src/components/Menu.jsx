@@ -39,7 +39,7 @@ const Menu = () => {
                         "absolute flex flex-col w-full justify-between items-center bg-slate-400 text-slate-900 backdrop-blur shadow shadow-black z-[9] transition-all duration-200 ease-in-out font-['Grenze_Gotisch']",
                         {
                             "top-0": menu.isExpanded,
-                            "-top-[calc(3.25em*8)]": !menu.isExpanded,
+                            "-top-[calc(3.25em*9)]": !menu.isExpanded,
                         },
                     ])}
                     role="navigation"
@@ -120,6 +120,18 @@ const Menu = () => {
                         Herb List
                         <FontAwesomeIcon
                             icon={byPrefixAndName.fas["seedling"]}
+                            fixedWidth={true}
+                        />
+                    </NavLink>
+
+                    <NavLink
+                        to="/rm/skills"
+                        className="flex gap-2 p-4 items-center justify-between w-full leading-none"
+                        onClick={() => menu.close()}
+                    >
+                        Skills List
+                        <FontAwesomeIcon
+                            icon={byPrefixAndName.fas["pickaxe"]}
                             fixedWidth={true}
                         />
                     </NavLink>
