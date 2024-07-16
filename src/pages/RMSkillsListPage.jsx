@@ -25,8 +25,19 @@ const RNSkillsListPage = () => {
                 />
             </div>
             {skillsList
-                .filter((skill) =>
-                    skill.name.toLowerCase().includes(filterValue.toLowerCase())
+                .filter(
+                    (skill) =>
+                        skill.name
+                            .toLowerCase()
+                            .includes(
+                                filterValue.toLowerCase() ||
+                                    skill.type
+                                        .toLowerCase()
+                                        .includes(filterValue.toLowerCase())
+                            ) ||
+                        skill.description
+                            .toLowerCase()
+                            .includes(filterValue.toLowerCase())
                 )
                 .map((skill, index) => {
                     return (

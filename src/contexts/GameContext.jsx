@@ -86,7 +86,7 @@ const characterList = [
             st: { temp: 100, pot: 100, mod: 25, race: 5, misc: 10, total: 40 },
             qu: { temp: 95, pot: 95, mod: 15, race: -5, misc: 0, total: 10 },
             pr: { temp: 87, pot: 89, mod: 5, race: -10, misc: 0, total: -5 },
-            in: { temp: 74, pot: 47, mod: 0, race: 0, misc: 0, total: 0 },
+            in: { temp: 74, pot: 74, mod: 0, race: 0, misc: 0, total: 0 },
             em: { temp: 51, pot: 51, mod: 0, race: -10, misc: 0, total: -10 },
             ap: { temp: 16 },
         },

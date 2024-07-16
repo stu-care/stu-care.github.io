@@ -39,7 +39,7 @@ const Menu = () => {
                         "absolute flex flex-col w-full justify-between items-center bg-slate-400 text-slate-900 backdrop-blur shadow shadow-black z-[9] transition-all duration-200 ease-in-out font-['Grenze_Gotisch']",
                         {
                             "top-0": menu.isExpanded,
-                            "-top-[calc(3.25em*9)]": !menu.isExpanded,
+                            "-top-[calc(3.25em*7)]": !menu.isExpanded,
                         },
                     ])}
                     role="navigation"
@@ -77,7 +77,8 @@ const Menu = () => {
                             fixedWidth={true}
                         />
                     </NavLink>
-                    <NavLink
+
+                    {/* <NavLink
                         to="/rm/character"
                         className="flex gap-2 p-4 items-center justify-between w-full leading-none"
                         onClick={() => menu.close()}
@@ -87,8 +88,9 @@ const Menu = () => {
                             icon={byPrefixAndName.fas["person-half-dress"]}
                             fixedWidth={true}
                         />
-                    </NavLink>
-                    <NavLink
+                    </NavLink> */}
+
+                    {/* <NavLink
                         to="/rm/roll"
                         className="flex gap-2 p-4 items-center justify-between w-full leading-none"
                         onClick={() => menu.close()}
@@ -98,7 +100,7 @@ const Menu = () => {
                             icon={byPrefixAndName.fas["dice"]}
                             fixedWidth={true}
                         />
-                    </NavLink>
+                    </NavLink> */}
 
                     <NavLink
                         to="/rm/currency"

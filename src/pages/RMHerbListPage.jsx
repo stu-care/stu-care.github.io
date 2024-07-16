@@ -114,15 +114,17 @@ const RMHerbListPage = () => {
                                         </span>
                                     </h3>
                                 </div>
-                                <div className="p-2 grid grid-flow-row auto-rows-auto gap-4 text-sm">
+                                <div className="p-2 grid grid-flow-row auto-rows-auto gap-4 text-sm group ">
                                     <div className="flex justify-between items-start">
-                                        <div className="font-g font-light">
+                                        <div className="font-g font-light text-slate-700 group-hover:text-slate-200 transition-colors duration-300">
                                             <div>{herb.temperate}</div>
                                             <div>{herb.environment}</div>
                                         </div>
-                                        <div>{herb.formPrep}</div>
+                                        <div className="text-slate-700 group-hover:text-slate-200 transition-colors duration-300">
+                                            {herb.formPrep}
+                                        </div>
                                     </div>
-                                    <div className="text-center p-4 tracking-wide">
+                                    <div className="text-center p-4 tracking-wide text-slate-700 group-hover:text-slate-200 transition-colors duration-300">
                                         {herb.effect}
                                     </div>
                                     <div className="grid grid-flow-col auto-cols-fr text-center">
@@ -130,19 +132,23 @@ const RMHerbListPage = () => {
                                             <div className="font-bold font-g">
                                                 AF
                                             </div>
-                                            <div>{herb.af ?? "-"}</div>
+                                            <div className=" text-slate-700 group-hover:text-slate-200 transition-colors duration-300">
+                                                {herb.af ?? "-"}
+                                            </div>
                                         </div>
                                         <div>
                                             <div className="font-bold font-g">
                                                 Lvl
                                             </div>
-                                            <div>{herb.lvl ?? "-"}</div>
+                                            <div className=" text-slate-700 group-hover:text-slate-200 transition-colors duration-300">
+                                                {herb.lvl ?? "-"}
+                                            </div>
                                         </div>
                                         <div>
                                             <div className="font-bold font-g">
                                                 Cost
                                             </div>
-                                            <div>
+                                            <div className=" text-slate-700 hover:text-slate-200 transition-colors duration-300">
                                                 {herb.cost} (
                                                 {`${herb.cost}`.to("bp")})
                                             </div>
