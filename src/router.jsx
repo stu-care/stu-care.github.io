@@ -1,66 +1,36 @@
 import { createHashRouter } from "react-router-dom";
 import Root from "./layouts/Root";
-import Landing from "./layouts/Landing";
-import Error404 from "./layouts/Error404";
-import RMLandingPage from "./pages/RMLandingPage";
-import RMInfoPage from "./pages/RMInfoPage";
-import RMCharacterPage from "./pages/RMCharacterPage";
-import RMRollPage from "./pages/RMRollPage";
-import RMMapsPage from "./pages/RMMapsPage";
-import RMMoneyPage from "./pages/RMMoneyPage";
-import RMDebugPage from "./pages/RMDebugPage";
-import RMHerbListPage from "./pages/RMHerbListPage";
-import RNSkillsListPage from "./pages/RMSkillsListPage";
+import LandingPage from "./pages/Landing";
+import Error404 from "./pages/Error404";
+import { AppProvider } from "./contexts/AppContext";
+import EntryPage from "./pages/Entry";
+import HomePage from "./pages/Home";
 
 export const router = createHashRouter([
     {
-        element: <Root />,
+        element: (
+            <AppProvider>
+                <Root />
+            </AppProvider>
+        ),
         children: [
             {
-                path: "/rm",
-                element: <RMLandingPage />,
+                path: "/",
+                element: <LandingPage />,
             },
             {
-                path: "/rm/info",
-                element: <RMInfoPage />,
+                path: "/home",
+                element: <HomePage />,
             },
             {
-                path: "/rm/character",
-                element: <RMCharacterPage />,
+                path: "/entry",
+                element: <EntryPage />,
             },
             {
-                path: "/rm/roll",
-                element: <RMRollPage />,
-            },
-            {
-                path: "/rm/maps",
-                element: <RMMapsPage />,
-            },
-            {
-                path: "/rm/currency",
-                element: <RMMoneyPage />,
-            },
-            {
-                path: "/rm/herbs",
-                element: <RMHerbListPage />,
-            },
-            {
-                path: "/rm/skills",
-                element: <RNSkillsListPage />,
-            },
-            {
-                path: "/rm/debug",
-                element: <RMDebugPage />,
+                path: "*",
+                element: <Error404 />,
             },
         ],
-    },
-    {
-        path: "/",
-        element: <Landing />,
-    },
-    {
-        path: "*",
-        element: <Error404 />,
     },
 ]);
 

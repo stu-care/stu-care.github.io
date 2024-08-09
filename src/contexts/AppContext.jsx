@@ -1,45 +1,34 @@
 import React, { createContext, useContext, useState } from "react";
-import pkg from "../../package.json";
 
-export const AppContext = createContext({
-    menu: {
-        toggle: () => {},
-        close: () => {},
-        isExpanded: true,
-    },
-});
+// Create the context
+const AppContext = createContext();
 
-export const useApp = () => {
-    const context = useContext(AppContext);
-    if (!context) {
-        throw new Error("useAppContext must be used within an AppProvider");
-    }
-    return context;
-};
+// Create a custom hook to access the context
+export const useApp = () => useContext(AppContext);
 
+// Create the provider component
 export const AppProvider = ({ children }) => {
-    const [menuExpanded, setMenuExpanded] = useState(false);
+    // Your provider logic goes here
+    const [showHeader, setShowHeader] = useState(false);
+    const [showFooter, setShowFooter] = useState(false);
+    const [title, setTitle] = useState("");
 
-    const toggleMenu = () => {
-        setMenuExpanded(!menuExpanded);
+    const setDisplay = ({ showHeader, title = "", showFooter }) => {
+        setShowHeader(showHeader);
+        setTitle(showHeader ? title : "");
+        setShowFooter(showFooter);
     };
 
-    const closeMenu = () => {
-        setMenuExpanded(false);
+    // Replace `value` with the data you want to provide
+    const value = {
+        display: {
+            showHeader: showHeader,
+            title,
+            showFooter: showFooter,
+            setDisplay,
+        },
+        // Add your context values here
     };
 
-    return (
-        <AppContext.Provider
-            value={{
-                menu: {
-                    toggle: toggleMenu,
-                    close: closeMenu,
-                    isExpanded: menuExpanded,
-                },
-                version: pkg.version,
-            }}
-        >
-            {children}
-        </AppContext.Provider>
-    );
+    return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };

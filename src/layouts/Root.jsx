@@ -1,15 +1,16 @@
 import { Outlet } from "react-router-dom";
+import Footer from "../components/Footer";
 import Header from "../components/Header";
-import Menu from "../components/Menu";
+import { useApp } from "../contexts/AppContext";
 
 const Root = () => {
     return (
-        <div className="lg:flex lg:items-center lg:justify-center lg:bg-slate-500 lg:p-8 lg:overflow-hidden lg:h-[100dvh]">
-            <div className="rolemaster flex flex-col bg-slate-700 text-slate-200 h-[100dvh] w-full lg:max-w-md md:h-full overflow relative lg:shadow-md lg:shadow-black lg:rounded-xl lg:overflow-hidden">
+        <div className="sm:flex sm:justify-center sm:items-center sm:h-[100dvh] bg-slate-200 dark:bg-slate-900">
+            <div className="h-[100dvh] max-h-[100dvh] overflow-hidden w-full flex flex-col sm:max-w-[380px] sm:max-h-[800px] sm:rounded-2xl sm:shadow-2xl bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-300">
                 <Header />
-                <Menu />
-                <div className="overflow-y-auto h-full">
+                <div className="overflow-auto h-full grow flex flex-col">
                     <Outlet />
+                    <Footer />
                 </div>
             </div>
         </div>
