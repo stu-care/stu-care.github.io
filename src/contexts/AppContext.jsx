@@ -12,6 +12,7 @@ export const AppProvider = ({ children }) => {
     const [showHeader, setShowHeader] = useState(false);
     const [showFooter, setShowFooter] = useState(false);
     const [title, setTitle] = useState("");
+    const [breadcrumbs, setBreadcrumbs] = useState([]);
 
     const setDisplay = ({ showHeader, title = "", showFooter }) => {
         setShowHeader(showHeader);
@@ -19,11 +20,24 @@ export const AppProvider = ({ children }) => {
         setShowFooter(showFooter);
     };
 
+    const clear = () => {
+        setBreadcrumbs((prev) => []);
+    };
+
+    const add = (url, label) => {
+        setBreadcrumbs((prev) => [...prev, { url, label }]);
+    };
+
     // Replace `value` with the data you want to provide
     const value = {
         display: {
             showHeader: showHeader,
             title,
+            breadcrumbs: {
+                list: breadcrumbs,
+                add,
+                clear,
+            },
             showFooter: showFooter,
             setDisplay,
         },

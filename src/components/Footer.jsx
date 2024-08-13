@@ -1,5 +1,6 @@
 import React from "react";
 import { useApp } from "../contexts/AppContext";
+import Breadcrumbs from "./Breadcrumbs";
 
 const Footer = () => {
     const {
@@ -11,9 +12,12 @@ const Footer = () => {
     }
 
     return (
-        <footer className="p-4 mt-auto text-center text-xs text-slate-300 dark:text-slate-700">
-            &copy; {new Date().getFullYear()}
-        </footer>
+        <>
+            <footer className="p-2 mt-auto text-center text-xs text-neutral dark:text-mystic-900">
+                &copy; {new Date().getFullYear()}
+            </footer>
+            <Breadcrumbs />
+        </>
     );
 };
 

@@ -45,16 +45,21 @@ const EntryPage = () => {
             <div className="w-full">
                 {user.email ? (
                     <div className="grid grid-flow-row gap-2 mx-auto auto-rows-auto text-center">
-                        <h2>Welcome back, </h2>
-                        <div>
-                            <span className="font-semibold">{user.email}</span>!
+                        <div className="mb-4">
+                            <h2>Welcome back, </h2>
+                            <div>
+                                <span className="font-semibold">
+                                    {user.email}
+                                </span>
+                                !
+                            </div>
                         </div>
                         <Link to="/home" className="btn btn-primary">
                             Continue
                         </Link>
                         <div>or</div>
                         <button
-                            className="btn btn-ghost"
+                            className="btn btn-neutral"
                             onClick={() => clearUser()}
                         >
                             Change User
@@ -70,13 +75,13 @@ const EntryPage = () => {
                             type="text"
                             name="email"
                             placeholder="user@domain.tld"
-                            className="input w-full focus-within:input-primary border-l-4 text-base-content border-l-base-200 focus-within:border-l-primary"
+                            className="input w-full focus-within:input-primary border-l-4 text-base-content border-l-base-300 focus-within:border-l-primary"
                         />
                         <input
                             type="password"
                             name="password"
                             placeholder="Password"
-                            className="input w-full focus-within:input-primary border-l-4 text-base-content border-l-base-200 focus-within:border-l-primary"
+                            className="input w-full focus-within:input-primary border-l-4 text-base-content border-l-base-300 focus-within:border-l-primary"
                         />
                         <input
                             type="submit"
@@ -100,7 +105,7 @@ const EntryPage = () => {
                         )}
                         <Link
                             to="/"
-                            className="btn btn-link btn-xs justify-self-start"
+                            className="btn btn-link link-secondary dark:link-neutral btn-xs justify-self-start"
                         >
                             <FontAwesomeIcon
                                 icon={byPrefixAndName.fas["arrow-left"]}

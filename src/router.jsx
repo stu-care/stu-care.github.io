@@ -5,6 +5,7 @@ import Error404 from "./pages/Error404";
 import { AppProvider } from "./contexts/AppContext";
 import EntryPage from "./pages/Entry";
 import HomePage from "./pages/Home";
+import RPGPage from "./pages/RPG";
 
 export const router = createHashRouter([
     {
@@ -21,6 +22,11 @@ export const router = createHashRouter([
             {
                 path: "/home",
                 element: <HomePage />,
+            },
+
+            {
+                path: "/rpg",
+                element: <RPGPage />,
             },
             {
                 path: "/entry",
