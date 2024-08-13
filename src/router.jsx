@@ -6,6 +6,7 @@ import { AppProvider } from "./contexts/AppContext";
 import EntryPage from "./pages/Entry";
 import HomePage from "./pages/Home";
 import RPGPage from "./pages/RPG";
+import MapsPage from "./pages/rpg/Maps";
 
 export const router = createHashRouter([
     {
@@ -23,10 +24,13 @@ export const router = createHashRouter([
                 path: "/home",
                 element: <HomePage />,
             },
-
             {
                 path: "/rpg",
                 element: <RPGPage />,
+            },
+            {
+                path: "/rpg/maps",
+                element: <MapsPage />,
             },
             {
                 path: "/entry",

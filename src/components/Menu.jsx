@@ -4,6 +4,7 @@ import React, { useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { rpgTitle } from "../pages/RPG";
 import { homeTitle } from "../pages/Home";
+import { mapsTitle } from "../pages/rpg/Maps";
 
 export const navLink = ({ isActive }) =>
     isActive ? "link-primary" : "link-secondary dark:link-neutral";
@@ -62,7 +63,13 @@ const Menu = () => {
                         </NavLink>
                         <ul>
                             <li>
-                                <a>Sidebar item 2a</a>
+                                <NavLink
+                                    to={"/rpg/maps"}
+                                    className={navLink}
+                                    onClick={closeDrawer}
+                                >
+                                    {mapsTitle}
+                                </NavLink>
                             </li>
                         </ul>
                     </li>
