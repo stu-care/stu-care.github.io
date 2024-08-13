@@ -13,7 +13,7 @@ const Footer = () => {
 
     return (
         <>
-            <footer className="p-2 mt-auto text-center text-xs text-neutral dark:text-mystic-900">
+            <footer className="p-2 mt-auto text-center text-xs text-neutral dark:text-lemongrass-900">
                 &copy; {new Date().getFullYear()}
             </footer>
             <Breadcrumbs />

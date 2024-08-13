@@ -28,7 +28,33 @@ const extendedColors = {
     '900': 'oklch(37.06% 0.02 214.69)',
     '950': 'oklch(28.50% 0.01 217.94)',
   },
-
+  'lima': {
+    '50': 'oklch(98.34% 0.03 126.24)',
+    '100': 'oklch(96.15% 0.06 126.36)',
+    '200': 'oklch(92.88% 0.12 128.92)',
+    '300': 'oklch(88.29% 0.18 130.74)',
+    '400': 'oklch(83.31% 0.21 132.96)',
+    '500': 'oklch(69.66% 0.20 134.59)',
+    '600': 'oklch(63.44% 0.18 135.25)',
+    '700': 'oklch(52.25% 0.15 135.31)',
+    '800': 'oklch(44.46% 0.12 134.49)',
+    '900': 'oklch(39.78% 0.10 134.55)',
+    '950': 'oklch(26.77% 0.07 135.74)',
+  },
+  'lemongrass': {
+    '50': 'oklch(97.51% 0.00 145.56)',
+    '75': 'oklch(94.78% 0.003 128.49)',
+    '100': 'oklch(91.95% 0.00 134.85)',
+    '200': 'oklch(83.70% 0.01 131.38)',
+    '300': 'oklch(69.71% 0.02 136.11)',
+    '400': 'oklch(61.01% 0.02 137.06)',
+    '500': 'oklch(51.77% 0.02 139.44)',
+    '600': 'oklch(44.03% 0.02 138.73)',
+    '700': 'oklch(38.72% 0.01 136.63)',
+    '800': 'oklch(34.29% 0.01 139.44)',
+    '900': 'oklch(31.31% 0.01 145.41)',
+    '950': 'oklch(21.77% 0.01 145.32)',
+  }
 }
 
 /** @type {import('tailwindcss').Config} */
@@ -46,17 +72,17 @@ const config = {
     themes: [
       {
         mytheme: {
-          "primary": extendedColors.seagull['500'],
-          "primary-content": extendedColors.mystic['950'],
-          "secondary": extendedColors.mystic['950'],
-          "secondary-content": extendedColors.seagull['500'],
+          "primary": extendedColors.lima['500'],
+          "primary-content": extendedColors.lemongrass['950'],
+          "secondary": extendedColors.lemongrass['950'],
+          "secondary-content": extendedColors.lima['500'],
           "accent": colors.white,
-          "neutral": extendedColors.mystic['200'],
-          "neutral-content": extendedColors.mystic['900'],
-          "base-100": extendedColors.mystic['50'],
-          "base-200": extendedColors.mystic['75'],
-          "base-300": extendedColors.mystic['100'],
-          "base-content": extendedColors.mystic['950'],
+          "neutral": extendedColors.lemongrass['200'],
+          "neutral-content": extendedColors.lemongrass['900'],
+          "base-100": extendedColors.lemongrass['50'],
+          "base-200": extendedColors.lemongrass['75'],
+          "base-300": extendedColors.lemongrass['100'],
+          "base-content": extendedColors.lemongrass['950'],
 
           "--rounded-box": "0", // border radius rounded-box utility class, used in card and other large boxes
           "--rounded-btn": "0", // border radius rounded-btn utility class, used in buttons and similar element
