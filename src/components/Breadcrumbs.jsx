@@ -9,7 +9,7 @@ const Breadcrumbs = () => {
     } = useApp();
 
     return (
-        <nav className="p-4 breadcrumbs text-sm overflow-hidden border-t border-t-neutral dark:border-t-lemongrass-900">
+        <nav className="p-4 breadcrumbs text-sm overflow-hidden border-t border-t-neutral dark:border-t-corduroy-900">
             <ul className="select-none justify-center">
                 {breadcrumbs.list.map((breadcrumb, index) => (
                     <li key={index}>

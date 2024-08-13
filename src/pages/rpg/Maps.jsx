@@ -4,6 +4,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { byPrefixAndName } from "@awesome.me/kit-96c2265b03/icons";
 import { homeTitle } from "../Home";
 import { rpgTitle } from "../RPG";
+import RhakhaanMapUrl from "../../assets/rhakhaan.png";
+import JaimanMapUrl from "../../assets/jaiman.png";
+import HaalkitaineMapUrl from "../../assets/haalkitaine.png";
+import Lightbox from "../../components/Lightbox";
 
 export const mapsTitle = (
     <span className="leading-none flex items-baseline gap-2">
@@ -20,16 +24,22 @@ const MapsPage = () => {
     useEffect(() => {
         setDisplay({
             showHeader: true,
-            title: rpgTitle,
+            title: mapsTitle,
             showFooter: true,
         });
         breadcrumbs.clear();
         breadcrumbs.add("/home", homeTitle);
         breadcrumbs.add("/rpg", rpgTitle);
-        breadcrumbs.add("/rpg", mapsTitle);
+        breadcrumbs.add("/rpg/maps", mapsTitle);
     }, []);
 
-    return <main className="p-4 h-full w-full flex select-none"></main>;
+    return (
+        <main className="p-4 h-full w-full grid grid-flow-row auto-rows-auto gap-4">
+            <Lightbox src={JaimanMapUrl} name={"Jaiman"} />
+            <Lightbox src={RhakhaanMapUrl} name={"Rhakhaan"} />
+            <Lightbox src={HaalkitaineMapUrl} name={"Haalkitaine"} />
+        </main>
+    );
 };
 
 export default MapsPage;

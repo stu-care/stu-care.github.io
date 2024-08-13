@@ -24,7 +24,7 @@ const Menu = () => {
                 className="drawer-toggle"
                 ref={checkboxRef}
             />
-            <nav className="drawer-content p-4 bg-lemongrass-300 dark:bg-lemongrass-500 text-base-100 select-none transition-colors duration-300 cursor-pointer hover:bg-lemongrass-400 dark:hover:bg-lemongrass-600">
+            <nav className="drawer-content p-4 bg-corduroy-300 dark:bg-corduroy-500 text-base-100 select-none transition-colors duration-300 cursor-pointer hover:bg-corduroy-400 dark:hover:bg-corduroy-600">
                 <label
                     htmlFor="nav-drawer"
                     aria-label="open sidebar"
@@ -42,7 +42,7 @@ const Menu = () => {
                     aria-label="close sidebar"
                     className="drawer-overlay"
                 ></label>
-                <ul className="menu bg-base-200 min-h-full w-5/6 py-5 dark:bg-lemongrass-800 bg-gradient-to-br from-base-100 to-base-300">
+                <ul className="menu bg-base-200 min-h-full w-5/6 py-5 dark:bg-corduroy-800 bg-gradient-to-br from-base-100 to-base-300 z-50">
                     {/* Sidebar content here */}
                     <li>
                         <NavLink
