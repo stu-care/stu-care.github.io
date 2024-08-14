@@ -13,7 +13,7 @@ const Header = () => {
 
     return (
         <>
-            <header className="p-4 pt-5 bg-gradient-to-br from-lima-400 to-lima-500 select-none">
+            <header className="p-4 pt-5 bg-gradient-to-br from-lima-400 to-lima-500 select-none z-20">
                 <h1 className="mix-blend-screen text-base-100">{title}</h1>
             </header>
             <Menu />

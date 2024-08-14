@@ -36,13 +36,13 @@ const Menu = () => {
                     </div>
                 </label>
             </nav>
-            <div className="drawer-side absolute">
+            <div className="drawer-side absolute z-20">
                 <label
                     htmlFor="nav-drawer"
                     aria-label="close sidebar"
                     className="drawer-overlay"
                 ></label>
-                <ul className="menu bg-base-200 min-h-full w-5/6 py-5 dark:bg-corduroy-800 bg-gradient-to-br from-base-100 to-base-300 z-50">
+                <ul className="menu bg-base-200 min-h-full w-5/6 py-5 dark:bg-corduroy-800 bg-gradient-to-br from-base-100 to-base-300 z-30">
                     {/* Sidebar content here */}
                     <li>
                         <NavLink
