@@ -86,11 +86,14 @@ const Lightbox = ({ src, name }) => {
 
     return (
         <div className="relative">
-            <div className="cursor-pointer relative" onClick={handleImageClick}>
+            <div
+                className="cursor-pointer group relative"
+                onClick={handleImageClick}
+            >
                 <img
                     src={src}
                     alt={name}
-                    className="w-full h-48 rounded-lg shadow-md object-center object-cover"
+                    className="w-full h-48 rounded-lg shadow-md object-center object-cover saturate-[0.25] group-hover:saturate-100 transition-all duration-1000"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-lima-500 bg-opacity-50 text-white p-2 rounded-b-lg">
                     {name}

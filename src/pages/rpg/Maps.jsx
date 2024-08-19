@@ -34,7 +34,7 @@ const MapsPage = () => {
     }, []);
 
     return (
-        <main className="p-4 h-full w-full grid grid-flow-row auto-rows-auto gap-4">
+        <main className="p-4 h-full w-full grid grid-flow-row auto-rows-auto gap-4 font-[Grenze]">
             <Lightbox src={JaimanMapUrl} name={"Jaiman"} />
             <Lightbox src={RhakhaanMapUrl} name={"Rhakhaan"} />
             <Lightbox src={HaalkitaineMapUrl} name={"Haalkitaine"} />
