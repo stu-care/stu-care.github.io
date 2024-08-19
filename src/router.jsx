@@ -9,6 +9,8 @@ import RPGPage from "./pages/RPG";
 import MapsPage from "./pages/rpg/Maps";
 import { RPGProvider } from "./contexts/RPGContext";
 import SkillsPage from "./pages/rpg/Skills";
+import HerbsPage from "./pages/rpg/Herbs";
+import CurrencyPage from "./pages/rpg/Currency";
 
 export const router = createHashRouter([
     {
@@ -39,6 +41,14 @@ export const router = createHashRouter([
             {
                 path: "/rpg/skills",
                 element: <SkillsPage />,
+            },
+            {
+                path: "/rpg/herbs",
+                element: <HerbsPage />,
+            },
+            {
+                path: "/rpg/currency",
+                element: <CurrencyPage />,
             },
             {
                 path: "/entry",
