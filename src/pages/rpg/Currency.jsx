@@ -190,8 +190,8 @@ const CurrencyPage = () => {
                     Convert
                 </button>
             </form>
-            <div className="flex items-center justify-center text-3xl">
-                {result}1
+            <div className="flex items-center justify-center py-8 text-3xl">
+                {result}
             </div>
         </main>
     );
