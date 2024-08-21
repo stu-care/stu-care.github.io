@@ -11,8 +11,24 @@ export const RPGProvider = ({ children }) => {
         "rpg:characters",
         characterList
     );
+
+    const [purse, setPurse, clearPurse] = useLocalStorage("rpg:purse", {
+        mp: 0,
+        gp: 0,
+        sp: 0,
+        bp: 0,
+        cp: 0,
+        tp: 0,
+        ip: 0,
+    });
+
     const value = {
         characters,
+        purse: {
+            values: purse,
+            set: setPurse,
+            clear: clearPurse,
+        },
     };
 
     return <RPGContext.Provider value={value}>{children}</RPGContext.Provider>;

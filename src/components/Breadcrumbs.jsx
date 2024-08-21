@@ -13,7 +13,7 @@ const Breadcrumbs = () => {
             <ul className="select-none justify-center">
                 {breadcrumbs.list.map((breadcrumb, index) => (
                     <li key={index}>
-                        <NavLink className={navLink} to={breadcrumb.url}>
+                        <NavLink className={navLink} to={breadcrumb.url} end>
                             {breadcrumb.label}
                         </NavLink>
                     </li>

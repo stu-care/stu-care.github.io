@@ -16,19 +16,6 @@ export const herbsTitle = (
     </span>
 );
 
-// {
-//     finding: "mC4",
-//     herb: "FurryOak Acorn",
-//     formPrep: "Nut/Ingest",
-//     cost: "3bp",
-//     effect: "1 days nutrition",
-//     af: 0,
-//     lvl: 1,
-//     environment: "Coniferous Forest (C) (Nåleskov)",
-//     temperate: "Mild Temperate (m) (Syd/mellem europa)",
-//     type: "herb",
-// },
-
 const HerbsPage = () => {
     const [filterValue, setFilterValue] = useState("");
     const [type, setType] = useState("");
@@ -112,8 +99,8 @@ const HerbsPage = () => {
                 .map((herb, index) => {
                     return (
                         <div key={index} className="grid gap-4 max-w-full">
-                            <div className="border-2 border-corduroy-200">
-                                <div className="p-2 bg-corduroy-200">
+                            <div className="border-2 border-corduroy-200 dark:border-corduroy-700">
+                                <div className="p-2 bg-corduroy-200 dark:bg-corduroy-700">
                                     <h3 className="flex gap-2 items-baseline justify-between">
                                         <span className="flex gap-4 items-baseline">
                                             {herb.type === "herb" ? (
@@ -146,27 +133,25 @@ const HerbsPage = () => {
                                 </div>
                                 <div className="p-2 grid grid-flow-row auto-rows-auto gap-4 text-sm group ">
                                     <div className="flex justify-between items-start">
-                                        <div className="font-light text-xs text-base-content">
+                                        <div className="font-light text-xs">
                                             <div>{herb.temperate}</div>
                                             <div>{herb.environment}</div>
                                         </div>
-                                        <div className="text-base-content">
-                                            {herb.formPrep}
-                                        </div>
+                                        <div className="">{herb.formPrep}</div>
                                     </div>
-                                    <div className="text-center p-4 tracking-wide text-base-content/0 group-hover:text-base-content transition-colors duration-300">
+                                    <div className="text-center p-4 tracking-wide text-base-content/0 group-hover:text-base-content group-hover:dark:text-corduroy-200 transition-colors duration-300">
                                         {herb.effect}
                                     </div>
                                     <div className="grid grid-flow-col auto-cols-fr text-center">
                                         <div>
                                             <div className="font-bold">AF</div>
-                                            <div className=" text-base-content/0 group-hover:text-base-content transition-colors duration-300">
+                                            <div className=" text-base-content/0 group-hover:dark:text-corduroy-200 group-hover:text-base-content transition-colors duration-300">
                                                 {herb.af ?? "-"}
                                             </div>
                                         </div>
                                         <div>
                                             <div className="font-bold">Lvl</div>
-                                            <div className=" text-base-content/0 group-hover:text-base-content transition-colors duration-300">
+                                            <div className=" text-base-content/0 group-hover:dark:text-corduroy-200 group-hover:text-base-content transition-colors duration-300">
                                                 {herb.lvl ?? "-"}
                                             </div>
                                         </div>
@@ -174,7 +159,7 @@ const HerbsPage = () => {
                                             <div className="font-bold">
                                                 Cost
                                             </div>
-                                            <div className=" text-base-content/0 hover:text-base-content transition-colors duration-300">
+                                            <div className=" text-base-content/0 hover:text-base-content hover:dark:text-corduroy-200 transition-colors duration-300">
                                                 {herb.cost} (
                                                 {`${herb.cost}`.to("bp")})
                                             </div>

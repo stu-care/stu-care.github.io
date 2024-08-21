@@ -7,7 +7,8 @@ import { homeTitle } from "../pages/Home";
 import { mapsTitle } from "../pages/rpg/Maps";
 import { skillsTitle } from "../pages/rpg/Skills";
 import { herbsTitle } from "../pages/rpg/Herbs";
-import { currencyTitle } from "../pages/rpg/Currency";
+import { exchangeTitle } from "../pages/rpg/Exchange";
+import { purseTitle } from "../pages/rpg/Purse";
 
 export const navLink = ({ isActive }) =>
     isActive ? "link-primary" : "link-secondary dark:link-neutral";
@@ -39,13 +40,13 @@ const Menu = () => {
                     </div>
                 </label>
             </nav>
-            <div className="drawer-side absolute z-20">
+            <div className="drawer-side absolute z-20 ">
                 <label
                     htmlFor="nav-drawer"
                     aria-label="close sidebar"
                     className="drawer-overlay"
                 ></label>
-                <ul className="menu bg-base-200 min-h-full w-5/6 py-5 dark:bg-corduroy-800 bg-gradient-to-br from-base-100 to-base-300 z-30">
+                <ul className="menu min-h-full w-5/6 py-5 bg-gradient-to-br from-base-100 to-base-300 dark:from-corduroy-800 dark:to-corduroy-900 z-30">
                     {/* Sidebar content here */}
                     <li>
                         <NavLink
@@ -94,11 +95,20 @@ const Menu = () => {
                             </li>
                             <li>
                                 <NavLink
-                                    to={"/rpg/currency"}
+                                    to={"/rpg/exchange"}
                                     className={navLink}
                                     onClick={closeDrawer}
                                 >
-                                    {currencyTitle}
+                                    {exchangeTitle}
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    to={"/rpg/purse"}
+                                    className={navLink}
+                                    onClick={closeDrawer}
+                                >
+                                    {purseTitle}
                                 </NavLink>
                             </li>
                         </ul>
