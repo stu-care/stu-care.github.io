@@ -22,6 +22,8 @@ const PursePage = () => {
     const {
         display: { setDisplay, breadcrumbs },
     } = useApp();
+
+    const [total, setTotal] = useState(0);
     const [totalCurrency, setTotalCurrency] = useState("gp");
 
     useEffect(() => {
@@ -37,58 +39,63 @@ const PursePage = () => {
     }, []);
 
     const handleCurrencyChange = (abbr, value) => {
+        console.log(abbr, value);
         purse.set({ ...purse.values, [abbr]: parseInt(value) || 0 });
     };
 
-    const calculateTotal = () => {
+    useEffect(() => {
+        console.log(purse.values, totalCurrency);
         const totalInGold = Object.entries(purse.values).reduce(
             (total, [abbr, amount]) => {
                 return total + currency.convert(amount, abbr, "gp");
             },
             0
         );
-        return currency.convert(totalInGold, "gp", totalCurrency);
-    };
+        setTotal(currency.convert(totalInGold, "gp", totalCurrency));
+    }, [purse, totalCurrency]);
 
     return (
-        <main className="relative grid grid-flow-row auto-rows-auto p-4 gap-4 font-[Grenze]">
-            {Object.entries(currency.abbreviations).map(([abbr, name]) => (
-                <div key={abbr} className="flex items-center gap-2">
-                    <label htmlFor={abbr} className="w-32">
-                        {name}:
-                    </label>
-                    <input
-                        id={abbr}
-                        type="number"
-                        value={purse.values[abbr]}
-                        onChange={(e) =>
-                            handleCurrencyChange(abbr, e.target.value)
-                        }
-                        className="border rounded px-2 py-1 w-24"
-                        min="0"
-                    />
-                </div>
-            ))}
-
-            <div className="mt-4 flex items-center gap-2">
-                <strong>Total value in: </strong>
+        <main className="relative p-4 flex flex-col h-full font-[Grenze]">
+            <div className="grid grid-flow-row auto-rows-auto gap-4">
+                {Object.entries(currency.abbreviations).map(([abbr, name]) => (
+                    <div key={abbr} className="flex flex-row">
+                        <input
+                            id={abbr}
+                            type="number"
+                            value={purse.values[abbr]}
+                            onChange={(e) =>
+                                handleCurrencyChange(abbr, e.target.value)
+                            }
+                            className="flex-grow input w-full focus-within:input-primary border-l-4 text-base-content border-l-base-300 focus-within:border-l-primary"
+                            min="0"
+                            step={1}
+                        />
+                        <label
+                            htmlFor={abbr}
+                            className="flex bg-corduroy-200 dark:text-base-content w-12 items-center justify-center"
+                        >
+                            {abbr}
+                        </label>
+                    </div>
+                ))}
+            </div>
+            <div className="flex flex-grow items-center justify-center text-3xl">
+                {total.toLocaleString()} {totalCurrency}
+            </div>
+            <div className="">
                 <select
                     value={totalCurrency}
                     onChange={(e) => setTotalCurrency(e.target.value)}
-                    className="border rounded px-2 py-1"
+                    className="select select-sm w-full focus-within:select-primary border-l-4 text-base-content border-l-base-300 focus-within:border-l-primary"
                 >
                     {Object.entries(currency.abbreviations).map(
                         ([abbr, name]) => (
                             <option key={abbr} value={abbr}>
-                                {name}
+                                {abbr} - {name}
                             </option>
                         )
                     )}
                 </select>
-            </div>
-            <div>
-                <strong>Total: </strong>
-                {calculateTotal().toFixed(2)} {totalCurrency}
             </div>
         </main>
     );
