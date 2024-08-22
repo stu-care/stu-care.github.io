@@ -99,6 +99,9 @@ const OBPage = () => {
                     type="number"
                     min={0}
                     value={totalOb}
+                    onChange={(e) => {
+                        setTotalOb(parseInt(e.target.value));
+                    }}
                     className="input w-full input-bordered focus-within:input-primary"
                 />
                 <div className="w-full flex gap-2">
