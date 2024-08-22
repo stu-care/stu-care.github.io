@@ -144,14 +144,14 @@ const ExchangePage = () => {
                     value={inputValue}
                     onChange={(e) => handleChange(e.target.value)}
                     placeholder="Enter value (e.g., 10sp)"
-                    className="input w-full focus-within:input-primary border-l-4 text-base-content border-l-base-300 focus-within:border-l-primary"
+                    className="input w-full input-bordered focus-within:input-primary"
                     autoFocus={true}
                 />
                 <div className="flex items-center justify-between gap-4">
                     <select
                         value={fromCurrency}
                         onChange={(e) => setFromCurrency(e.target.value)}
-                        className="select flex-grow focus-within:select-primary border-l-4 text-base-content border-l-base-300 focus-within:border-l-primary"
+                        className="select flex-grow select-bordered focus-within:select-primary"
                     >
                         <option value="-1" disabled>
                             Select From
@@ -168,7 +168,7 @@ const ExchangePage = () => {
                     <select
                         value={toCurrency}
                         onChange={(e) => setToCurrency(e.target.value)}
-                        className="select flex-grow focus-within:select-primary border-l-4 text-base-content border-l-base-300 focus-within:border-l-primary"
+                        className="select flex-grow select-bordered focus-within:select-primary"
                     >
                         <option value="-1" disabled>
                             Select To

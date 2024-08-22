@@ -66,7 +66,7 @@ const PursePage = () => {
                             onChange={(e) =>
                                 handleCurrencyChange(abbr, e.target.value)
                             }
-                            className="flex-grow input w-full focus-within:input-primary border-l-4 text-base-content border-l-base-300 focus-within:border-l-primary"
+                            className="flex-grow input w-full input-bordered focus-within:input-primary"
                             min="0"
                             step={1}
                         />
@@ -86,7 +86,7 @@ const PursePage = () => {
                 <select
                     value={totalCurrency}
                     onChange={(e) => setTotalCurrency(e.target.value)}
-                    className="select select-sm w-full focus-within:select-primary border-l-4 text-base-content border-l-base-300 focus-within:border-l-primary"
+                    className="select w-full select-bordered focus-within:select-primary"
                 >
                     {Object.entries(currency.abbreviations).map(
                         ([abbr, name]) => (

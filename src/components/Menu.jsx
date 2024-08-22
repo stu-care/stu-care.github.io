@@ -9,6 +9,7 @@ import { skillsTitle } from "../pages/rpg/Skills";
 import { herbsTitle } from "../pages/rpg/Herbs";
 import { exchangeTitle } from "../pages/rpg/Exchange";
 import { purseTitle } from "../pages/rpg/Purse";
+import { obTitle } from "../pages/rpg/OB";
 
 export const navLink = ({ isActive }) =>
     isActive ? "link-primary" : "link-secondary dark:link-neutral";
@@ -68,15 +69,6 @@ const Menu = () => {
                         <ul>
                             <li>
                                 <NavLink
-                                    to={"/rpg/maps"}
-                                    className={navLink}
-                                    onClick={closeDrawer}
-                                >
-                                    {mapsTitle}
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
                                     to={"/rpg/skills"}
                                     className={navLink}
                                     onClick={closeDrawer}
@@ -109,6 +101,24 @@ const Menu = () => {
                                     onClick={closeDrawer}
                                 >
                                     {purseTitle}
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    to={"/rpg/ob"}
+                                    className={navLink}
+                                    onClick={closeDrawer}
+                                >
+                                    {obTitle}
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    to={"/rpg/maps"}
+                                    className={navLink}
+                                    onClick={closeDrawer}
+                                >
+                                    {mapsTitle}
                                 </NavLink>
                             </li>
                         </ul>

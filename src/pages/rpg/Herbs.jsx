@@ -54,7 +54,7 @@ const HerbsPage = () => {
                     value={filterValue}
                     onChange={handleFilterChange}
                     placeholder="Filter (e.g. 'eC6' or 'Ingest')"
-                    className="input w-full focus-within:input-primary border-l-4 text-base-content border-l-base-300 focus-within:border-l-primary"
+                    className="input w-full input-bordered focus-within:input-primary"
                     autoFocus={true}
                 />
             </div>
@@ -64,7 +64,7 @@ const HerbsPage = () => {
                 </label>
                 <select
                     onChange={handleTypeChange}
-                    className="select w-full focus-within:select-primary border-l-4 text-base-content border-l-base-300 focus-within:border-l-primary"
+                    className="select w-full select-bordered focus-within:select-primary"
                 >
                     <option value="">All</option>
                     <option value="herb">Herb</option>

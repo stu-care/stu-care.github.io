@@ -12,6 +12,7 @@ import SkillsPage from "./pages/rpg/Skills";
 import HerbsPage from "./pages/rpg/Herbs";
 import ExchangePage from "./pages/rpg/Exchange";
 import PursePage from "./pages/rpg/Purse";
+import OBPage from "./pages/rpg/OB";
 
 export const router = createHashRouter([
     {
@@ -54,6 +55,10 @@ export const router = createHashRouter([
             {
                 path: "/rpg/exchange",
                 element: <ExchangePage />,
+            },
+            {
+                path: "/rpg/ob",
+                element: <OBPage />,
             },
             {
                 path: "/entry",

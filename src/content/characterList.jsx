@@ -23,6 +23,33 @@ export const characterList = {
 ### Connections to the World:\n\nFaldrin has heard of the Loremasters and the Navigators, powerful figures in Kulthea who control and understand the Essænce. He dreams of one day meeting them and perhaps learning from their vast stores of knowledge.
 ### Conclusion:\n\nFaldrin Hugmyndir is a young adventurer from the Iron Shield clan, embarking on a journey to explore the world beyond the Grey Mountains. His strong will, curiosity, and loyalty make him a valuable companion and a formidable opponent. As he navigates the new and unfamiliar terrains of Kulthea, Faldrin's story is just beginning, filled with potential for growth, discovery, and epic adventures.`,
         },
+        bmr: 40,
+        weapons: [
+            {
+                type: "Battle Axe (Two Handed)",
+                short: "Battle Axe",
+                specialAbility: "+10 Non-Magic Ability",
+                bonuses: {
+                    skill: 15,
+                    stat: 27,
+                    level: 3,
+                    item: 10,
+                    total: 55,
+                },
+            },
+            {
+                type: "Hammer (One Handed Concussion)",
+                short: "Hammer",
+                specialAbility: "+10 Non-Magic Ability",
+                bonuses: {
+                    skill: 10,
+                    stat: 27,
+                    level: 3,
+                    item: 10,
+                    total: 50,
+                },
+            },
+        ],
         stats: {
             co: {
                 temp: 96,

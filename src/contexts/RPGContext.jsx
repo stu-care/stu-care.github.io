@@ -22,8 +22,14 @@ export const RPGProvider = ({ children }) => {
         ip: 0,
     });
 
+    const reset = () => {
+        clearCharacters();
+        clearPurse();
+    };
+
     const value = {
         characters,
+        reset,
         purse: {
             values: purse,
             set: setPurse,
