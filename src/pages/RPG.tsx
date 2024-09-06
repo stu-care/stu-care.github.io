@@ -53,25 +53,34 @@ const RPGPage = () => {
                 <span>{faldrin.character.profession}</span>
             </div>
             <div className="grid grid-cols-11 bg-primary rounded p-4 mb-8 text-sm text-center text-primary-content">
-                {Object.keys(faldrin.stats).map((stat) => (
+                {Object.keys((faldrin as Character).stats).map((stat) => (
                     <div className="font-bold uppercase" key={stat}>
                         {stat}
                     </div>
                 ))}
                 <div className="font-bold uppercase">ap</div>
-                {Object.keys(faldrin.stats).map((stat) => (
+                {Object.keys((faldrin as Character).stats).map((stat) => (
                     <div key={stat}>
-                        {faldrin.stats[stat as keyof Character["stats"]].temp}
+                        {
+                            (faldrin as Character).stats[
+                                stat as keyof Character["stats"]
+                            ].temp
+                        }
                     </div>
                 ))}
-                <div>{faldrin.ap}</div>
-                {Object.keys(faldrin.stats).map((stat) => (
+                <div>{(faldrin as Character).ap}</div>
+                {Object.keys((faldrin as Character).stats).map((stat) => (
                     <div key={stat}>
-                        {faldrin.stats[stat as keyof Character["stats"]]
-                            ?.total > 0
+                        {(faldrin as Character).stats[
+                            stat as keyof Character["stats"]
+                        ]?.total > 0
                             ? "+"
                             : ""}
-                        {faldrin.stats[stat as keyof Character["stats"]].total}
+                        {
+                            (faldrin as Character).stats[
+                                stat as keyof Character["stats"]
+                            ].total
+                        }
                     </div>
                 ))}
             </div>

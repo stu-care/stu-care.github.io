@@ -10,6 +10,7 @@ import { herbsTitle } from "../pages/rpg/Herbs";
 import { exchangeTitle } from "../pages/rpg/Exchange";
 import { purseTitle } from "../pages/rpg/Purse";
 import { obTitle } from "../pages/rpg/OB";
+import { keyInfoTitle } from "../pages/rpg/KeyInfo";
 
 export const navLink = ({ isActive }: { isActive: boolean }) =>
     isActive ? "link-primary" : "link-secondary dark:link-neutral";
@@ -69,6 +70,15 @@ const Menu = () => {
                             {rpgTitle}
                         </NavLink>
                         <ul>
+                            <li>
+                                <NavLink
+                                    to={"/rpg/info"}
+                                    className={navLink}
+                                    onClick={closeDrawer}
+                                >
+                                    {keyInfoTitle}
+                                </NavLink>
+                            </li>
                             <li>
                                 <NavLink
                                     to={"/rpg/skills"}

@@ -6,6 +6,7 @@ import { rpgTitle } from "../RPG";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { byPrefixAndName } from "@awesome.me/kit-96c2265b03/icons";
 import { useRPG } from "../../contexts/RPGContext";
+import { Character } from "../../content/characterList";
 
 export const obTitle = (
     <span className="leading-none flex items-baseline gap-2">
@@ -26,11 +27,11 @@ const OBPage = () => {
     } = useApp();
 
     const [movementRate, setMovementRate] = useState<number>(
-        faldrin?.bmr + faldrin?.stats.qu.total
+        (faldrin as Character)?.bmr + (faldrin as Character)?.stats.qu.total
     );
     const [movement, setMovement] = useState<number>(0);
     const [totalOb, setTotalOb] = useState<number>(
-        faldrin?.weapons[0]?.bonuses.total ?? 0
+        (faldrin as Character)?.weapons[0]?.bonuses.total ?? 0
     );
     const [remainingOb, setRemainingOb] = useState<number>(0);
 
@@ -105,7 +106,7 @@ const OBPage = () => {
                     className="input w-full input-bordered focus-within:input-primary"
                 />
                 <div className="w-full flex gap-2">
-                    {faldrin.weapons.map((weapon, index) => (
+                    {(faldrin as Character).weapons.map((weapon, index) => (
                         <button
                             className="btn btn-primary btn-outline flex-1"
                             onClick={() => {

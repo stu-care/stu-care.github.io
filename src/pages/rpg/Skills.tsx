@@ -48,10 +48,9 @@ const SkillsPage = () => {
                 let statValue = 0;
 
                 statGroup.forEach((stat) => {
-                    statValue +=
-                        faldrin.stats[
-                            stat.toLowerCase() as keyof Character["stats"]
-                        ]?.total;
+                    statValue += (faldrin as Character).stats[
+                        stat.toLowerCase() as keyof Character["stats"]
+                    ]?.total;
                 });
                 return Math.round(statValue / statGroup.length);
             });
