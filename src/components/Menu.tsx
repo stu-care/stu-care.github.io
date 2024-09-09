@@ -1,16 +1,16 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { byPrefixAndName } from "@awesome.me/kit-96c2265b03/icons";
+import { byPrefixAndName } from "@awesome.me/kit-5a5002bf29/icons";
 import React, { useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { rpgTitle } from "../pages/RPG";
 import { homeTitle } from "../pages/Home";
-import { mapsTitle } from "../pages/rpg/Maps";
 import { skillsTitle } from "../pages/rpg/Skills";
 import { herbsTitle } from "../pages/rpg/Herbs";
 import { exchangeTitle } from "../pages/rpg/Exchange";
 import { purseTitle } from "../pages/rpg/Purse";
 import { obTitle } from "../pages/rpg/OB";
 import { keyInfoTitle } from "../pages/rpg/KeyInfo";
+import { timelineTitle } from "../pages/rpg/Timeline";
 
 export const navLink = ({ isActive }: { isActive: boolean }) =>
     isActive ? "link-primary" : "link-secondary dark:link-neutral";
@@ -81,6 +81,15 @@ const Menu = () => {
                             </li>
                             <li>
                                 <NavLink
+                                    to={"/rpg/timeline"}
+                                    className={navLink}
+                                    onClick={closeDrawer}
+                                >
+                                    {timelineTitle}
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
                                     to={"/rpg/skills"}
                                     className={navLink}
                                     onClick={closeDrawer}
@@ -122,15 +131,6 @@ const Menu = () => {
                                     onClick={closeDrawer}
                                 >
                                     {obTitle}
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
-                                    to={"/rpg/maps"}
-                                    className={navLink}
-                                    onClick={closeDrawer}
-                                >
-                                    {mapsTitle}
                                 </NavLink>
                             </li>
                         </ul>

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useApp } from "../contexts/AppContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { byPrefixAndName } from "@awesome.me/kit-96c2265b03/icons";
+import { byPrefixAndName } from "@awesome.me/kit-5a5002bf29/icons";
 
 export const homeTitle = (
     <span className="leading-none flex items-baseline gap-2">

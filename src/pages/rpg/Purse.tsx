@@ -4,7 +4,7 @@ import { useApp } from "../../contexts/AppContext";
 import { homeTitle } from "../Home";
 import { rpgTitle } from "../RPG";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { byPrefixAndName } from "@awesome.me/kit-96c2265b03/icons";
+import { byPrefixAndName } from "@awesome.me/kit-5a5002bf29/icons";
 import { useRPG } from "../../contexts/RPGContext";
 
 export const purseTitle = (
@@ -57,7 +57,7 @@ const PursePage = () => {
     }, [purse, totalCurrency]);
 
     return (
-        <main className="relative p-4 flex flex-col h-full font-[Grenze]">
+        <main className="relative p-4 flex flex-col h-full ">
             <div className="grid grid-flow-row auto-rows-auto gap-4">
                 {Object.entries(currency.abbreviations).map(([abbr, name]) => (
                     <div key={abbr} className="flex flex-row">

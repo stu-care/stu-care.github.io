@@ -1,4 +1,4 @@
-import { createHashRouter } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import { AppProvider } from "./contexts/AppContext";
 import { RPGProvider } from "./contexts/RPGContext";
 import Root from "./layouts/Root";
@@ -7,15 +7,15 @@ import Error404 from "./pages/Error404";
 import EntryPage from "./pages/Entry";
 import HomePage from "./pages/Home";
 import RPGPage from "./pages/RPG";
-import MapsPage from "./pages/rpg/Maps";
 import SkillsPage from "./pages/rpg/Skills";
 import HerbsPage from "./pages/rpg/Herbs";
 import ExchangePage from "./pages/rpg/Exchange";
 import PursePage from "./pages/rpg/Purse";
 import OBPage from "./pages/rpg/OB";
 import KeyInfoPage from "./pages/rpg/KeyInfo";
+import TimelinePage from "./pages/rpg/Timeline";
 
-export const router = createHashRouter([
+export const router = createBrowserRouter([
     {
         element: (
             <AppProvider>
@@ -36,10 +36,6 @@ export const router = createHashRouter([
             {
                 path: "/rpg",
                 element: <RPGPage />,
-            },
-            {
-                path: "/rpg/maps",
-                element: <MapsPage />,
             },
             {
                 path: "/rpg/skills",
@@ -64,6 +60,10 @@ export const router = createHashRouter([
             {
                 path: "/rpg/info",
                 element: <KeyInfoPage />,
+            },
+            {
+                path: "/rpg/timeline",
+                element: <TimelinePage />,
             },
             {
                 path: "/entry",

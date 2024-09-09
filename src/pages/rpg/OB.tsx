@@ -4,7 +4,7 @@ import { useApp } from "../../contexts/AppContext";
 import { homeTitle } from "../Home";
 import { rpgTitle } from "../RPG";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { byPrefixAndName } from "@awesome.me/kit-96c2265b03/icons";
+import { byPrefixAndName } from "@awesome.me/kit-5a5002bf29/icons";
 import { useRPG } from "../../contexts/RPGContext";
 import { Character } from "../../content/characterList";
 
@@ -52,20 +52,33 @@ const OBPage = () => {
     }, [movementRate, movement, totalOb]);
 
     return (
-        <main className="relative p-4 grid grid-flow-row auto-rows-fr h-full gap-4 font-[Grenze]">
+        <main className="relative p-4 grid grid-flow-row auto-rows-fr h-full gap-4 ">
             <div className="flex items-center justify-center h-full flex-col gap-2">
                 <label>Base Movement Rate</label>
-                <input
-                    type="number"
-                    min={0}
-                    max={100}
-                    value={movementRate}
-                    onChange={(e) => {
-                        setMovementRate(parseInt(e.target.value));
-                    }}
-                    step={5}
-                    className="input w-full input-bordered focus-within:input-primary"
-                />
+                <div className="flex gap-2 items-center w-full">
+                    <input
+                        type="range"
+                        min={0}
+                        step={5}
+                        max={100}
+                        onChange={(e) => {
+                            setMovementRate(parseInt(e.target.value));
+                        }}
+                        value={movementRate}
+                        className="range flex-grow"
+                    />
+                    <input
+                        type="number"
+                        min={0}
+                        max={100}
+                        value={movementRate}
+                        onChange={(e) => {
+                            setMovementRate(parseInt(e.target.value));
+                        }}
+                        step={5}
+                        className="input input-bordered focus-within:input-primary w-1/4"
+                    />
+                </div>
             </div>
             <div className="flex items-center justify-center h-full flex-col gap-2 w-full">
                 <label>Movement</label>
@@ -90,21 +103,36 @@ const OBPage = () => {
                             setMovement(parseInt(e.target.value));
                         }}
                         value={movement}
-                        className="input input-bordered focus-within:input-primary"
+                        className="input input-bordered focus-within:input-primary w-1/4"
                     />
                 </div>
             </div>
             <div className="flex items-center justify-center h-full flex-col gap-2">
                 <label>Total OB</label>
-                <input
-                    type="number"
-                    min={0}
-                    value={totalOb}
-                    onChange={(e) => {
-                        setTotalOb(parseInt(e.target.value));
-                    }}
-                    className="input w-full input-bordered focus-within:input-primary"
-                />
+                <div className="flex gap-2 items-center w-full">
+                    <input
+                        type="range"
+                        min={0}
+                        max={100}
+                        step={1}
+                        onChange={(e) => {
+                            setTotalOb(parseInt(e.target.value));
+                        }}
+                        value={totalOb}
+                        className="range flex-grow"
+                    />
+                    <input
+                        type="number"
+                        min={0}
+                        value={totalOb}
+                        onChange={(e) => {
+                            setTotalOb(parseInt(e.target.value));
+                        }}
+                        className="input input-bordered focus-within:input-primary w-1/4"
+                    />
+                </div>
+            </div>
+            <div>
                 <div className="w-full flex gap-2">
                     {(faldrin as Character).weapons.map((weapon, index) => (
                         <button

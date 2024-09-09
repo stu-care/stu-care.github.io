@@ -3,6 +3,7 @@
 
 :root {
     font-family: "Exo", sans-serif;
+    font-size: 14px;
 }
 
 @tailwind base;

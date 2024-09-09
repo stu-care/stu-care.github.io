@@ -3,7 +3,7 @@ import Markdown from "marked-react";
 import { Skill, skillsList } from "../../content/skillList";
 import { useApp } from "../../contexts/AppContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { byPrefixAndName } from "@awesome.me/kit-96c2265b03/icons";
+import { byPrefixAndName } from "@awesome.me/kit-5a5002bf29/icons";
 import { homeTitle } from "../Home";
 import { rpgTitle } from "../RPG";
 import { useRPG } from "../../contexts/RPGContext";
@@ -69,7 +69,7 @@ const SkillsPage = () => {
     };
 
     return (
-        <main className="grid grid-flow-row auto-rows-auto p-4 gap-4 font-[Grenze]">
+        <main className="grid grid-flow-row auto-rows-auto p-4 gap-4 ">
             <div className="grid grid-flow-row gap-1">
                 <label className="uppercase">Filter</label>
                 <input

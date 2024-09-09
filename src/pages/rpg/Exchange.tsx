@@ -4,7 +4,7 @@ import { useApp } from "../../contexts/AppContext";
 import { homeTitle } from "../Home";
 import { rpgTitle } from "../RPG";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { byPrefixAndName } from "@awesome.me/kit-96c2265b03/icons";
+import { byPrefixAndName } from "@awesome.me/kit-5a5002bf29/icons";
 
 export const exchangeTitle = (
     <span className="leading-none flex items-baseline gap-2">
@@ -115,7 +115,7 @@ const ExchangePage = () => {
     }, [fromCurrency, toCurrency, inputValue]);
 
     return (
-        <main className="relative grid grid-flow-row auto-rows-auto p-4 gap-4 font-[Grenze]">
+        <main className="relative grid grid-flow-row auto-rows-auto p-4 gap-4 ">
             <div className="grid grid-cols-2 *:py-1 *:px-2 border border-corduroy-200 dark:border-corduroy-700 border-b-0">
                 <div className="text-lg border-b border-corduroy-200 bg-corduroy-200 dark:border-corduroy-700 dark:bg-corduroy-700">
                     Currency

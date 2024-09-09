@@ -2,7 +2,7 @@ import React from "react";
 import { useApp } from "../contexts/AppContext";
 import Menu from "./Menu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { byPrefixAndName } from "@awesome.me/kit-96c2265b03/icons";
+import { byPrefixAndName } from "@awesome.me/kit-5a5002bf29/icons";
 import { useRPG } from "../contexts/RPGContext";
 
 const Header = () => {

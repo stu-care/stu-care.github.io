@@ -11,7 +11,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@awesome.me/kit-96c2265b03": "^1.0.4",
+    "@awesome.me/kit-5a5002bf29": "^1.0.4",
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
     "@fortawesome/free-brands-svg-icons": "^6.5.1",
     "@fortawesome/free-regular-svg-icons": "^6.5.1",

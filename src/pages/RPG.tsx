@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Breadcrumb, useApp } from "../contexts/AppContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { byPrefixAndName } from "@awesome.me/kit-96c2265b03/icons";
+import { byPrefixAndName } from "@awesome.me/kit-5a5002bf29/icons";
 import { homeTitle } from "./Home";
 import { useRPG } from "../contexts/RPGContext";
 import Markdown from "marked-react";
@@ -38,7 +38,7 @@ const RPGPage = () => {
     }, []);
 
     return (
-        <main className="p-4 h-full w-full grid auto-rows-auto grid-flow-row gap-4 select-none font-[Grenze]">
+        <main className="p-4 h-full w-full grid auto-rows-auto grid-flow-row gap-4 select-none ">
             <img
                 src={faldrin.img.src}
                 alt={faldrin.img.alt}
