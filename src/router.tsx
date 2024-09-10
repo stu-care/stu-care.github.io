@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
 import { AppProvider } from "./contexts/AppContext";
 import { RPGProvider } from "./contexts/RPGContext";
 import Root from "./layouts/Root";
@@ -15,7 +15,7 @@ import OBPage from "./pages/rpg/OB";
 import KeyInfoPage from "./pages/rpg/KeyInfo";
 import TimelinePage from "./pages/rpg/Timeline";
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
     {
         element: (
             <AppProvider>
