@@ -32,11 +32,11 @@ const Menu = () => {
                 className="drawer-toggle"
                 ref={checkboxRef}
             />
-            <nav className="drawer-content p-4 bg-corduroy-300 dark:bg-corduroy-500 text-base-100 select-none transition-colors duration-300 cursor-pointer hover:bg-corduroy-400 dark:hover:bg-corduroy-600">
+            <nav className="drawer-content bg-corduroy-300 dark:bg-corduroy-500 text-base-100 select-none transition-colors duration-300 cursor-pointer hover:bg-corduroy-400 dark:hover:bg-corduroy-600">
                 <label
                     htmlFor="nav-drawer"
                     aria-label="open sidebar"
-                    className="flex justify-between items-center cursor-pointer"
+                    className="flex p-4 justify-between items-center cursor-pointer"
                 >
                     <div className="flex-1">Menu</div>
                     <div className="flex-none ">

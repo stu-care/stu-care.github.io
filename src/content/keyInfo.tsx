@@ -54,10 +54,10 @@ export const keyInfo: info[] = [
             "Finn is a member of the Thieves Guild who (Benk's good one). He helped us get into the catacombes to free Isabelle (alongside Lord Glund's son Lord Derek).",
     },
     {
-        name: "Benk (deceased?)",
+        name: "Benk",
         type: "NPC",
         description:
-            "Benk is the head of one of the Thieves Guild in Haalkitaine.",
+            "Benk is the head of one of the Thieves Guilds in Haalkitaine.",
     },
     {
         name: "Zane",
@@ -81,7 +81,7 @@ export const keyInfo: info[] = [
         name: "Lady Jane",
         type: "NPC",
         description:
-            "Lady Jane iof Meth-Maron is the Viscountess of Sydra-an. Possible grandmother of Isabelle. She is currently situated at the T-junction south of c. 100m south of Lethys  At some point in their lineage the emperor became indebted to the family specifically the matriarch and a deal was struck that the family would be given the title of Viscountess of Sydra-an which would pass down the maternal line. ",
+            "Lady Jane of Meth-Maron is the Viscountess of Sydra-an. Possible grandmother of Isabelle. She is currently situated at the T-junction south of c. 100m south of Lethys  At some point in their lineage the emperor became indebted to the family specifically the matriarch and a deal was struck that the family would be given the title of Viscountess of Sydra-an which would pass down the maternal line. ",
     },
     {
         name: "Lady Sarah (deceased)",
@@ -110,7 +110,7 @@ export const keyInfo: info[] = [
     {
         name: "Haalkitaine",
         type: "Location",
-        description: "Matilda is Rhombus's horse.",
+        description: "The main City of Rhakaan.",
     },
 ];
 

@@ -35,15 +35,16 @@ const TimelinePage = () => {
 
     return (
         <main className="grid grid-flow-row auto-rows-auto p-4 gap-4 ">
-            {timeline.toReversed().map((item, i) => (
+            {timeline.map((item, i) => (
                 <React.Fragment key={i}>
+                    <h3 className="text-xl">{item.title}</h3>
                     <ul className="timeline timeline-compact timeline-vertical">
-                        {item.events.toReversed().map((event, j) => (
+                        {item.events.map((event, j) => (
                             <li className="indent-0" key={j}>
                                 <hr />
                                 <div className="timeline-middle flex items-center justify-center p-1">
                                     <FontAwesomeIcon
-                                        className="text-2xl text-lima-700"
+                                        className="text-2xl text-neutral"
                                         icon={
                                             byPrefixAndName.fas[
                                                 event.icon ??
@@ -65,7 +66,6 @@ const TimelinePage = () => {
                             </li>
                         ))}
                     </ul>
-                    <h3 className="text-2xl mt-0 mb-4">{item.title}</h3>
                 </React.Fragment>
             ))}
         </main>
