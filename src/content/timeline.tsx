@@ -486,7 +486,7 @@ export const timeline: Timeline = [
                     <p>
                         In turning around as we passed the inn, we swapped our
                         cart and bought more horses to help us deal with the
-                        less well travelled roads.
+                        less well traveled roads.
                     </p>
                 ),
             },
@@ -549,6 +549,142 @@ export const timeline: Timeline = [
                         This time tracking off-road about a mile west of the
                         road we were following.
                     </p>
+                ),
+            },
+        ],
+    },
+    {
+        title: "Session 6 - Road Trip (Pt 2), Rock n Troll",
+        events: [
+            {
+                icon: "route",
+                description: (
+                    <p>
+                        We traveled well for a couple of days, stopping another
+                        night in a clearing, as we finished the second day we
+                        found our next clearing for the night, took up the usual
+                        defensive posts and set down.
+                    </p>
+                ),
+            },
+            {
+                icon: "dice-d10",
+                description: (
+                    <p>
+                        As we lay gently sleeping, somehow our wonderful elves
+                        managed to not see 2 Hill Trolls sneak towards camp...
+                        Well 1 rather large boulder fell on Faldrin and another
+                        landed just shy of Rhombus. We had ourselves a fight.
+                    </p>
+                ),
+            },
+            {
+                icon: "sword",
+                description: (
+                    <p>
+                        After a relentless series of attacks from the whole
+                        group, we managed to take care of the trolls eventually.
+                        Erjwyn took the first and Sisu the second.
+                    </p>
+                ),
+            },
+            {
+                icon: "magnifying-glass",
+                description: (
+                    <p>
+                        We attempted to track back to the troll hole but
+                        unfortunately we were clearly just a little too slow and
+                        we lost the tracks pretty quickly.
+                    </p>
+                ),
+            },
+            {
+                icon: "route",
+                description: (
+                    <p>
+                        Another day of travel preceded yet another peaceful
+                        night 'neath the stars. We continued the next day but as
+                        midday hit we notices smoke through the trees.
+                    </p>
+                ),
+            },
+            {
+                icon: "smoke",
+                description: (
+                    <p>
+                        Erjwyn and Jascrow headed off to take a look before
+                        reporting back a smouldering barn and cottage, roof
+                        caved in. From their initial thoughts, the building was
+                        clearly ablaze recently, likely only burning out within
+                        the last day or so.
+                    </p>
+                ),
+            },
+            {
+                icon: "farm",
+                description: (
+                    <p>
+                        As the group continued to investigate we found no
+                        livestock dead or alive only the body of one mad, dead
+                        in the doorway with an arrow in his back. Faldrin's
+                        knowledge of orcs identified the arrow as one of theirs.
+                    </p>
+                ),
+            },
+            {
+                icon: "route",
+                description: (
+                    <p>
+                        Led by his disdain for orcs, Faldrin encouraged the
+                        group to hunt down the orcs and Erjwyn found a trail.
+                    </p>
+                ),
+            },
+            {
+                icon: "route",
+                description: (
+                    <div>
+                        <p>
+                            Following the trail, we headed southeast for the
+                            remainder of the day, spent another uneventful night
+                            under the stars and headed back off in the morning.
+                            It wasn't far into the next day we followed the to a
+                            dead end where it disappeared behind some rocks and
+                            bushes.
+                        </p>
+                    </div>
+                ),
+            },
+            {
+                icon: "hood-cloak",
+                description: (
+                    <p>
+                        Jascrow donned his cape, vanishing in a flash. He headed
+                        into to search through the bushes and as he crept
+                        through a gap in the rocks he saw 2 orcs in a corridor
+                        before heading back.
+                    </p>
+                ),
+            },
+            {
+                icon: "dungeon",
+                description: (
+                    <div>
+                        <p>
+                            After collecting the Erwyjn, Tren and Faldrin, they
+                            collectively snuck back up to the entrance. Tren
+                            sent the two orcs at the entrance to sleep where
+                            took advantage of that to head further in.
+                        </p>
+                        <p>
+                            As he crept further down the corridor, Jascrow hit a
+                            split, heading left he suddenly stopped, hearing
+                            snoring to his right. Slowly peaking round the
+                            corner he saw 2 more orcs sleeping in a small
+                            chamber, heading back and to the right, another
+                            corridor.
+                        </p>
+                    </div>
                 ),
             },
         ],
