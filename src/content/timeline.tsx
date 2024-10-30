@@ -650,7 +650,7 @@ export const timeline: Timeline = [
 		],
 	},
 	{
-		title: "Session 7 - Orc-hestral Maneuvers in the Dark",
+		title: "Session 7 - Orc-hestral Manoeuvers in the Dark",
 		events: [
 			{
 				icon: "zzz",
