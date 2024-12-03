@@ -904,7 +904,7 @@ export const timeline: Timeline = [
 				icon: "route",
 				description: (
 					<p>
-						The group tracel 2.5 days south through Arranwatch to get to Grove
+						The group travel 2.5 days south through Arranwatch to get to Grove
 						Castle, the family seat of Lord Glund. Upon presenting the letter of
 						recommendation, the group is granted an audience with the
 						Chamberlain (5ft7 old well-dressed man) Sir Lonngstell.
