@@ -886,4 +886,171 @@ export const timeline: Timeline = [
 			},
 		],
 	},
+	{
+		title: "Session 8 - Where the Wild Things Are",
+		events: [
+			{
+				icon: "code-branch",
+				description: (
+					<p>
+						Rhombus heads to the city of Swenk dropping off the family. Making a
+						beggars day he drops him a gold peice to guide him to collect some
+						letters and purchase Erjwyn some arrows. Heads back to join the
+						group.
+					</p>
+				),
+			},
+			{
+				icon: "route",
+				description: (
+					<p>
+						The group tracel 2.5 days south through Arranwatch to get to Grove
+						Castle, the family seat of Lord Glund. Upon presenting the letter of
+						recommendation, the group is granted an audience with the
+						Chamberlain (5ft7 old well-dressed man) Sir Lonngstell.
+					</p>
+				),
+			},
+			{
+				icon: "couch",
+				description: (
+					<p>
+						A letter is prepared for Lord Glund to help clear our name from the
+						outstanding warrant against us and everyone takes a moment to rest.
+					</p>
+				),
+			},
+			{
+				icon: "map-location",
+				description: (
+					<div>
+						<p>
+							As everyone reconvenes, Sir Lonngstell shows the group a map of
+							the area and describes the following:
+						</p>
+						<ul>
+							<li>
+								Reports of yetis at <em>Fallowhaven</em>.
+							</li>
+							<li>
+								Reports of wolves, trolles and giants at <em>Hookhill</em>, the
+								silver mines.
+							</li>
+							<li>
+								<em>Silver Hills</em> are dangerous with some men lost and
+								production now down at the mines.
+							</li>
+							<li>
+								Farmers around <em>Nitremore</em> report livestock dissappearing
+								without a trace.
+							</li>
+							<li>
+								<em>Pyrofall</em> report sightings of the living dead.
+							</li>
+							<li>
+								A tower in the east of the <em>Deep Forest</em> which is no
+								longer inhabited has always been a bit strange but there are
+								reporets of bears around there.
+							</li>
+							<li>
+								A group of 5 explorers went south towards <em>Southerby</em> and
+								were last seen at <em>Oakenforge</em> via <em>Rivenpool</em> 4
+								months ago.
+							</li>
+							<li>
+								A few days ago therew were attacks reported along the silver ore
+								route.
+							</li>
+						</ul>
+					</div>
+				),
+			},
+			{
+				icon: "xmark-to-slot",
+				description: (
+					<p>
+						The group took a vote on which way to head, either to Hookhaill via
+						the river and Pyrofall or to follow the dead parties trail south to
+						Oakenforge. The group by a majority decided to take the river.
+					</p>
+				),
+			},
+			{
+				icon: "sailboat",
+				description: (
+					<p>
+						Over a couple of days the group took an ore barge via Lake Town
+						where we disembarked asked some questions to no avail, stayed at an
+						inn then on to Pyrofall.
+					</p>
+				),
+			},
+			{
+				icon: "fence",
+				description: (
+					<p>
+						Approaching what look like a freshly reinforced pallisade wall we
+						entered the incredibly well lit Pyrofall where the gates were
+						efficiently shut behind us. We found our inn and went for a drink.
+					</p>
+				),
+			},
+			{
+				icon: "comments",
+				description: (
+					<p>
+						Having a conversation with the barkeep we heard about "Harry" who
+						went to his farm outside the city walls and returned a few days
+						later where he tried to get back in and bite someone. There were
+						plenty of other occurrences going back months.
+					</p>
+				),
+			},
+			{
+				icon: "moon-cloud",
+				description: (
+					<p>
+						That night, a number of the party went up to the walls and climbed
+						to up to look over, not much happened but we did spot some movement
+						in the distance. There was no way out so we returned to the inn.
+					</p>
+				),
+			},
+			{
+				icon: "sun-cloud",
+				description: (
+					<p>
+						The next day we spoke to the local magistrate who said mostly the
+						same as we had already been told but mentioned that occasionally
+						they see things in the day and sometimes the undead are animals. He
+						explained that if wee wanted to leave at night, we would not be
+						coming back in till the following morning.
+					</p>
+				),
+			},
+			{
+				icon: "comments",
+				description: (
+					<p>
+						We spoke to a local leatherworker, Selkin (?) who shared his
+						theories that the undead have not come of their own accord but
+						instead were the result of a tinkering necromancer Lord Ironhand
+						(?). Though his castle was destroyed, his body was never found. One
+						local spoke of a crypt in which a dead man lay with eyes bright as
+						day. He pointed us to a swamp in the hills south east of the Iron
+						Hall Forest .
+					</p>
+				),
+			},
+			{
+				icon: "route",
+				description: (
+					<p>
+						We set off from Pyrofall heading south to Vulcanless before heading
+						east into the edges of the mountains.
+					</p>
+				),
+			},
+		],
+	},
 ];

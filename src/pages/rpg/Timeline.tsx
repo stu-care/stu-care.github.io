@@ -1,10 +1,10 @@
-import React, { ChangeEventHandler, useEffect, useState } from "react";
-import { useApp } from "../../contexts/AppContext";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { byPrefixAndName } from "@awesome.me/kit-5a5002bf29/icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { ChangeEventHandler, useEffect, useState } from "react";
+import { timeline } from "../../content/timeline";
+import { useApp } from "../../contexts/AppContext";
 import { homeTitle } from "../Home";
 import { rpgTitle } from "../RPG";
-import { timeline } from "../../content/timeline";
 
 export const timelineTitle = (
 	<span className="leading-none flex items-baseline gap-2">

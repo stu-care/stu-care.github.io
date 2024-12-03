@@ -1,157 +1,157 @@
+import { byPrefixAndName } from "@awesome.me/kit-5a5002bf29/icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
-import { Currency } from "../../helpers/currency";
+import type { Character } from "../../content/characterList";
 import { useApp } from "../../contexts/AppContext";
+import { useRPG } from "../../contexts/RPGContext";
+import { Currency } from "../../helpers/currency";
 import { homeTitle } from "../Home";
 import { rpgTitle } from "../RPG";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { byPrefixAndName } from "@awesome.me/kit-5a5002bf29/icons";
-import { useRPG } from "../../contexts/RPGContext";
-import { Character } from "../../content/characterList";
 
 export const obTitle = (
-    <span className="leading-none flex items-baseline gap-2">
-        <FontAwesomeIcon
-            fixedWidth={true}
-            icon={byPrefixAndName.fas["calculator"]}
-        />
-        OB Calc
-    </span>
+	<span className="leading-none flex items-baseline gap-2">
+		<FontAwesomeIcon
+			fixedWidth={true}
+			icon={byPrefixAndName.fas["calculator"]}
+		/>
+		OB Calc
+	</span>
 );
 
 const OBPage = () => {
-    const {
-        characters: { faldrin },
-    } = useRPG();
-    const {
-        display: { setDisplay, breadcrumbs },
-    } = useApp();
+	const {
+		characters: { faldrin },
+	} = useRPG();
+	const {
+		display: { setDisplay, breadcrumbs },
+	} = useApp();
 
-    const [movementRate, setMovementRate] = useState<number>(
-        (faldrin as Character)?.bmr + (faldrin as Character)?.stats.qu.total
-    );
-    const [movement, setMovement] = useState<number>(0);
-    const [totalOb, setTotalOb] = useState<number>(
-        (faldrin as Character)?.weapons[0]?.bonuses.total ?? 0
-    );
-    const [remainingOb, setRemainingOb] = useState<number>(0);
+	const [movementRate, setMovementRate] = useState<number>(
+		(faldrin as Character)?.bmr + (faldrin as Character)?.stats.qu.total,
+	);
+	const [movement, setMovement] = useState<number>(0);
+	const [totalOb, setTotalOb] = useState<number>(
+		(faldrin as Character)?.weapons[0]?.bonuses.total ?? 0,
+	);
+	const [remainingOb, setRemainingOb] = useState<number>(0);
 
-    useEffect(() => {
-        setDisplay({
-            showHeader: true,
-            title: obTitle,
-            showFooter: true,
-        });
-        breadcrumbs.clear();
-        breadcrumbs.add({ url: "/home", label: homeTitle });
-        breadcrumbs.add({ url: "/rpg", label: rpgTitle });
-        breadcrumbs.add({ url: "/rpg/ob", label: obTitle });
-    }, []);
+	useEffect(() => {
+		setDisplay({
+			showHeader: true,
+			title: obTitle,
+			showFooter: true,
+		});
+		breadcrumbs.clear();
+		breadcrumbs.add({ url: "/home", label: homeTitle });
+		breadcrumbs.add({ url: "/rpg", label: rpgTitle });
+		breadcrumbs.add({ url: "/rpg/ob", label: obTitle });
+	}, []);
 
-    useEffect(() => {
-        setRemainingOb(totalOb * (1 - movement / movementRate));
-    }, [movementRate, movement, totalOb]);
+	useEffect(() => {
+		setRemainingOb(totalOb * (1 - movement / movementRate));
+	}, [movementRate, movement, totalOb]);
 
-    return (
-        <main className="relative p-4 grid grid-flow-row auto-rows-fr h-full gap-4 ">
-            <div className="flex items-center justify-center h-full flex-col gap-2">
-                <label>Base Movement Rate</label>
-                <div className="flex gap-2 items-center w-full">
-                    <input
-                        type="range"
-                        min={0}
-                        step={5}
-                        max={100}
-                        onChange={(e) => {
-                            setMovementRate(parseInt(e.target.value));
-                        }}
-                        value={movementRate}
-                        className="range flex-grow"
-                    />
-                    <input
-                        type="number"
-                        min={0}
-                        max={100}
-                        value={movementRate}
-                        onChange={(e) => {
-                            setMovementRate(parseInt(e.target.value));
-                        }}
-                        step={5}
-                        className="input input-bordered focus-within:input-primary w-1/4"
-                    />
-                </div>
-            </div>
-            <div className="flex items-center justify-center h-full flex-col gap-2 w-full">
-                <label>Movement</label>
-                <div className="flex gap-2 items-center w-full">
-                    <input
-                        type="range"
-                        min={0}
-                        step={5}
-                        max={movementRate}
-                        onChange={(e) => {
-                            setMovement(parseInt(e.target.value));
-                        }}
-                        value={movement}
-                        className="range flex-grow"
-                    />
-                    <input
-                        type="number"
-                        min={0}
-                        max={movementRate}
-                        step={5}
-                        onChange={(e) => {
-                            setMovement(parseInt(e.target.value));
-                        }}
-                        value={movement}
-                        className="input input-bordered focus-within:input-primary w-1/4"
-                    />
-                </div>
-            </div>
-            <div className="flex items-center justify-center h-full flex-col gap-2">
-                <label>Total OB</label>
-                <div className="flex gap-2 items-center w-full">
-                    <input
-                        type="range"
-                        min={0}
-                        max={100}
-                        step={1}
-                        onChange={(e) => {
-                            setTotalOb(parseInt(e.target.value));
-                        }}
-                        value={totalOb}
-                        className="range flex-grow"
-                    />
-                    <input
-                        type="number"
-                        min={0}
-                        value={totalOb}
-                        onChange={(e) => {
-                            setTotalOb(parseInt(e.target.value));
-                        }}
-                        className="input input-bordered focus-within:input-primary w-1/4"
-                    />
-                </div>
-            </div>
-            <div>
-                <div className="w-full flex gap-2">
-                    {(faldrin as Character).weapons.map((weapon, index) => (
-                        <button
-                            className="btn btn-primary btn-outline flex-1"
-                            onClick={() => {
-                                setTotalOb(weapon.bonuses.total);
-                            }}
-                        >
-                            {weapon.short} ({weapon.bonuses.total})
-                        </button>
-                    ))}
-                </div>
-            </div>
-            <div className="flex items-center justify-center h-full flex-col gap-2">
-                <span>Remaining OB:</span>{" "}
-                <span className="text-3xl">{Math.round(remainingOb)}</span>
-            </div>
-        </main>
-    );
+	return (
+		<main className="relative p-4 grid grid-flow-row auto-rows-fr h-full gap-4 ">
+			<div className="flex items-center justify-center h-full flex-col gap-2">
+				<label>Base Movement Rate</label>
+				<div className="flex gap-2 items-center w-full">
+					<input
+						type="range"
+						min={0}
+						step={5}
+						max={100}
+						onChange={(e) => {
+							setMovementRate(Number.parseInt(e.target.value));
+						}}
+						value={movementRate}
+						className="range flex-grow"
+					/>
+					<input
+						type="number"
+						min={0}
+						max={100}
+						value={movementRate}
+						onChange={(e) => {
+							setMovementRate(Number.parseInt(e.target.value));
+						}}
+						step={5}
+						className="input input-bordered focus-within:input-primary w-1/4"
+					/>
+				</div>
+			</div>
+			<div className="flex items-center justify-center h-full flex-col gap-2 w-full">
+				<label>Movement</label>
+				<div className="flex gap-2 items-center w-full">
+					<input
+						type="range"
+						min={0}
+						step={5}
+						max={movementRate}
+						onChange={(e) => {
+							setMovement(Number.parseInt(e.target.value));
+						}}
+						value={movement}
+						className="range flex-grow"
+					/>
+					<input
+						type="number"
+						min={0}
+						max={movementRate}
+						step={5}
+						onChange={(e) => {
+							setMovement(Number.parseInt(e.target.value));
+						}}
+						value={movement}
+						className="input input-bordered focus-within:input-primary w-1/4"
+					/>
+				</div>
+			</div>
+			<div className="flex items-center justify-center h-full flex-col gap-2">
+				<label>Total OB</label>
+				<div className="flex gap-2 items-center w-full">
+					<input
+						type="range"
+						min={0}
+						max={100}
+						step={1}
+						onChange={(e) => {
+							setTotalOb(Number.parseInt(e.target.value));
+						}}
+						value={totalOb}
+						className="range flex-grow"
+					/>
+					<input
+						type="number"
+						min={0}
+						value={totalOb}
+						onChange={(e) => {
+							setTotalOb(Number.parseInt(e.target.value));
+						}}
+						className="input input-bordered focus-within:input-primary w-1/4"
+					/>
+				</div>
+			</div>
+			<div>
+				<div className="w-full flex gap-2">
+					{(faldrin as Character).weapons.map((weapon, index) => (
+						<button
+							className="btn btn-primary btn-outline flex-1"
+							onClick={() => {
+								setTotalOb(weapon.bonuses.total);
+							}}
+						>
+							{weapon.short} ({weapon.bonuses.total})
+						</button>
+					))}
+				</div>
+			</div>
+			<div className="flex items-center justify-center h-full flex-col gap-2">
+				<span>Remaining OB:</span>{" "}
+				<span className="text-3xl">{Math.round(remainingOb)}</span>
+			</div>
+		</main>
+	);
 };
 
 export default OBPage;
