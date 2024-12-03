@@ -1032,13 +1032,24 @@ export const timeline: Timeline = [
 				icon: "comments",
 				description: (
 					<p>
-						We spoke to a local leatherworker, Selkin (?) who shared his
-						theories that the undead have not come of their own accord but
-						instead were the result of a tinkering necromancer Lord Ironhand
-						(?). Though his castle was destroyed, his body was never found. One
-						local spoke of a crypt in which a dead man lay with eyes bright as
-						day. He pointed us to a swamp in the hills south east of the Iron
-						Hall Forest .
+						We spoke to a local leather worker, Celkin who shared his theories
+						that the undead have not come of their own accord but instead were
+						the result of a tinkering necromancer Lord Ironhand (?). Though his
+						castle was destroyed, his body was never found. One local spoke of a
+						crypt in which a dead man lay with eyes bright as day. He pointed us
+						to a swamp in the hills south east of the Iron Hall Forest .
+					</p>
+				),
+			},
+			{
+				icon: "circle-info",
+				description: (
+					<p>
+						As we were leaving Celkin, he slapped his forehead and said “ohh I
+						almost forgot there is one other person you could talk too, although
+						he has not been seen in years and that is Scarat the wizard, he has
+						a tower in the deep forest, he may have some more information on Old
+						Ironhand.
 					</p>
 				),
 			},
