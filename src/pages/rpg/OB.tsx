@@ -136,6 +136,8 @@ const OBPage = () => {
 				<div className="w-full flex gap-2">
 					{(faldrin as Character).weapons.map((weapon, index) => (
 						<button
+							type="button"
+							key={weapon.short}
 							className="btn btn-primary btn-outline flex-1"
 							onClick={() => {
 								setTotalOb(weapon.bonuses.total);

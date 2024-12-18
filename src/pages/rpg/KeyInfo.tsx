@@ -44,13 +44,13 @@ const KeyInfoPage = () => {
 						className="border-2 border-corduroy-200 dark:border-corduroy-700"
 						key={index}
 					>
-						{item.img && (
+						{/* {item.img && (
 							<img
 								className={cx(["w-full"])}
 								src={item.img.src}
 								alt={item.img.alt}
 							/>
-						)}
+						)} */}
 						<div className="p-2 bg-corduroy-200 dark:bg-corduroy-700">
 							<h3
 								id={`${index}`}

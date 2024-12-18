@@ -22,6 +22,8 @@ const TimelinePage = () => {
 		display: { setDisplay, breadcrumbs },
 	} = useApp();
 
+	const [selectedSession, setSelectedSession] = useState<string>("all");
+
 	useEffect(() => {
 		setDisplay({
 			showHeader: true,
@@ -32,38 +34,70 @@ const TimelinePage = () => {
 		breadcrumbs.add({ url: "/home", label: homeTitle });
 		breadcrumbs.add({ url: "/rpg", label: rpgTitle });
 		breadcrumbs.add({ url: "/rpg/timeline", label: timelineTitle });
-	}, [breadcrumbs.add, breadcrumbs.clear, setDisplay]);
+	}, []);
 
+	useEffect(() => {
+		console.log(selectedSession);
+	}, [selectedSession]);
 	return (
 		<main className="grid grid-flow-row auto-rows-auto p-4 gap-4 ">
-			{timeline.map((item, i) => (
-				<React.Fragment key={i}>
-					<h3 className="text-xl">{item.title}</h3>
-					<ul className="timeline timeline-compact timeline-vertical">
-						{item.events.map((event, j) => (
-							<li className="indent-0" key={j}>
-								<hr />
-								<div className="timeline-middle flex items-center justify-center p-1">
-									<FontAwesomeIcon
-										className="text-2xl text-neutral"
-										icon={
-											byPrefixAndName.fas[event.icon ?? "circle-arrow-right"]
-										}
-										fixedWidth={true}
-									/>
-								</div>
-								<div className="timeline-end my-5">
-									{event.title && (
-										<div className="text-lg font-black">{event.title}</div>
-									)}
-									{event.description}
-								</div>
-								<hr />
-							</li>
-						))}
-					</ul>
-				</React.Fragment>
-			))}
+			<label
+				htmlFor={"#session-select"}
+				className="uppercase text-corduroy-400 text-sm"
+			>
+				Sessions
+			</label>
+			<select
+				id="session-select"
+				className="select w-full select-bordered focus-within:select-primary"
+				onChange={(e) => {
+					const selectedTitle = e.target.value;
+					console.log(selectedTitle);
+					setSelectedSession(selectedTitle);
+				}}
+			>
+				<option value="all">All</option>
+				{timeline.map((item, i) => (
+					<option key={i} value={item.title?.toString() ?? ""}>
+						{item.title}
+					</option>
+				))}
+			</select>
+			{timeline
+				.filter((item) => {
+					console.log(
+						selectedSession === "all" || item.title === selectedSession,
+					);
+					return selectedSession === "all" || item.title === selectedSession;
+				})
+				.map((item, i) => (
+					<React.Fragment key={i}>
+						<h3 className="text-xl">{item.title}</h3>
+						<ul className="timeline timeline-compact timeline-vertical">
+							{item.events.map((event, j) => (
+								<li className="indent-0" key={j}>
+									<hr />
+									<div className="timeline-middle flex items-center justify-center p-1">
+										<FontAwesomeIcon
+											className="text-2xl text-neutral"
+											icon={
+												byPrefixAndName.fas[event.icon ?? "circle-arrow-right"]
+											}
+											fixedWidth={true}
+										/>
+									</div>
+									<div className="timeline-end my-5">
+										{event.title && (
+											<div className="text-lg font-black">{event.title}</div>
+										)}
+										{event.description}
+									</div>
+									<hr />
+								</li>
+							))}
+						</ul>
+					</React.Fragment>
+				))}
 		</main>
 	);
 };
