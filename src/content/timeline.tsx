@@ -907,7 +907,7 @@ export const timeline: Timeline = [
 						The group travel 2.5 days south through Arranwatch to get to Grove
 						Castle, the family seat of Lord Glund. Upon presenting the letter of
 						recommendation, the group is granted an audience with the
-						Chamberlain (5ft7 old well-dressed man) Sir Lonngstell.
+						Chamberlain (5ft7 old well-dressed man) Sir Longstell.
 					</p>
 				),
 			},
@@ -925,8 +925,8 @@ export const timeline: Timeline = [
 				description: (
 					<div>
 						<p>
-							As everyone reconvenes, Sir Lonngstell shows the group a map of
-							the area and describes the following:
+							As everyone reconvenes, Sir Longstell shows the group a map of the
+							area and describes the following:
 						</p>
 						<ul>
 							<li>
@@ -1053,13 +1053,387 @@ export const timeline: Timeline = [
 					</p>
 				),
 			},
+		],
+	},
+	{
+		title: "Session 9 - We still didn't go to Oakenforge",
+		events: [
 			{
 				icon: "route",
 				description: (
 					<p>
-						We set off from Pyrofall heading south to Vulcanless before heading
-						east into the edges of the mountains.
+						After talking to Celkin, we decide indeed to head west to the tower
+						in the Deep Forest. We travel into the forest and after a few hours
+						switch to foot as we lose the well-travelled path.
 					</p>
+				),
+			},
+			{
+				icon: "arrow-progress",
+				description: (
+					<div>
+						<p className="pb-2">
+							Erjwyn takes his usual position scouting about 10 minutes ahead of
+							the group and he hears something galloping towards him, he hides,
+							bow drawn and sees a distressed horse flying towards him.
+						</p>
+						<p className="pb-2">
+							He puts in a slight attempt to stop the horse but seeing it
+							hurtling towards him thinks better. Once the horse has past
+							though, Erjwyn hears someone shouting in the distance and slows to
+							allow the group to catch up.
+						</p>
+						<p>
+							Not long after passing Erjwyn the horse hurtles past the remainder
+							of the group who continue on with more caution.
+						</p>
+					</div>
+				),
+			},
+			{
+				icon: "ear",
+				description: (
+					<p>
+						As the group continue on Erjwyn hears additional shouting and
+						recognising the sound of a commotion he jogs on to investigate. The
+						group upon hearing the same commotion leave the path and head
+						towards Erjwyn leaving Jascrow and Isabelle behind.
+					</p>
+				),
+			},
+			{
+				icon: "bow-arrow",
+				description: (
+					<div>
+						<p className="pb-2">
+							Erjwyn upon reaching the source of the commotion finds a clearing
+							filled with an incredibly well organised campsite. In the middle
+							of the campsite, 2 very large wolves are attacking the two
+							remaining men with several littered on the floor around the place.
+						</p>
+						<p className="pb-2">
+							Erjwyn takes his bow and aims for the wolf attacking the man most
+							at peril.
+						</p>
+						<p className="pb-2">
+							In going to loose his bow he pulls just a touch too far and the
+							string snaps.
+						</p>
+						<p>
+							Whilst he is restringing his bow, the remainder of the group
+							arrive, just as one of the wolves kills it's target.
+						</p>
+					</div>
+				),
+			},
+			{
+				icon: "dice-d10",
+				description: (
+					<div>
+						<p className="pb-2">And into battle we go:</p>
+						<ul>
+							<li>
+								Sisu runs in and the wolves spot him, attacking him they deal
+								some pretty savage blows.
+							</li>
+							<li>
+								Faldrin and Tren move up towards the clearing, Tren preparing a
+								spell stopping short of the clearing.
+							</li>
+							<li>
+								Erjwyn, now with working bow, throws an arrow straight into the
+								side of one of the wolves.
+							</li>
+							<li>
+								Rhombus runs up to Sisu as the wolf nearest him turns to face
+								and takes a brutal swipe at him.
+							</li>
+							<li>
+								The wolf closest to Sisu takes another swing but only manages a
+								scratch this time.
+							</li>
+							<li>
+								Faldrin gets to the wolf over Sisu and smashes a blow into it's
+								side breaking a few ribs.
+							</li>
+							<li>
+								Erjwyn moves up whilst prepping an arrow to be set alight.
+							</li>
+							<li>
+								Rhombus is stunned but Sisu manages to pull of an attack hitting
+								a wolf with great effect.
+							</li>
+							<li>
+								Unfortunately as Sisu pulls of his attack, the pissed off wolf
+								strikes back ripping at Sisu.
+							</li>
+							<li>
+								Rhombus, with a little more fortune, manages to dodge a hit from
+								the wolf over him.
+							</li>
+							<li>As he does so, Tren casts a spell knocking one wolf down.</li>
+							<li>
+								Faldrin goes for the remaining wolf, swinging his axe for a
+								miss.
+							</li>
+							<li>
+								Erjwyn takes his arrow, sets it on fire, and fires it straight
+								into the side of the remaining wolf, nicely severing some
+								muscles.
+							</li>
+							<li>
+								Rhombus goes for a hit but with little impact as Sisu steps back
+								hoping not to be knowcked down.
+							</li>
+							<li>
+								Erjwyn heads to the downed wolf attempting to sever it's head.
+							</li>
+							<li>
+								Rhombus takes his sword to the standing wolf dealing more
+								damage, Sisu then finished it off severing part of it's leg as
+								it dropped to the floor.
+							</li>
+						</ul>
+					</div>
+				),
+			},
+			{
+				icon: "axe-battle",
+				description: (
+					<p>
+						2 dead wolves and plenty of potential living dead folk around, we
+						decided to do cleanup... Erjwyn went on a looting run, Tren went to
+						get Jascrow and Isabelle, Faldrin prepared the fie with Rhombus, and
+						Sisu started to move some bodies towards the fir.
+					</p>
+				),
+			},
+			{
+				icon: "shield",
+				description: (
+					<div>
+						<p className="pb-2">
+							Looking around the camp and moving the bodies, it becomes apparent
+							that this is all a bit well maintained, and a bit professional.
+							Definitely not a normal camp.
+						</p>
+						<p>
+							There aren't any trinkets but we do find a rolled up tabard with a
+							green tree on a white background.
+						</p>
+					</div>
+				),
+			},
+			{
+				icon: "treasure-chest",
+				description: (
+					<p>
+						Looking through everything we find everything is well maintained but
+						there was nothing of particular worth. Rhombus takes the tabard for
+						further investigation. AS we are rejoined by Jascrow he happens to
+						find a false compartment in a bag, containing a parchment in a coded
+						language we don't recognise which is sealed with the same symbol as
+						we found on the tabard.
+					</p>
+				),
+			},
+			{
+				icon: "route",
+				description: (
+					<div>
+						<p className="pb-2">
+							Isabelle heals everyone up and we decide to head back to the path
+							and continue on to the tower. We travel, Erjwyn scouts, we enter a
+							more hilly area and continue through ever densening forest.
+						</p>
+						<p>
+							We eventually find a clearing with a tower. The tower is huge
+							building made of white stone. It stands with a radius of about
+							25ft and a massive 150ft tall.
+						</p>
+					</div>
+				),
+			},
+			{
+				icon: "house-tree",
+				description: (
+					<div>
+						<p className="pb-2">
+							As we look around the tower we notice a few things.
+						</p>
+						<ul>
+							<li>There was some kind fo garden here which is overgrown.</li>
+							<li>
+								There was a vegetable patch which looks like it has been tended
+								to but only just.
+							</li>
+							<li>There is no obvious way into the castle.</li>
+							<li>There is a small shack about 50ft from the tower.</li>
+							<li>There is a man hiding by the shack.</li>
+						</ul>
+					</div>
+				),
+			},
+			{
+				icon: "user-circle",
+				description: (
+					<p>
+						Faldrin approaches as Erjwyn shouts to the man.{" "}
+						<strong>Scarat</strong> is a wizard with long unkept grey hair, his
+						robes are dirty and ragged but look to have once been fine and blue.
+						He has twigs in his hair, sandals on his feet and a beautiful white
+						staff propped against the wall. As he peaks around the corner to
+						keep an eye on us he finds us surprisingly already behind him!
+					</p>
+				),
+			},
+			{
+				icon: "comments",
+				description: (
+					<div>
+						<p className="pb-2">
+							We all introduce ourselves and he offers us a single glass of mead
+							which is gladly accepted by Faldrin.
+						</p>
+						<p className="pb-2">
+							Erjwyn asks Scarat about the undead and he mentions Reevmoor (a
+							nasty guy up to no good).
+						</p>
+						<p className="pb-2">
+							Sisu heads towards the tower but it is radiating some sort of
+							power, Erjwyn feels it too. In response to this feeling they both
+							try to touch the tower but are shocked and sent flying back.
+						</p>
+						<p>
+							At this point Scarat tells us to be careful. Erjwyn notices Tren,
+							passes this on just as he too touches the tower and flies back.
+							Faldrin decides with his Dwarven resistance to some magics to give
+							it a go and... He goes back too.
+						</p>
+					</div>
+				),
+			},
+			{
+				icon: "user-circle",
+				description: (
+					<div>
+						<p className="pb-2">Faldrin asks Scarat about Ironhand...</p>
+						<ul>
+							<li>He was a tyrant lord ver 500 years ago</li>
+							<li>
+								Reevmoor was tinkering with the undead in a tower in the
+								mountains southeast of Pyrofall
+							</li>
+							<li>
+								Scalabas (?) is a witch who lives in the swamp, she always has a
+								price, if we go to the swamp she will find us.
+							</li>
+						</ul>
+					</div>
+				),
+			},
+			{
+				icon: "bed-empty",
+				description: (
+					<div>
+						<p className="pb-2">
+							We opt to stay the night but before bedding down, Isabelle heads
+							towards the herb garden with Erjwyn and they find some herbs,
+							Scarat allows them to take what they need so long as they leave
+							some of each.
+						</p>
+						<p className="pb-2">
+							As we spend longer there the power radiating from the tower
+							lessens in intensity.
+						</p>
+						<p>
+							Rhombus asks about the seal and the parchment. Scarat mentions
+							that it's the Urulan seal from the Island east of Rhakhaan, never
+							particularly friendly with Rhakhaan but certainly strange for them
+							to be round here.
+						</p>
+					</div>
+				),
+			},
+			{
+				icon: "route",
+				description: (
+					<p>
+						As we leave the next morning, Scarat mentions that you can only
+						enter the swamp from the north thanks to an esscence barrier
+						blocking passage from the south. After a bit of chat about which way
+						to head, we decide to go back to pyrofall to plan our onward
+						journey, we get back fine and decide to head back to Grove Castle.
+					</p>
+				),
+			},
+			{
+				icon: "comments",
+				description: (
+					<div>
+						<p className="pb-2">
+							Upon returning to Grove Castle, we are greeted by Sir Longstell.
+							We mention the military types camped in the forest and show the
+							seal. He recognises the seal from the tabard and is concerned by
+							the presence of the soldiers.
+						</p>
+						<p className="pb-2">
+							We hand him the parchment but he is unable to read it, he suggests
+							it is sent to the capital for further investigation.
+						</p>
+						<p>
+							In return for our parchment, he hands us another which shows our
+							names cleared of the crimes we had been accused of. Signed by the
+							magistrate and others of Haalkitaine.
+						</p>
+					</div>
+				),
+			},
+			{
+				icon: "books",
+				description: (
+					<p>
+						Investigating Ironhand, Tren and Jascrow find that around 600 years
+						ago he was lord of all land here, he had feudal lords who paid him
+						but over time he became more tyrannical. The fuedal lords rebelled
+						severely and stormed his castle. After a long seige they broke
+						through and both Ironhand and Reevmoor (his chamberlain) were
+						killed. Both bodies disappeared
+					</p>
+				),
+			},
+			{
+				icon: "person-praying",
+				description: (
+					<div>
+						<p className="pb-2">
+							Tren knows the power it takes to perform necromancy to the point
+							of reanimating the dead and also that both burning and holy
+							weapons are most effective against them. Erjwyn asks after any
+							nearby religious places and Sir Longstell points out a monastery
+							in the forest covered hills east of Artanwatch.
+						</p>
+						<p className="pb-2">
+							The next morning we set off for the monastery and after one
+							uneventful night and another couple of days of travel we make it.
+						</p>
+						<p className="pb-2">
+							We meet a monk who guides us to the abbot where Rhombus heads off
+							to pray and we share our story. We ask about sanctifying our
+							weapons and we are lead to a monk in the library. Who greets us
+							and offers us help.
+						</p>
+						<p className="pb-2">
+							We relay our information agaain and he explains that the only way
+							to be sure to kill the undead is to behead them and burn them.
+						</p>
+						<p>
+							After dinner, we are invited back to the librarian where a large
+							tall man gives us vials of sanctified holy water, he also hands
+							Rhombus a holy longsword for use against spirits and the undead as
+							a loan to help us in our onward travels.
+						</p>
+					</div>
 				),
 			},
 		],

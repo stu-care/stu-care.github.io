@@ -51,7 +51,7 @@ export const RPGProvider = ({ children }: IRPGProvider) => {
 		mp: 1,
 		gp: 30,
 		sp: 1,
-		bp: 5,
+		bp: 4,
 		cp: 4,
 		tp: 0,
 		ip: 0,

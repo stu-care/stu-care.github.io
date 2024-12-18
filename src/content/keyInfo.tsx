@@ -112,6 +112,31 @@ export const keyInfo: info[] = [
 		type: "Location",
 		description: "The main City of Rhakaan.",
 	},
+	{
+		name: "Scarat",
+		type: "NPC",
+		description: "Wizard of the tower of the deep forest.",
+	},
+	{
+		name: "Sir Longstell",
+		type: "NPC",
+		description: "Chamberlain (?) of Grove Castle",
+	},
+	{
+		name: "Lord Ironhand",
+		type: "NPC",
+		description: "Evil",
+	},
+	{
+		name: "Reevmoor",
+		type: "NPC",
+		description: "Lord Ironhand's chamberlain",
+	},
+	{
+		name: "Scalabag (?)",
+		type: "NPC",
+		description: "Witch of the swamps of Iron Hall Forest",
+	},
 ];
 
 for (const { character, img } of Object.values(characterList)) {
