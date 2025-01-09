@@ -149,5 +149,11 @@ keyInfo.push(
 			type: "NPC",
 			description: "Witch of the swamps of Iron Hall Forest",
 		},
+		{
+			name: "Holy Sword",
+			type: "Item",
+			description:
+				"A Broadsword loaned to Rhombus with a dark alloy hilt shaped like a lion witha white gem in the pomel. The blade is White alloy with shimmering runes down the blade. A Magical item ith +20 to OB and +10 against undead, this rolls on the Slaying table against undead.",
+		},
 	],
 );

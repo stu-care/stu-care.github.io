@@ -177,7 +177,7 @@ export const timeline: Timeline = [
 				icon: "circle-user",
 				description: (
 					<div>
-						<p>
+						<p className="mb-2">
 							We found some cells, stole a key from the dead thief and opened
 							the cells finding:
 						</p>
@@ -247,7 +247,7 @@ export const timeline: Timeline = [
 				icon: "circle-user",
 				description: (
 					<div>
-						<p>
+						<p className="mb-2">
 							We decided to enter the house where we identified a family
 							portrait we eventually identified as:
 						</p>
@@ -273,7 +273,7 @@ export const timeline: Timeline = [
 				icon: "circle-user",
 				description: (
 					<div>
-						<p>
+						<p className="mb-2">
 							After visiting the haunted manor, we were invited to visit Lord
 							Glund who wanted to thank us for rescuing his son. He also paid us
 							a healthy fee and shared the information gleamed above, including:
@@ -312,7 +312,7 @@ export const timeline: Timeline = [
 				icon: "route",
 				description: (
 					<div>
-						<p>Some things happened which included:</p>
+						<p className="mb-2">Some things happened which included:</p>
 						<ul>
 							<li>Popping to a library</li>
 							<li>
@@ -608,15 +608,12 @@ export const timeline: Timeline = [
 			{
 				icon: "route",
 				description: (
-					<div>
-						<p>
-							Following the trail, we headed southeast for the remainder of the
-							day, spent another uneventful night under the stars and headed
-							back off in the morning. It wasn't far into the next day we
-							followed the to a dead end where it disappeared behind some rocks
-							and bushes.
-						</p>
-					</div>
+					<p>
+						Following the trail, we headed southeast for the remainder of the
+						day, spent another uneventful night under the stars and headed back
+						off in the morning. It wasn't far into the next day we followed the
+						to a dead end where it disappeared behind some rocks and bushes.
+					</p>
 				),
 			},
 			{
@@ -633,7 +630,7 @@ export const timeline: Timeline = [
 				icon: "dungeon",
 				description: (
 					<div>
-						<p>
+						<p className="mb-2">
 							After collecting the Erwyjn, Tren and Faldrin, they collectively
 							snuck back up to the entrance. Tren sent the two orcs at the
 							entrance to sleep where took advantage of that to head further in.
@@ -695,7 +692,7 @@ export const timeline: Timeline = [
 				icon: "dice-d10",
 				description: (
 					<div>
-						<p>Some combat ensued:</p>
+						<p className="mb-2">Some combat ensued:</p>
 						<ul>
 							<li>Sisu entered a frenzy running into the hoard.</li>
 							<li>
@@ -738,7 +735,7 @@ export const timeline: Timeline = [
 				icon: "dice-d10",
 				description: (
 					<div>
-						<p>
+						<p className="mb-2">
 							Some <strong>more</strong> combat ensued:
 						</p>
 						<ul>
@@ -763,7 +760,7 @@ export const timeline: Timeline = [
 				icon: "dice-d10",
 				description: (
 					<div>
-						<p>
+						<p className="mb-2">
 							Even <strong>more</strong> combat ensued:
 						</p>
 						<ul>
@@ -788,7 +785,7 @@ export const timeline: Timeline = [
 				icon: "dice-d10",
 				description: (
 					<div>
-						<p>
+						<p className="mb-2">
 							Yet <strong>more</strong> combat ensued:
 						</p>
 						<ul>
@@ -824,7 +821,7 @@ export const timeline: Timeline = [
 				icon: "dice-d10",
 				description: (
 					<div>
-						<p>The final chunk of combat ensued:</p>
+						<p className="mb-2">The final chunk of combat ensued:</p>
 						<ul>
 							<li>Rhombus did a significant blow.</li>
 							<li>Sisu killed a Tren sletp orc.</li>
@@ -924,7 +921,7 @@ export const timeline: Timeline = [
 				icon: "map-location",
 				description: (
 					<div>
-						<p>
+						<p className="mb-2">
 							As everyone reconvenes, Sir Longstell shows the group a map of the
 							area and describes the following:
 						</p>
@@ -1072,12 +1069,12 @@ export const timeline: Timeline = [
 				icon: "arrow-progress",
 				description: (
 					<div>
-						<p className="pb-2">
+						<p className="mb-2">
 							Erjwyn takes his usual position scouting about 10 minutes ahead of
 							the group and he hears something galloping towards him, he hides,
 							bow drawn and sees a distressed horse flying towards him.
 						</p>
-						<p className="pb-2">
+						<p className="mb-2">
 							He puts in a slight attempt to stop the horse but seeing it
 							hurtling towards him thinks better. Once the horse has past
 							though, Erjwyn hears someone shouting in the distance and slows to
@@ -1105,17 +1102,17 @@ export const timeline: Timeline = [
 				icon: "bow-arrow",
 				description: (
 					<div>
-						<p className="pb-2">
+						<p className="mb-2">
 							Erjwyn upon reaching the source of the commotion finds a clearing
 							filled with an incredibly well organised campsite. In the middle
 							of the campsite, 2 very large wolves are attacking the two
 							remaining men with several littered on the floor around the place.
 						</p>
-						<p className="pb-2">
+						<p className="mb-2">
 							Erjwyn takes his bow and aims for the wolf attacking the man most
 							at peril.
 						</p>
-						<p className="pb-2">
+						<p className="mb-2">
 							In going to loose his bow he pulls just a touch too far and the
 							string snaps.
 						</p>
@@ -1130,7 +1127,7 @@ export const timeline: Timeline = [
 				icon: "dice-d10",
 				description: (
 					<div>
-						<p className="pb-2">And into battle we go:</p>
+						<p className="mb-2">And into battle we go:</p>
 						<ul>
 							<li>
 								Sisu runs in and the wolves spot him, attacking him they deal
@@ -1212,7 +1209,7 @@ export const timeline: Timeline = [
 				icon: "shield",
 				description: (
 					<div>
-						<p className="pb-2">
+						<p className="mb-2">
 							Looking around the camp and moving the bodies, it becomes apparent
 							that this is all a bit well maintained, and a bit professional.
 							Definitely not a normal camp.
@@ -1241,7 +1238,7 @@ export const timeline: Timeline = [
 				icon: "route",
 				description: (
 					<div>
-						<p className="pb-2">
+						<p className="mb-2">
 							Isabelle heals everyone up and we decide to head back to the path
 							and continue on to the tower. We travel, Erjwyn scouts, we enter a
 							more hilly area and continue through ever densening forest.
@@ -1258,7 +1255,7 @@ export const timeline: Timeline = [
 				icon: "house-tree",
 				description: (
 					<div>
-						<p className="pb-2">
+						<p className="mb-2">
 							As we look around the tower we notice a few things.
 						</p>
 						<ul>
@@ -1291,15 +1288,15 @@ export const timeline: Timeline = [
 				icon: "comments",
 				description: (
 					<div>
-						<p className="pb-2">
+						<p className="mb-2">
 							We all introduce ourselves and he offers us a single glass of mead
 							which is gladly accepted by Faldrin.
 						</p>
-						<p className="pb-2">
+						<p className="mb-2">
 							Erjwyn asks Scarat about the undead and he mentions Reevmoor (a
 							nasty guy up to no good).
 						</p>
-						<p className="pb-2">
+						<p className="mb-2">
 							Sisu heads towards the tower but it is radiating some sort of
 							power, Erjwyn feels it too. In response to this feeling they both
 							try to touch the tower but are shocked and sent flying back.
@@ -1317,7 +1314,7 @@ export const timeline: Timeline = [
 				icon: "user-circle",
 				description: (
 					<div>
-						<p className="pb-2">Faldrin asks Scarat about Ironhand...</p>
+						<p className="mb-2">Faldrin asks Scarat about Ironhand...</p>
 						<ul>
 							<li>He was a tyrant lord ver 500 years ago</li>
 							<li>
@@ -1336,13 +1333,13 @@ export const timeline: Timeline = [
 				icon: "bed-empty",
 				description: (
 					<div>
-						<p className="pb-2">
+						<p className="mb-2">
 							We opt to stay the night but before bedding down, Isabelle heads
 							towards the herb garden with Erjwyn and they find some herbs,
 							Scarat allows them to take what they need so long as they leave
 							some of each.
 						</p>
-						<p className="pb-2">
+						<p className="mb-2">
 							As we spend longer there the power radiating from the tower
 							lessens in intensity.
 						</p>
@@ -1371,13 +1368,13 @@ export const timeline: Timeline = [
 				icon: "comments",
 				description: (
 					<div>
-						<p className="pb-2">
+						<p className="mb-2">
 							Upon returning to Grove Castle, we are greeted by Sir Longstell.
 							We mention the military types camped in the forest and show the
 							seal. He recognises the seal from the tabard and is concerned by
 							the presence of the soldiers.
 						</p>
-						<p className="pb-2">
+						<p className="mb-2">
 							We hand him the parchment but he is unable to read it, he suggests
 							it is sent to the capital for further investigation.
 						</p>
@@ -1397,8 +1394,8 @@ export const timeline: Timeline = [
 						ago he was lord of all land here, he had feudal lords who paid him
 						but over time he became more tyrannical. The fuedal lords rebelled
 						severely and stormed his castle. After a long seige they broke
-						through and both Ironhand and Reevmoor (his chamberlain) were
-						killed. Both bodies disappeared
+						through and both Ironhand and Reevmoor (his assistant) were killed.
+						Both bodies disappeared
 					</p>
 				),
 			},
@@ -1406,24 +1403,24 @@ export const timeline: Timeline = [
 				icon: "person-praying",
 				description: (
 					<div>
-						<p className="pb-2">
+						<p className="mb-2">
 							Tren knows the power it takes to perform necromancy to the point
 							of reanimating the dead and also that both burning and holy
 							weapons are most effective against them. Erjwyn asks after any
 							nearby religious places and Sir Longstell points out a monastery
 							in the forest covered hills east of Artanwatch.
 						</p>
-						<p className="pb-2">
+						<p className="mb-2">
 							The next morning we set off for the monastery and after one
 							uneventful night and another couple of days of travel we make it.
 						</p>
-						<p className="pb-2">
+						<p className="mb-2">
 							We meet a monk who guides us to the abbot where Rhombus heads off
 							to pray and we share our story. We ask about sanctifying our
 							weapons and we are lead to a monk in the library. Who greets us
 							and offers us help.
 						</p>
-						<p className="pb-2">
+						<p className="mb-2">
 							We relay our information agaain and he explains that the only way
 							to be sure to kill the undead is to behead them and burn them.
 						</p>
@@ -1433,6 +1430,393 @@ export const timeline: Timeline = [
 							Rhombus a holy longsword for use against spirits and the undead as
 							a loan to help us in our onward travels.
 						</p>
+					</div>
+				),
+			},
+		],
+	},
+	{
+		title: "Session 10 - The price of a good meal",
+		events: [
+			{
+				icon: "route",
+				description: (
+					<p>
+						Setting off from the monastery, we head back to Grove Castle
+						spending an uneventful night in Artanwatch. During our onward travel
+						to the castle the next day, south of us we saw a flash of blinding
+						white light from the ground to the heavens. The light seemed to
+						eminate form the east of the Deep Forest near the tower.
+					</p>
+				),
+			},
+			{
+				icon: "horse",
+				description: (
+					<p>
+						We continued to Grove Castle where we slept the night at Grove
+						Castle hoping to catch an ore barge out towards Lake Town however
+						due to a dispute there were no boats. We decided to continue east by
+						horse, south of the river towards Pyrofall ready to detour south
+						towards the source of the light.
+					</p>
+				),
+			},
+			{
+				icon: "route",
+				description: (
+					<p>
+						3 Days and nights of travel passed by easily and on the third day we
+						left the road to head southwest to the edge of the forest. In the
+						distance Tren spotted a glint of armour on the tree-line. As a group
+						we progressed forwards toward the glint and as we moved closer we
+						saw 5 horsemen, and two large dogs moving at speed towards us.
+					</p>
+				),
+			},
+			{
+				icon: "split",
+				description: (
+					<div className="w-full">
+						<p className="mb-2">
+							The approaching group moved into a pinser and we took shape
+							defensively (1-5 enemies, initials for us)
+						</p>
+						<pre className="block mx-auto mb-2">{`   1         I T         5   
+  |           R           |  
+  |       S       F       |  
+  |          J E          |  
+   2                     4   
+    \\____     3     ____/  
+         \\__  |  __/
+            \\_|_/
+              |`}</pre>
+						<p>
+							Rhombus, Isabelle and Tren stayed on their horses whilst the
+							others dismounted. Tren began to prepare to cast, just in case.
+						</p>
+					</div>
+				),
+			},
+			{
+				icon: "megaphone",
+				description: (
+					<div>
+						<p className="mb-2">
+							Erjwyn shouted to the men for them to stop advancing or he'd loose
+							his arrow and the advancing group slow to a trot but continue
+							forwards, as they do we see:
+						</p>
+						<ul className="mb-2">
+							<li>
+								(1) A dwarf riding a pony with a battleaxe and some chainmail.
+							</li>
+							<li>
+								(2) A human, clad in chainmail with a pomelled heavy crossbow
+								and a broadsword.
+							</li>
+							<li>
+								Leading the pack, (3) a human in leather armour with a light
+								crossbow, accompanied by 2 large, well controlled, dogs.
+							</li>
+							<li>
+								(4) Another human in chain with yet another light crossbow.
+							</li>
+							<li>Finally, (5) A cloaked human.</li>
+						</ul>
+						<p>
+							Once the party stopped at Erjwyns request, the group opened with
+							"You are hard to find". and declare that whatever happens, they
+							wanted Isabelle.
+						</p>
+					</div>
+				),
+			},
+			{
+				icon: "dice-d10",
+				description: (
+					<div>
+						<p className="mb-2">Roll initiative we do:</p>
+						<ul>
+							<li>
+								<strong>Erjjwyn:</strong> Fires an arrow at the leader's horse
+								in the face dropping it onto it's rider trapping him (3).
+							</li>
+							<li>
+								<strong>Dog 1:</strong> Running at Erjwyn the dog takes bite at
+								his thigh dropping Erjwyn unconcious.
+							</li>
+							<li>
+								<strong>Rhombus:</strong> Get's off his horse and goes for dog
+								2, missing.
+							</li>
+							<li>
+								<strong>Sisu:</strong> Takes a swing at rider 2 which is parried
+								but then the second swing hits his lower leg.
+							</li>
+							<li>
+								<strong>Unknown:</strong> Causes Tren screams in agony and pain.
+							</li>
+							<li>
+								<strong>Rider 1:</strong> Dismounts and goes for Sisu who takes
+								a massive hit.
+							</li>
+							<li>
+								<strong>Faldrin:</strong> Hits the horse of rider 4 but mostly
+								misses.
+							</li>
+							<li>
+								<strong>Jascrow:</strong> Holds a dagger to the throat of the
+								leader (3) and encourages him to call off his men. He yells
+								"Fuck off" and Jascrow follows up by dropping his knife.
+							</li>
+							<li>
+								<strong>Rider 5:</strong> Swings at Faldrin cracking his rib.
+							</li>
+							<li>
+								<strong>Isabelle:</strong> Heals Erjwyn bringing him back to
+								consciousness.
+							</li>
+							<li>
+								<strong>Erjwyn:</strong> Pops a magical berry to continue to
+								reheal himself.
+							</li>
+							<li>
+								<strong>Dog 1:</strong> Continues to deal damage to Erjwyn.
+							</li>
+							<li>
+								<strong>Rhombus:</strong> Seeing his friend in danger, goes for
+								Dog 1, killing it with a broadsword to the side of the head.
+							</li>
+							<li>
+								<strong>Sisu:</strong> Destroys Rider 1 bringing him straight
+								off his horse with smashed hips and legs.
+							</li>
+							<li>
+								<strong>Rider 4:</strong> Moves back towards Isabelle
+							</li>
+							<li>
+								<strong>Faldrin:</strong> Hits rider 5 hard, knocking him back
+							</li>
+							<li>
+								<strong>Tren:</strong> Fires a bolt of lightning at Rider 4 but
+								misses.
+							</li>
+							<li>
+								<strong>Jascrow:</strong> Having regained posession of his
+								knife, this time he kills Rider 3.
+							</li>
+							<li>
+								<strong>Isabelle:</strong> Continues to heal Erjwyn.
+							</li>
+							<li>
+								<strong>Erjwyn:</strong> Goes for dog 2 severing it's neck.
+							</li>
+							<li>
+								<strong>Rhombus:</strong> Moves behind rider 1 and deals him a
+								blow.
+							</li>
+							<li>
+								<strong>Sisu:</strong> Swings at rider 2 taking his leg off and
+								cutting the horses side.
+							</li>
+							<li>
+								<strong>Rider 4:</strong> Turns and runs.
+							</li>
+							<li>
+								<strong>Faldrin:</strong> Brings his axe down severing the hand
+								of rider 5.
+							</li>
+						</ul>
+					</div>
+				),
+			},
+			{
+				icon: "treasure-chest",
+				description: (
+					<div>
+						<p className="mb-2">
+							After winning the fight we set down to plundering and found:
+						</p>
+						<ul className="mb-2">
+							<li>
+								Light Crossbow (to Erjwyn) and longsword (to Jascrow) on Rider 3
+							</li>
+							<li>A scroll with a picture of Isabelle</li>
+							<li>Some Dwarven Chainmail (to Faldrin)</li>
+							<li>
+								A Superior Steel Battle Axe [+10 non-magical] (to Faldrin)
+							</li>
+							<li>An ornate ring radiating magic (to Tren)</li>
+						</ul>
+						<p>
+							Then we decided to chop off the heads of the party, and burn them.
+							We wouldn't want more undead would we!
+						</p>
+					</div>
+				),
+			},
+			{
+				icon: "trees",
+				description: (
+					<div>
+						<p className="mb-2">
+							Heading a bit further into the forest we moved towards the tower
+							but found a large portion of the woods around the tower flattened.
+						</p>
+						<p className="mb-2">
+							The tower still stands but everything else was gone.
+						</p>
+						<p className="mb-2">
+							We called for Scarat but got no response, same to the tower. We
+							had felt a strong push back from an essence barrier and Faldrin
+							having gotten further previously tried to get through gently but
+							though he got further, was stilled held back (with no malicious
+							intent).
+						</p>
+						<p className="mb-2">
+							Rhombus decided to give it another go at the forceful route and
+							taking a runup, hit the barrier and was flung back.
+						</p>
+						<p>We set up camp for the night.</p>
+					</div>
+				),
+			},
+			{
+				icon: "route",
+				description: (
+					<p>
+						After another uneventful night we decided to head East to Pyrofall
+						and after another night camping we made it the next afternoon.
+					</p>
+				),
+			},
+			{
+				icon: "ship",
+				description: (
+					<p>
+						We stabelled the horses and our goods at Pyrofall and caught the
+						next barge up to our drop-off point where the river turns east.
+					</p>
+				),
+			},
+			{
+				icon: "route",
+				description: (
+					<div>
+						<p className="mb-2">
+							After disembarking, we headed southeast into an old wood. The wood
+							itself looked and felt sad, dark, dingey and damp.
+						</p>
+						<p className="mb-2">
+							After trying to find some kindling Erjwyn felt a really obvious
+							sense of unnaturallness.
+						</p>
+						<p>
+							Having spent an incredibly uncomfortable and eery night feeling
+							like we were being watched, we broke camp the next morning and
+							continued into the evermore ill looking woods.
+						</p>
+					</div>
+				),
+			},
+			{
+				icon: "cabin",
+				description: (
+					<div>
+						<p className="mb-2">
+							Towards the end of our day's walking we smelled wood smoke and
+							followed our noses to the source. It led us to a cottage in the
+							woods.
+						</p>
+						<p className="mb-2">
+							We hear someone chopping logs as Erjwyn shouts hello, a girl opens
+							the door, spots us and waves.
+						</p>
+						<p className="mb-2">
+							A man (Lance) lowers his axe and says hello and introduces us to
+							his wife (Lillia), and daughter (Samantha).
+						</p>
+						<p className="mb-2">
+							We duscuss the differnece between this lovely segment of woodland
+							in the dank forests around it, Lance explains how they have been
+							in this section of woodland forever.
+						</p>
+						<p>
+							Jascrow asks for directions towards the swamp and we are told to
+							head half a day southwest where we would find an old highway.
+							Lance offers to escort us in the morning.
+						</p>
+					</div>
+				),
+			},
+			{
+				icon: "house-night",
+				description: (
+					<div>
+						<p className="mb-2">
+							We accept the hospitality for the night through Rhombus has a bad
+							feeling about the difference in environment and can't stop that so
+							he op;ts to stay on the edge of the clearing.
+						</p>
+						<p className="mb-2">
+							The family served food and drink and most of us ate. We then
+							bedded down for the night with Rhombus outside and Erjwyn watching
+							over us inside.
+						</p>
+						<p>
+							As Fladrin, Jascrow and Sisu are sleeping, Tren and Erjwyn feel
+							abnormally sleepy. Erjwyn decides to get some air and heads
+							outside to Rhombus where he feels more awake as he moves further
+							away.
+						</p>
+					</div>
+				),
+			},
+			{
+				icon: "moon",
+				description: (
+					<div>
+						<p className="mb-2">
+							Erjwyn walked right to the edge of the woods but nothing untoward
+							is in the woods, turning around though he couldsee an unnatural
+							glow.
+						</p>
+						<p className="mb-2">
+							Erjwyn calls Rhombus over to look from a distance and he confirms
+							that he can see the spectoral shimmer too.
+						</p>
+						<p>
+							Rhombus goes back to sleep and Erjwyn keeps watch over him outside
+							but he hears a clatter from inside the house. Stopping to listen
+							he hears nothign else but out of the corner of hs eye he sees
+							something glowing which disappears.
+						</p>
+					</div>
+				),
+			},
+			{
+				icon: "sword",
+				description: (
+					<div>
+						<p className="mb-2">
+							Rhombus's magic sword vibrates waking him again. He approaches the
+							house as Erjwyn stays back 30ft away with bow drawn.
+						</p>
+						<p className="mb-2">
+							As Rhombus get's closer to the house, the temperature drops and
+							having already felt uneasy he kicks the door down and sees a fire
+							alight but unnatural.
+						</p>
+						<p className="mb-2">
+							Tren has fallen off his chair and is still out but prone on the
+							floor. Everyone else is asleep as expected.
+						</p>
+						<p className="mb-2">
+							Looking around Rhombus turns to face all 3 family members, awake,
+							looking at him, transparent.
+						</p>
+						<p>Rhombus turns around and runs as white as a sheep.</p>
 					</div>
 				),
 			},

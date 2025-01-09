@@ -49,4 +49,7 @@ export function useLocalStorage<T>(
 	return [storedValue, setValue, clearValue];
 }
 
+// Example Usage:
+// const [name, setName, clearName] = useLocalStorage<string>("key", "value");
+
 export default useLocalStorage;
