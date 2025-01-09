@@ -1479,7 +1479,7 @@ export const timeline: Timeline = [
 				description: (
 					<div className="w-full">
 						<p className="mb-2">
-							The approaching group moved into a pinser and we took shape
+							The approaching group moved into a pincer and we took shape
 							defensively (1-5 enemies, initials for us)
 						</p>
 						<pre className="block mx-auto mb-2">{`   1         I T         5   
@@ -1706,11 +1706,11 @@ export const timeline: Timeline = [
 					<div>
 						<p className="mb-2">
 							After disembarking, we headed southeast into an old wood. The wood
-							itself looked and felt sad, dark, dingey and damp.
+							itself looked and felt sad, dark, dank and damp.
 						</p>
 						<p className="mb-2">
 							After trying to find some kindling Erjwyn felt a really obvious
-							sense of unnaturallness.
+							sense of unnaturalness.
 						</p>
 						<p>
 							Having spent an incredibly uncomfortable and eery night feeling
@@ -1757,7 +1757,7 @@ export const timeline: Timeline = [
 						<p className="mb-2">
 							We accept the hospitality for the night through Rhombus has a bad
 							feeling about the difference in environment and can't stop that so
-							he op;ts to stay on the edge of the clearing.
+							he opts to stay on the edge of the clearing.
 						</p>
 						<p className="mb-2">
 							The family served food and drink and most of us ate. We then
@@ -1765,7 +1765,7 @@ export const timeline: Timeline = [
 							over us inside.
 						</p>
 						<p>
-							As Fladrin, Jascrow and Sisu are sleeping, Tren and Erjwyn feel
+							As Faldrin, Jascrow and Sisu are sleeping, Tren and Erjwyn feel
 							abnormally sleepy. Erjwyn decides to get some air and heads
 							outside to Rhombus where he feels more awake as he moves further
 							away.
@@ -1784,7 +1784,7 @@ export const timeline: Timeline = [
 						</p>
 						<p className="mb-2">
 							Erjwyn calls Rhombus over to look from a distance and he confirms
-							that he can see the spectoral shimmer too.
+							that he can see the spectral shimmer too.
 						</p>
 						<p>
 							Rhombus goes back to sleep and Erjwyn keeps watch over him outside
