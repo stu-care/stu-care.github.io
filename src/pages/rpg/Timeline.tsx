@@ -49,7 +49,7 @@ const TimelinePage = () => {
 			</label>
 			<select
 				id="session-select"
-				className="select w-full select-bordered focus-within:select-primary"
+				className="select w-full select-bordered dark:bg-corduroy-700 focus-within:select-primary"
 				onChange={(e) => {
 					const selectedTitle = e.target.value;
 					console.log(selectedTitle);

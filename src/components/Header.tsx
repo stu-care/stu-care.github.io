@@ -30,7 +30,7 @@ const Header = () => {
 				{!resetComplete && (
 					<button onClick={resetHandler}>
 						<FontAwesomeIcon
-							className="hover:text-lima-800 transition-colors duration-300"
+							className="hover:text-lima-800 transition-colors duration-300 dark:text-base-content"
 							icon={byPrefixAndName.fas["trash-alt"]}
 						/>
 					</button>

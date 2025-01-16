@@ -74,7 +74,7 @@ const SkillsPage = () => {
 				<label className="uppercase">Filter</label>
 				<input
 					type="text"
-					className="input w-full input-bordered focus-within:input-primary"
+					className="input w-full input-bordered focus-within:input-primary dark:bg-corduroy-700"
 					value={filterValue}
 					onChange={handleFilterChange}
 					autoFocus={true}

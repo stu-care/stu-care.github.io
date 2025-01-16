@@ -76,7 +76,7 @@ const OBPage = () => {
 							setMovementRate(Number.parseInt(e.target.value));
 						}}
 						step={5}
-						className="input input-bordered focus-within:input-primary w-1/4"
+						className="input input-bordered focus-within:input-primary w-1/4 dark:bg-corduroy-700"
 					/>
 				</div>
 			</div>
@@ -103,7 +103,7 @@ const OBPage = () => {
 							setMovement(Number.parseInt(e.target.value));
 						}}
 						value={movement}
-						className="input input-bordered focus-within:input-primary w-1/4"
+						className="input input-bordered focus-within:input-primary w-1/4 dark:bg-corduroy-700"
 					/>
 				</div>
 			</div>
@@ -128,7 +128,7 @@ const OBPage = () => {
 						onChange={(e) => {
 							setTotalOb(Number.parseInt(e.target.value));
 						}}
-						className="input input-bordered focus-within:input-primary w-1/4"
+						className="input input-bordered focus-within:input-primary w-1/4 dark:bg-corduroy-700"
 					/>
 				</div>
 			</div>
