@@ -76,10 +76,10 @@ const TimelinePage = () => {
 						<ul className="timeline timeline-compact timeline-vertical">
 							{item.events.map((event, j) => (
 								<li className="indent-0" key={j}>
-									<hr />
-									<div className="timeline-middle flex items-center justify-center p-1">
+									<hr className="dark:bg-lima-50" />
+									<div className="timeline-middle flex items-center justify-center p-1 ">
 										<FontAwesomeIcon
-											className="text-2xl text-neutral"
+											className="text-2xl text-neutral dark:text-lima-400"
 											icon={
 												byPrefixAndName.fas[event.icon ?? "circle-arrow-right"]
 											}
@@ -92,7 +92,7 @@ const TimelinePage = () => {
 										)}
 										{event.description}
 									</div>
-									<hr />
+									<hr className="dark:bg-lima-50" />
 								</li>
 							))}
 						</ul>
