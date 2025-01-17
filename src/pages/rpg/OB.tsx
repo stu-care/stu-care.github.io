@@ -143,7 +143,8 @@ const OBPage = () => {
 								setTotalOb(weapon.bonuses.total);
 							}}
 						>
-							{weapon.short} ({weapon.bonuses.total})
+							{weapon.short}
+							<br />({weapon.bonuses.total})
 						</button>
 					))}
 				</div>
