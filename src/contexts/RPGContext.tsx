@@ -26,10 +26,10 @@ export const defaultContext: IRPGContext = {
 	reset: () => {},
 	purse: {
 		values: {
-			mp: 1,
-			gp: 30,
-			sp: 1,
-			bp: 5,
+			mp: 3,
+			gp: 41,
+			sp: 5,
+			bp: 7,
 			cp: 4,
 			tp: 0,
 			ip: 0,
@@ -48,10 +48,10 @@ export const RPGProvider = ({ children }: IRPGProvider) => {
 		useLocalStorage<Characters>("rpg:characters", characterList);
 
 	const [purse, setPurse, clearPurse] = useLocalStorage<Purse>("rpg:purse", {
-		mp: 1,
-		gp: 30,
-		sp: 1,
-		bp: 4,
+		mp: 3,
+		gp: 41,
+		sp: 5,
+		bp: 7,
 		cp: 4,
 		tp: 0,
 		ip: 0,
