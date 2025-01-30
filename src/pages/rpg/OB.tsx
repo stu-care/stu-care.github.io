@@ -54,7 +54,7 @@ const OBPage = () => {
 	}, []);
 
 	useEffect(() => {
-		setRemainingOb(totalOb * (1 - movement / movementRate));
+		setRemainingOb(Math.round(totalOb * (1 - movement / movementRate)));
 	}, [movementRate, movement, totalOb]);
 
 	const rollWeapon = () => {
