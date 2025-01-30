@@ -67,7 +67,10 @@ const Faldrin = () => {
 				<div className="flex w-full justify-center text-2xl gap-12 font-bold">
 					<span>{open}</span> {open !== closed && <span>{closed}</span>}
 				</div>
-				<div className="text-sm font-mono text-base-content/30 flex items-center justify-center gap-2">
+				{rollVals[0].total <= 4 && (
+					<span className="text-red-500 font-black">FUMBLE</span>
+				)}
+				<div className="text-sm font-mono text-base-content/30 dark:text-base-100/30 flex items-center justify-center gap-2">
 					(
 					{rollVals.map((roll, i) => (
 						// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
@@ -102,7 +105,10 @@ const Faldrin = () => {
 				<div className="flex w-full justify-center text-2xl gap-12 font-bold">
 					<span>{open}</span> {open !== closed && <span>{closed}</span>}
 				</div>
-				<div className="text-sm font-mono text-base-content/30 flex items-center justify-center gap-2">
+				{rollVals[0].total <= 4 && (
+					<span className="text-red-500 font-black">FUMBLE</span>
+				)}
+				<div className="text-sm font-mono text-base-content/30 dark:text-base-100/30 flex items-center justify-center gap-2">
 					(
 					{rollVals.map((roll, i) => (
 						// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
@@ -134,7 +140,10 @@ const Faldrin = () => {
 				<div className="flex w-full justify-center text-2xl gap-12 font-bold">
 					<span>{open}</span> {open !== closed && <span>{closed}</span>}
 				</div>
-				<div className="text-sm font-mono text-base-content/30 flex items-center justify-center gap-2">
+				{rollVals[0].total <= 4 && (
+					<span className="text-red-500 font-black">FUMBLE</span>
+				)}
+				<div className="text-sm font-mono text-base-content/30 dark:text-base-100/30 flex items-center justify-center gap-2">
 					(
 					{rollVals.map((roll, i) => (
 						// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
@@ -254,11 +263,11 @@ const Faldrin = () => {
 					</div>
 				</div>
 				{output && (
-					<div className="absolute flex items-center justify-center w-full h-full bottom-0 flex-col gap-2 bg-base-100/50 backdrop-blur-lg p-4">
+					<div className="absolute flex items-center justify-center w-full h-full bottom-0 flex-col gap-2 dark:bg-base-content/50 bg-base-100/50 backdrop-blur-lg p-4">
 						{output}
 						<button
 							type="button"
-							className="btn btn-sm btn-primary btn-block"
+							className="btn btn-primary btn-block"
 							onClick={() => setOutput(null)}
 						>
 							Close

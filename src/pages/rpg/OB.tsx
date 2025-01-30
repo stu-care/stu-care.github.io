@@ -69,7 +69,10 @@ const OBPage = () => {
 				<div className="flex w-full justify-center text-2xl gap-12 font-bold">
 					<span>{open}</span> {open !== closed && <span>{closed}</span>}
 				</div>
-				<div className="text-sm font-mono text-base-content/30 flex items-center justify-center gap-2">
+				{rollVals[0].total <= 4 && (
+					<span className="text-red-500 font-black">FUMBLE</span>
+				)}
+				<div className="text-sm font-mono text-base-content/30 dark:text-base-100/30  flex items-center justify-center gap-2">
 					(
 					{rollVals.map((roll, i) => (
 						// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
@@ -87,6 +90,37 @@ const OBPage = () => {
 				</div>
 			</div>,
 		);
+	};
+
+	const rollCrit = () => {
+		const rollVals = rollDice();
+		console.log(rollVals);
+
+		const open = rollVals.reduce((acc, val) => acc + val.total, 0);
+		const closed = rollVals[0].total;
+		setOutput((prev) => {
+			return (
+				<>
+					{prev}
+					<div className="text-center w-full mb-4">
+						<div className="mb-4 text-xl font-semibold">Crit</div>
+						<div className="flex w-full justify-center text-2xl gap-12 font-bold">
+							<span>{open}</span> {open !== closed && <span>{closed}</span>}
+						</div>
+						<div className="text-sm font-mono text-base-content/30 dark:text-base-100/30 flex items-center justify-center gap-2">
+							(
+							{rollVals.map((roll, i) => (
+								// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+								<span key={i}>
+									[{roll.dPercentile},{roll.d10}]<strong>{roll.total}</strong>
+								</span>
+							))}
+							)
+						</div>
+					</div>
+				</>
+			);
+		});
 	};
 
 	return (
@@ -204,8 +238,15 @@ const OBPage = () => {
 				</button>
 			</div>
 			{output && (
-				<div className="absolute flex items-center justify-center w-full h-full bottom-0 flex-col gap-2 bg-base-100/50 backdrop-blur-lg p-4">
+				<div className="absolute flex items-center justify-center w-full h-full bottom-0 flex-col gap-2 dark:bg-base-content/50 bg-base-100/50 backdrop-blur-lg p-4">
 					{output}
+					<button
+						type="button"
+						className="btn btn-primary btn-outline btn-block"
+						onClick={rollCrit}
+					>
+						Crit
+					</button>
 					<button
 						type="button"
 						className="btn btn-primary btn-block"

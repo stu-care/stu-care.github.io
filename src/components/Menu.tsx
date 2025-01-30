@@ -41,11 +41,13 @@ const Menu = () => {
 				>
 					<div className="flex-1">Menu</div>
 					<div className="flex-none ">
+						{/* biome-ignore lint/complexity/useLiteralKeys: <explanation> */}
 						<FontAwesomeIcon icon={byPrefixAndName.fas["plus"]} />
 					</div>
 				</label>
 			</nav>
 			<div className="drawer-side absolute z-20 ">
+				{/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
 				<label
 					htmlFor="nav-drawer"
 					aria-label="close sidebar"
