@@ -8,6 +8,7 @@ import { rpgTitle } from "../RPG";
 
 export const herbsTitle = (
 	<span className="leading-none flex items-baseline gap-2">
+		{/* biome-ignore lint/complexity/useLiteralKeys: <explanation> */}
 		<FontAwesomeIcon fixedWidth={true} icon={byPrefixAndName.fas["seedling"]} />
 		Herbs
 	</span>
@@ -29,6 +30,7 @@ const HerbsPage = () => {
 		display: { setDisplay, breadcrumbs },
 	} = useApp();
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
 		setDisplay({
 			showHeader: true,
@@ -44,16 +46,19 @@ const HerbsPage = () => {
 	return (
 		<main className="grid grid-flow-row auto-rows-auto p-4 gap-4 ">
 			<div className="grid grid-flow-row gap-1">
+				{/* biome-ignore lint/a11y/noLabelWithoutControl: <explanation> */}
 				<label className="uppercase text-corduroy-400 text-sm">Filter</label>
 				<input
 					value={filterValue}
 					onChange={handleFilterChange}
 					placeholder="Filter (e.g. 'eC6' or 'Ingest')"
 					className="input w-full input-bordered focus-within:input-primary dark:bg-corduroy-700"
+					// biome-ignore lint/a11y/noAutofocus: <explanation>
 					autoFocus={true}
 				/>
 			</div>
 			<div className="grid grid-flow-row gap-1">
+				{/* biome-ignore lint/a11y/noLabelWithoutControl: <explanation> */}
 				<label className="uppercase text-corduroy-400 text-sm">Type</label>
 				<select
 					onChange={handleTypeChange}
@@ -81,6 +86,7 @@ const HerbsPage = () => {
 				})
 				.map((herb, index) => {
 					return (
+						// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 						<div key={index} className="grid gap-4 max-w-full">
 							<div className="border-2 border-corduroy-200 dark:border-corduroy-700">
 								<div className="p-2 bg-corduroy-200 dark:bg-corduroy-700">
@@ -88,6 +94,7 @@ const HerbsPage = () => {
 										<span className="flex gap-4 items-baseline">
 											{herb.type === "herb" ? (
 												<FontAwesomeIcon
+													// biome-ignore lint/complexity/useLiteralKeys: <explanation>
 													icon={byPrefixAndName.fas["seedling"]}
 													fixedWidth={true}
 													className="text-base text-corduroy-400"

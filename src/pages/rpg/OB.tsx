@@ -1,17 +1,20 @@
 import { byPrefixAndName } from "@awesome.me/kit-5a5002bf29/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect, useState } from "react";
+import type React from "react";
+import { useCallback, useEffect, useState } from "react";
 import type { Character } from "../../content/characterList";
 import { useApp } from "../../contexts/AppContext";
 import { useRPG } from "../../contexts/RPGContext";
 import { Currency } from "../../helpers/currency";
 import { homeTitle } from "../Home";
 import { rpgTitle } from "../RPG";
+import { rollDice } from "../../helpers/dice";
 
 export const obTitle = (
 	<span className="leading-none flex items-baseline gap-2">
 		<FontAwesomeIcon
 			fixedWidth={true}
+			// biome-ignore lint/complexity/useLiteralKeys: <explanation>
 			icon={byPrefixAndName.fas["calculator"]}
 		/>
 		OB Calc
@@ -35,6 +38,9 @@ const OBPage = () => {
 	);
 	const [remainingOb, setRemainingOb] = useState<number>(0);
 
+	const [output, setOutput] = useState<React.ReactNode | null>(null);
+
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
 		setDisplay({
 			showHeader: true,
@@ -51,9 +57,42 @@ const OBPage = () => {
 		setRemainingOb(totalOb * (1 - movement / movementRate));
 	}, [movementRate, movement, totalOb]);
 
+	const rollWeapon = () => {
+		const rollVals = rollDice();
+
+		const open =
+			rollVals.reduce((acc, val) => acc + val.total, 0) + remainingOb;
+		const closed = rollVals[0].total + remainingOb;
+		setOutput(
+			<div className="text-center w-full mb-4">
+				<div className="mb-4 text-xl font-semibold">Attack</div>
+				<div className="flex w-full justify-center text-2xl gap-12 font-bold">
+					<span>{open}</span> {open !== closed && <span>{closed}</span>}
+				</div>
+				<div className="text-sm font-mono text-base-content/30 flex items-center justify-center gap-2">
+					(
+					{rollVals.map((roll, i) => (
+						// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+						<span key={i}>
+							[{roll.dPercentile},{roll.d10}]<strong>{roll.total}</strong>
+						</span>
+					))}
+					<span>
+						<strong>
+							{remainingOb > 0 && "+"}
+							{remainingOb}
+						</strong>
+					</span>
+					)
+				</div>
+			</div>,
+		);
+	};
+
 	return (
 		<main className="relative p-4 grid grid-flow-row auto-rows-fr h-full gap-4 ">
 			<div className="flex items-center justify-center h-full flex-col gap-2">
+				{/* biome-ignore lint/a11y/noLabelWithoutControl: <explanation> */}
 				<label>Base Movement Rate</label>
 				<div className="flex gap-2 items-center w-full">
 					<input
@@ -81,6 +120,7 @@ const OBPage = () => {
 				</div>
 			</div>
 			<div className="flex items-center justify-center h-full flex-col gap-2 w-full">
+				{/* biome-ignore lint/a11y/noLabelWithoutControl: <explanation> */}
 				<label>Movement</label>
 				<div className="flex gap-2 items-center w-full">
 					<input
@@ -108,6 +148,7 @@ const OBPage = () => {
 				</div>
 			</div>
 			<div className="flex items-center justify-center h-full flex-col gap-2">
+				{/* biome-ignore lint/a11y/noLabelWithoutControl: <explanation> */}
 				<label>Total OB</label>
 				<div className="flex gap-2 items-center w-full">
 					<input
@@ -152,7 +193,28 @@ const OBPage = () => {
 			<div className="flex items-center justify-center h-full flex-col gap-2">
 				<span>Remaining OB:</span>{" "}
 				<span className="text-3xl">{Math.round(remainingOb)}</span>
+				<button
+					type="button"
+					className="btn btn-primary"
+					onClick={() => {
+						rollWeapon();
+					}}
+				>
+					Roll OB
+				</button>
 			</div>
+			{output && (
+				<div className="absolute flex items-center justify-center w-full h-full bottom-0 flex-col gap-2 bg-base-100/50 backdrop-blur-lg p-4">
+					{output}
+					<button
+						type="button"
+						className="btn btn-primary btn-block"
+						onClick={() => setOutput(null)}
+					>
+						Close
+					</button>
+				</div>
+			)}
 		</main>
 	);
 };

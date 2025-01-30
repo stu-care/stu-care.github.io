@@ -13,6 +13,7 @@ import OBPage from "./pages/rpg/OB";
 import PursePage from "./pages/rpg/Purse";
 import SkillsPage from "./pages/rpg/Skills";
 import TimelinePage from "./pages/rpg/Timeline";
+import Faldrin from "./pages/rpg/Faldrin";
 
 export const router = createHashRouter([
 	{
@@ -63,6 +64,10 @@ export const router = createHashRouter([
 			{
 				path: "/rpg/timeline",
 				element: <TimelinePage />,
+			},
+			{
+				path: "/rpg/faldrin",
+				element: <Faldrin />,
 			},
 			{
 				path: "*",

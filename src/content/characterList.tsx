@@ -4,6 +4,7 @@ import jascrowImgUrl from "../assets/jascrow.webp";
 import rhombusImgUrl from "../assets/rhombus.webp";
 import sisuImgUrl from "../assets/sisu.webp";
 import trenImgUrl from "../assets/tren.webp";
+import { Skill } from "./skillList";
 
 export type StatKeys =
 	| "co"
@@ -43,6 +44,7 @@ export type Character = {
 	bmr: number;
 	weapons: Weapon[];
 	ap: number;
+	skills?: { name: string; total: number; button: boolean }[];
 	stats: {
 		[key in StatKeys]: {
 			temp: number;
@@ -118,6 +120,80 @@ export const characterList: Characters = {
 					total: 44,
 				},
 			},
+		],
+		skills: [
+			{ name: "General Perception", total: 35, button: true },
+			{ name: "Adrenal M Quick draw", total: 8, button: true },
+			{ name: "Adrenal M Speed", total: 8, button: true },
+			{ name: "Adrenal M Strength", total: 8, button: true },
+			{ name: "Body Damage Stabilise", total: 5, button: true },
+			{ name: "Stunned Maneuvering", total: 27, button: true },
+
+			{ name: "Detect Traps", total: 5, button: false },
+			{ name: "Disarm Trap", total: 5, button: false },
+			{ name: "Set Traps", total: 5, button: false },
+
+			{ name: "Armour Evaluation", total: 20, button: true },
+			{ name: "Metal Evaluation", total: 10, button: true },
+			{ name: "Stone Evaluation", total: 5, button: true },
+			{ name: "Weapon Evaluation", total: 20, button: true },
+
+			{ name: "Climbing", total: 13, button: true },
+			{ name: "Disarm Foe, Armed", total: 17, button: true },
+			{ name: "Hostile Environments", total: 14, button: true },
+			{ name: "Missile Artillery", total: 17, button: true },
+			{ name: "Physics", total: 10, button: true },
+			{ name: "Riding", total: 4, button: true },
+			{ name: "Rope Mastery", total: 10, button: true },
+			{ name: "Siege Engineer", total: 5, button: true },
+			{ name: "Smithing", total: 25, button: true },
+			{ name: "Stalk/Hide", total: 10, button: true },
+			{ name: "Swimming", total: 13, button: true },
+			{ name: "Trading", total: 0, button: true },
+			{ name: "Two Weapon Combo", total: 37, button: true },
+
+			{ name: "Pick Lock", total: -25, button: false },
+			{ name: "Tumbling", total: 23, button: false },
+			{ name: "Tumbling Attack", total: 37, button: false },
+			{ name: "Tumbling Evasion", total: 27, button: false },
+			{ name: "Runes", total: -30, button: false },
+			{ name: "Staves & wands", total: -30, button: false },
+			{ name: "Ambush", total: -21, button: false },
+			{ name: "Adrenal M Balance", total: -22, button: false },
+			{ name: "Adrenal M Landing", total: -22, button: false },
+			{ name: "Adrenal M Leaping", total: -22, button: false },
+			{ name: "Adrenal Defence", total: -25, button: false },
+			{ name: "Channeling", total: -25, button: false },
+			{ name: "Directed Spells ", total: -25, button: false },
+			{ name: "MA Strikes R1", total: 14, button: false },
+			{ name: "MA Strikes R2", total: 14, button: false },
+			{ name: "MA Strikes R3", total: 14, button: false },
+			{ name: "MA Strikes R4", total: 14, button: false },
+			{ name: "MA Sweeps & Th R1", total: 0, button: false },
+			{ name: "MA Sweeps & Th R2", total: 0, button: false },
+			{ name: "MA Sweeps & Th R3", total: 0, button: false },
+			{ name: "MA Sweeps & Th R4", total: 0, button: false },
+			{ name: "Animal Handling", total: -29, button: false },
+			{ name: "Appraisal", total: -20, button: false },
+			{ name: "Brawling", total: -13, button: false },
+			{ name: "Caving", total: -16, button: false },
+			{ name: "Cookery", total: -25, button: false },
+			{ name: "Crafting", total: -20, button: false },
+			{ name: "Disarm Foe, Unarmed", total: -13, button: false },
+			{ name: "Engineering", total: -20, button: false },
+			{ name: "Falsification", total: -20, button: false },
+			{ name: "First Aid", total: -25, button: false },
+			{ name: "Frenzy", total: -25, button: false },
+			{ name: "Hide Item", total: -25, button: false },
+			{ name: "Loading", total: -26, button: false },
+			{ name: "Mechanition", total: -25, button: false },
+			{ name: "Metal Lore", total: -20, button: false },
+			{ name: "Mining", total: -25, button: false },
+			{ name: "Rappelling", total: -17, button: false },
+			{ name: "Reverse Stroke", total: -13, button: false },
+			{ name: "Stone Crafts", total: -20, button: false },
+			{ name: "Stone Lore", total: -20, button: false },
+			{ name: "Yado", total: -8, button: false },
 		],
 		stats: {
 			co: {

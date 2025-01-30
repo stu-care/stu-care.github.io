@@ -11,6 +11,7 @@ import { obTitle } from "../pages/rpg/OB";
 import { purseTitle } from "../pages/rpg/Purse";
 import { skillsTitle } from "../pages/rpg/Skills";
 import { timelineTitle } from "../pages/rpg/Timeline";
+import { faldrinTitle } from "../pages/rpg/Faldrin";
 
 export const navLink = ({ isActive }: { isActive: boolean }) =>
 	isActive ? "link-primary" : "link-secondary dark:link-neutral";
@@ -123,6 +124,15 @@ const Menu = () => {
 									onClick={closeDrawer}
 								>
 									{obTitle}
+								</NavLink>
+							</li>
+							<li>
+								<NavLink
+									to={"/rpg/faldrin"}
+									className={navLink}
+									onClick={closeDrawer}
+								>
+									{faldrinTitle}
 								</NavLink>
 							</li>
 						</ul>
