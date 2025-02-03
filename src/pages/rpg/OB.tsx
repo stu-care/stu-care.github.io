@@ -1,11 +1,10 @@
 import { byPrefixAndName } from "@awesome.me/kit-5a5002bf29/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type React from "react";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import type { Character } from "../../content/characterList";
 import { useApp } from "../../contexts/AppContext";
 import { useRPG } from "../../contexts/RPGContext";
-import { Currency } from "../../helpers/currency";
 import { homeTitle } from "../Home";
 import { rpgTitle } from "../RPG";
 import { rollDice } from "../../helpers/dice";

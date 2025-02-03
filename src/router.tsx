@@ -14,6 +14,7 @@ import PursePage from "./pages/rpg/Purse";
 import SkillsPage from "./pages/rpg/Skills";
 import TimelinePage from "./pages/rpg/Timeline";
 import Faldrin from "./pages/rpg/Faldrin";
+import Dice from "./pages/rpg/Dice";
 
 export const router = createHashRouter([
 	{
@@ -68,6 +69,10 @@ export const router = createHashRouter([
 			{
 				path: "/rpg/faldrin",
 				element: <Faldrin />,
+			},
+			{
+				path: "/rpg/dice",
+				element: <Dice />,
 			},
 			{
 				path: "*",
