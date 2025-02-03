@@ -2030,4 +2030,17 @@ export const timeline: Timeline = [
 			},
 		],
 	},
+	{
+		title: "Session 12 - They See Me Rollin'",
+		events: [
+			{
+				icon: "route",
+				description: (
+					<div>
+						<p>Tada</p>
+					</div>
+				),
+			},
+		],
+	},
 ];

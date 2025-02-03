@@ -146,7 +146,7 @@ const PursePage = () => {
 		<main className="relative p-4 flex flex-col h-full ">
 			<div className="grid grid-flow-row auto-rows-auto gap-4">
 				{denominations.map((abbr, index) => (
-					<div key={abbr} className="flex flex-row items-center">
+					<div key={abbr} className="flex flex-row items-center ">
 						<input
 							id={abbr}
 							type="number"
@@ -160,7 +160,7 @@ const PursePage = () => {
 						/>
 						<label
 							htmlFor={abbr}
-							className="flex  bg-corduroy-200 dark:text-base-content w-12 h-full items-center justify-center dark:bg-corduroy-500 dark:text-base-200"
+							className="flex bg-corduroy-200 w-12 last:rounded-e-2xl h-full items-center justify-center dark:bg-corduroy-500 dark:text-base-200"
 						>
 							{abbr}
 						</label>
