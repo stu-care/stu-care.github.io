@@ -123,7 +123,7 @@ const OBPage = () => {
 	};
 
 	return (
-		<main className="relative p-4 grid grid-flow-row auto-rows-fr h-full gap-4 ">
+		<main className="p-4 grid grid-flow-row auto-rows-fr h-full gap-4 ">
 			<div className="flex items-center justify-center h-full flex-col gap-2">
 				{/* biome-ignore lint/a11y/noLabelWithoutControl: <explanation> */}
 				<label>Base Movement Rate</label>
@@ -237,7 +237,7 @@ const OBPage = () => {
 				</button>
 			</div>
 			{output && (
-				<div className="absolute flex items-center justify-center w-full h-full bottom-0 flex-col gap-2 dark:bg-base-content/50 bg-base-100/50 backdrop-blur-lg p-4">
+				<div className="z-[1000] absolute flex items-center justify-center w-full h-full bottom-0 left-0 flex-col gap-2 dark:bg-base-content/50 bg-base-100/50 backdrop-blur-lg p-4">
 					{output}
 					<button
 						type="button"

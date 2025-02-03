@@ -41,7 +41,7 @@ const KeyInfoPage = () => {
 			{keyInfo.map((item, index) => {
 				return (
 					<div
-						className="border-2 border-corduroy-200 dark:border-corduroy-700"
+						className="border-2 border-corduroy-200 overflow-hidden dark:border-corduroy-700 rounded-2xl"
 						key={index}
 					>
 						{/* {item.img && (

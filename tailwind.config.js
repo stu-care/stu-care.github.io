@@ -81,10 +81,10 @@ const config = {
 					"base-300": extendedColors.corduroy["100"],
 					"base-content": extendedColors.corduroy["950"],
 
-					"--rounded-box": "0", // border radius rounded-box utility class, used in card and other large boxes
-					"--rounded-btn": "0", // border radius rounded-btn utility class, used in buttons and similar element
-					"--rounded-badge": "0", // border radius rounded-badge utility class, used in badges and similar
-					"--tab-radius": "0", // border radius of tabs
+					"--rounded-box": "1rem", // border radius rounded-box utility class, used in card and other large boxes
+					"--rounded-btn": "1rem", // border radius rounded-btn utility class, used in buttons and similar element
+					"--rounded-badge": "1rem", // border radius rounded-badge utility class, used in badges and similar
+					"--tab-radius": "1rem", // border radius of tabs
 				},
 			},
 		],

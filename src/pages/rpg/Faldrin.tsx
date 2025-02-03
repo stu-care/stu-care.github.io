@@ -16,7 +16,7 @@ export const faldrinTitle = (
 			fixedWidth={true}
 			icon={byPrefixAndName.fas["hammer-war"]}
 		/>
-		Faldrin
+		Faldrin Skills
 	</span>
 );
 
@@ -159,7 +159,7 @@ const Faldrin = () => {
 
 	return (
 		<>
-			<main className="relative flex flex-col w-full h-auto">
+			<main className="flex flex-col w-full h-auto">
 				<div className="flex flex-col w-full gap-4 p-4">
 					<h2 className="text-2xl font-bold">Roll Dice</h2>
 					<div>
@@ -263,7 +263,7 @@ const Faldrin = () => {
 					</div>
 				</div>
 				{output && (
-					<div className="absolute flex items-center justify-center w-full h-full bottom-0 flex-col gap-2 dark:bg-base-content/50 bg-base-100/50 backdrop-blur-lg p-4">
+					<div className="z-[1000] absolute flex items-center justify-center w-full h-full bottom-0 left-0 flex-col gap-2 dark:bg-base-content/50 bg-base-100/50 backdrop-blur-lg p-4">
 						{output}
 						<button
 							type="button"

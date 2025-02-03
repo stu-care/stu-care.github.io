@@ -13,7 +13,7 @@ import { rollDice } from "../../helpers/dice";
 export const diceTitle = (
 	<span className="leading-none flex items-baseline gap-2">
 		<FontAwesomeIcon fixedWidth={true} icon={byPrefixAndName.fas["dice-d10"]} />
-		Dice
+		Dice Check
 	</span>
 );
 
@@ -24,6 +24,7 @@ const Dice = () => {
 
 	const [d10, setD10] = useState<{ [key: number]: number }>({});
 	const [dPerc, setDPerc] = useState<{ [key: number]: number }>({});
+	const [totalRolls, setTotalRolls] = useState<number>(0);
 
 	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
@@ -37,11 +38,18 @@ const Dice = () => {
 		breadcrumbs.add({ url: "/rpg", label: rpgTitle });
 		breadcrumbs.add({ url: "/rpg/faldrin", label: diceTitle });
 
+		rollAll();
+	}, []);
+
+	const rollAll = () => {
 		const tempD10: { [key: number]: number } = {};
 		const tempDPerc: { [key: number]: number } = {};
+		setTotalRolls(0);
 
 		for (let i = 0; i < 1000000; i++) {
 			const rolls = rollDice();
+
+			setTotalRolls((prev) => prev + rolls.length);
 
 			for (const roll of rolls) {
 				if (tempD10[roll.d10]) {
@@ -60,110 +68,80 @@ const Dice = () => {
 
 		setD10(tempD10);
 		setDPerc(tempDPerc);
-	}, []);
+	};
 
 	return (
 		<>
-			<main className="relative flex flex-col w-full h-auto">
-				<div className="flex flex-col w-full gap-4 p-4">
-					{/* display the outputs of d10 and dPerc as pie charts */}
-					<div className="flex flex-col gap-4">
-						{/* <div className="flex flex-col">
-							{Object.keys(d10).map((key) => (
-								<div
-                                key={key}
-                                className={classNames(
-                                    "flex items-center justify-between w-full",
-                                    {
-                                        "bg-base-300 dark:bg-corduroy-800":
-                                        Number.parseInt(key) % 2 === 0,
-										},
-                                        )}
-                                        >
-                                        <span className="text-lg font-semibold">{key}</span>
-                                        <span className="text-lg ">{d10[key]}</span>
-                                        </div>
-                                        ))}
-                                        </div> */}
-						<div className="w-full h-[260px] p-2 grid grid-flow-col items-end gap-1">
-							{Object.keys(d10).map((key) => (
-								<div
-									key={key}
-									className={classNames(
-										"bg-gradient-to-t from-lima-500 to-lima-600  flex flex-col items-center justify-center overflow-hidden relative",
+			<main className="relative p-4 grid grid-flow-row auto-rows-fr h-full gap-4 ">
+				<div className="flex items-center justify-center h-full flex-col gap-2">
+					<div className="w-full h-[220px] p-2 grid grid-flow-col items-center gap-1">
+						{Object.keys(d10).map((key) => (
+							<div
+								key={key}
+								className={classNames(
+									"bg-gradient-to-t from-lima-500 to-lima-600  rounded-md flex flex-col items-center justify-center overflow-hidden relative transition-all duration-500",
+								)}
+								style={{
+									height: `${d10[key as unknown as number] / 20 - 5100}px`,
+								}}
+							>
+								<span className="-rotate-90 dark:text-base-content bottom-12 absolute overflow-hidden">
+									{((d10[key as unknown as number] / totalRolls) * 100).toFixed(
+										2,
 									)}
-									style={{
-										height: `${d10[key as unknown as number] / 20 - 5050}px`,
-									}}
-								>
-									<span className="-rotate-90 overflow-hidden">
-										{((d10[key as unknown as number] / 1000000) * 100).toFixed(
-											2,
-										)}
-										%
-									</span>
+									%
+								</span>
 
-									<span className="-rotate-90 overflow-hidden absolute top-6 text-white/50 text-sm">
-										{d10[key as unknown as number]}
-									</span>
+								<span className="-rotate-90 overflow-hidden absolute top-4 text-white/50 text-sm">
+									{`${d10[key as unknown as number]}`.slice(0, 3)}k
+								</span>
 
-									<span className="font-semibold overflow-hidden absolute bottom-0">
-										{key}
-									</span>
-								</div>
-							))}
-						</div>
-						<h2 className="text-2xl font-bold">d10</h2>
+								<span className="font-black dark:text-base-content overflow-hidden absolute bottom-0">
+									{key}
+								</span>
+							</div>
+						))}
 					</div>
+					<h2 className="text-xl font-bold">d10</h2>
 
-					<div className="flex flex-col gap-4">
-						{/* <div className="flex flex-col">
-							{Object.keys(dPerc).map((key) => (
-								<div
-                                key={key}
-                                className={classNames(
-                                    "flex items-center justify-between w-full",
-                                    {
-                                        "bg-base-300 dark:bg-corduroy-800":
-                                        Number.parseInt(key) % 20 === 0,
-										},
-                                        )}
-                                        >
-                                        <span className="text-lg font-semibold">{key}</span>
-                                        <span className="text-lg">{dPerc[key]}</span>
-                                        </div>
-                                        ))}
-                                        </div> */}
-						<div className="w-full h-[260px] p-2 grid grid-flow-col items-end gap-1">
-							{Object.keys(dPerc).map((key) => (
-								<div
-									key={key}
-									className={classNames(
-										"bg-gradient-to-t from-lima-500 to-lima-600 flex flex-col items-center justify-center overflow-hidden relative",
-									)}
-									style={{
-										height: `${dPerc[key as unknown as number] / 20 - 5050}px`,
-									}}
-								>
-									<span className="-rotate-90 overflow-hidden">
-										{(
-											(dPerc[key as unknown as number] / 1000000) *
-											100
-										).toFixed(2)}
-										%
-									</span>
+					<div className="w-full h-[220px] p-2 grid grid-flow-col items-center gap-1">
+						{Object.keys(dPerc).map((key) => (
+							<div
+								key={key}
+								className={classNames(
+									"bg-gradient-to-t from-lima-500 to-lima-600 rounded-md flex flex-col items-center justify-center overflow-hidden relative transition-all duration-500",
+								)}
+								style={{
+									height: `${dPerc[key as unknown as number] / 20 - 5100}px`,
+								}}
+							>
+								<span className="-rotate-90 overflow-hidden bottom-12 absolute dark:text-base-content">
+									{(
+										(dPerc[key as unknown as number] / totalRolls) *
+										100
+									).toFixed(2)}
+									%
+								</span>
 
-									<span className="-rotate-90 overflow-hidden absolute top-6 text-white/50 text-sm">
-										{dPerc[key as unknown as number]}
-									</span>
+								<span className="-rotate-90 overflow-hidden absolute top-4 text-white/50 text-sm">
+									{`${dPerc[key as unknown as number]}`.slice(0, 3)}k
+								</span>
 
-									<span className="font-semibold overflow-hidden absolute bottom-0">
-										{key === "0" ? "00" : key}
-									</span>
-								</div>
-							))}
-						</div>
-						<h2 className="text-2xl font-bold">dPercentile</h2>
+								<span className="font-black dark:text-base-content overflow-hidden absolute bottom-0">
+									{key === "0" ? "00" : key}
+								</span>
+							</div>
+						))}
+					</div>
+					<h2 className="text-xl font-bold">dPercentile</h2>
+					<div className="flex grow items-center justify-center w-full">
+						<button
+							type="button"
+							className="btn btn-primary btn-block"
+							onClick={rollAll}
+						>
+							Re Roll
+						</button>
 					</div>
 				</div>
 			</main>

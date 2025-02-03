@@ -108,9 +108,8 @@ const PursePage = () => {
 				});
 				found = true;
 				break;
-			} else {
-				higherIndex--;
 			}
+			higherIndex--;
 		}
 
 		if (!found) {
@@ -155,24 +154,25 @@ const PursePage = () => {
 							onChange={(e) =>
 								handleCurrencyChange(abbr, Number.parseInt(e.target.value))
 							}
-							className="flex-grow input w-full input-bordered focus-within:input-primary dark:bg-corduroy-700"
+							className="flex-grow input w-full input-bordered rounded-e-none focus-within:input-primary dark:bg-corduroy-700"
 							min="0"
 							step={1}
 						/>
 						<label
 							htmlFor={abbr}
-							className="flex bg-corduroy-200 dark:text-base-content w-12 h-full items-center justify-center dark:bg-corduroy-500 dark:text-base-200"
+							className="flex  bg-corduroy-200 dark:text-base-content w-12 h-full items-center justify-center dark:bg-corduroy-500 dark:text-base-200"
 						>
 							{abbr}
 						</label>
 						{index > 0 && (
 							<button
+								type="button"
 								onClick={() => handleTransferFromHigherDenomination(abbr)}
-								className="btn btn-sm btn-primary h-full"
+								className="btn btn-sm rounded-s-none btn-primary h-full"
 							>
 								<FontAwesomeIcon
 									fixedWidth={true}
-									icon={byPrefixAndName.fas["plus"]}
+									icon={byPrefixAndName.fas.plus}
 								/>
 							</button>
 						)}
@@ -198,7 +198,11 @@ const PursePage = () => {
 				</select>
 			</div>
 			<div className="mb-4">
-				<button onClick={tidyUp} className="btn btn-primary w-full">
+				<button
+					type="button"
+					onClick={tidyUp}
+					className="btn btn-primary w-full"
+				>
 					Tidy Up
 				</button>
 			</div>

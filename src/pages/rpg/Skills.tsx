@@ -91,7 +91,7 @@ const SkillsPage = () => {
 				.map((skill, index) => {
 					return (
 						<div key={index} className="grid gap-4 max-w-full">
-							<div className="border-2 border-corduroy-200 dark:border-corduroy-700">
+							<div className="border-2 border-corduroy-200 rounded-2xl overflow-hidden dark:border-corduroy-700">
 								<div className="p-2 bg-corduroy-200 dark:bg-corduroy-700">
 									<h3 className="flex gap-2 items-baseline justify-between">
 										<span className="flex gap-4 items-baseline">
