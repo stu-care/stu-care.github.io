@@ -1,9 +1,7 @@
 import { byPrefixAndName } from "@awesome.me/kit-5a5002bf29/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import cx from "classnames";
 import Markdown from "marked-react";
-import React, { ChangeEventHandler, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import { keyInfo } from "../../content/keyInfo";
 import { useApp } from "../../contexts/AppContext";
 import { homeTitle } from "../Home";
@@ -24,6 +22,7 @@ const KeyInfoPage = () => {
 		display: { setDisplay, breadcrumbs },
 	} = useApp();
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
 		setDisplay({
 			showHeader: true,
@@ -41,8 +40,8 @@ const KeyInfoPage = () => {
 			{keyInfo.map((item, index) => {
 				return (
 					<div
-						className="border-2 border-corduroy-200 overflow-hidden dark:border-corduroy-700 rounded-2xl"
-						key={index}
+						className="border-2 border-corduroy-200 overflow-hidden dark:border-corduroy-700 rounded"
+						key={item.name}
 					>
 						{/* {item.img && (
 							<img

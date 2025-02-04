@@ -60,6 +60,7 @@ export const currency: Currency = {
 			.replace(`${amount}`, "")
 			.trim() as keyof Rates;
 
+		// biome-ignore lint/suspicious/noGlobalIsNan: <explanation>
 		if (isNaN(amount) || !this.rates[abbr]) {
 			throw new Error("Invalid value abbreviation");
 		}

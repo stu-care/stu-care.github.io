@@ -1,7 +1,7 @@
 import { byPrefixAndName } from "@awesome.me/kit-5a5002bf29/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Markdown from "marked-react";
-import React, { type ChangeEventHandler, useEffect, useState } from "react";
+import { type ChangeEventHandler, useEffect, useState } from "react";
 import type { Character } from "../../content/characterList";
 import { type Skill, skillsList } from "../../content/skillList";
 import { useApp } from "../../contexts/AppContext";
@@ -11,6 +11,7 @@ import { rpgTitle } from "../RPG";
 
 export const skillsTitle = (
 	<span className="leading-none flex items-baseline gap-2">
+		{/* biome-ignore lint/complexity/useLiteralKeys: <explanation> */}
 		<FontAwesomeIcon fixedWidth={true} icon={byPrefixAndName.fas["bolt"]} />
 		Skills
 	</span>
@@ -26,6 +27,7 @@ const SkillsPage = () => {
 		display: { setDisplay, breadcrumbs },
 	} = useApp();
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
 		setDisplay({
 			showHeader: true,
@@ -47,17 +49,18 @@ const SkillsPage = () => {
 			const values = skill.stats.map((statGroup) => {
 				let statValue = 0;
 
-				statGroup.forEach((stat) => {
+				for (const stat of statGroup) {
 					statValue += (faldrin as Character).stats[
 						stat.toLowerCase() as keyof Character["stats"]
 					]?.total;
-				});
+				}
 				return Math.round(statValue / statGroup.length);
 			});
 			return values.map((value, index) => {
 				return (
 					value &&
-					!isNaN(value) && (
+					!Number.isNaN(value) && (
+						// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 						<span key={index}>
 							{value >= 0 ? "+" : ""}
 							{value}
@@ -71,13 +74,15 @@ const SkillsPage = () => {
 	return (
 		<main className="grid grid-flow-row auto-rows-auto p-4 gap-4 ">
 			<div className="grid grid-flow-row gap-1">
-				<label className="uppercase">Filter</label>
+				<label className="uppercase" htmlFor="filter">
+					Filter
+				</label>
 				<input
 					type="text"
+					name="filter"
 					className="input w-full input-bordered focus-within:input-primary dark:bg-corduroy-700"
 					value={filterValue}
 					onChange={handleFilterChange}
-					autoFocus={true}
 					placeholder="Skill Name (e.g. Fauna Lore)"
 				/>
 			</div>
@@ -88,10 +93,10 @@ const SkillsPage = () => {
 						skill.type.toLowerCase().includes(filterValue.toLowerCase()) ||
 						skill.description.toLowerCase().includes(filterValue.toLowerCase()),
 				)
-				.map((skill, index) => {
+				.map((skill) => {
 					return (
-						<div key={index} className="grid gap-4 max-w-full">
-							<div className="border-2 border-corduroy-200 rounded-2xl overflow-hidden dark:border-corduroy-700">
+						<div key={skill.name} className="grid gap-4 max-w-full">
+							<div className="border-2 border-corduroy-200 rounded overflow-hidden dark:border-corduroy-700">
 								<div className="p-2 bg-corduroy-200 dark:bg-corduroy-700">
 									<h3 className="flex gap-2 items-baseline justify-between">
 										<span className="flex gap-4 items-baseline">

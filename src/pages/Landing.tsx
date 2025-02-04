@@ -6,6 +6,8 @@ const LandingPage = () => {
 	const {
 		display: { setDisplay },
 	} = useApp();
+
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
 		setDisplay({ showHeader: false, showFooter: false });
 	}, []);

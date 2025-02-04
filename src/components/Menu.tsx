@@ -1,6 +1,6 @@
 import { byPrefixAndName } from "@awesome.me/kit-5a5002bf29/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { homeTitle } from "../pages/Home";
 import { rpgTitle } from "../pages/RPG";

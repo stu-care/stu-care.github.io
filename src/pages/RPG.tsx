@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Markdown from "marked-react";
 import { useEffect } from "react";
 import type { Character } from "../content/characterList";
-import { Breadcrumb, useApp } from "../contexts/AppContext";
+import { useApp } from "../contexts/AppContext";
 import { useRPG } from "../contexts/RPGContext";
 import { homeTitle } from "./Home";
 
@@ -23,6 +23,7 @@ const RPGPage = () => {
 		characters: { faldrin },
 	} = useRPG();
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
 		setDisplay({
 			showHeader: true,
@@ -43,7 +44,7 @@ const RPGPage = () => {
 			/>
 			<div className="flex gap-4 flex-row">
 				<h2>{faldrin.character.name}</h2>
-				<div className="border-b-4 border-b-primary grow -translate-y-[calc(50%-2px)]"></div>
+				<div className="border-b-4 border-b-primary grow -translate-y-[calc(50%-2px)]" />
 			</div>
 			<div className="flex items-center justify-between font-light">
 				<span>{faldrin.character.race}</span>

@@ -1,6 +1,6 @@
 import { byPrefixAndName } from "@awesome.me/kit-5a5002bf29/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useApp } from "../../contexts/AppContext";
 import { useRPG } from "../../contexts/RPGContext";
 import {
@@ -50,6 +50,7 @@ const PursePage = () => {
 	const [total, setTotal] = useState<number>(0);
 	const [totalCurrency, setTotalCurrency] = useState<keyof Rates>("gp");
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
 		setDisplay({
 			showHeader: true,
@@ -119,9 +120,9 @@ const PursePage = () => {
 
 	const tidyUp = () => {
 		let totalInIp = 0;
-		denominations.forEach((denomination) => {
+		for (const denomination of denominations) {
 			totalInIp += purse.values[denomination] * valuesInIp[denomination];
-		});
+		}
 
 		const newPurse: { [key in CoinDenominations]: number } = {
 			mp: 0,
@@ -133,11 +134,11 @@ const PursePage = () => {
 			ip: 0,
 		};
 
-		denominations.forEach((denomination) => {
+		for (const denomination of denominations) {
 			const amount = Math.floor(totalInIp / valuesInIp[denomination]);
 			totalInIp -= amount * valuesInIp[denomination];
 			newPurse[denomination] = amount;
-		});
+		}
 
 		purse.set(newPurse);
 	};
@@ -160,7 +161,7 @@ const PursePage = () => {
 						/>
 						<label
 							htmlFor={abbr}
-							className="flex bg-corduroy-200 w-12 last:rounded-e-2xl h-full items-center justify-center dark:bg-corduroy-500 dark:text-base-200"
+							className="flex bg-corduroy-200 w-12 last:rounded-e h-full items-center justify-center dark:bg-corduroy-500 dark:text-base-200"
 						>
 							{abbr}
 						</label>

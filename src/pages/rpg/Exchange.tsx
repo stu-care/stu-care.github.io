@@ -8,6 +8,7 @@ import { rpgTitle } from "../RPG";
 
 export const exchangeTitle = (
 	<span className="leading-none flex items-baseline gap-2">
+		{/* biome-ignore lint/complexity/useLiteralKeys: <explanation> */}
 		<FontAwesomeIcon fixedWidth={true} icon={byPrefixAndName.fas["coins"]} />
 		Exchange
 	</span>
@@ -24,6 +25,7 @@ const ExchangePage = () => {
 		display: { setDisplay, breadcrumbs },
 	} = useApp();
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
 		setDisplay({
 			showHeader: true,
@@ -96,7 +98,7 @@ const ExchangePage = () => {
 				toCurrency as keyof Rates,
 			);
 
-			if (isNaN(conversionResult)) {
+			if (Number.isNaN(conversionResult)) {
 				setResult("");
 				return;
 			}
@@ -107,6 +109,7 @@ const ExchangePage = () => {
 		}
 	};
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
 		handleConvert();
 	}, [fromCurrency, toCurrency, inputValue]);
@@ -127,6 +130,7 @@ const ExchangePage = () => {
 							{abbreviation})
 						</div>
 						<div className="border-b border-corduroy-200  dark:border-corduroy-700">
+							{/* biome-ignore lint/complexity/useLiteralKeys: <explanation> */}
 							{rate["bp"].toLocaleString()} bp
 						</div>
 					</React.Fragment>
@@ -142,7 +146,6 @@ const ExchangePage = () => {
 					onChange={(e) => handleChange(e.target.value)}
 					placeholder="Enter value (e.g., 10sp)"
 					className="input w-full input-bordered focus-within:input-primary dark:bg-corduroy-700"
-					autoFocus={true}
 				/>
 				<div className="flex items-center justify-between gap-4">
 					<select

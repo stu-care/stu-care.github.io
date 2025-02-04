@@ -1,12 +1,9 @@
-import type React from "react";
 import { useEffect, useState } from "react";
 import { byPrefixAndName } from "@awesome.me/kit-5a5002bf29/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useApp } from "../../contexts/AppContext";
-import { useRPG } from "../../contexts/RPGContext";
 import { homeTitle } from "../Home";
 import { rpgTitle } from "../RPG";
-import type { Character } from "../../content/characterList";
 import classNames from "classnames";
 import { rollDice } from "../../helpers/dice";
 
@@ -79,7 +76,7 @@ const Dice = () => {
 							<div
 								key={key}
 								className={classNames(
-									"bg-gradient-to-t from-lima-500 to-lima-600  rounded-md flex flex-col items-center justify-center overflow-hidden relative transition-all duration-500",
+									"bg-gradient-to-t from-lima-500 to-lima-600  rounded flex flex-col items-center justify-center overflow-hidden relative transition-all duration-500",
 								)}
 								style={{
 									height: `${d10[key as unknown as number] / 20 - 5100}px`,
@@ -109,7 +106,7 @@ const Dice = () => {
 							<div
 								key={key}
 								className={classNames(
-									"bg-gradient-to-t from-lima-500 to-lima-600 rounded-md flex flex-col items-center justify-center overflow-hidden relative transition-all duration-500",
+									"bg-gradient-to-t from-lima-500 to-lima-600 rounded flex flex-col items-center justify-center overflow-hidden relative transition-all duration-500",
 								)}
 								style={{
 									height: `${dPerc[key as unknown as number] / 20 - 5100}px`,

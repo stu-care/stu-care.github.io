@@ -6,6 +6,7 @@ const Error404Page = () => {
 		display: { setDisplay },
 	} = useApp();
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
 		setDisplay({ showHeader: false, showFooter: false });
 	}, []);

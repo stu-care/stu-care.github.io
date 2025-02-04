@@ -1,6 +1,6 @@
 import { byPrefixAndName } from "@awesome.me/kit-5a5002bf29/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { ChangeEventHandler, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { timeline } from "../../content/timeline";
 import { useApp } from "../../contexts/AppContext";
 import { homeTitle } from "../Home";
@@ -24,6 +24,7 @@ const TimelinePage = () => {
 
 	const [selectedSession, setSelectedSession] = useState<string>("all");
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
 		setDisplay({
 			showHeader: true,
@@ -58,6 +59,7 @@ const TimelinePage = () => {
 			>
 				<option value="all">All</option>
 				{timeline.map((item, i) => (
+					// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 					<option key={i} value={item.title?.toString() ?? ""}>
 						{item.title}
 					</option>
@@ -71,10 +73,12 @@ const TimelinePage = () => {
 					return selectedSession === "all" || item.title === selectedSession;
 				})
 				.map((item, i) => (
+					// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 					<React.Fragment key={i}>
 						<h3 className="text-xl">{item.title}</h3>
 						<ul className="timeline timeline-compact timeline-vertical">
 							{item.events.map((event, j) => (
+								// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 								<li className="indent-0" key={j}>
 									<hr className="dark:bg-lima-50 bg-lima-800/20" />
 									<div className="timeline-middle flex items-center justify-center p-1 ">

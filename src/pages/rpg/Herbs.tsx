@@ -1,6 +1,6 @@
 import { byPrefixAndName } from "@awesome.me/kit-5a5002bf29/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { type ChangeEventHandler, useEffect, useState } from "react";
+import { type ChangeEventHandler, useEffect, useState } from "react";
 import { herbList } from "../../content/herbList";
 import { useApp } from "../../contexts/AppContext";
 import { homeTitle } from "../Home";
@@ -88,7 +88,7 @@ const HerbsPage = () => {
 					return (
 						// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 						<div key={index} className="grid gap-4 max-w-full">
-							<div className="border-2 border-corduroy-200 rounded-2xl overflow-hidden dark:border-corduroy-700">
+							<div className="border-2 border-corduroy-200 rounded overflow-hidden dark:border-corduroy-700">
 								<div className="p-2 bg-corduroy-200 dark:bg-corduroy-700">
 									<h3 className="flex gap-2 items-baseline justify-between">
 										<span className="flex gap-4 items-baseline">
