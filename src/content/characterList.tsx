@@ -81,7 +81,7 @@ export const characterList: Characters = {
 			description:
 				"Faldrin is a short but stocky dwarf with a long dark beard and long dark hair. He is a fighter,wields a battle axe and a hammer and wears leather armour stained green.",
 		},
-		bmr: 40,
+		bmr: 35,
 		ap: 16,
 		weapons: [
 			{

@@ -43,7 +43,7 @@ const Dice = () => {
 		const tempDPerc: { [key: number]: number } = {};
 		setTotalRolls(0);
 
-		for (let i = 0; i < 1000000; i++) {
+		for (let i = 0; i < 100000; i++) {
 			const rolls = rollDice();
 
 			setTotalRolls((prev) => prev + rolls.length);
@@ -76,13 +76,13 @@ const Dice = () => {
 							<div
 								key={key}
 								className={classNames(
-									"bg-gradient-to-t from-lima-500 to-lima-600  rounded flex flex-col items-center justify-center overflow-hidden relative transition-all duration-500",
+									"bg-gradient-to-t from-lima-500 to-lima-600 rounded flex flex-col items-center justify-center overflow-hidden relative transition-all duration-500",
 								)}
 								style={{
-									height: `${d10[key as unknown as number] / 20 - 5100}px`,
+									height: `${d10[key as unknown as number] / 100 - 30}%`,
 								}}
 							>
-								<span className="-rotate-90 dark:text-base-content bottom-12 absolute overflow-hidden">
+								<span className="-rotate-90 overflow-hidden bottom-12 absolute dark:text-base-content">
 									{((d10[key as unknown as number] / totalRolls) * 100).toFixed(
 										2,
 									)}
@@ -90,7 +90,7 @@ const Dice = () => {
 								</span>
 
 								<span className="-rotate-90 overflow-hidden absolute top-4 text-white/50 text-sm">
-									{`${d10[key as unknown as number]}`.slice(0, 3)}k
+									{`${d10[key as unknown as number]}`}
 								</span>
 
 								<span className="font-black dark:text-base-content overflow-hidden absolute bottom-0">
@@ -99,7 +99,10 @@ const Dice = () => {
 							</div>
 						))}
 					</div>
-					<h2 className="text-xl font-bold">d10</h2>
+					<h2 className="w-full flex justify-between items-center text-xl font-bold">
+						d10,{" "}
+						<small className="text-xs font-medium">({totalRolls} Rolls)</small>
+					</h2>
 
 					<div className="w-full h-[220px] p-2 grid grid-flow-col items-center gap-1">
 						{Object.keys(dPerc).map((key) => (
@@ -109,7 +112,7 @@ const Dice = () => {
 									"bg-gradient-to-t from-lima-500 to-lima-600 rounded flex flex-col items-center justify-center overflow-hidden relative transition-all duration-500",
 								)}
 								style={{
-									height: `${dPerc[key as unknown as number] / 20 - 5100}px`,
+									height: `${dPerc[key as unknown as number] / 100 - 30}%`,
 								}}
 							>
 								<span className="-rotate-90 overflow-hidden bottom-12 absolute dark:text-base-content">
@@ -121,7 +124,7 @@ const Dice = () => {
 								</span>
 
 								<span className="-rotate-90 overflow-hidden absolute top-4 text-white/50 text-sm">
-									{`${dPerc[key as unknown as number]}`.slice(0, 3)}k
+									{`${dPerc[key as unknown as number]}`}
 								</span>
 
 								<span className="font-black dark:text-base-content overflow-hidden absolute bottom-0">
@@ -130,7 +133,10 @@ const Dice = () => {
 							</div>
 						))}
 					</div>
-					<h2 className="text-xl font-bold">dPercentile</h2>
+					<h2 className="w-full flex justify-between items-center text-xl font-bold">
+						dPercentile,{" "}
+						<small className="text-xs font-medium">({totalRolls} Rolls)</small>
+					</h2>
 					<div className="flex grow items-center justify-center w-full">
 						<button
 							type="button"

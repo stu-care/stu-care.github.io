@@ -9,6 +9,7 @@ import { rpgTitle } from "../RPG";
 import type { Character } from "../../content/characterList";
 import classNames from "classnames";
 import { rollDice } from "../../helpers/dice";
+import DiceRollOverlay from "../../components/DiceRollOverlay";
 
 export const faldrinTitle = (
 	<span className="leading-none flex items-baseline gap-2">
@@ -263,16 +264,7 @@ const Faldrin = () => {
 					</div>
 				</div>
 				{output && (
-					<div className="z-[1000] absolute flex items-center justify-center w-full h-full bottom-0 left-0 flex-col gap-2 dark:bg-base-content/50 bg-base-100/50 backdrop-blur-lg p-4">
-						{output}
-						<button
-							type="button"
-							className="btn btn-primary btn-block"
-							onClick={() => setOutput(null)}
-						>
-							Close
-						</button>
-					</div>
+					<DiceRollOverlay value={output} clear={() => setOutput(null)} />
 				)}
 			</main>
 		</>
