@@ -2034,10 +2034,262 @@ export const timeline: Timeline = [
 		title: "Session 12 - They See Me Rollin'",
 		events: [
 			{
+				icon: "lightbulb",
+				description: (
+					<p>
+						Before setting off from the island above the swamp we devised a plan
+						which was to have the majority of the group act as a decoy whilst
+						Jascrow snuck in and stole the sword.
+					</p>
+				),
+			},
+			{
 				icon: "route",
 				description: (
 					<div>
-						<p>Tada</p>
+						<p>
+							Erjwyn leads us off in the right direction and after about 4-5
+							hours of travel we start towards the mountains.
+						</p>
+						<p>
+							As we travel on, we start to notice a few cobwebs dotted around
+							but we carry on. The more we move forwards the more we see before
+							finally, as we slow to a creep... 7 spiders fall from above us.
+						</p>
+					</div>
+				),
+			},
+			{
+				icon: "dice-d10",
+				description: (
+					<div>
+						<p>Speaking of rolling!</p>
+						<ul>
+							<li>
+								<strong>Round 1:</strong> Jascrow throws a knife hitting his
+								target, Sisu kills a spider, Erjwyn kills a spider, Isabelle
+								takes out her sword and hits, Rhombus hits his target, Tren
+								prepares a spell, and Faldrin hits his target! 2 Spiders miss, 2
+								spiders bite at Faldrin ripping off the bottom half of his ear,
+								1 spider bites Erjwyn who starts to feel drowsy.
+							</li>
+							<li>
+								<strong>Round 2:</strong> Jascrow hits again, Sisu hits, Erjwyn
+								eats a berry to sort his drowsiness, Isaeblle prepares a spell,
+								Rhombus hits, Tren prepares a spell, and Faldrin hits. 3 spiders
+								are stunned, 1 bites Sisu and another bites Faldrin
+							</li>
+							<li>
+								<em>2 more giant spiders appear.</em>
+							</li>
+							<li>
+								<strong>Round 3:</strong> Jascrow Erjwyn and Rhombus hit small
+								spiders, Isabelle heals Faldrin, Tren casts a spell shooting
+								lighting at a big spider, Faldrin kills a small one. 2 small
+								spiders miss, 1 bites Faldrin's arm, 1 big spider knocks Tren
+								down, the other big spider bites Jascrow's nose, permanently
+								scarring him.
+							</li>
+							<li>
+								<strong>Round 4:</strong> Jasrow lops a legg off a big spider,
+								Sisu kills a small spider, Erjwyn kills a small spider, Isabelle
+								heals Jascrow, Rhombus kills a small spider Faldrin hits a small
+								spider. Big spider misses.
+							</li>
+							<li>
+								<strong>Round 5:</strong> Jascrow hits big spider 2, Sisu kills
+								big spider 1, Erjwyn hits big spider 2, Isabelle heals Faldrin,
+								Rhombus misses, Faldrin hills the last small spider.
+							</li>
+							<li>
+								<strong>Round 6:</strong> Sisu kills the last big spider.
+							</li>
+						</ul>
+					</div>
+				),
+			},
+			{
+				icon: "first-aid",
+				description: (
+					<p>
+						Isabelle heals the party but that drains her so we decide to set up
+						for the night, Erjwyn and Tren opt to keep watch but the night
+						passes by uneventfully.
+					</p>
+				),
+			},
+			{
+				icon: "route",
+				description: (
+					<div>
+						<p>
+							We continue on our way and after a few more hours Erjwyn spots a
+							footprint heading in towards the mountains. Erjwyn scouts a head
+							small amount to continue tracking as we follow up behind.
+						</p>
+						<p>
+							As Erjwyn enters a rock formation, he strings his bow and pauses
+							for us to catch up.
+						</p>
+						<p>
+							Jascrow spots a crow, trying his luck, he throws a knife and just
+							clips the birds wing, Erjwyn attempts to catch the retreating bird
+							but misses.
+						</p>
+					</div>
+				),
+			},
+			{
+				icon: "arrow-up-from-line",
+				description: (
+					<p>
+						Erjwyn moves forward again. After moving out of the sight of the
+						rest of the group, we all hear a lound snap and a lot of rustling.
+						As he flies about 50ft up into the air!
+					</p>
+				),
+			},
+			{
+				icon: "messages",
+				description: (
+					<p>
+						After much discussion of how to deal with this, Tren climbs the
+						tree, Sisu climbed up passing a rope then back down again. Sisu and
+						Faldrin hold the rope as Tren ties it to the trap and cuts the other
+						rope. Erjwyn is lowered down and then released.
+					</p>
+				),
+			},
+			{
+				icon: "arrow-down-from-line",
+				description: (
+					<p>
+						We continue on cautiously and find another trap, this time a pit in
+						the middle of a fissure. The pit itself is as wide as the fissure,
+						25ft deep and 8ft long. We cut down a tree and then lay a log across
+						the gap and plod across. Faldrin falls in but fortunately misses the
+						spikes at the bottom of the pit. The group use the rope to hoist
+						Faldrin out again.
+					</p>
+				),
+			},
+			{
+				icon: "person-falling-burst",
+				description: (
+					<div>
+						<p>
+							As we enter another clearing there is a rock face in front of us
+							which we must go around. The group cautiously moves towards it and
+							split up going around it. Faldrin marches off in front and
+							suddenly hears the rumble of a rolling stone. Faldrin hugs the
+							inside wall, Rhombus hugs the outside wall, Isabelle and Tren move
+							back and out.
+						</p>
+						<p>
+							A giant boulder comes hurtling round the corner and crushes
+							Rhombus, breaking his leg. Carrying on, the boulder narrowly
+							misses Isabelle and Tren before continuing on it's way.
+						</p>
+						<p>
+							Isabelle heads to Rhombus to repair his broken leg and we all
+							continue on into another opening.
+						</p>
+					</div>
+				),
+			},
+			{
+				icon: "door",
+				description: (
+					<div>
+						<p>
+							As we enter the next clearing, we see a cave entrance, a crow, a
+							large rock formation and a boulder looking awfully like a door.
+						</p>
+						<p>
+							Faldrin, Sisu and Rhombus head for the large boulder and attempt
+							to move it. Failing.
+						</p>
+						<p>
+							Tren, Erjwyn and Isabelle hold off in the entrance to this
+							opening.
+						</p>
+						<p>
+							Jascrow heads round the large rock formation, and as he does so...
+							A Giant stands up in front of him with a familiar looking sword
+							pushed through his club like a nail!
+						</p>
+					</div>
+				),
+			},
+			{
+				icon: "dice-d10",
+				description: (
+					<div>
+						<p>It's giant killing time.</p>
+						<ul>
+							<li>
+								<strong>Round 1:</strong> Sisu moves towards the Giant, Erjwyn
+								fires an arrow hitting him, Tren starts preparing, Faldrin Loads
+								his crossbow, Jascrow politely fucks off to a safe distance,
+								Rhombus moves to the foor of the Giant. The Giant attacks
+								Rhombus who dodges, then tries again but misses.{" "}
+							</li>
+							<li>
+								<strong>Round 2:</strong> Sisu swings at the back of the giant
+								absolutely smashing him, Erjwyn fires another arrow and misses,
+								Faldrin misses with the crossbow, Jascrow throws a knife at the
+								Giant hitting him, Rhombus attacks him from the front.
+							</li>
+							<li>
+								<strong>Round 3:</strong> Sisu misses, Erjwyn fires again
+								hitting this time, Tren fires a shock bolt hitting the Giant,
+								Faldrin finally gets his aim in and hits with the crossbow,
+								Jascrow misses, Rhombus misses. The Giant misses both attacks.
+							</li>
+							<li>
+								<strong>Round 4:</strong> Sisu swings again at the back of the
+								Giant, hitting and knocking him down. As he falls, he falls
+								forwards and for the second time Rhombus is crushed. Sisu runs
+								up his back and confirms his kill.
+							</li>
+						</ul>
+					</div>
+				),
+			},
+			{
+				icon: "treasure-chest",
+				description: (
+					<div>
+						<p>It's looting time.</p>
+						<p>
+							Once Rhombus is recovered, and as Erjwyn ties a rope around the
+							club for safe transport Faldrin tries to rig something up to open
+							the large boulder door but it doesn't work.
+						</p>
+						<p>
+							Erjwyn then heads round back to where Jascrow first found the
+							giant and notices another door which with everyone's help, he
+							manages to open.
+						</p>
+						<p>
+							Inside we find a chamber 150ft round, 60ft high and full of
+							barrels, crates, furs, some animals. We also find:
+						</p>
+						<ul>
+							<li>
+								10,100 Tin, 6,950 Copper, 2,075 Bronze, 410 Silver and 210 Gold.
+							</li>
+							<li>
+								A Broach and Ring which Tren confirms are magic, possibly
+								something to do with Channeling or a cleric.
+							</li>
+							<li>Quiver of elven arrows, which are handed to Erjwyn.</li>
+							<li>An ornate morning star.</li>
+							<li>
+								A fine magical breastplate as light as 13 but with the strength
+								of 18 which is handed to Rhombus.
+							</li>
+						</ul>
 					</div>
 				),
 			},
