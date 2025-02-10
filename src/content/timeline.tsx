@@ -2198,7 +2198,7 @@ export const timeline: Timeline = [
 				),
 			},
 			{
-				icon: "door",
+				icon: "door-closed",
 				description: (
 					<div>
 						<p>
