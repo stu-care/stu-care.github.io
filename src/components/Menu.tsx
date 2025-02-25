@@ -15,7 +15,7 @@ import { faldrinTitle } from "../pages/rpg/Faldrin";
 import { diceTitle } from "../pages/rpg/Dice";
 
 export const navLink = ({ isActive }: { isActive: boolean }) =>
-	isActive ? "link-primary" : "link-secondary dark:link-neutral";
+	isActive ? "link-primary" : "text-base-content";
 
 const Menu = () => {
 	const checkboxRef = useRef<HTMLInputElement>(null);
@@ -34,7 +34,7 @@ const Menu = () => {
 				className="drawer-toggle"
 				ref={checkboxRef}
 			/>
-			<nav className="drawer-content bg-corduroy-300 dark:bg-corduroy-500 text-base-100 select-none transition-colors duration-300 cursor-pointer hover:bg-corduroy-400 dark:hover:bg-corduroy-600">
+			<nav className="drawer-content select-none transition-colors duration-300 cursor-pointer border-b border-b-primary/20">
 				<label
 					htmlFor="nav-drawer"
 					aria-label="open sidebar"
@@ -47,14 +47,14 @@ const Menu = () => {
 					</div>
 				</label>
 			</nav>
-			<div className="drawer-side absolute z-20 ">
+			<div className="drawer-side absolute z-20">
 				{/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
 				<label
 					htmlFor="nav-drawer"
 					aria-label="close sidebar"
-					className="drawer-overlay"
+					className="drawer-overlay !bg-base-100/90"
 				></label>
-				<ul className="menu min-h-full w-5/6 py-5 bg-gradient-to-br from-base-100 to-base-300 dark:from-corduroy-800 dark:to-corduroy-900 z-30">
+				<ul className="menu min-h-full w-5/6 py-5 z-30">
 					{/* Sidebar content here */}
 					<li>
 						<NavLink to={"/home"} className={navLink} onClick={closeDrawer}>

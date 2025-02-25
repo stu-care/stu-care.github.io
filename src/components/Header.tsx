@@ -25,12 +25,12 @@ const Header = () => {
 
 	return (
 		<>
-			<header className="p-4 pt-5 bg-gradient-to-br from-lima-400 to-lima-500 select-none z-20 flex items-center justify-between">
-				<h1 className="text-base-content">{title}</h1>
+			<header className="p-4 pt-5 select-none z-20 flex items-center justify-between bg-primary text-base-100">
+				<h1 className="">{title}</h1>
 				{!resetComplete && (
 					<button onClick={resetHandler} type="button">
 						<FontAwesomeIcon
-							className="hover:text-lima-800 transition-colors duration-300 dark:text-base-content"
+							className="transition-colors duration-300"
 							icon={byPrefixAndName.fas["trash-alt"]}
 						/>
 					</button>

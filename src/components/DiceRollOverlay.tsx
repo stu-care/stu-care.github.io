@@ -12,12 +12,12 @@ const DiceRollOverlay: React.FC<DiceRollOverlayProps> = ({
 	rollCrit,
 }) => {
 	return (
-		<div className="z-[1000] absolute flex items-center justify-center w-full h-full bottom-0 left-0 flex-col gap-2 dark:bg-base-content/50 bg-base-300/50 backdrop-blur-lg p-4">
+		<div className="z-[1000] absolute flex items-center justify-center w-full h-full bottom-0 left-0 flex-col gap-2 backdrop-blur-lg p-4">
 			{value}
 			{rollCrit && (
 				<button
 					type="button"
-					className="btn dark:btn-primary btn-outline btn-block"
+					className="btn btn-outline btn-block"
 					onClick={rollCrit}
 				>
 					Crit

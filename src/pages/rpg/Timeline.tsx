@@ -80,10 +80,10 @@ const TimelinePage = () => {
 							{item.events.map((event, j) => (
 								// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 								<li className="indent-0" key={j}>
-									<hr className="dark:bg-lima-50 bg-lima-800/20" />
+									<hr className="dark:bg-primary bg-primary/20" />
 									<div className="timeline-middle flex items-center justify-center p-1 ">
 										<FontAwesomeIcon
-											className="text-2xl text-lima-600/50 dark:text-lima-400"
+											className="text-2xl text-primary/50 dark:text-primary"
 											icon={
 												byPrefixAndName.fas[event.icon ?? "circle-arrow-right"]
 											}
@@ -96,7 +96,7 @@ const TimelinePage = () => {
 										)}
 										{event.description}
 									</div>
-									<hr className="dark:bg-lima-50 bg-lima-800/20" />
+									<hr className="dark:bg-primary bg-primary/20" />
 								</li>
 							))}
 						</ul>

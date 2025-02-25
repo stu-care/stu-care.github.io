@@ -76,24 +76,24 @@ const Dice = () => {
 							<div
 								key={key}
 								className={classNames(
-									"bg-gradient-to-t from-lima-500 to-lima-600 rounded flex flex-col items-center justify-center overflow-hidden relative transition-all duration-500",
+									"bg-primary rounded flex flex-col items-center justify-center overflow-hidden relative transition-all duration-500",
 								)}
 								style={{
 									height: `${d10[key as unknown as number] / 100 - 30}%`,
 								}}
 							>
-								<span className="-rotate-90 overflow-hidden bottom-12 absolute dark:text-base-content">
+								<span className="-rotate-90 overflow-hidden bottom-12 absolute text-base-100">
 									{((d10[key as unknown as number] / totalRolls) * 100).toFixed(
 										2,
 									)}
 									%
 								</span>
 
-								<span className="-rotate-90 overflow-hidden absolute top-4 text-white/50 text-sm">
+								<span className="-rotate-90 overflow-hidden absolute top-4 text-base-100/50 text-sm">
 									{`${d10[key as unknown as number]}`}
 								</span>
 
-								<span className="font-black dark:text-base-content overflow-hidden absolute bottom-0">
+								<span className="font-black text-base-100 overflow-hidden absolute bottom-0">
 									{key}
 								</span>
 							</div>
@@ -109,13 +109,13 @@ const Dice = () => {
 							<div
 								key={key}
 								className={classNames(
-									"bg-gradient-to-t from-lima-500 to-lima-600 rounded flex flex-col items-center justify-center overflow-hidden relative transition-all duration-500",
+									"bg-primary rounded flex flex-col items-center justify-center overflow-hidden relative transition-all duration-500",
 								)}
 								style={{
 									height: `${dPerc[key as unknown as number] / 100 - 30}%`,
 								}}
 							>
-								<span className="-rotate-90 overflow-hidden bottom-12 absolute dark:text-base-content">
+								<span className="-rotate-90 overflow-hidden bottom-12 absolute text-base-100">
 									{(
 										(dPerc[key as unknown as number] / totalRolls) *
 										100
@@ -123,11 +123,11 @@ const Dice = () => {
 									%
 								</span>
 
-								<span className="-rotate-90 overflow-hidden absolute top-4 text-white/50 text-sm">
+								<span className="-rotate-90 overflow-hidden absolute top-4 text-base-100/50 text-sm">
 									{`${dPerc[key as unknown as number]}`}
 								</span>
 
-								<span className="font-black dark:text-base-content overflow-hidden absolute bottom-0">
+								<span className="font-black text-base-100 overflow-hidden absolute bottom-0">
 									{key === "0" ? "00" : key}
 								</span>
 							</div>
