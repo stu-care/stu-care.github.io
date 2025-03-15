@@ -40,7 +40,7 @@ const KeyInfoPage = () => {
 			{keyInfo.map((item, index) => {
 				return (
 					<div
-						className="border-2 border-corduroy-200 overflow-hidden dark:border-corduroy-700 rounded"
+						className="border-2 border-slate-300 overflow-hidden dark:border-slate-700 rounded"
 						key={item.name}
 					>
 						{/* {item.img && (
@@ -50,7 +50,7 @@ const KeyInfoPage = () => {
 								alt={item.img.alt}
 							/>
 						)} */}
-						<div className="p-2 bg-corduroy-200 dark:bg-corduroy-700">
+						<div className="p-2 bg-slate-300 dark:bg-slate-700">
 							<h3
 								id={`${index}`}
 								className="flex gap-2 items-baseline justify-between"

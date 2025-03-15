@@ -44,13 +44,13 @@ const TimelinePage = () => {
 		<main className="grid grid-flow-row auto-rows-auto p-4 gap-4 ">
 			<label
 				htmlFor={"#session-select"}
-				className="uppercase text-corduroy-400 text-sm"
+				className="uppercase text-slate-500 text-sm"
 			>
 				Sessions
 			</label>
 			<select
 				id="session-select"
-				className="select w-full select-bordered dark:bg-corduroy-700 focus-within:select-primary"
+				className="select w-full select-bordered dark:bg-slate-700 focus-within:select-primary"
 				onChange={(e) => {
 					const selectedTitle = e.target.value;
 					console.log(selectedTitle);

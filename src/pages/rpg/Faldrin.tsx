@@ -109,7 +109,7 @@ const Faldrin = () => {
 				{rollVals[0].total <= 4 && (
 					<span className="text-red-500 font-black">FUMBLE</span>
 				)}
-				<div className="text-sm font-mono text-base-content/30 dark:text-base-100/30 flex items-center justify-center gap-2">
+				<div className="text-sm font-mono text-base-content/30 dark:text-slate-300/30 flex items-center justify-center gap-2">
 					(
 					{rollVals.map((roll, i) => (
 						// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>

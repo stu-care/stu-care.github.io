@@ -18,6 +18,7 @@ import Dice from "./pages/rpg/Dice";
 import Withering from "./withering/layout/Withering";
 import witheringRouter from "./withering/router";
 import { WithieringProvider } from "./withering/contexts/WitheringContext";
+import SheetPage from "./pages/rpg/Sheet";
 
 export const router = createHashRouter([
 	{
@@ -86,6 +87,10 @@ export const router = createHashRouter([
 			{
 				path: "/rpg/dice",
 				element: <Dice />,
+			},
+			{
+				path: "/rpg/sheet",
+				element: <SheetPage />,
 			},
 			{
 				path: "*",

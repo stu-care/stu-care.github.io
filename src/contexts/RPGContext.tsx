@@ -1,5 +1,5 @@
 import type React from "react";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { type Characters, characterList } from "../content/characterList";
 import type { CoinDenominations } from "../helpers/currency";
 import useLocalStorage from "../hooks/useLocalStorage";
@@ -10,6 +10,7 @@ export type Purse = {
 
 export interface IRPGContext {
 	characters: Characters;
+	updateCharacters: (characters: Characters) => void;
 	reset: () => void;
 	purse: {
 		values: Purse;
@@ -23,6 +24,7 @@ export interface IRPGProvider {
 
 export const defaultContext: IRPGContext = {
 	characters: {},
+	updateCharacters: () => {},
 	reset: () => {},
 	purse: {
 		values: {
@@ -64,6 +66,7 @@ export const RPGProvider = ({ children }: IRPGProvider) => {
 
 	const value = {
 		characters,
+		updateCharacters: setCharacters,
 		reset,
 		purse: {
 			values: purse,

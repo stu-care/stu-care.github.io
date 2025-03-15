@@ -155,13 +155,13 @@ const PursePage = () => {
 							onChange={(e) =>
 								handleCurrencyChange(abbr, Number.parseInt(e.target.value))
 							}
-							className="flex-grow input w-full input-bordered rounded-e-none focus-within:input-primary dark:bg-corduroy-700"
+							className="flex-grow input w-full input-bordered rounded-e-none focus-within:input-primary dark:bg-slate-700"
 							min="0"
 							step={1}
 						/>
 						<label
 							htmlFor={abbr}
-							className="flex bg-corduroy-200 w-12 last:rounded-e h-full items-center justify-center dark:bg-corduroy-500 dark:text-base-200"
+							className="flex bg-slate-300 w-12 last:rounded-e h-full items-center justify-center dark:bg-slate-500 dark:text-base-200"
 						>
 							{abbr}
 						</label>
@@ -189,7 +189,7 @@ const PursePage = () => {
 					onChange={(e) =>
 						setTotalCurrency(e.target.value as CoinDenominations)
 					}
-					className="select w-full select-bordered focus-within:select-primary dark:bg-corduroy-700"
+					className="select w-full select-bordered focus-within:select-primary dark:bg-slate-700"
 				>
 					{denominations.map((abbr) => (
 						<option key={abbr} value={abbr}>

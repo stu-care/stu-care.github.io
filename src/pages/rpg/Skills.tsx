@@ -80,7 +80,7 @@ const SkillsPage = () => {
 				<input
 					type="text"
 					name="filter"
-					className="input w-full input-bordered focus-within:input-primary dark:bg-corduroy-700"
+					className="input w-full input-bordered focus-within:input-primary dark:bg-slate-700"
 					value={filterValue}
 					onChange={handleFilterChange}
 					placeholder="Skill Name (e.g. Fauna Lore)"
@@ -96,8 +96,8 @@ const SkillsPage = () => {
 				.map((skill) => {
 					return (
 						<div key={skill.name} className="grid gap-4 max-w-full">
-							<div className="border-2 border-corduroy-200 rounded overflow-hidden dark:border-corduroy-700">
-								<div className="p-2 bg-corduroy-200 dark:bg-corduroy-700">
+							<div className="border-2 border-slate-300 rounded overflow-hidden dark:border-slate-700">
+								<div className="p-2 bg-slate-300 dark:bg-slate-700">
 									<h3 className="flex gap-2 items-baseline justify-between">
 										<span className="flex gap-4 items-baseline">
 											{skill.name}
@@ -125,7 +125,7 @@ const SkillsPage = () => {
 									<div className="tracking-wide grid grid-flow-row auto-rows-auto gap-2">
 										<Markdown>{skill.description}</Markdown>
 									</div>
-									<div className="flex justify-start items-baseline gap-2 text-left text-xs text-corduroy-300">
+									<div className="flex justify-start items-baseline gap-2 text-left text-xs text-slate-400">
 										{skill.ref ?? "-"}
 									</div>
 								</div>

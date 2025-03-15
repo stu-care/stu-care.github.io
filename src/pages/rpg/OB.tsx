@@ -150,7 +150,7 @@ const OBPage = () => {
 						}}
 						onFocus={(e) => e.target.select()}
 						step={5}
-						className="input input-bordered focus-within:input-primary w-1/4 dark:bg-corduroy-700"
+						className="input input-bordered focus-within:input-primary w-1/4 dark:bg-slate-700"
 					/>
 				</div>
 			</div>
@@ -179,7 +179,7 @@ const OBPage = () => {
 						}}
 						onFocus={(e) => e.target.select()}
 						value={movement}
-						className="input input-bordered focus-within:input-primary w-1/4 dark:bg-corduroy-700"
+						className="input input-bordered focus-within:input-primary w-1/4 dark:bg-slate-700"
 					/>
 				</div>
 			</div>
@@ -206,12 +206,12 @@ const OBPage = () => {
 							setTotalOb(Number.parseInt(e.target.value));
 						}}
 						onFocus={(e) => e.target.select()}
-						className="input input-bordered focus-within:input-primary w-1/4 dark:bg-corduroy-700"
+						className="input input-bordered focus-within:input-primary w-1/4 dark:bg-slate-700"
 					/>
 				</div>
 			</div>
 			<div className="w-full shrink flex gap-2">
-				{(faldrin as Character).weapons.map((weapon, index) => (
+				{(faldrin as Character).weapons.map((weapon) => (
 					<button
 						type="button"
 						key={weapon.short}
