@@ -1,14 +1,11 @@
 import { byPrefixAndName } from "@awesome.me/kit-5a5002bf29/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Markdown from "marked-react";
 import { Fragment, useEffect } from "react";
-import { keyInfo } from "../../content/keyInfo";
 import { useApp } from "../../contexts/AppContext";
 import { homeTitle } from "../Home";
 import { rpgTitle } from "../RPG";
 import { useRPG } from "../../contexts/RPGContext";
 import type { Character, Characters } from "../../content/characterList";
-import useLocalStorage from "../../hooks/useLocalStorage";
 
 export const sheetTitle = (
 	<span className="leading-none flex items-baseline gap-2">
@@ -99,10 +96,10 @@ const SheetPage = () => {
 	};
 
 	return (
-		<main className="grid grid-flow-row auto-rows-auto p-4 gap-4">
+		<main className="grid grid-flow-row auto-rows-auto p-4 gap-4 relative">
 			<h2>{faldrin.character.name}</h2>
 			<div className="grid grid-cols-1 auto-cols-fr gap-x-4 text-center">
-				<div className="font-bold border-b-2 border-b-slate-300 dark:border-b-slate-700 mb-2">
+				<div className="sticky top-0 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700 mb-2">
 					Level
 				</div>
 				<div className="grow">
@@ -122,10 +119,10 @@ const SheetPage = () => {
 				</div>
 			</div>
 			<div className="grid grid-cols-2 auto-cols-fr gap-x-4 text-center">
-				<div className="font-bold border-b-2 border-b-slate-300 dark:border-b-slate-700 mb-2">
+				<div className="sticky top-0 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700 mb-2">
 					Base HP
 				</div>
-				<div className="font-bold border-b-2 border-b-slate-300 dark:border-b-slate-700 mb-2">
+				<div className="sticky top-0 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700 mb-2">
 					Total HP
 				</div>
 				<div className="flex justify-stretch items-center gap-2">
@@ -161,7 +158,7 @@ const SheetPage = () => {
 					<div className="grow">
 						<input
 							readOnly={true}
-							className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-800"
+							className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-700 text-base-content/50"
 							type="number"
 							value={faldrin.hp.modifier}
 						/>
@@ -171,39 +168,39 @@ const SheetPage = () => {
 					<div className="grow">
 						<input
 							readOnly={true}
-							className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-800"
+							className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-700 text-base-content/50"
 							type="number"
 							value={faldrin.hp.total}
 						/>
 					</div>
 				</div>
 			</div>
-			<div className="grid grid-cols-8 auto-cols-fr gap-x-1 gap-y-2 items-center">
-				<div className="col-span-8 font-bold border-b-2 border-b-slate-300 dark:border-b-slate-700">
+			<div className="grid grid-cols-8 auto-cols-fr gap-x-2 gap-y-2 items-center">
+				<div className="sticky top-0 z-2 bg-base-100 dark:bg-slate-800 col-span-8 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
 					Stats
 				</div>
-				<div className="font-bold border-b-2 border-b-slate-300 dark:border-b-slate-700">
+				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
 					Stat
 				</div>
-				<div className="font-bold border-b-2 border-b-slate-300 dark:border-b-slate-700">
+				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
 					Temp
 				</div>
-				<div className="font-bold border-b-2 border-b-slate-300 dark:border-b-slate-700">
+				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
 					Pot
 				</div>
-				<div className="font-bold border-b-2 border-b-slate-300 dark:border-b-slate-700">
+				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
 					Mod
 				</div>
-				<div className="font-bold border-b-2 border-b-slate-300 dark:border-b-slate-700">
+				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
 					Race
 				</div>
-				<div className="font-bold border-b-2 border-b-slate-300 dark:border-b-slate-700">
+				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
 					Misc
 				</div>
-				<div className="font-bold border-b-2 border-b-slate-300 dark:border-b-slate-700">
+				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
 					Total
 				</div>
-				<div className="font-bold border-b-2 border-b-slate-300 dark:border-b-slate-700">
+				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
 					DP
 				</div>
 				{Object.keys(faldrin.stats).map((key) => {
@@ -288,7 +285,7 @@ const SheetPage = () => {
 							<div className="">
 								<input
 									readOnly={true}
-									className="w-full ps-1 input input-sm bg-slate-100 dark:bg-slate-800"
+									className="w-full ps-1 input input-sm bg-slate-100 dark:bg-slate-700 text-base-content/50"
 									type="number"
 									value={faldrin.stats[key as keyof typeof faldrin.stats].mod}
 								/>
@@ -296,7 +293,7 @@ const SheetPage = () => {
 							<div className="">
 								<input
 									readOnly={true}
-									className="w-full ps-1 input input-sm bg-slate-100 dark:bg-slate-800"
+									className="w-full ps-1 input input-sm bg-slate-100 dark:bg-slate-700 text-base-content/50"
 									type="number"
 									value={faldrin.stats[key as keyof typeof faldrin.stats].race}
 								/>
@@ -346,7 +343,7 @@ const SheetPage = () => {
 							<div className="">
 								<input
 									readOnly={true}
-									className="w-full ps-1 input input-sm bg-slate-100 dark:bg-slate-800"
+									className="w-full ps-1 input input-sm bg-slate-100 dark:bg-slate-700 text-base-content/50"
 									type="number"
 									value={
 										faldrin.stats[key as keyof typeof faldrin.stats].mod +
@@ -361,7 +358,7 @@ const SheetPage = () => {
 								<div className="">
 									<input
 										readOnly={true}
-										className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-800"
+										className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-700 text-base-content/50"
 										type="number"
 										value={calculateDp(
 											faldrin.stats[key as keyof typeof faldrin.stats].temp,
@@ -374,10 +371,10 @@ const SheetPage = () => {
 				})}
 			</div>
 			<div className="grid grid-cols-2 auto-cols-fr gap-x-4 text-center">
-				<div className="font-bold border-b-2 border-b-slate-300 dark:border-b-slate-700 mb-2">
+				<div className="sticky top-0 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700 mb-2">
 					BMR
 				</div>
-				<div className="font-bold border-b-2 border-b-slate-300 dark:border-b-slate-700 mb-2">
+				<div className="sticky top-0 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700 mb-2">
 					Movement
 				</div>
 				<div className="flex justify-stretch items-center gap-2">
@@ -397,7 +394,7 @@ const SheetPage = () => {
 					<div className="grow">
 						<input
 							readOnly={true}
-							className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-800"
+							className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-700 text-base-content/50"
 							type="number"
 							value={faldrin.stats.qu.total}
 						/>
@@ -407,45 +404,44 @@ const SheetPage = () => {
 					<div className="grow">
 						<input
 							readOnly={true}
-							className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-800"
+							className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-700 text-base-content/50"
 							type="number"
 							value={faldrin.bmr + faldrin.stats.qu.total}
 						/>
 					</div>
 				</div>
 			</div>
-			<div className="grid grid-cols-7 auto-cols-fr gap-x-1 gap-y-2 items-center">
-				<div className="col-span-7 font-bold border-b-2 border-b-slate-300 dark:border-b-slate-700">
+			<div className="grid grid-cols-6 auto-cols-fr gap-x-2 gap-y-2 items-center">
+				<div className="sticky top-0 z-2 bg-base-100 dark:bg-slate-800 col-span-6 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
 					Weapons
 				</div>
-				<div className="font-bold border-b-2 border-b-slate-300 dark:border-b-slate-700">
-					Name
-				</div>
-				<div className="font-bold border-b-2 border-b-slate-300 dark:border-b-slate-700">
+				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
 					S Lvl
 				</div>
-				<div className="font-bold border-b-2 border-b-slate-300 dark:border-b-slate-700">
+				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
 					Skill
 				</div>
-				<div className="font-bold border-b-2 border-b-slate-300 dark:border-b-slate-700">
+				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
 					Stat
 				</div>
-				<div className="font-bold border-b-2 border-b-slate-300 dark:border-b-slate-700">
+				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
 					Level
 				</div>
-				<div className="font-bold border-b-2 border-b-slate-300 dark:border-b-slate-700">
+				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
 					Misc
 				</div>
-				<div className="font-bold border-b-2 border-b-slate-300 dark:border-b-slate-700">
+				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
 					Total
 				</div>
 				{faldrin.weapons.map((weapon, index) => {
 					return (
 						<Fragment key={weapon.short}>
-							<div className="grow">{weapon.short}</div>
+							<div className="sticky top-12 z-2 bg-base-100 dark:bg-slate-800 grow col-span-6">
+								{weapon.short}
+							</div>
 							<div className="grow">
 								<input
-									className="w-full  ps-1  text-center input input-sm"
+									className="w-full ps-1 text-center input input-sm"
 									type="number"
 									value={weapon.bonuses.level}
 									onChange={(e) => {
@@ -485,7 +481,7 @@ const SheetPage = () => {
 							<div className="grow">
 								<input
 									readOnly={true}
-									className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-800"
+									className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-700 text-base-content/50"
 									type="number"
 									value={calculateSkillRank(weapon.bonuses.level)}
 								/>
@@ -493,7 +489,7 @@ const SheetPage = () => {
 							<div className="grow">
 								<input
 									readOnly={true}
-									className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-800"
+									className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-700 text-base-content/50"
 									type="number"
 									value={Math.round(
 										weapon.bonuses.stats
@@ -506,7 +502,7 @@ const SheetPage = () => {
 							<div className="grow">
 								<input
 									readOnly={true}
-									className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-800"
+									className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-700 text-base-content/50"
 									type="number"
 									value={
 										faldrin.level * faldrin.levelBonus[weapon.bonuses.category]
@@ -556,7 +552,7 @@ const SheetPage = () => {
 							<div className="grow">
 								<input
 									readOnly={true}
-									className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-800"
+									className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-700 text-base-content/50"
 									type="number"
 									value={
 										calculateSkillRank(weapon.bonuses.level) +
@@ -576,32 +572,34 @@ const SheetPage = () => {
 					);
 				})}
 			</div>
-			<div className="grid grid-cols-6 auto-cols-fr gap-x-1 gap-y-2 items-center">
-				<div className="col-span-6 font-bold border-b-2 border-b-slate-300 dark:border-b-slate-700">
+			<div className="grid grid-cols-6 auto-cols-fr gap-x-2 gap-y-2 items-center">
+				<div className="sticky top-0 z-2 bg-base-100 dark:bg-slate-800 col-span-6 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
 					Skills
 				</div>
-				<div className="font-bold border-b-2 border-b-slate-300 dark:border-b-slate-700">
+				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
 					S Lvl
 				</div>
-				<div className="font-bold border-b-2 border-b-slate-300 dark:border-b-slate-700">
+				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
 					Skill
 				</div>
-				<div className="font-bold border-b-2 border-b-slate-300 dark:border-b-slate-700">
+				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
 					Stat
 				</div>
-				<div className="font-bold border-b-2 border-b-slate-300 dark:border-b-slate-700">
+				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
 					Level
 				</div>
-				<div className="font-bold border-b-2 border-b-slate-300 dark:border-b-slate-700">
+				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
 					Misc
 				</div>
-				<div className="font-bold border-b-2 border-b-slate-300 dark:border-b-slate-700">
+				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
 					Total
 				</div>
 				{faldrin.skills.map((skill, index) => {
 					return (
 						<Fragment key={skill.name}>
-							<div className="grow col-span-6">{skill.name}</div>
+							<div className="sticky top-12 z-2 bg-base-100 dark:bg-slate-800 grow col-span-6">
+								{skill.name}
+							</div>
 							<div className="grow">
 								<input
 									className="w-full  ps-1  text-center input input-sm"
@@ -640,7 +638,7 @@ const SheetPage = () => {
 							<div className="grow">
 								<input
 									readOnly={true}
-									className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-800"
+									className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-700 text-base-content/50"
 									type="number"
 									value={calculateSkillRank(skill.level)}
 								/>
@@ -648,7 +646,7 @@ const SheetPage = () => {
 							<div className="grow">
 								<input
 									readOnly={true}
-									className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-800"
+									className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-700 text-base-content/50"
 									type="number"
 									value={Math.round(
 										skill.stats
@@ -661,7 +659,7 @@ const SheetPage = () => {
 							<div className="grow">
 								<input
 									readOnly={true}
-									className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-800"
+									className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-700 text-base-content/50"
 									type="number"
 									value={
 										faldrin.level * (faldrin.levelBonus[skill.category] || 0)
@@ -706,7 +704,7 @@ const SheetPage = () => {
 							<div className="grow">
 								<input
 									readOnly={true}
-									className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-800"
+									className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-700 text-base-content/50"
 									type="number"
 									value={
 										calculateSkillRank(skill.level) +

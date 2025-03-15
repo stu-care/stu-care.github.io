@@ -21,7 +21,7 @@ export const timeline: Timeline = [
 			{
 				icon: "location-plus",
 				description: (
-					<p>
+					<p className="mb-2">
 						We met each other at the Ram's Fleece, an Inn run by Ron and twins
 						Molly and Mabel.
 					</p>
@@ -30,7 +30,7 @@ export const timeline: Timeline = [
 			{
 				icon: "circle-user",
 				description: (
-					<p>
+					<p className="mb-2">
 						Benk, the leader of one part of the thieves’ guild had gone missing
 						and was presumably dead. Zane the leader of the "Children of the
 						Light/Night(?)" had taken control of the thieves’ guild and problems
@@ -41,7 +41,7 @@ export const timeline: Timeline = [
 			{
 				icon: "circle-user",
 				description: (
-					<p>
+					<p className="mb-2">
 						Isabelle, Ron's goddaughter, was kidnapped, imprisoned and held at
 						ransom with a deadline of 7 days due to some debts incurred by Ron.
 					</p>
@@ -50,7 +50,7 @@ export const timeline: Timeline = [
 			{
 				icon: "circle-user",
 				description: (
-					<p>
+					<p className="mb-2">
 						Finn, a member of one of the thieves’ guilds in town and friend of
 						Isabelle, agreed to help us get into the sewers and provide a
 						distraction for us to pass through and rescue Isabelle.
@@ -59,12 +59,14 @@ export const timeline: Timeline = [
 			},
 			{
 				icon: "mattress-pillow",
-				description: <p>We slept and readied for entering the sewers</p>,
+				description: (
+					<p className="mb-2">We slept and readied for entering the sewers</p>
+				),
 			},
 			{
 				icon: "route",
 				description: (
-					<p>
+					<p className="mb-2">
 						Finn led us to a courtyard in the west of Haalkitaine which led down
 						to some catacombs in which we found a mausoleum.
 					</p>
@@ -72,7 +74,9 @@ export const timeline: Timeline = [
 			},
 			{
 				icon: "dice-d10",
-				description: <p>Some skeletons appeared and we beat them all.</p>,
+				description: (
+					<p className="mb-2">Some skeletons appeared and we beat them all.</p>
+				),
 			},
 		],
 	},
@@ -82,7 +86,7 @@ export const timeline: Timeline = [
 			{
 				icon: "route",
 				description: (
-					<p>
+					<p className="mb-2">
 						We continued further into the catacombs, followed some corridors and
 						found a locked door.
 					</p>
@@ -91,7 +95,7 @@ export const timeline: Timeline = [
 			{
 				icon: "dice-d10",
 				description: (
-					<p>
+					<p className="mb-2">
 						We broke through one locked door and encountered some giant rats...
 						they hurt but we killed all of them.
 					</p>
@@ -100,7 +104,7 @@ export const timeline: Timeline = [
 			{
 				icon: "route",
 				description: (
-					<p>
+					<p className="mb-2">
 						We entered the sewers and made our way through them, following Finn,
 						where we found a few Thieves guarding a makeshift drawbridge.
 					</p>
@@ -109,7 +113,7 @@ export const timeline: Timeline = [
 			{
 				icon: "dice-d10",
 				description: (
-					<p>
+					<p className="mb-2">
 						Tren and Jascrow sorted them out and Jascrow tidily offed a guard
 						who spotted us and went to run.
 					</p>
@@ -118,7 +122,7 @@ export const timeline: Timeline = [
 			{
 				icon: "route",
 				description: (
-					<p>
+					<p className="mb-2">
 						We made our way through the sewers into a hideout where we
 						encountered two more thieves in the mess hall, they were skewered.
 					</p>
@@ -127,7 +131,7 @@ export const timeline: Timeline = [
 			{
 				icon: "route",
 				description: (
-					<p>
+					<p className="mb-2">
 						We left an unknown number of thieves in the kitchen and snuck on.
 					</p>
 				),
@@ -135,7 +139,7 @@ export const timeline: Timeline = [
 			{
 				icon: "dice-d10",
 				description: (
-					<p>
+					<p className="mb-2">
 						As we explored on 4 more thieves were killed silently in the
 						barracks
 					</p>
@@ -144,7 +148,7 @@ export const timeline: Timeline = [
 			{
 				icon: "magnifying-glass",
 				description: (
-					<p>
+					<p className="mb-2">
 						There was also some searching and some looting which found us a
 						ransom note for Lord Ferris/Derek (son of Lord Glund)
 					</p>
@@ -153,7 +157,7 @@ export const timeline: Timeline = [
 			{
 				icon: "route",
 				description: (
-					<p>
+					<p className="mb-2">
 						Whilst the thief killing was happening, Rhombus, Faldrin and Tren
 						found another room,{" "}
 					</p>
@@ -161,12 +165,12 @@ export const timeline: Timeline = [
 			},
 			{
 				icon: "sack",
-				description: <p>Tren did some looting, </p>,
+				description: <p className="mb-2">Tren did some looting, </p>,
 			},
 			{
 				icon: "dice-d10",
 				description: (
-					<p>
+					<p className="mb-2">
 						Rhombus and Faldrin got to breaking down a door. We took a near miss
 						with a crossbow bolt, broke down the door, took care of the thief
 						who shot that and his accomplice.{" "}
@@ -199,7 +203,7 @@ export const timeline: Timeline = [
 			{
 				icon: "route",
 				description: (
-					<p>
+					<p className="mb-2">
 						Unfortunately, as we stepped out from the cells, the once closed
 						kitchen door was now open and the once present thieves in the
 						kitchen were now gone.
@@ -209,7 +213,7 @@ export const timeline: Timeline = [
 			{
 				icon: "dice-d10",
 				description: (
-					<p>
+					<p className="mb-2">
 						We had ourselves a fight, several thieves appeared, and we made
 						swift work of them, though I believe 1 escaped and ran.
 					</p>
@@ -218,7 +222,7 @@ export const timeline: Timeline = [
 			{
 				icon: "route",
 				description: (
-					<p>
+					<p className="mb-2">
 						Following our encounter, we took off out of the sewers and ended up
 						near the grounds of the now affectionately named "haunted manor".
 					</p>
@@ -227,7 +231,7 @@ export const timeline: Timeline = [
 			{
 				icon: "route",
 				description: (
-					<p>
+					<p className="mb-2">
 						Finn went off to do something and whilst we attempted to sit tight,
 						Isabelle "went to the toilet" and was drawn to leave our safe space.
 					</p>
@@ -236,7 +240,7 @@ export const timeline: Timeline = [
 			{
 				icon: "route",
 				description: (
-					<p>
+					<p className="mb-2">
 						Erjwyn and Faldrin followed her, and she had been almost compelled
 						towards the haunted manor... We are though initially increasingly
 						unsure about the manor were warmed as we moved closer to Isabelle.
@@ -263,7 +267,7 @@ export const timeline: Timeline = [
 			{
 				icon: "circle-user",
 				description: (
-					<p>
+					<p className="mb-2">
 						One of the people in the painting was wearing a pendant (?) matching
 						a pendent Isabelle has which she believes helps her healing.
 					</p>
@@ -295,7 +299,7 @@ export const timeline: Timeline = [
 			{
 				icon: "route",
 				description: (
-					<p>
+					<p className="mb-2">
 						At some point in this day, we went back to The Ram's Fleece and Ron
 						shared with us that he was not Isabelle's godfather, but she had
 						been brought to him young, and he had been told to protect her. This
@@ -326,7 +330,7 @@ export const timeline: Timeline = [
 			{
 				icon: "route",
 				description: (
-					<p>
+					<p className="mb-2">
 						We decided to head north to Lord Mallon to try and understand more
 						from him under the guise of academic study and a biography on the
 						family.
@@ -336,7 +340,7 @@ export const timeline: Timeline = [
 			{
 				icon: "store",
 				description: (
-					<p>
+					<p className="mb-2">
 						Faldrin went to scope out some horses and carts and he didn't
 						bargain well.
 					</p>
@@ -345,7 +349,7 @@ export const timeline: Timeline = [
 			{
 				icon: "horse",
 				description: (
-					<p>
+					<p className="mb-2">
 						We then sent Jascrow to buy some horses, he did better and
 						eventually set off north.
 					</p>
@@ -354,7 +358,7 @@ export const timeline: Timeline = [
 			{
 				icon: "route",
 				description: (
-					<p>
+					<p className="mb-2">
 						Upon reaching the house of Lord Mallon, he turned out to be a bit of
 						an [expletive of choice] and we established we needed a letter of
 						recommendation from someone important which potentially grant us
@@ -365,7 +369,7 @@ export const timeline: Timeline = [
 			{
 				icon: "route",
 				description: (
-					<p>
+					<p className="mb-2">
 						We headed back to see Lord Glund who was willing to grant us a
 						letter for both Lord Mallon and Lady Jane (should we need it).
 					</p>
@@ -374,7 +378,7 @@ export const timeline: Timeline = [
 			{
 				icon: "scroll-old",
 				description: (
-					<p>
+					<p className="mb-2">
 						Whilst we were there, he offered us a contract. 50gp up front, 250gp
 						upon resolution. He had issues with his castle(?) c. 330 miles south
 						along the main roads, strange things were happening with creatures.
@@ -384,7 +388,7 @@ export const timeline: Timeline = [
 			{
 				icon: "exclamation-circle",
 				description: (
-					<p>
+					<p className="mb-2">
 						At some point in all of this we got back to the Inn where we found
 						Ron, Mabel and Molly all dead in a professional hit.
 					</p>
@@ -393,7 +397,7 @@ export const timeline: Timeline = [
 			{
 				icon: "exclamation-circle",
 				description: (
-					<p>
+					<p className="mb-2">
 						Mabel and Molly were identified as potentially eyes and ears for the
 						Truth Takers sect a group dealing with information. And this hit
 						could have been a result of them sharing something they had
@@ -404,7 +408,7 @@ export const timeline: Timeline = [
 			{
 				icon: "hourglass",
 				description: (
-					<p>
+					<p className="mb-2">
 						Then we awaited Isabelle's return and prepared to leave quickly.
 					</p>
 				),
@@ -417,7 +421,7 @@ export const timeline: Timeline = [
 			{
 				icon: "route",
 				description: (
-					<p>
+					<p className="mb-2">
 						We took off with Isabelle south down the major roads and going was
 						good, we stayed in an Inn and cracked on for a second day.
 					</p>
@@ -426,7 +430,7 @@ export const timeline: Timeline = [
 			{
 				icon: "eye",
 				description: (
-					<p>
+					<p className="mb-2">
 						We encountered plenty of people coming towards us, as expected,
 						heading to provide their retinue. But we also encountered a group of
 						riders heading fast towards us, they had a nose as they passed us
@@ -436,12 +440,12 @@ export const timeline: Timeline = [
 			},
 			{
 				icon: "user-circle",
-				description: <p>A wild Jascrow appeared!</p>,
+				description: <p className="mb-2">A wild Jascrow appeared!</p>,
 			},
 			{
 				icon: "exclamation-circle",
 				description: (
-					<p>
+					<p className="mb-2">
 						Jascrow shared that there was a bounty on our heads (500gp) for the
 						murder of Ron, Molly, and Mabel. We decided to head back to the
 						previous inn and take a turning off the major road down onto the
@@ -452,7 +456,7 @@ export const timeline: Timeline = [
 			{
 				icon: "horse",
 				description: (
-					<p>
+					<p className="mb-2">
 						In turning around as we passed the inn, we swapped our cart and
 						bought more horses to help us deal with the less well travelled
 						roads.
@@ -462,7 +466,7 @@ export const timeline: Timeline = [
 			{
 				icon: "mattress-pillow",
 				description: (
-					<p>
+					<p className="mb-2">
 						We stopped at another Inn where we stayed the night and nothing new
 						happened
 					</p>
@@ -471,7 +475,7 @@ export const timeline: Timeline = [
 			{
 				icon: "route",
 				description: (
-					<p>
+					<p className="mb-2">
 						Heading south we knew we would need to camp for the night due the
 						distance before the next inn. We travelled as far as we could and
 						then set up camp in a clearing in the trees. The Elves took watch.
@@ -481,7 +485,7 @@ export const timeline: Timeline = [
 			{
 				icon: "dice-d10",
 				description: (
-					<p>
+					<p className="mb-2">
 						Eventually Erjwyn heard then spotted a ranger in the woods, took
 						care of him but the party knew where we were, and we were inevitably
 						under attack.
@@ -491,7 +495,7 @@ export const timeline: Timeline = [
 			{
 				icon: "dice-d10",
 				description: (
-					<p>
+					<p className="mb-2">
 						A group of bounty hunters (the ones who passed fast on horses
 						previously) surrounded us and with an initial pelting of arrows, a
 						fight ensued.
@@ -501,7 +505,7 @@ export const timeline: Timeline = [
 			{
 				icon: "person-running-fast",
 				description: (
-					<p>
+					<p className="mb-2">
 						With most downed, the last man turned to run and though Erjwyn
 						tried, he could not get him through the trees and the last man took
 						to his horse and ran north.
@@ -511,7 +515,7 @@ export const timeline: Timeline = [
 			{
 				icon: "horse",
 				description: (
-					<p>
+					<p className="mb-2">
 						We packed up camp, stole some horses (we now have 14!) amongst other
 						thing and decided to continue southeast. This time tracking off-road
 						about a mile west of the road we were following.
@@ -526,7 +530,7 @@ export const timeline: Timeline = [
 			{
 				icon: "route",
 				description: (
-					<p>
+					<p className="mb-2">
 						We travelled well for a couple of days, stopping another night in a
 						clearing, as we finished the second day we found our next clearing
 						for the night, took up the usual defensive posts and set down.
@@ -536,7 +540,7 @@ export const timeline: Timeline = [
 			{
 				icon: "dice-d10",
 				description: (
-					<p>
+					<p className="mb-2">
 						As we lay gently sleeping, somehow our wonderful elves managed to
 						not see 2 Hill Trolls sneak towards camp... Well 1 rather large
 						boulder fell on Faldrin, and another landed just shy of Rhombus. We
@@ -547,7 +551,7 @@ export const timeline: Timeline = [
 			{
 				icon: "sword",
 				description: (
-					<p>
+					<p className="mb-2">
 						After a relentless series of attacks from the whole group, we
 						managed to take care of the trolls eventually. Erjwyn took the first
 						and Sisu the second.
@@ -557,7 +561,7 @@ export const timeline: Timeline = [
 			{
 				icon: "magnifying-glass",
 				description: (
-					<p>
+					<p className="mb-2">
 						We attempted to track back to the troll hole but unfortunately, we
 						were clearly just a little too slow and we lost the tracks pretty
 						quickly.
@@ -567,7 +571,7 @@ export const timeline: Timeline = [
 			{
 				icon: "route",
 				description: (
-					<p>
+					<p className="mb-2">
 						Another day of travel preceded yet another peaceful night 'neath the
 						stars. We continued the next day but as midday hit, we notice smoke
 						through the trees.
@@ -577,7 +581,7 @@ export const timeline: Timeline = [
 			{
 				icon: "smoke",
 				description: (
-					<p>
+					<p className="mb-2">
 						Erjwyn and Jascrow headed off to take a look before reporting back a
 						smouldering barn and cottage, roof caved in. From their initial
 						thoughts, the building was clearly ablaze recently, likely only
@@ -588,7 +592,7 @@ export const timeline: Timeline = [
 			{
 				icon: "farm",
 				description: (
-					<p>
+					<p className="mb-2">
 						As the group continued to investigate, we found no livestock dead or
 						alive only the body of one mad, dead in the doorway with an arrow in
 						his back. Faldrin's knowledge of orcs identified the arrow as one of
@@ -599,7 +603,7 @@ export const timeline: Timeline = [
 			{
 				icon: "route",
 				description: (
-					<p>
+					<p className="mb-2">
 						Led by his disdain for orcs, Faldrin encouraged the group to hunt
 						down the orcs and Erjwyn found a trail.
 					</p>
@@ -608,7 +612,7 @@ export const timeline: Timeline = [
 			{
 				icon: "route",
 				description: (
-					<p>
+					<p className="mb-2">
 						Following the trail, we headed southeast for the remainder of the
 						day, spent another uneventful night under the stars and headed back
 						off in the morning. It wasn't far into the next day we followed the
@@ -619,7 +623,7 @@ export const timeline: Timeline = [
 			{
 				icon: "hood-cloak",
 				description: (
-					<p>
+					<p className="mb-2">
 						Jascrow donned his cape, vanishing in a flash. He headed into to
 						search through the bushes and as he crept through a gap in the
 						rocks, he saw two orcs in a corridor before heading back.
@@ -635,7 +639,7 @@ export const timeline: Timeline = [
 							snuck back up to the entrance. Tren sent the two orcs at the
 							entrance to sleep where took advantage of that to head further in.
 						</p>
-						<p>
+						<p className="mb-2">
 							As he crept further down the corridor, Jascrow hit a split,
 							heading left he suddenly stopped, hearing snoring to his right.
 							Slowly peaking round the , he saw 2 more orcs sleeping in a small
@@ -652,7 +656,7 @@ export const timeline: Timeline = [
 			{
 				icon: "zzz",
 				description: (
-					<p>
+					<p className="mb-2">
 						Sneaking into the caves, Erjwyn killed two magically sleeping orcs.
 						He moved round the corner and whilst he attempted to kill a third
 						sleeping orc unfortunately the remaining Orc woke up.
@@ -662,7 +666,7 @@ export const timeline: Timeline = [
 			{
 				icon: "warning",
 				description: (
-					<p>
+					<p className="mb-2">
 						Jascrow and Faldrin entered the fight as 2 more orcs appeared. Tren
 						joined in and put 1 to sleep but the remaining orc made a run for it
 						back into the depths of the caves. Faldrin fumbled.
@@ -672,7 +676,7 @@ export const timeline: Timeline = [
 			{
 				icon: "sword",
 				description: (
-					<p>
+					<p className="mb-2">
 						Rhombus joined the fight as Erjwyn took another swing at his target.
 						Taking his turn Rhombus swung at the remaining orc who promptly
 						died.
@@ -682,7 +686,7 @@ export const timeline: Timeline = [
 			{
 				icon: "circle-8",
 				description: (
-					<p>
+					<p className="mb-2">
 						No sooner than we had killed the last orc we could see a hoard of
 						orcs appeared, 8 in total.
 					</p>
@@ -708,7 +712,7 @@ export const timeline: Timeline = [
 			{
 				icon: "cow",
 				description: (
-					<p>
+					<p className="mb-2">
 						Somewhere in all of this, Faldrin found some sheep, cows and pigs
 						and decided to play with them for a bit.
 					</p>
@@ -717,7 +721,7 @@ export const timeline: Timeline = [
 			{
 				icon: "circle-5",
 				description: (
-					<p>
+					<p className="mb-2">
 						During the fight, more orcs appeared, putting us up to 13 in total.
 					</p>
 				),
@@ -725,7 +729,7 @@ export const timeline: Timeline = [
 			{
 				icon: "wand-sparkles",
 				description: (
-					<p>
+					<p className="mb-2">
 						The Shaman orc did something and the remaining orc walk straight
 						past a confused sisu.
 					</p>
@@ -753,7 +757,9 @@ export const timeline: Timeline = [
 			{
 				icon: "person-falling-burst",
 				description: (
-					<p>Jascrow, having taken a hit from one orc hits the deck.</p>
+					<p className="mb-2">
+						Jascrow, having taken a hit from one orc hits the deck.
+					</p>
 				),
 			},
 			{
@@ -775,7 +781,7 @@ export const timeline: Timeline = [
 			{
 				icon: "person-from-portal",
 				description: (
-					<p>
+					<p className="mb-2">
 						Sisu came back round from his frenzy fortunately not having hit any
 						of team!
 					</p>
@@ -809,7 +815,7 @@ export const timeline: Timeline = [
 			{
 				icon: "kit-medical",
 				description: (
-					<p>
+					<p className="mb-2">
 						Isabelle having spent some time healing the others made her way over
 						to Jascrow and revived him.
 					</p>
@@ -831,7 +837,7 @@ export const timeline: Timeline = [
 			{
 				icon: "treasure-chest",
 				description: (
-					<p>
+					<p className="mb-2">
 						Venturing into the cave Erjwyn found a locked chest. Jascrow upon
 						trying to open it hit a trap and poisoned he went down unconscious.
 						Erjwyn fetched Isabelle who healed Jascrow, and they dragged the
@@ -842,7 +848,7 @@ export const timeline: Timeline = [
 			{
 				icon: "family",
 				description: (
-					<p>
+					<p className="mb-2">
 						Rhombus and Faldrin found the missing family and Tren/Isabelle took
 						them out of the caves.
 					</p>
@@ -851,7 +857,7 @@ export const timeline: Timeline = [
 			{
 				icon: "fire",
 				description: (
-					<p>
+					<p className="mb-2">
 						Searching the rest of the caves we found some other bits and bobs,
 						another small chest and some money, taking out anything of value we
 						left the caves throwing the remainder into a pile setting it on
@@ -862,7 +868,7 @@ export const timeline: Timeline = [
 			{
 				icon: "treasure-chest",
 				description: (
-					<p>
+					<p className="mb-2">
 						Faldrin attempted to disarm the trap on the chest and failed. Sisu
 						opened the small chest. Rhombus hit the big chest with a hammer and
 						opened it. Agreed with the group, Rhombus offered the 10SP from the
@@ -873,7 +879,7 @@ export const timeline: Timeline = [
 			{
 				icon: "route",
 				description: (
-					<p>
+					<p className="mb-2">
 						We encouraged the family to then join us on our travels at least
 						till we arrived in Swenk.
 					</p>
@@ -887,7 +893,7 @@ export const timeline: Timeline = [
 			{
 				icon: "code-branch",
 				description: (
-					<p>
+					<p className="mb-2">
 						Rhombus heads to the city of Swenk dropping off the family. Making a
 						beggar's day he drops him a gold piece to guide him to collect some
 						letters and purchase Erjwyn some arrows. Heads back to join the
@@ -898,7 +904,7 @@ export const timeline: Timeline = [
 			{
 				icon: "route",
 				description: (
-					<p>
+					<p className="mb-2">
 						The group travel 2.5 days south through Arranwatch to get to Grove
 						Castle, the family seat of Lord Glund. Upon presenting the letter of
 						recommendation, the group is granted an audience with the
@@ -909,7 +915,7 @@ export const timeline: Timeline = [
 			{
 				icon: "couch",
 				description: (
-					<p>
+					<p className="mb-2">
 						A letter is prepared for Lord Glund to help clear our name from the
 						outstanding warrant against us and everyone takes a moment to rest.
 					</p>
@@ -963,7 +969,7 @@ export const timeline: Timeline = [
 			{
 				icon: "xmark-to-slot",
 				description: (
-					<p>
+					<p className="mb-2">
 						The group took a vote on which way to head, either to Hookhall via
 						the river and Pyrofall or to follow the dead parties trail south to
 						Oakenforge. The group by a majority decided to take the river.
@@ -973,7 +979,7 @@ export const timeline: Timeline = [
 			{
 				icon: "sailboat",
 				description: (
-					<p>
+					<p className="mb-2">
 						Over a couple of days, the group took an ore barge via Lake Town
 						where we disembarked asked some questions to no avail, stayed at an
 						inn then on to Pyrofall.
@@ -983,7 +989,7 @@ export const timeline: Timeline = [
 			{
 				icon: "fence",
 				description: (
-					<p>
+					<p className="mb-2">
 						Approaching what look like a freshly reinforced palisade wall we
 						entered the incredibly well-lit Pyrofall where the gates were
 						efficiently shut behind us. We found our inn and went for a drink.
@@ -993,7 +999,7 @@ export const timeline: Timeline = [
 			{
 				icon: "comments",
 				description: (
-					<p>
+					<p className="mb-2">
 						Having a conversation with the barkeep we heard about "Harry" who
 						went to his farm outside the city walls and returned a few days
 						later where he tried to get back in and bite someone. There were
@@ -1004,7 +1010,7 @@ export const timeline: Timeline = [
 			{
 				icon: "moon-cloud",
 				description: (
-					<p>
+					<p className="mb-2">
 						That night, a number of the party went up to the walls and climbed
 						to up to look over, not much happened but we did spot some movement
 						in the distance. There was no way out, so we returned to the inn.
@@ -1014,7 +1020,7 @@ export const timeline: Timeline = [
 			{
 				icon: "sun-cloud",
 				description: (
-					<p>
+					<p className="mb-2">
 						The next day we spoke to the local magistrate who said mostly the
 						same as we had already been told but mentioned that occasionally
 						they see things in the day and sometimes the undead are animals. He
@@ -1026,7 +1032,7 @@ export const timeline: Timeline = [
 			{
 				icon: "comments",
 				description: (
-					<p>
+					<p className="mb-2">
 						We spoke to a local leather worker, Celkin who shared his theories
 						that the undead have not come of their own accord but instead were
 						the result of a tinkering necromancer Lord Ironhand (?). Though his
@@ -1039,7 +1045,7 @@ export const timeline: Timeline = [
 			{
 				icon: "circle-info",
 				description: (
-					<p>
+					<p className="mb-2">
 						As we were leaving Celkin, he slapped his forehead and said “ohh I
 						almost forgot there is one other person you could talk too, although
 						he has not been seen in years and that is Scarat the wizard, he has
@@ -1056,7 +1062,7 @@ export const timeline: Timeline = [
 			{
 				icon: "route",
 				description: (
-					<p>
+					<p className="mb-2">
 						After talking to Celkin, we decide indeed to head west to the tower
 						in the Deep Forest. We travel into the forest and after a few hours
 						switch to foot as we lose the well-travelled path.
@@ -1078,7 +1084,7 @@ export const timeline: Timeline = [
 							though, Erjwyn hears someone shouting in the distance and slows to
 							allow the group to catch up.
 						</p>
-						<p>
+						<p className="mb-2">
 							Not long after passing Erjwyn the horse hurtles past the remainder
 							of the group who continue on with more caution.
 						</p>
@@ -1088,7 +1094,7 @@ export const timeline: Timeline = [
 			{
 				icon: "ear",
 				description: (
-					<p>
+					<p className="mb-2">
 						As the group continue on Erjwyn hears additional shouting and
 						recognising the sound of a commotion he jogs on to investigate. The
 						group upon hearing the same commotion leave the path and head
@@ -1114,7 +1120,7 @@ export const timeline: Timeline = [
 							In going to loose his bow he pulls just a touch too far and the
 							string snaps.
 						</p>
-						<p>
+						<p className="mb-2">
 							Whilst he is restringing his bow, the remainder of the group
 							arrive, just as one of the wolves kills its target.
 						</p>
@@ -1195,7 +1201,7 @@ export const timeline: Timeline = [
 			{
 				icon: "axe-battle",
 				description: (
-					<p>
+					<p className="mb-2">
 						2 dead wolves and plenty of potential living dead folk around, we
 						decided to do cleanup... Erjwyn went on a looting run, Tren went to
 						get Jascrow and Isabelle, Faldrin prepared the fie with Rhombus, and
@@ -1212,7 +1218,7 @@ export const timeline: Timeline = [
 							that this is all a bit well maintained, and a bit professional.
 							Definitely not a normal camp.
 						</p>
-						<p>
+						<p className="mb-2">
 							There aren't any trinkets, but we do find a rolled up tabard with
 							a green tree on a white background.
 						</p>
@@ -1222,7 +1228,7 @@ export const timeline: Timeline = [
 			{
 				icon: "treasure-chest",
 				description: (
-					<p>
+					<p className="mb-2">
 						Looking through everything we find everything is well maintained but
 						there was nothing of particular worth. Rhombus takes the tabard for
 						further investigation. AS we are rejoined by Jascrow he happens to
@@ -1241,7 +1247,7 @@ export const timeline: Timeline = [
 							and continue on to the tower. We travel, Erjwyn scouts, we enter a
 							hillier area and continue through ever more dense forest.
 						</p>
-						<p>
+						<p className="mb-2">
 							We eventually find a clearing with a tower. The tower is huge
 							building made of white stone. It stands with a radius of about
 							25ft and a massive 150ft tall.
@@ -1272,7 +1278,7 @@ export const timeline: Timeline = [
 			{
 				icon: "user-circle",
 				description: (
-					<p>
+					<p className="mb-2">
 						Faldrin approaches as Erjwyn shouts to the man.{" "}
 						<strong>Scarat</strong> is a wizard with long unkept grey hair, his
 						robes are dirty and ragged but look to have once been fine and blue.
@@ -1299,7 +1305,7 @@ export const timeline: Timeline = [
 							power, Erjwyn feels it too. In response to this feeling, they both
 							try to touch the tower but are shocked and sent flying back.
 						</p>
-						<p>
+						<p className="mb-2">
 							At this point Scarat tells us to be careful. Erjwyn notices Tren,
 							passes this on just as he too touches the tower and flies back.
 							Faldrin decides with his Dwarven resistance to some magics to give
@@ -1341,7 +1347,7 @@ export const timeline: Timeline = [
 							As we spend longer there the power radiating from the tower
 							lessens in intensity.
 						</p>
-						<p>
+						<p className="mb-2">
 							Rhombus asks about the seal and the parchment. Scarat mentions
 							that it's the Urulan seal from the Island east of Rhakhaan, never
 							particularly friendly with Rhakhaan but certainly strange for them
@@ -1353,7 +1359,7 @@ export const timeline: Timeline = [
 			{
 				icon: "route",
 				description: (
-					<p>
+					<p className="mb-2">
 						As we leave the next morning, Scarat mentions that you can only
 						enter the swamp from the north thanks to an essence barrier blocking
 						passage from the south. After a bit of chat about which way to head,
@@ -1376,7 +1382,7 @@ export const timeline: Timeline = [
 							We hand him the parchment, but he is unable to read it, he
 							suggests it is sent to the capital for further investigation.
 						</p>
-						<p>
+						<p className="mb-2">
 							In return for our parchment, he hands us another which shows our
 							names cleared of the crimes we had been accused of. Signed by the
 							magistrate and others of Haalkitaine.
@@ -1387,7 +1393,7 @@ export const timeline: Timeline = [
 			{
 				icon: "books",
 				description: (
-					<p>
+					<p className="mb-2">
 						Investigating Ironhand, Tren and Jascrow find that around 600 years
 						ago he was lord of all land here, he had feudal lords who paid him
 						but over time he became more tyrannical. The feudal lords rebelled
@@ -1422,7 +1428,7 @@ export const timeline: Timeline = [
 							We relay our information again and he explains that the only way
 							to be sure to kill the undead is to behead them and burn them.
 						</p>
-						<p>
+						<p className="mb-2">
 							After dinner, we are invited back to the librarian where a large,
 							tall man gives us vials of sanctified holy water, he also hands
 							Rhombus a holy longsword for use against spirits and the undead as
@@ -1439,7 +1445,7 @@ export const timeline: Timeline = [
 			{
 				icon: "route",
 				description: (
-					<p>
+					<p className="mb-2">
 						Setting off from the monastery, we head back to Grove Castle
 						spending an uneventful night in Artanwatch. During our onward travel
 						to the castle the next day, south of us we saw a flash of blinding
@@ -1451,7 +1457,7 @@ export const timeline: Timeline = [
 			{
 				icon: "horse",
 				description: (
-					<p>
+					<p className="mb-2">
 						We continued to Grove Castle where we slept the night at Grove
 						Castle hoping to catch an ore barge out towards Lake Town however
 						due to a dispute there were no boats. We decided to continue east by
@@ -1463,7 +1469,7 @@ export const timeline: Timeline = [
 			{
 				icon: "route",
 				description: (
-					<p>
+					<p className="mb-2">
 						3 Days and nights of travel passed by easily and on the third day we
 						left the road to head southwest to the edge of the forest. In the
 						distance Tren spotted a glint of armour on the treeline. As a group
@@ -1489,7 +1495,7 @@ export const timeline: Timeline = [
          \\__  |  __/
             \\_|_/
               |`}</pre>
-						<p>
+						<p className="mb-2">
 							Rhombus, Isabelle and Tren stayed on their horses whilst the
 							others dismounted. Tren began to prepare to cast, just in case.
 						</p>
@@ -1522,7 +1528,7 @@ export const timeline: Timeline = [
 							</li>
 							<li>Finally, (5) A cloaked human.</li>
 						</ul>
-						<p>
+						<p className="mb-2">
 							Once the party stopped at Erjwyn's request, the group opened with
 							"You are hard to find". and declare that whatever happens, they
 							wanted Isabelle.
@@ -1647,7 +1653,7 @@ export const timeline: Timeline = [
 							</li>
 							<li>An ornate ring radiating magic (to Tren)</li>
 						</ul>
-						<p>
+						<p className="mb-2">
 							Then we decided to chop off the heads of the party and burn them.
 							We wouldn't want more undead would we!
 						</p>
@@ -1676,14 +1682,14 @@ export const timeline: Timeline = [
 							Rhombus decided to give it another go at the forceful route and
 							taking a runup, hit the barrier and was flung back.
 						</p>
-						<p>We set up camp for the night.</p>
+						<p className="mb-2">We set up camp for the night.</p>
 					</div>
 				),
 			},
 			{
 				icon: "route",
 				description: (
-					<p>
+					<p className="mb-2">
 						After another uneventful night we decided to head East to Pyrofall
 						and after another night camping we made it the next afternoon.
 					</p>
@@ -1692,7 +1698,7 @@ export const timeline: Timeline = [
 			{
 				icon: "ship",
 				description: (
-					<p>
+					<p className="mb-2">
 						We stabled the horses and our goods at Pyrofall and caught the next
 						barge up to our drop-off point where the river turns east.
 					</p>
@@ -1710,7 +1716,7 @@ export const timeline: Timeline = [
 							After trying to find some kindling Erjwyn felt a really obvious
 							sense of unnaturalness.
 						</p>
-						<p>
+						<p className="mb-2">
 							Having spent an incredibly uncomfortable and eery night feeling
 							like we were being watched, we broke camp the next morning and
 							continued into the evermore ill looking woods.
@@ -1740,7 +1746,7 @@ export const timeline: Timeline = [
 							in the dank forests around it, Lance explains how they have been
 							in this section of woodland forever.
 						</p>
-						<p>
+						<p className="mb-2">
 							Jascrow asks for directions towards the swamp, and we are told to
 							head half a day southwest where we would find an old highway.
 							Lance offers to escort us in the morning.
@@ -1762,7 +1768,7 @@ export const timeline: Timeline = [
 							bedded down for the night with Rhombus outside and Erjwyn watching
 							over us inside.
 						</p>
-						<p>
+						<p className="mb-2">
 							As Faldrin, Jascrow and Sisu are sleeping, Tren and Erjwyn feel
 							abnormally sleepy. Erjwyn decides to get some air and heads
 							outside to Rhombus where he feels more awake as he moves further
@@ -1784,7 +1790,7 @@ export const timeline: Timeline = [
 							Erjwyn calls Rhombus over to look from a distance and he confirms
 							that he can see the spectral shimmer too.
 						</p>
-						<p>
+						<p className="mb-2">
 							Rhombus goes back to sleep and Erjwyn keeps watch over him
 							outside, but he hears a clatter from inside the house. Stopping to
 							listen he hears nothing else but out of the corner of his eye he
@@ -1814,7 +1820,9 @@ export const timeline: Timeline = [
 							Looking around Rhombus turns to face all 3 family members, awake,
 							looking at him, transparent.
 						</p>
-						<p>Rhombus turns around and runs as white as a sheep.</p>
+						<p className="mb-2">
+							Rhombus turns around and runs as white as a sheep.
+						</p>
 					</div>
 				),
 			},
@@ -1826,7 +1834,7 @@ export const timeline: Timeline = [
 			{
 				icon: "megaphone",
 				description: (
-					<p>
+					<p className="mb-2">
 						Following a discussion with Rhombus, Erjwyn shouts into the house to
 						encourage the now awake group to get out.
 					</p>
@@ -1854,7 +1862,7 @@ export const timeline: Timeline = [
 			{
 				icon: "books",
 				description: (
-					<p>
+					<p className="mb-2">
 						Tren talks to the group about some reading he did about ethereal
 						spirits being trapped by a focus object. They won't attack unless
 						provoked.
@@ -1864,7 +1872,7 @@ export const timeline: Timeline = [
 			{
 				icon: "bed",
 				description: (
-					<p>
+					<p className="mb-2">
 						We camp out until the morning at the edge of the clearing while
 						Isabelle pours the life back into those inside the house. As dawn
 						breaks the spectral lights disappear and the warmth returns to the
@@ -1920,7 +1928,7 @@ export const timeline: Timeline = [
 			{
 				icon: "tombstone",
 				description: (
-					<p>
+					<p className="mb-2">
 						We bury the skeleton and everything begins to change. Flowers grow
 						on the graves, the house ages as if it had been derelict for
 						centuries, the forest becomes drab around us.
@@ -1930,7 +1938,7 @@ export const timeline: Timeline = [
 			{
 				icon: "route",
 				description: (
-					<p>
+					<p className="mb-2">
 						We continue southeast to the northern edge of the swamp. After a few
 						hours we make it to humid air, boggy ground and swampy trees. The
 						area looks like a historic battlefield.
@@ -1940,7 +1948,7 @@ export const timeline: Timeline = [
 			{
 				icon: "ear",
 				description: (
-					<p>
+					<p className="mb-2">
 						Everyone (but Faldrin) hears a flapping noise where 4 dreadwings
 						start screeching above us.
 					</p>
@@ -2036,7 +2044,7 @@ export const timeline: Timeline = [
 			{
 				icon: "lightbulb",
 				description: (
-					<p>
+					<p className="mb-2">
 						Before setting off from the island above the swamp we devised a plan
 						which was to have the majority of the group act as a decoy whilst
 						Jascrow snuck in and stole the sword.
@@ -2047,11 +2055,11 @@ export const timeline: Timeline = [
 				icon: "route",
 				description: (
 					<div>
-						<p>
+						<p className="mb-2">
 							Erjwyn leads us off in the right direction and after about 4-5
 							hours of travel we start towards the mountains.
 						</p>
-						<p>
+						<p className="mb-2">
 							As we travel on, we start to notice a few cobwebs dotted around
 							but we carry on. The more we move forwards the more we see before
 							finally, as we slow to a creep... 7 spiders fall from above us.
@@ -2063,7 +2071,7 @@ export const timeline: Timeline = [
 				icon: "dice-d10",
 				description: (
 					<div>
-						<p>Speaking of rolling!</p>
+						<p className="mb-2">Speaking of rolling!</p>
 						<ul>
 							<li>
 								<strong>Round 1:</strong> Jascrow throws a knife hitting his
@@ -2111,7 +2119,7 @@ export const timeline: Timeline = [
 			{
 				icon: "first-aid",
 				description: (
-					<p>
+					<p className="mb-2">
 						Isabelle heals the party but that drains her so we decide to set up
 						for the night, Erjwyn and Tren opt to keep watch but the night
 						passes by uneventfully.
@@ -2122,16 +2130,16 @@ export const timeline: Timeline = [
 				icon: "route",
 				description: (
 					<div>
-						<p>
+						<p className="mb-2">
 							We continue on our way and after a few more hours Erjwyn spots a
 							footprint heading in towards the mountains. Erjwyn scouts a head
 							small amount to continue tracking as we follow up behind.
 						</p>
-						<p>
+						<p className="mb-2">
 							As Erjwyn enters a rock formation, he strings his bow and pauses
 							for us to catch up.
 						</p>
-						<p>
+						<p className="mb-2">
 							Jascrow spots a crow, trying his luck, he throws a knife and just
 							clips the birds wing, Erjwyn attempts to catch the retreating bird
 							but misses.
@@ -2142,7 +2150,7 @@ export const timeline: Timeline = [
 			{
 				icon: "arrow-up-from-line",
 				description: (
-					<p>
+					<p className="mb-2">
 						Erjwyn moves forward again. After moving out of the sight of the
 						rest of the group, we all hear a lound snap and a lot of rustling.
 						As he flies about 50ft up into the air!
@@ -2152,7 +2160,7 @@ export const timeline: Timeline = [
 			{
 				icon: "messages",
 				description: (
-					<p>
+					<p className="mb-2">
 						After much discussion of how to deal with this, Tren climbs the
 						tree, Sisu climbed up passing a rope then back down again. Sisu and
 						Faldrin hold the rope as Tren ties it to the trap and cuts the other
@@ -2163,7 +2171,7 @@ export const timeline: Timeline = [
 			{
 				icon: "arrow-down-from-line",
 				description: (
-					<p>
+					<p className="mb-2">
 						We continue on cautiously and find another trap, this time a pit in
 						the middle of a fissure. The pit itself is as wide as the fissure,
 						25ft deep and 8ft long. We cut down a tree and then lay a log across
@@ -2177,7 +2185,7 @@ export const timeline: Timeline = [
 				icon: "person-falling-burst",
 				description: (
 					<div>
-						<p>
+						<p className="mb-2">
 							As we enter another clearing there is a rock face in front of us
 							which we must go around. The group cautiously moves towards it and
 							split up going around it. Faldrin marches off in front and
@@ -2185,12 +2193,12 @@ export const timeline: Timeline = [
 							inside wall, Rhombus hugs the outside wall, Isabelle and Tren move
 							back and out.
 						</p>
-						<p>
+						<p className="mb-2">
 							A giant boulder comes hurtling round the corner and crushes
 							Rhombus, breaking his leg. Carrying on, the boulder narrowly
 							misses Isabelle and Tren before continuing on it's way.
 						</p>
-						<p>
+						<p className="mb-2">
 							Isabelle heads to Rhombus to repair his broken leg and we all
 							continue on into another opening.
 						</p>
@@ -2201,19 +2209,19 @@ export const timeline: Timeline = [
 				icon: "door-closed",
 				description: (
 					<div>
-						<p>
+						<p className="mb-2">
 							As we enter the next clearing, we see a cave entrance, a crow, a
 							large rock formation and a boulder looking awfully like a door.
 						</p>
-						<p>
+						<p className="mb-2">
 							Faldrin, Sisu and Rhombus head for the large boulder and attempt
 							to move it. Failing.
 						</p>
-						<p>
+						<p className="mb-2">
 							Tren, Erjwyn and Isabelle hold off in the entrance to this
 							opening.
 						</p>
-						<p>
+						<p className="mb-2">
 							Jascrow heads round the large rock formation, and as he does so...
 							A Giant stands up in front of him with a familiar looking sword
 							pushed through his club like a nail!
@@ -2225,7 +2233,7 @@ export const timeline: Timeline = [
 				icon: "dice-d10",
 				description: (
 					<div>
-						<p>It's giant killing time.</p>
+						<p className="mb-2">It's giant killing time.</p>
 						<ul>
 							<li>
 								<strong>Round 1:</strong> Sisu moves towards the Giant, Erjwyn
@@ -2260,18 +2268,18 @@ export const timeline: Timeline = [
 				icon: "treasure-chest",
 				description: (
 					<div>
-						<p>It's looting time.</p>
-						<p>
+						<p className="mb-2">It's looting time.</p>
+						<p className="mb-2">
 							Once Rhombus is recovered, and as Erjwyn ties a rope around the
 							club for safe transport Faldrin tries to rig something up to open
 							the large boulder door but it doesn't work.
 						</p>
-						<p>
+						<p className="mb-2">
 							Erjwyn then heads round back to where Jascrow first found the
 							giant and notices another door which with everyone's help, he
 							manages to open.
 						</p>
-						<p>
+						<p className="mb-2">
 							Inside we find a chamber 150ft round, 60ft high and full of
 							barrels, crates, furs, some animals. We also find:
 						</p>
@@ -2290,6 +2298,121 @@ export const timeline: Timeline = [
 								of 18 which is handed to Rhombus.
 							</li>
 						</ul>
+					</div>
+				),
+			},
+		],
+	},
+	{
+		title: "Session 13 - ",
+		events: [
+			{
+				icon: "route",
+				description: (
+					<div>
+						<p className="mb-2">
+							Having slain the giant, we "adjusted" the size of his club and
+							start dragging it (along with the sword) back towards Scalabag.
+						</p>
+					</div>
+				),
+			},
+			{
+				icon: "route",
+				description: (
+					<div>
+						<p className="mb-2">
+							As we are heading back, Jascrow and Rhombus spot the black crow
+							again... then a little further on, the crow pops down and lands in
+							front of us.
+						</p>
+						<p className="mb-2">
+							Speaking to Erjwyn, he asks to follow us, he's lost his master,
+							and needs a new one, so we say yes and on we go.
+						</p>
+					</div>
+				),
+			},
+			{
+				icon: "route",
+				description: (
+					<div>
+						<p className="mb-2">
+							We make our way back to the edge of the swamp and set our stuff
+							down as we wait a few hours for Scalabag.
+						</p>
+						<p className="mb-2">
+							Eventually we hear the noise of rowing behind us and she arrives
+							to pck us up and take us back to the island, where we carry the
+							club and sword up to the top.
+						</p>
+					</div>
+				),
+			},
+			{
+				icon: "route",
+				description: (
+					<div>
+						<p className="mb-2">
+							Scalabag removes the Ruby from the sword and puts it into an
+							amulet around her kneck. As she does so Tren checks the intent of
+							Scalabag and he feels a strong sense of good from her.
+						</p>
+						<p className="mb-2">
+							Seemingly pulling the curtains of our world apart, she then asks
+							us to toss the sword into the rigt where it'll be as ssafe as it
+							can be.
+						</p>
+					</div>
+				),
+			},
+			{
+				icon: "route",
+				description: (
+					<div>
+						<p className="mb-2">
+							As Erjwyn is asking about the Gem, Salabag transforms infront of
+							us intp a stunning elf, tall with black hair in colourful robes.
+						</p>
+						<p className="mb-2">
+							She gives us a small pouch each containing a dose of Gariig
+							(+30hp) and 3 Suranic berries (1 round stun releif).
+						</p>
+					</div>
+				),
+			},
+			{
+				icon: "route",
+				description: (
+					<div>
+						<p className="mb-2">
+							Calculating we have 7 days rations each left, we head back to the
+							boat where Sisu and Faldrin row as Scalabag steers. As we row, the
+							faint shimmer of a magical shield surrounds us. After a couple of
+							hours we arrive at an old gatehouse beyond which we just see a
+							road leading up into the mountains.
+						</p>
+					</div>
+				),
+			},
+			{
+				icon: "route",
+				description: (
+					<div>
+						<p className="mb-2">
+							We part ways with Scalabaf and head up the road, a couple of hours
+							later we see a 150ft wide wall with battlements in front of us,
+							and a large, closed, iron-bound door.
+						</p>
+						<p className="mb-2">
+							In a place where mostly there are ruins, this is clearly kept and
+							maintained but there isn't anyone we can see.
+						</p>
+						<p className="mb-2">
+							As we each try to work out what to do with this gigantic building
+							in front of us, Jascrow takes out his grappeling hook, hoofs it
+							over the front wall and beginns to climb.
+						</p>
 					</div>
 				),
 			},

@@ -32,7 +32,7 @@ const OBPage = () => {
 	const [movementRate, setMovementRate] = useState<number>(
 		(faldrin as Character)?.bmr + (faldrin as Character)?.stats.qu.total,
 	);
-	const [movement, setMovement] = useState<number>(15);
+	const [movement, setMovement] = useState<number>(0);
 	const [totalOb, setTotalOb] = useState<number>(
 		(faldrin as Character)?.weapons[0]?.bonuses.total ?? 0,
 	);
