@@ -58,7 +58,7 @@ const TimelinePage = () => {
 				}}
 			>
 				<option value="all">All</option>
-				{timeline.map((item, i) => (
+				{timeline.toReversed().map((item, i) => (
 					// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 					<option key={i} value={item.title?.toString() ?? ""}>
 						{item.title}
@@ -66,6 +66,7 @@ const TimelinePage = () => {
 				))}
 			</select>
 			{timeline
+				.toReversed()
 				.filter((item) => {
 					console.log(
 						selectedSession === "all" || item.title === selectedSession,

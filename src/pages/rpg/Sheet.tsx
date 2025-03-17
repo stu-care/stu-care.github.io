@@ -1,11 +1,16 @@
 import { byPrefixAndName } from "@awesome.me/kit-5a5002bf29/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Fragment, useEffect } from "react";
+import { type ChangeEvent, Fragment, useEffect } from "react";
 import { useApp } from "../../contexts/AppContext";
 import { homeTitle } from "../Home";
 import { rpgTitle } from "../RPG";
 import { useRPG } from "../../contexts/RPGContext";
-import type { Character, Characters } from "../../content/characterList";
+import type {
+	Character,
+	Characters,
+	StatKeys,
+} from "../../content/characterList";
+import PropertyUpdaterRow from "../../components/PropertyUpdaterRow";
 
 export const sheetTitle = (
 	<span className="leading-none flex items-baseline gap-2">
@@ -44,13 +49,10 @@ const SheetPage = () => {
 	}, []);
 
 	const updateProperty = (
-		e: React.ChangeEvent<HTMLInputElement>,
+		value: number,
 		matcher: (character: Character, value: number) => Character,
 	) => {
-		const updateFaldrin = matcher(
-			faldrin,
-			Math.floor(Number.parseFloat(e.target.value)),
-		);
+		const updateFaldrin = matcher(faldrin, value);
 
 		const updatedCharacterList: Characters = {
 			...characters,
@@ -98,631 +100,433 @@ const SheetPage = () => {
 	return (
 		<main className="grid grid-flow-row auto-rows-auto p-4 gap-4 relative">
 			<h2>{faldrin.character.name}</h2>
-			<div className="grid grid-cols-1 auto-cols-fr gap-x-4 text-center">
-				<div className="sticky top-0 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700 mb-2">
-					Level
-				</div>
-				<div className="grow">
-					<input
-						className="w-full text-center input input-sm"
-						type="number"
-						value={faldrin.level}
-						onChange={(e) =>
-							updateProperty(e, (character, value) => {
-								return {
-									...character,
-									level: value,
-								};
-							})
-						}
-					/>
-				</div>
-			</div>
-			<div className="grid grid-cols-2 auto-cols-fr gap-x-4 text-center">
-				<div className="sticky top-0 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700 mb-2">
-					Base HP
-				</div>
-				<div className="sticky top-0 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700 mb-2">
-					Total HP
-				</div>
-				<div className="flex justify-stretch items-center gap-2">
-					<div className="grow">
-						<input
-							className="w-full text-center input input-sm"
-							type="number"
-							value={faldrin.hp.base}
-							onChange={(e) =>
-								updateProperty(e, (character, value) => {
-									return {
+
+			<h3>Level</h3>
+			<PropertyUpdaterRow
+				label="Level"
+				value={faldrin.level}
+				updater={(value) =>
+					updateProperty(value, (character, value) => {
+						return {
+							...character,
+							level: value,
+						};
+					})
+				}
+			/>
+
+			<h3>HP</h3>
+			<PropertyUpdaterRow
+				label="Base HP"
+				value={faldrin.hp.base}
+				updater={(value) =>
+					updateProperty(value, (character, value) => {
+						return {
+							...character,
+							hp: {
+								...character.hp,
+								base: value,
+								total: Math.min(
+									value +
+										Math.round(character.stats.co.temp / 10) +
+										Math.ceil(
+											(character.stats.co.total / 100) *
+												(value + Math.round(character.stats.co.temp / 10)),
+										),
+									character.hp.maxBase + character.stats.co.total,
+								),
+							},
+						};
+					})
+				}
+			/>
+			<PropertyUpdaterRow
+				label="Base HP Modifier"
+				value={Math.round(faldrin.stats.co.temp / 10)}
+			/>
+			<PropertyUpdaterRow label="Total HP" value={faldrin.hp.total} />
+
+			<h3>Movement</h3>
+			<PropertyUpdaterRow
+				label="Base Movement"
+				value={faldrin.bmr}
+				updater={(value) => {
+					updateProperty(value, (character, value) => {
+						return { ...character, bmr: value };
+					});
+				}}
+			/>
+			<PropertyUpdaterRow label="QU Bonus" value={faldrin.stats.qu.total} />
+			<PropertyUpdaterRow
+				label="Total"
+				value={faldrin.bmr + faldrin.stats.qu.total}
+			/>
+
+			<h3>Stats</h3>
+			{Object.keys(faldrin.stats).map((key) => {
+				return (
+					<Fragment key={key}>
+						<h4>{key.toUpperCase()}</h4>
+						<PropertyUpdaterRow
+							label={"Temp"}
+							value={faldrin.stats[key as keyof typeof faldrin.stats].temp}
+							updater={(value) => {
+								updateProperty(value, (character, value) => {
+									const updatedCharacter = {
 										...character,
 										hp: {
 											...character.hp,
-											base: value,
-											total: Math.min(
-												value +
-													Math.round(character.stats.co.temp / 10) +
-													Math.ceil(
-														(character.stats.co.total / 100) *
-															(value +
-																Math.round(character.stats.co.temp / 10)),
-													),
-												character.hp.maxBase + character.stats.co.total,
-											),
+											modifier:
+												key === "co"
+													? Math.ceil(value / 10)
+													: character.hp.modifier,
+										},
+										stats: {
+											...character.stats,
+											[key]: {
+												...character.stats[key as keyof typeof faldrin.stats],
+												temp: value,
+												mod: calculateMod(value),
+												total:
+													calculateMod(value) +
+													character.stats[key as keyof typeof faldrin.stats]
+														.misc +
+													character.stats[key as keyof typeof faldrin.stats]
+														.race,
+											},
 										},
 									};
-								})
-							}
-						/>
-					</div>
-					<div>+</div>
-					<div className="grow">
-						<input
-							readOnly={true}
-							className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-700 text-base-content/50"
-							type="number"
-							value={faldrin.hp.modifier}
-						/>
-					</div>
-				</div>
-				<div className="flex justify-stretch gap-2">
-					<div className="grow">
-						<input
-							readOnly={true}
-							className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-700 text-base-content/50"
-							type="number"
-							value={faldrin.hp.total}
-						/>
-					</div>
-				</div>
-			</div>
-			<div className="grid grid-cols-8 auto-cols-fr gap-x-2 gap-y-2 items-center">
-				<div className="sticky top-0 z-2 bg-base-100 dark:bg-slate-800 col-span-8 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
-					Stats
-				</div>
-				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
-					Stat
-				</div>
-				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
-					Temp
-				</div>
-				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
-					Pot
-				</div>
-				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
-					Mod
-				</div>
-				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
-					Race
-				</div>
-				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
-					Misc
-				</div>
-				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
-					Total
-				</div>
-				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
-					DP
-				</div>
-				{Object.keys(faldrin.stats).map((key) => {
-					return (
-						<Fragment key={key}>
-							<div className="font-bold">{key.toUpperCase()}</div>
-							<div className="">
-								<input
-									className="w-full ps-1 input input-sm"
-									type="number"
-									value={faldrin.stats[key as keyof typeof faldrin.stats].temp}
-									onChange={(e) => {
-										updateProperty(e, (character, value) => {
-											const updatedCharacter = {
-												...character,
-												hp: {
-													...character.hp,
-													modifier:
-														key === "co"
-															? Math.ceil(value / 10)
-															: character.hp.modifier,
-												},
-												stats: {
-													...character.stats,
-													[key]: {
-														...character.stats[
-															key as keyof typeof faldrin.stats
-														],
-														temp: value,
-														mod: calculateMod(value),
-														total:
-															calculateMod(value) +
-															character.stats[key as keyof typeof faldrin.stats]
-																.misc +
-															character.stats[key as keyof typeof faldrin.stats]
-																.race,
-													},
-												},
-											};
 
-											if (key === "co") {
-												updatedCharacter.hp.total = Math.min(
-													updatedCharacter.hp.base +
-														Math.round(character.stats.co.temp / 10) +
-														Math.ceil(
-															(updatedCharacter.stats.co.total / 100) *
-																(updatedCharacter.hp.base +
-																	Math.round(character.stats.co.temp / 10)),
-														),
-													character.hp.maxBase + character.stats.co.total,
-												);
-											}
-
-											return updatedCharacter;
-										});
-									}}
-								/>
-							</div>
-							<div className="">
-								<input
-									className="w-full ps-1 input input-sm"
-									type="number"
-									value={faldrin.stats[key as keyof typeof faldrin.stats].pot}
-									onChange={(e) => {
-										updateProperty(e, (character, value) => {
-											return {
-												...character,
-												stats: {
-													...character.stats,
-													[key]: {
-														...character.stats[
-															key as keyof typeof faldrin.stats
-														],
-														pot: value,
-													},
-												},
-											};
-										});
-									}}
-								/>
-							</div>
-							<div className="">
-								<input
-									readOnly={true}
-									className="w-full ps-1 input input-sm bg-slate-100 dark:bg-slate-700 text-base-content/50"
-									type="number"
-									value={faldrin.stats[key as keyof typeof faldrin.stats].mod}
-								/>
-							</div>
-							<div className="">
-								<input
-									readOnly={true}
-									className="w-full ps-1 input input-sm bg-slate-100 dark:bg-slate-700 text-base-content/50"
-									type="number"
-									value={faldrin.stats[key as keyof typeof faldrin.stats].race}
-								/>
-							</div>
-							<div className="">
-								<input
-									className="w-full ps-1 input input-sm"
-									type="number"
-									value={faldrin.stats[key as keyof typeof faldrin.stats].misc}
-									onChange={(e) => {
-										updateProperty(e, (character, value) => {
-											const updatedCharacter = {
-												...character,
-												stats: {
-													...character.stats,
-													[key]: {
-														...character.stats[
-															key as keyof typeof faldrin.stats
-														],
-														misc: value,
-														total:
-															value +
-															character.stats[key as keyof typeof faldrin.stats]
-																.race +
-															character.stats[key as keyof typeof faldrin.stats]
-																.mod,
-													},
-												},
-											};
-
-											if (key === "co") {
-												updatedCharacter.hp.total = Math.min(
-													updatedCharacter.hp.base +
-														Math.ceil(
-															(updatedCharacter.stats.co.total / 100) *
-																updatedCharacter.hp.base,
-														),
-													character.hp.maxBase + character.stats.co.total,
-												);
-											}
-
-											return updatedCharacter;
-										});
-									}}
-								/>
-							</div>
-							<div className="">
-								<input
-									readOnly={true}
-									className="w-full ps-1 input input-sm bg-slate-100 dark:bg-slate-700 text-base-content/50"
-									type="number"
-									value={
-										faldrin.stats[key as keyof typeof faldrin.stats].mod +
-										faldrin.stats[key as keyof typeof faldrin.stats].race +
-										faldrin.stats[key as keyof typeof faldrin.stats].misc
+									if (key === "co") {
+										updatedCharacter.hp.total = Math.min(
+											updatedCharacter.hp.base +
+												Math.round(character.stats.co.temp / 10) +
+												Math.ceil(
+													(updatedCharacter.stats.co.total / 100) *
+														(updatedCharacter.hp.base +
+															Math.round(character.stats.co.temp / 10)),
+												),
+											character.hp.maxBase + character.stats.co.total,
+										);
 									}
-								/>
-							</div>
-							{!["co", "sd", "ag", "me", "re"].includes(key) ? (
-								<div />
-							) : (
-								<div className="">
-									<input
-										readOnly={true}
-										className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-700 text-base-content/50"
-										type="number"
-										value={calculateDp(
-											faldrin.stats[key as keyof typeof faldrin.stats].temp,
-										)}
-									/>
-								</div>
-							)}
-						</Fragment>
-					);
-				})}
-			</div>
-			<div className="grid grid-cols-2 auto-cols-fr gap-x-4 text-center">
-				<div className="sticky top-0 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700 mb-2">
-					BMR
-				</div>
-				<div className="sticky top-0 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700 mb-2">
-					Movement
-				</div>
-				<div className="flex justify-stretch items-center gap-2">
-					<div className="grow">
-						<input
-							className="w-full text-center input input-sm"
-							type="number"
-							value={faldrin.bmr}
-							onChange={(e) => {
-								updateProperty(e, (character, value) => {
-									return { ...character, bmr: value };
+
+									return updatedCharacter;
 								});
 							}}
 						/>
-					</div>
-					<div>+</div>
-					<div className="grow">
-						<input
-							readOnly={true}
-							className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-700 text-base-content/50"
-							type="number"
-							value={faldrin.stats.qu.total}
+						<PropertyUpdaterRow
+							label={"Pot"}
+							value={faldrin.stats[key as keyof typeof faldrin.stats].pot}
+							updater={(value) => {
+								updateProperty(value, (character, value) => {
+									return {
+										...character,
+										stats: {
+											...character.stats,
+											[key]: {
+												...character.stats[key as keyof typeof faldrin.stats],
+												pot: value,
+											},
+										},
+									};
+								});
+							}}
 						/>
-					</div>
-				</div>
-				<div className="flex justify-stretch gap-2">
-					<div className="grow">
-						<input
-							readOnly={true}
-							className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-700 text-base-content/50"
-							type="number"
-							value={faldrin.bmr + faldrin.stats.qu.total}
+						<PropertyUpdaterRow
+							label={"Mod"}
+							value={faldrin.stats[key as keyof typeof faldrin.stats].mod}
 						/>
-					</div>
-				</div>
-			</div>
-			<div className="grid grid-cols-6 auto-cols-fr gap-x-2 gap-y-2 items-center">
-				<div className="sticky top-0 z-2 bg-base-100 dark:bg-slate-800 col-span-6 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
-					Weapons
-				</div>
-				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
-					S Lvl
-				</div>
-				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
-					Skill
-				</div>
-				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
-					Stat
-				</div>
-				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
-					Level
-				</div>
-				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
-					Misc
-				</div>
-				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
-					Total
-				</div>
-				{faldrin.weapons.map((weapon, index) => {
+						<PropertyUpdaterRow
+							label={"Race"}
+							value={faldrin.stats[key as keyof typeof faldrin.stats].race}
+						/>
+						<PropertyUpdaterRow
+							label={"Misc"}
+							value={faldrin.stats[key as keyof typeof faldrin.stats].misc}
+							updater={(value) => {
+								updateProperty(value, (character, value) => {
+									const updatedCharacter = {
+										...character,
+										stats: {
+											...character.stats,
+											[key]: {
+												...character.stats[key as keyof typeof faldrin.stats],
+												misc: value,
+												total:
+													value +
+													character.stats[key as keyof typeof faldrin.stats]
+														.race +
+													character.stats[key as keyof typeof faldrin.stats]
+														.mod,
+											},
+										},
+									};
+
+									if (key === "co") {
+										updatedCharacter.hp.total = Math.min(
+											updatedCharacter.hp.base +
+												Math.ceil(
+													(updatedCharacter.stats.co.total / 100) *
+														updatedCharacter.hp.base,
+												),
+											character.hp.maxBase + character.stats.co.total,
+										);
+									}
+
+									return updatedCharacter;
+								});
+							}}
+						/>
+
+						<PropertyUpdaterRow
+							label={"Total"}
+							value={
+								faldrin.stats[key as keyof typeof faldrin.stats].mod +
+								faldrin.stats[key as keyof typeof faldrin.stats].race +
+								faldrin.stats[key as keyof typeof faldrin.stats].misc
+							}
+						/>
+						{["co", "sd", "ag", "me", "re"].includes(key) && (
+							<PropertyUpdaterRow
+								label={"DP"}
+								value={calculateDp(
+									faldrin.stats[key as keyof typeof faldrin.stats].temp,
+								)}
+							/>
+						)}
+					</Fragment>
+				);
+			})}
+			<h3>Total DP:</h3>
+			<PropertyUpdaterRow
+				label="Total DP"
+				value={Object.keys(faldrin.stats).reduce((acc, cur) => {
 					return (
-						<Fragment key={weapon.short}>
-							<div className="sticky top-12 z-2 bg-base-100 dark:bg-slate-800 grow col-span-6">
-								{weapon.short}
-							</div>
-							<div className="grow">
-								<input
-									className="w-full ps-1 text-center input input-sm"
-									type="number"
-									value={weapon.bonuses.level}
-									onChange={(e) => {
-										updateProperty(e, (character, value) => {
-											return {
-												...character,
-												weapons: character.weapons.map((w, i) => {
-													if (weapon.short === w.short) {
-														return {
-															...w,
-															bonuses: {
-																...w.bonuses,
-																level: value,
-																total:
-																	calculateSkillRank(value) +
-																	Math.round(
-																		weapon.bonuses.stats
-																			.map((stat) => faldrin.stats[stat].total)
-																			.reduce((acc, cur) => acc + cur, 0) /
-																			(weapon.bonuses.stats.length || 1),
-																	) +
-																	faldrin.level *
-																		faldrin.levelBonus[
-																			weapon.bonuses.category
-																		] +
-																	weapon.bonuses.misc,
-															},
-														};
-													}
-													return w;
-												}),
-											};
-										});
-									}}
-								/>
-							</div>
-							<div className="grow">
-								<input
-									readOnly={true}
-									className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-700 text-base-content/50"
-									type="number"
-									value={calculateSkillRank(weapon.bonuses.level)}
-								/>
-							</div>
-							<div className="grow">
-								<input
-									readOnly={true}
-									className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-700 text-base-content/50"
-									type="number"
-									value={Math.round(
-										weapon.bonuses.stats
-											.map((stat) => faldrin.stats[stat].total)
-											.reduce((acc, cur) => acc + cur, 0) /
-											(weapon.bonuses.stats.length || 1),
-									)}
-								/>
-							</div>
-							<div className="grow">
-								<input
-									readOnly={true}
-									className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-700 text-base-content/50"
-									type="number"
-									value={
-										faldrin.level * faldrin.levelBonus[weapon.bonuses.category]
-									}
-								/>
-							</div>
-
-							<div className="grow">
-								<input
-									className="w-full  ps-1  text-center input input-sm"
-									type="number"
-									value={weapon.bonuses.misc}
-									onChange={(e) => {
-										updateProperty(e, (character, value) => {
-											return {
-												...character,
-												weapons: character.weapons.map((w, i) => {
-													if (weapon.short === w.short) {
-														return {
-															...w,
-															bonuses: {
-																...w.bonuses,
-																misc: value,
-																total:
-																	calculateSkillRank(weapon.bonuses.level) +
-																	Math.round(
-																		weapon.bonuses.stats
-																			.map((stat) => faldrin.stats[stat].total)
-																			.reduce((acc, cur) => acc + cur, 0) /
-																			(weapon.bonuses.stats.length || 1),
-																	) +
-																	faldrin.level *
-																		faldrin.levelBonus[
-																			weapon.bonuses.category
-																		] +
-																	value,
-															},
-														};
-													}
-													return w;
-												}),
-											};
-										});
-									}}
-								/>
-							</div>
-							<div className="grow">
-								<input
-									readOnly={true}
-									className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-700 text-base-content/50"
-									type="number"
-									value={
-										calculateSkillRank(weapon.bonuses.level) +
-										Math.round(
-											weapon.bonuses.stats
-												.map((stat) => faldrin.stats[stat].total)
-												.reduce((acc, cur) => acc + cur, 0) /
-												(weapon.bonuses.stats.length || 1),
-										) +
-										faldrin.level *
-											faldrin.levelBonus[weapon.bonuses.category] +
-										weapon.bonuses.misc
-									}
-								/>
-							</div>
-						</Fragment>
+						acc +
+						(["co", "sd", "ag", "me", "re"].includes(cur as StatKeys)
+							? calculateDp(faldrin.stats[cur as StatKeys].temp)
+							: 0)
 					);
-				})}
-			</div>
-			<div className="grid grid-cols-6 auto-cols-fr gap-x-2 gap-y-2 items-center">
-				<div className="sticky top-0 z-2 bg-base-100 dark:bg-slate-800 col-span-6 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
-					Skills
-				</div>
-				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
-					S Lvl
-				</div>
-				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
-					Skill
-				</div>
-				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
-					Stat
-				</div>
-				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
-					Level
-				</div>
-				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
-					Misc
-				</div>
-				<div className="sticky top-6 z-2 bg-base-100 dark:bg-slate-800 font-bold py-1 border-b-2 border-b-slate-300 dark:border-b-slate-700">
-					Total
-				</div>
-				{faldrin.skills.map((skill, index) => {
-					return (
-						<Fragment key={skill.name}>
-							<div className="sticky top-12 z-2 bg-base-100 dark:bg-slate-800 grow col-span-6">
-								{skill.name}
-							</div>
-							<div className="grow">
-								<input
-									className="w-full  ps-1  text-center input input-sm"
-									type="number"
-									value={skill.level}
-									onChange={(e) => {
-										updateProperty(e, (character, value) => {
-											return {
-												...character,
-												skills: character.skills.map((s, i) => {
-													if (skill.name === s.name) {
-														return {
-															...s,
+				}, 0)}
+			/>
 
-															level: value,
-															total:
-																calculateSkillRank(value) +
-																Math.round(
-																	skill.stats
-																		.map((stat) => faldrin.stats[stat].total)
-																		.reduce((acc, cur) => acc + cur, 0) /
-																		(skill.stats.length || 1),
-																) +
-																faldrin.level *
-																	(faldrin.levelBonus[skill.category] || 0) +
-																skill.misc,
-														};
-													}
-													return s;
-												}),
-											};
-										});
-									}}
-								/>
-							</div>
-							<div className="grow">
-								<input
-									readOnly={true}
-									className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-700 text-base-content/50"
-									type="number"
-									value={calculateSkillRank(skill.level)}
-								/>
-							</div>
-							<div className="grow">
-								<input
-									readOnly={true}
-									className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-700 text-base-content/50"
-									type="number"
-									value={Math.round(
-										skill.stats
-											.map((stat) => faldrin.stats[stat].total)
-											.reduce((acc, cur) => acc + cur, 0) /
-											(skill.stats.length || 1),
-									)}
-								/>
-							</div>
-							<div className="grow">
-								<input
-									readOnly={true}
-									className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-700 text-base-content/50"
-									type="number"
-									value={
-										faldrin.level * (faldrin.levelBonus[skill.category] || 0)
-									}
-								/>
-							</div>
+			<h3>Weapons</h3>
+			{faldrin.weapons.map((weapon, index) => {
+				return (
+					<Fragment key={weapon.short}>
+						<h4>{weapon.type}</h4>
+						<PropertyUpdaterRow
+							label="Skill Level"
+							value={weapon.bonuses.level}
+							updater={(value) => {
+								updateProperty(value, (character, value) => {
+									return {
+										...character,
+										weapons: character.weapons.map((w, i) => {
+											if (weapon.short === w.short) {
+												return {
+													...w,
+													bonuses: {
+														...w.bonuses,
+														level: value,
+														total:
+															calculateSkillRank(value) +
+															Math.round(
+																weapon.bonuses.stats
+																	.map((stat) => faldrin.stats[stat].total)
+																	.reduce((acc, cur) => acc + cur, 0) /
+																	(weapon.bonuses.stats.length || 1),
+															) +
+															faldrin.level *
+																faldrin.levelBonus[weapon.bonuses.category] +
+															weapon.bonuses.misc,
+													},
+												};
+											}
+											return w;
+										}),
+									};
+								});
+							}}
+						/>
+						<PropertyUpdaterRow
+							label="Skill"
+							value={calculateSkillRank(weapon.bonuses.level)}
+						/>
+						<PropertyUpdaterRow
+							label="Stat"
+							value={Math.round(
+								weapon.bonuses.stats
+									.map((stat) => faldrin.stats[stat].total)
+									.reduce((acc, cur) => acc + cur, 0) /
+									(weapon.bonuses.stats.length || 1),
+							)}
+						/>
+						<PropertyUpdaterRow
+							label="Level"
+							value={
+								faldrin.level * faldrin.levelBonus[weapon.bonuses.category]
+							}
+						/>
+						<PropertyUpdaterRow
+							label="Misc"
+							value={weapon.bonuses.misc}
+							updater={(value) => {
+								updateProperty(value, (character, value) => {
+									return {
+										...character,
+										weapons: character.weapons.map((w, i) => {
+											if (weapon.short === w.short) {
+												return {
+													...w,
+													bonuses: {
+														...w.bonuses,
+														misc: value,
+														total:
+															calculateSkillRank(weapon.bonuses.level) +
+															Math.round(
+																weapon.bonuses.stats
+																	.map((stat) => faldrin.stats[stat].total)
+																	.reduce((acc, cur) => acc + cur, 0) /
+																	(weapon.bonuses.stats.length || 1),
+															) +
+															faldrin.level *
+																faldrin.levelBonus[weapon.bonuses.category] +
+															value,
+													},
+												};
+											}
+											return w;
+										}),
+									};
+								});
+							}}
+						/>
+						<PropertyUpdaterRow
+							label="Total"
+							value={
+								calculateSkillRank(weapon.bonuses.level) +
+								Math.round(
+									weapon.bonuses.stats
+										.map((stat) => faldrin.stats[stat].total)
+										.reduce((acc, cur) => acc + cur, 0) /
+										(weapon.bonuses.stats.length || 1),
+								) +
+								faldrin.level * faldrin.levelBonus[weapon.bonuses.category] +
+								weapon.bonuses.misc
+							}
+						/>
+					</Fragment>
+				);
+			})}
+			<h3>Skills</h3>
 
-							<div className="grow">
-								<input
-									className="w-full  ps-1  text-center input input-sm"
-									type="number"
-									value={skill.misc}
-									onChange={(e) => {
-										updateProperty(e, (character, value) => {
-											return {
-												...character,
-												skills: character.skills.map((s, i) => {
-													if (skill.name === s.name) {
-														return {
-															...s,
-															misc: value,
-															total:
-																calculateSkillRank(skill.level) +
-																Math.round(
-																	skill.stats
-																		.map((stat) => faldrin.stats[stat].total)
-																		.reduce((acc, cur) => acc + cur, 0) /
-																		(skill.stats.length || 1),
-																) +
-																faldrin.level *
-																	(faldrin.levelBonus[skill.category] || 0) +
-																value,
-														};
-													}
-													return s;
-												}),
-											};
-										});
-									}}
-								/>
-							</div>
-							<div className="grow">
-								<input
-									readOnly={true}
-									className="w-full text-center input input-sm bg-slate-100 dark:bg-slate-700 text-base-content/50"
-									type="number"
-									value={
-										calculateSkillRank(skill.level) +
-										Math.round(
-											skill.stats
-												.map((stat) => faldrin.stats[stat].total)
-												.reduce((acc, cur) => acc + cur, 0) /
-												(skill.stats.length || 1),
-										) +
-										faldrin.level * (faldrin.levelBonus[skill.category] || 0) +
-										skill.misc
-									}
-								/>
-							</div>
-						</Fragment>
-					);
-				})}
-			</div>
+			{faldrin.skills.map((skill, index) => {
+				return (
+					<Fragment key={skill.name}>
+						<h4 className="flex items-baseline justify-between">
+							{skill.name}
+							<small>
+								[{skill.stats.map((s) => s.toUpperCase()).join(", ")}]
+							</small>
+						</h4>
+						<PropertyUpdaterRow
+							label="Skill Level"
+							value={skill.level}
+							updater={(value) => {
+								updateProperty(value, (character, value) => {
+									return {
+										...character,
+										skills: character.skills.map((s, i) => {
+											if (skill.name === s.name) {
+												return {
+													...s,
+
+													level: value,
+													total:
+														calculateSkillRank(value) +
+														Math.round(
+															skill.stats
+																.map((stat) => faldrin.stats[stat].total)
+																.reduce((acc, cur) => acc + cur, 0) /
+																(skill.stats.length || 1),
+														) +
+														faldrin.level *
+															(faldrin.levelBonus[skill.category] || 0) +
+														skill.misc,
+												};
+											}
+											return s;
+										}),
+									};
+								});
+							}}
+						/>
+						<PropertyUpdaterRow
+							label="Skill"
+							value={calculateSkillRank(skill.level)}
+						/>
+						<PropertyUpdaterRow
+							label="Stat"
+							value={Math.round(
+								skill.stats
+									.map((stat) => faldrin.stats[stat].total)
+									.reduce((acc, cur) => acc + cur, 0) /
+									(skill.stats.length || 1),
+							)}
+						/>
+						<PropertyUpdaterRow
+							label="Level"
+							value={faldrin.level * (faldrin.levelBonus[skill.category] || 0)}
+						/>
+						<PropertyUpdaterRow
+							label="Misc"
+							value={skill.misc}
+							updater={(value) => {
+								updateProperty(value, (character, value) => {
+									return {
+										...character,
+										skills: character.skills.map((s, i) => {
+											if (skill.name === s.name) {
+												return {
+													...s,
+													misc: value,
+													total:
+														calculateSkillRank(skill.level) +
+														Math.round(
+															skill.stats
+																.map((stat) => faldrin.stats[stat].total)
+																.reduce((acc, cur) => acc + cur, 0) /
+																(skill.stats.length || 1),
+														) +
+														faldrin.level *
+															(faldrin.levelBonus[skill.category] || 0) +
+														value,
+												};
+											}
+											return s;
+										}),
+									};
+								});
+							}}
+						/>
+						<PropertyUpdaterRow
+							label="Total"
+							value={
+								calculateSkillRank(skill.level) +
+								Math.round(
+									skill.stats
+										.map((stat) => faldrin.stats[stat].total)
+										.reduce((acc, cur) => acc + cur, 0) /
+										(skill.stats.length || 1),
+								) +
+								faldrin.level * (faldrin.levelBonus[skill.category] || 0) +
+								skill.misc
+							}
+						/>
+					</Fragment>
+				);
+			})}
 			<div className="w-full overflow-hidden  whitespace-pre-wrap break-all">
 				<code>
 					<pre className="select-all">{JSON.stringify(faldrin)}</pre>

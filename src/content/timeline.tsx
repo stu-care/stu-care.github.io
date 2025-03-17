@@ -2304,10 +2304,10 @@ export const timeline: Timeline = [
 		],
 	},
 	{
-		title: "Session 13 - ",
+		title: "Session 13 - Skeletons For Days",
 		events: [
 			{
-				icon: "route",
+				icon: "person-walking-arrow-loop-left",
 				description: (
 					<div>
 						<p className="mb-2">
@@ -2318,7 +2318,7 @@ export const timeline: Timeline = [
 				),
 			},
 			{
-				icon: "route",
+				icon: "crow",
 				description: (
 					<div>
 						<p className="mb-2">
@@ -2350,29 +2350,29 @@ export const timeline: Timeline = [
 				),
 			},
 			{
-				icon: "route",
+				icon: "sword",
 				description: (
 					<div>
 						<p className="mb-2">
 							Scalabag removes the Ruby from the sword and puts it into an
-							amulet around her kneck. As she does so Tren checks the intent of
+							amulet around her neck. As she does so Tren checks the intent of
 							Scalabag and he feels a strong sense of good from her.
 						</p>
 						<p className="mb-2">
 							Seemingly pulling the curtains of our world apart, she then asks
-							us to toss the sword into the rigt where it'll be as ssafe as it
+							us to toss the sword into the rift where it'll be as safe as it
 							can be.
 						</p>
 					</div>
 				),
 			},
 			{
-				icon: "route",
+				icon: "gem",
 				description: (
 					<div>
 						<p className="mb-2">
-							As Erjwyn is asking about the Gem, Salabag transforms infront of
-							us intp a stunning elf, tall with black hair in colourful robes.
+							As Erjwyn is asking about the Gem, Salabag transforms in-front of
+							us into a stunning elf, tall with black hair in colourful robes.
 						</p>
 						<p className="mb-2">
 							She gives us a small pouch each containing a dose of Gariig
@@ -2413,6 +2413,179 @@ export const timeline: Timeline = [
 							in front of us, Jascrow takes out his grappeling hook, hoofs it
 							over the front wall and beginns to climb.
 						</p>
+					</div>
+				),
+			},
+			{
+				icon: "block-brick",
+				description: (
+					<div>
+						<p className="mb-2">
+							Having then peered over the back wall, Jascrow heads back to the
+							other side and signals for us to stop doing anything. He then
+							heads down the internals of the gatehouse and opens the outer
+							door.
+						</p>
+						<p className="mb-2">
+							He explains that behind the other door is about 2 miles of hill
+							covered by about 15-20 thousand undead, skeletons and the like.
+						</p>
+						<p className="mb-2">
+							As he does this a voice behind us all says "It's actually quite
+							impressive isn't it." and a very well kept man appears.
+						</p>
+					</div>
+				),
+			},
+			{
+				icon: "wand-sparkles",
+				description: (
+					<div>
+						<p className="mb-2">
+							It's <strong>Scarat</strong>! He explains that we helped him get
+							back into his tower as among the various protections for entering,
+							one was a password he had forgotten in an unfortunate accident.
+							Fortunately his wife was called Isabelle and once we had left he
+							remembered the password was her name in another language.
+						</p>
+						<p className="mb-2">
+							So claiming to owe us a favour, he waves his wand and in a flash
+							we are the other side of the thousands of undead.
+						</p>
+						<p className="mb-2">
+							From our new vantage point we see the broken walls of an old
+							fortress and he encourages us to "Look for a crystal skull."
+						</p>
+					</div>
+				),
+			},
+			{
+				icon: "dragon",
+				description: (
+					<div>
+						<p className="mb-2">
+							As we prepare to move forwards we head huge beating wings and a
+							150ft wingspan, 60ft long once golden dragon descends upon us. The
+							dragon is clearly undead with torn and damaged scales.
+						</p>
+						<p className="mb-2">
+							Scarat encourages us to go quickly as he handles the dragon, as we
+							part he shouts to us that for a safer way out, "head east".
+						</p>
+					</div>
+				),
+			},
+			{
+				icon: "dungeon",
+				description: (
+					<div>
+						<p className="mb-2">
+							We run from the dragon, and make our way towards a pile of rubble.
+							Sticking together we see the vague structure buried among the
+							rubble, and find some stairs into a spiral staircase.
+						</p>
+						<p className="mb-2">
+							Fladrin and Erjwyn head down the stairs at the front of the party
+							where we see a corridor.
+						</p>
+
+						<p className="mb-4">
+							We begin to explore, eventually we stumbled across what looked to
+							be a tomb or crypt.
+						</p>
+						<p className="mb-2">
+							Inside the crypt we find a sarcophagus and Rhombus approaches with
+							sword drawn, opens the top and as the body inside's eyes light up
+							blue, his sword glows a bright white, he plunges the sword
+							straight into it, killing it.
+						</p>
+					</div>
+				),
+			},
+			{
+				icon: "magnifying-glass",
+				description: (
+					<div>
+						<p className="mb-2">
+							Doors after doors and some exploration later, we make our way into
+							a larger chamber with several sarcophagi and as we head through to
+							some doors at the end of the room, they begin to open and a number
+							of skeletons enter the room from a secret door at the rear.
+						</p>
+					</div>
+				),
+			},
+			{
+				icon: "dice-d10",
+				description: (
+					<div>
+						<p className="mb-2">Fiiiight</p>
+						<ul className="mb-2">
+							<li>
+								<strong>Round 1</strong>: Faldrin, Sisu, Erjwyn, Rhombus all
+								attack skeletons hitting hard as Tren prepares and Isabelle
+								hangs back. Jascrow attempts to pick a lock, opens a door and
+								seeing more skeletons quickly undoes that mistake! The skeletons
+								from the sarcophagi make attacks, 1 hitting Sisu, the others
+								missing.
+							</li>
+							<li>
+								<strong>Round 2</strong>: Faldrin Hits again, Sisu goes for the
+								mob and hits a couple of times, Jascrow throws a knife but
+								misses, Tren casts sleep on 3 of the mob of skeletons, Erjwyn
+								prepares his and Jascrows weapons with Holy Water (using 2 of 8
+								doses), Rhombus destroys 1 skeleton. The skeletons hit back with
+								hits on Jascrow, Isabelle and Faldrin. The mob go for Sisu and
+								hit. Isabelle heals Sisu
+							</li>
+							<li>
+								<strong>Round 3</strong>: TBC!
+							</li>
+						</ul>
+					</div>
+				),
+			},
+			{
+				icon: "list-timeline",
+				description: (
+					<div>
+						<p className="mb-2">
+							<strong>Initiative:</strong>
+						</p>
+						<div className="overflow-x-auto w-50 rounded-box border border-base-content/5 bg-base-100">
+							<table className="table table-sm">
+								<tbody>
+									<tr>
+										<th>Faldrin</th>
+										<td>105</td>
+									</tr>
+									<tr>
+										<th>Sisu</th>
+										<td>103</td>
+									</tr>
+									<tr>
+										<th>Jascrow</th>
+										<td>95</td>
+									</tr>
+									<tr>
+										<th>Tren</th>
+										<td>63</td>
+									</tr>
+									<tr>
+										<th>Erjwyn</th>
+										<td>62</td>
+									</tr>
+									<tr>
+										<th>Isabelle</th>
+										<td>45</td>
+									</tr>
+									<tr>
+										<th>Rhombus</th>
+										<td>45</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 					</div>
 				),
 			},
