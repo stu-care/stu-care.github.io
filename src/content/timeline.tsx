@@ -2592,7 +2592,7 @@ export const timeline: Timeline = [
 		],
 	},
 	{
-		title: "Session 14 - Skeleteons for Days 2 - Crystal Skull Boogaloo",
+		title: "Session 14 - Ironhand, more like dead, amiright!",
 		events: [
 			{
 				icon: "dice-d10",
