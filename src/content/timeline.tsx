@@ -2531,12 +2531,12 @@ export const timeline: Timeline = [
 							</li>
 							<li>
 								<strong>Round 2</strong>: Faldrin Hits again, Sisu goes for the
-								mob and hits a couple of times, Jascrow throws a knife but
-								misses, Tren casts sleep on 3 of the mob of skeletons, Erjwyn
-								prepares his and Jascrows weapons with Holy Water (using 2 of 8
-								doses), Rhombus destroys 1 skeleton. The skeletons hit back with
-								hits on Jascrow, Isabelle and Faldrin. The mob go for Sisu and
-								hit. Isabelle heals Sisu
+								skeleton and hits a couple of times, Jascrow throws a knife but
+								misses, Tren casts sleep on 3 of the skeleton of skeletons,
+								Erjwyn prepares his and Jascrows weapons with Holy Water (using
+								2 of 8 doses), Rhombus destroys 1 skeleton. The skeletons hit
+								back with hits on Jascrow, Isabelle and Faldrin. The skeleton go
+								for Sisu and hit. Isabelle heals Sisu
 							</li>
 							<li>
 								<strong>Round 3</strong>: TBC!
@@ -2586,6 +2586,199 @@ export const timeline: Timeline = [
 								</tbody>
 							</table>
 						</div>
+					</div>
+				),
+			},
+		],
+	},
+	{
+		title: "Session 14 - Skeleteons for Days 2 - Crystal Skull Boogaloo",
+		events: [
+			{
+				icon: "dice-d10",
+				description: (
+					<div>
+						<p className="mb-2">Fiiiight (contin.)</p>
+						<ul className="mb-2">
+							<li>
+								<strong>Round 3</strong>: Faldrin hits, Sisu hits (killing a
+								skeleton), Jascrow hits also killing, Tren prepares, Erjwyn hits
+								killing, Isabelle heals Jascrow, Rhombus kills a biggun; 4
+								skeleton attack Sisu - 1 hits, 1 skeleton misses Erjwynm 2
+								skeleton miss Rhombus, Biggun hits Faldrin, Biggun misses Tren.
+							</li>
+							<li>
+								<strong>Round 4</strong>: Faldrin parries, Sisu goes into a
+								frenzy and kills 1 skeleton, Jascrow attacks 1 skeleton hitting,
+								Tren casts lightning at askeleton, Erjwyn misses, Isabelle
+								resolves Faldrin Stun for a round and heals Faldrin, Rhombus
+								kills a skeleton. All 8 skeletons miss.
+							</li>
+							<li>
+								<strong>Round 5</strong>: Faldrin kills skeleton, Sisu kills
+								skeleton, Jascrow kills skeleton, Tren prepares a spell, Erjwyn
+								kills skeleton, Isabelle repeats procedure on Faldrin, Rhombus
+								kills skeleton. Remaining skeletons miss.
+							</li>
+							<li>
+								<strong>Round 6</strong>: Faldrin kills skeleton, Sisu kills
+								skeleton, Tren kills skeleton.
+							</li>
+						</ul>
+					</div>
+				),
+			},
+			{
+				icon: "swords",
+				description: (
+					<div>
+						<p className="mb-2">
+							All the skeletons are dead but Sisu remains in a frenzy and as
+							everyone lese hides, Rhombus stays in the middle of the room. Sisu
+							turns, runs for Rhombus and attacks. Rhombus parries the first
+							attackbut Sisu goes again, this time smashing him in the arm
+							stunning him before finally making it out of the frenzy.
+						</p>
+						<p className="mb-2">
+							Isabelle, seeing Sisu break out of the frenzy walks over to
+							Rhombus and heals him up.{" "}
+							<strong>Rhombus remains at -10% OB for 24 hours.</strong>
+						</p>
+					</div>
+				),
+			},
+			{
+				icon: "door-closed",
+				description: (
+					<div>
+						<p className="mb-2">
+							We continue on through the crypt and find a door at the end of the
+							room. As we open it, we find a short corridor and another door.
+						</p>
+						<p className="mb-2">
+							We open the second door to find a large room, all we can make out
+							are pillars in the middle of the room and a large throne on a Dais
+						</p>
+					</div>
+				),
+			},
+			{
+				icon: "hand-holding-skull",
+				description: (
+					<div>
+						<p className="mb-2">
+							We explore into the room and as we walk through the door a few
+							things happen.
+						</p>
+						<p className="mb-2">
+							Tren's light fills the room and we see two figures. Lord Ironhand
+							sat upon the throne, eyes glowing red. Next to Ironhand is
+							Reevmoor stood with tight mummy-like skin, holding a crystal skull
+							whose eyes glow green.
+						</p>
+						<p className="mb-2">
+							As we move into the room, the door behind us slams, through
+							another door behind us, multiple skeletons show up and the door
+							closes behind them. In front of us, and in front of the dias,
+							another row of skeletons appear from a door, lining up.
+						</p>
+						<p className="mb-2">
+							The doors all look and Reevmoor addresses us tauntingly, he points
+							to the skeletons who begin to advance.
+						</p>
+					</div>
+				),
+			},
+			{
+				icon: "dice-d10",
+				description: (
+					<div>
+						<p className="mb-2">
+							Sticks and stones may break my bones but weapons and spells do
+							better.
+						</p>
+						<ul className="mb-2">
+							<li>
+								<strong>Round 1</strong>: Rhombus is immediately stunned,
+								Jascrow moves to engage and attacks some skeletons but fumbles.
+								Erjwyn shoots an arrow at Reevmoor hitting. Faldrin moves across
+								the room to draw some in the opposite direction, Tren casts a
+								spell hitting Reevmoor with a lightning like energy, Sisu
+								attacks a skeleton and hits. The skeletons move towards us all
+								and Reevmoor casts something.
+							</li>
+							<li>
+								<strong>Round 2</strong>: On skeletons - Rhombus misses, Jascrow
+								misses, Erjwyn hits, Faldrin kills, Sisu hits, Isabelle stuns 4.
+								Tren prepares another spell. On us - 2 miss Faldrin, 2 miss
+								Rhombus but 1 hits, 1 misses Erjwyn and 1 hits. Reevmoor casts a
+								spell, Erjwyn hit's the deck.
+							</li>
+							<li>
+								<strong>Round 3</strong>: On skeletons - Rhombus hits, Jascrow
+								hits, Faldrin kills, Tren kills 2, Sisu attacks but fumbles.
+								Isabelle heads for Erjwyn. Reevmoor stuns faldrin. On us -
+								Faldrin his hit, Rhombus parries, Isabelle parries, Tren
+								parries, Jascrow parries, and Sisu parries.
+							</li>
+							<li>
+								<strong>Round 4</strong>: On skeletons - Rhombus kills, Jascrow
+								hits, Faldrin hits, Isabelle heals Jascrow who fumbles, Sisu
+								continues to fumble and Erjwyn starts to come to his feet.
+								Ironhand gets up and heads towards Rhombus but misses an attack,
+								Reevmoor prepares a spell. On us - one attacks Rhombus and
+								fumbles, Tren parries, Erjwyn parries, Jascrow is downed, 3 on
+								Sisu all miss.
+							</li>
+							<li>
+								<strong>Round 5</strong>: Rhombus one-shots Ironhand with his
+								magical sword. On skeletons - Erjwyn hits, Faldrin hits, Tren
+								casts lightning hitting. Isabelle heals Jascrow who fumbles.
+								Reevmoor casts at Rhombus who is blinded. On us - all skeletons
+								miss.
+							</li>
+							<li>
+								<strong>Round 6</strong>: Rhombus swings hopefully like a madman
+								but misses anything. On skeletons - Jascrow hits, Erjwyn misses,
+								Faldrin misses, Sisu hits. Tren moves out to be able to see
+								Reevmoor, Isabelle moves towards Rhombus. Reevmoor prepares. On
+								us - Rhombus, Jascrow, Sisu are all hit.
+							</li>
+							<li>
+								<strong>Round 7</strong>: Rhombus remains blind. On skeletons -
+								Jasrow hits, Erjwyn mises, Faldrin hits, Tren knocks one down,
+								Sisu kills. Isabelle repairs Rhombus's sight. Reevmore continues
+								to prepare as all remaining skeletons miss.
+							</li>
+							<li>
+								<strong>Round 8</strong>: On skeletons - Rhombus hits, Jascrow
+								hits (having healed with a berry), Erjwyn misses, Faldrin hits,
+								Tren misses, Sisu misses. Isabelle heals. Reevmoor finally acts,
+								dropping Sisu aand one skeleton hits Erjwyn, downing him.
+							</li>
+							<li>
+								<strong>Round 9</strong>: On skeletons - Rhombus hits, Jascrow
+								hits, Faldrin kills. Reevmoor moves towards Faldrin who shits
+								himself, Jascrow takes a hit from a skeleton.
+							</li>
+							<li>
+								<strong>Round 10</strong>: Here goes... Rhombus hits, Jascrow
+								parries, Faldrin moves and hits, Tren parries, Sisu kills one
+								then another, Isabelle heals Erjwyn who starts to get back up.
+								Reevmoor moves to Rhombus who doesn't react as Faldrin did,
+								skeleton hits Rhombus but miss Faldrin, Jascrow, Sisu and Tren.
+							</li>
+							<li>
+								<strong>Round 11</strong>: Rhombus hits Reevmoor, Jascrow hits,
+								Erjwyn kills, Faldrin kills, Tren parries, Sisu misses and
+								Isabelle heals Jascrow.
+							</li>
+							<li>
+								<strong>Round 12</strong>: Rhombus hits Reevmoor, Jascrow kills
+								skeleton, Erjwyn misses, Faldrin kills Reevmoor. The remaining
+								skeletons drop.
+							</li>
+						</ul>
 					</div>
 				),
 			},
