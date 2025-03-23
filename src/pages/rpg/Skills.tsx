@@ -10,7 +10,7 @@ import { homeTitle } from "../Home";
 import { rpgTitle } from "../RPG";
 
 export const skillsTitle = (
-	<span className="leading-none flex items-baseline gap-2">
+	<span className="flex items-center gap-1 w-max">
 		{/* biome-ignore lint/complexity/useLiteralKeys: <explanation> */}
 		<FontAwesomeIcon fixedWidth={true} icon={byPrefixAndName.fas["bolt"]} />
 		Skills
@@ -72,15 +72,13 @@ const SkillsPage = () => {
 	};
 
 	return (
-		<main className="grid grid-flow-row auto-rows-auto p-4 gap-4 ">
-			<div className="grid grid-flow-row gap-1">
-				<label className="uppercase" htmlFor="filter">
-					Filter
-				</label>
+		<main>
+			<div>
+				<label htmlFor="#filter">Filter</label>
 				<input
+					id="filter"
 					type="text"
 					name="filter"
-					className="input w-full input-bordered focus-within:input-primary dark:bg-slate-700"
 					value={filterValue}
 					onChange={handleFilterChange}
 					placeholder="Skill Name (e.g. Fauna Lore)"
@@ -95,14 +93,12 @@ const SkillsPage = () => {
 				)
 				.map((skill) => {
 					return (
-						<div key={skill.name} className="grid gap-4 max-w-full">
-							<div className="border-2 border-slate-300 rounded overflow-hidden dark:border-slate-700">
-								<div className="p-2 bg-slate-300 dark:bg-slate-700">
-									<h3 className="flex gap-2 items-baseline justify-between">
-										<span className="flex gap-4 items-baseline">
-											{skill.name}
-										</span>
-										<span className="text-base">
+						<div key={skill.name}>
+							<div>
+								<div>
+									<h3>
+										<span>{skill.name}</span>
+										<span>
 											{skill.stats && (
 												<span>
 													{skill.stats
@@ -113,21 +109,17 @@ const SkillsPage = () => {
 										</span>
 									</h3>
 								</div>
-								<div className="p-2 grid grid-flow-row auto-rows-auto gap-4 text-sm">
-									<div className="flex items-center justify-between">
-										<div className="font-light text-xs">
+								<div>
+									<div>
+										<div>
 											<div>{skill.type}</div>
 										</div>
-										<div className="flex justify-end items-start gap-4">
-											{calculateSkillModifier(skill)}
-										</div>
+										<div>{calculateSkillModifier(skill)}</div>
 									</div>
-									<div className="tracking-wide grid grid-flow-row auto-rows-auto gap-2">
+									<div>
 										<Markdown>{skill.description}</Markdown>
 									</div>
-									<div className="flex justify-start items-baseline gap-2 text-left text-xs text-slate-400">
-										{skill.ref ?? "-"}
-									</div>
+									<div>{skill.ref ?? "-"}</div>
 								</div>
 							</div>
 						</div>

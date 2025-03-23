@@ -8,9 +8,9 @@ import classNames from "classnames";
 import { rollDice } from "../../helpers/dice";
 
 export const diceTitle = (
-	<span className="leading-none flex items-baseline gap-2">
+	<span className="flex items-center gap-1 w-max">
 		<FontAwesomeIcon fixedWidth={true} icon={byPrefixAndName.fas["dice-d10"]} />
-		Dice Check
+		Dice
 	</span>
 );
 
@@ -69,83 +69,59 @@ const Dice = () => {
 
 	return (
 		<>
-			<main className="relative p-4 grid grid-flow-row auto-rows-fr h-full gap-4 ">
-				<div className="flex items-center justify-center h-full flex-col gap-2">
-					<div className="w-full h-[220px] p-2 grid grid-flow-col items-center gap-1">
-						{Object.keys(d10).map((key) => (
-							<div
-								key={key}
-								className={classNames(
-									"bg-primary rounded flex flex-col items-center justify-center overflow-hidden relative transition-all duration-500",
-								)}
-								style={{
-									height: `${d10[key as unknown as number] / 100 - 30}%`,
-								}}
-							>
-								<span className="-rotate-90 overflow-hidden bottom-12 absolute text-base-100">
-									{((d10[key as unknown as number] / totalRolls) * 100).toFixed(
-										2,
-									)}
-									%
-								</span>
-
-								<span className="-rotate-90 overflow-hidden absolute top-4 text-base-100/50 text-sm">
-									{`${d10[key as unknown as number]}`}
-								</span>
-
-								<span className="font-black text-base-100 overflow-hidden absolute bottom-0">
-									{key}
-								</span>
-							</div>
-						))}
-					</div>
-					<h2 className="w-full flex justify-between items-center text-xl font-bold">
-						d10,{" "}
-						<small className="text-xs font-medium">({totalRolls} Rolls)</small>
-					</h2>
-
-					<div className="w-full h-[220px] p-2 grid grid-flow-col items-center gap-1">
-						{Object.keys(dPerc).map((key) => (
-							<div
-								key={key}
-								className={classNames(
-									"bg-primary rounded flex flex-col items-center justify-center overflow-hidden relative transition-all duration-500",
-								)}
-								style={{
-									height: `${dPerc[key as unknown as number] / 100 - 30}%`,
-								}}
-							>
-								<span className="-rotate-90 overflow-hidden bottom-12 absolute text-base-100">
-									{(
-										(dPerc[key as unknown as number] / totalRolls) *
-										100
-									).toFixed(2)}
-									%
-								</span>
-
-								<span className="-rotate-90 overflow-hidden absolute top-4 text-base-100/50 text-sm">
-									{`${dPerc[key as unknown as number]}`}
-								</span>
-
-								<span className="font-black text-base-100 overflow-hidden absolute bottom-0">
-									{key === "0" ? "00" : key}
-								</span>
-							</div>
-						))}
-					</div>
-					<h2 className="w-full flex justify-between items-center text-xl font-bold">
-						dPercentile,{" "}
-						<small className="text-xs font-medium">({totalRolls} Rolls)</small>
-					</h2>
-					<div className="flex grow items-center justify-center w-full">
-						<button
-							type="button"
-							className="btn btn-primary btn-block"
-							onClick={rollAll}
-						>
-							Re Roll
-						</button>
-					</div>
+			<main className="w-full">
+				<div className="flex flex-col sm:flex-row gap-4">
+					<section className="flex-1">
+						<h2 className="text-xl mt-4 mb-8">
+							d10, <small>({totalRolls} Rolls)</small>
+						</h2>
+						<div className="text-center w-full mb-4">
+							{Object.keys(d10).map((key) => (
+								<div key={key}>
+									<span className="w-12 inline-block">{key}</span>
+									<span className="w-40 inline-block">
+										{(
+											(d10[key as unknown as number] / totalRolls) *
+											100
+										).toFixed(2)}
+										%
+									</span>
+									<span>{`${d10[key as unknown as number]}`}</span>
+								</div>
+							))}
+						</div>
+					</section>
+					<section className="flex-1">
+						<h2 className="text-xl mt-4 mb-8">
+							dPercentile, <small>({totalRolls} Rolls)</small>
+						</h2>
+						<div className="text-center w-full mb-4">
+							{Object.keys(dPerc).map((key) => (
+								<div key={key}>
+									<span className="w-12 inline-block">
+										{key === "0" ? "00" : key}
+									</span>
+									<span className="w-40 inline-block">
+										{(
+											(dPerc[key as unknown as number] / totalRolls) *
+											100
+										).toFixed(2)}
+										%
+									</span>
+									<span>{`${dPerc[key as unknown as number]}`}</span>
+								</div>
+							))}
+						</div>
+					</section>
+				</div>
+				<div className="w-full text-center">
+					<button
+						type="button"
+						className="btn btn-primary btn-outline"
+						onClick={rollAll}
+					>
+						Re Roll
+					</button>
 				</div>
 			</main>
 		</>

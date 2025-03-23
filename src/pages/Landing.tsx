@@ -9,22 +9,21 @@ const LandingPage = () => {
 
 	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
-		setDisplay({ showHeader: false, showFooter: false });
+		setDisplay({ showHeader: false, showMenu: false, showFooter: false });
 	}, []);
 
 	return (
 		<>
-			<main className="p-4 h-full w-full flex items-center justify-center select-none">
-				<div className="flex flex-col">
-					<span>i am</span>
+			<main>
+				<div>
+					i am{" "}
 					<Link
+						className="link link-primary hover:bg-primary hover:text-base-100 hover:no-underline"
 						to="/home"
-						className="text-4xl transition-colors duration-500 ease-in-out hover:text-primary"
 					>
-						stu
-						<span className="text-primary">.care</span>
+						stu.care
 					</Link>
-					<span className="self-end">a developer</span>
+					, a developer
 				</div>
 			</main>
 		</>

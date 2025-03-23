@@ -8,7 +8,7 @@ import { homeTitle } from "../Home";
 import { rpgTitle } from "../RPG";
 
 export const keyInfoTitle = (
-	<span className="leading-none flex items-baseline gap-2">
+	<span className="flex items-center gap-1 w-max">
 		<FontAwesomeIcon
 			fixedWidth={true}
 			icon={byPrefixAndName.fas["user-beard-bolt"]}
@@ -36,30 +36,17 @@ const KeyInfoPage = () => {
 	}, []);
 
 	return (
-		<main className="grid grid-flow-row auto-rows-auto p-4 gap-4 ">
+		<main className="grid sm:grid-cols-2 md:grid-cols-3 auto-rows-auto grid-flow-row gap-2">
 			{keyInfo.map((item, index) => {
 				return (
-					<div
-						className="border-2 border-slate-300 overflow-hidden dark:border-slate-700 rounded"
-						key={item.name}
-					>
-						{/* {item.img && (
-							<img
-								className={cx(["w-full"])}
-								src={item.img.src}
-								alt={item.img.alt}
-							/>
-						)} */}
-						<div className="p-2 bg-slate-300 dark:bg-slate-700">
-							<h3
-								id={`${index}`}
-								className="flex gap-2 items-baseline justify-between"
-							>
+					<div className="border-1 border-primary " key={item.name}>
+						<div className="p-2 bg-primary text-base-100 font-bold">
+							<h3 className="" id={`${index}`}>
 								{item.name}
 							</h3>
 						</div>
 						{item.description && (
-							<div className="p-2 grid grid-flow-row auto-rows-auto gap-4 text-sm group ">
+							<div className="p-2">
 								<Markdown>{item.description}</Markdown>
 							</div>
 						)}

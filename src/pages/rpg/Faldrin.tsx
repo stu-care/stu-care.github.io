@@ -7,17 +7,16 @@ import { useRPG } from "../../contexts/RPGContext";
 import { homeTitle } from "../Home";
 import { rpgTitle } from "../RPG";
 import type { Character } from "../../content/characterList";
-import classNames from "classnames";
 import { rollDice } from "../../helpers/dice";
 import DiceRollOverlay from "../../components/DiceRollOverlay";
 
 export const faldrinTitle = (
-	<span className="leading-none flex items-baseline gap-2">
+	<span className="flex items-center gap-1 w-max">
 		<FontAwesomeIcon
 			fixedWidth={true}
 			icon={byPrefixAndName.fas["hammer-war"]}
 		/>
-		Faldrin Skills
+		Faldrin
 	</span>
 );
 
@@ -63,15 +62,13 @@ const Faldrin = () => {
 		const open = rollVals.reduce((acc, val) => acc + val.total, 0) + statVal;
 		const closed = rollVals[0].total + statVal;
 		setOutput(
-			<div className="text-center w-full mb-4">
-				<div className="mb-4 text-xl font-semibold">{stat.toUpperCase()}</div>
-				<div className="flex w-full justify-center text-2xl gap-12 font-bold">
+			<div>
+				<div>{stat.toUpperCase()}</div>
+				<div>
 					<span>{open}</span> {open !== closed && <span>{closed}</span>}
 				</div>
-				{rollVals[0].total <= 4 && (
-					<span className="text-red-500 font-black">FUMBLE</span>
-				)}
-				<div className="text-sm font-mono text-base-content/30 dark:text-base-100/30 flex items-center justify-center gap-2">
+				{rollVals[0].total <= 4 && <span>FUMBLE</span>}
+				<div>
 					(
 					{rollVals.map((roll, i) => (
 						// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
@@ -101,15 +98,13 @@ const Faldrin = () => {
 		const open = rollVals.reduce((acc, val) => acc + val.total, 0) + skillVal;
 		const closed = rollVals[0].total + skillVal;
 		setOutput(
-			<div className="text-center w-full mb-4">
-				<div className="mb-4 text-xl font-semibold">{skillName}</div>
-				<div className="flex w-full justify-center text-2xl gap-12 font-bold">
+			<div>
+				<div>{skillName}</div>
+				<div>
 					<span>{open}</span> {open !== closed && <span>{closed}</span>}
 				</div>
-				{rollVals[0].total <= 4 && (
-					<span className="text-red-500 font-black">FUMBLE</span>
-				)}
-				<div className="text-sm font-mono text-base-content/30 dark:text-slate-300/30 flex items-center justify-center gap-2">
+				{rollVals[0].total <= 4 && <span>FUMBLE</span>}
+				<div>
 					(
 					{rollVals.map((roll, i) => (
 						// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
@@ -136,15 +131,13 @@ const Faldrin = () => {
 		const open = rollVals.reduce((acc, val) => acc + val.total, 0);
 		const closed = rollVals[0].total;
 		setOutput(
-			<div className="text-center w-full mb-4">
-				<div className="mb-4 text-xl font-semibold">D100</div>
-				<div className="flex w-full justify-center text-2xl gap-12 font-bold">
+			<div>
+				<div>D100</div>
+				<div>
 					<span>{open}</span> {open !== closed && <span>{closed}</span>}
 				</div>
-				{rollVals[0].total <= 4 && (
-					<span className="text-red-500 font-black">FUMBLE</span>
-				)}
-				<div className="text-sm font-mono text-base-content/30 dark:text-base-100/30 flex items-center justify-center gap-2">
+				{rollVals[0].total <= 4 && <span>FUMBLE</span>}
+				<div>
 					(
 					{rollVals.map((roll, i) => (
 						// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
@@ -160,101 +153,54 @@ const Faldrin = () => {
 
 	return (
 		<>
-			<main className="flex flex-col w-full h-auto">
-				<div className="flex flex-col w-full gap-4 p-4">
-					<h2 className="text-2xl font-bold">Roll Dice</h2>
+			<main>
+				<div>
+					<h2>Roll Dice</h2>
 					<div>
-						<button
-							className="btn btn-sm btn-primary btn-block"
-							type="button"
-							onClick={() => roll()}
-						>
+						<button type="button" onClick={() => roll()}>
 							Roll
 						</button>
 					</div>
-					<h2 className="text-2xl font-bold">Roll Stats</h2>
-					<div className="grid grid-flow-col grid-cols-5 grid-rows-2 gap-4">
-						<button
-							className="btn btn-sm btn-primary btn-outline"
-							type="button"
-							onClick={() => rollStat("CO")}
-						>
+					<h2>Roll Stats</h2>
+					<div>
+						<button type="button" onClick={() => rollStat("CO")}>
 							CO
 						</button>
-						<button
-							className="btn btn-sm btn-primary btn-outline"
-							type="button"
-							onClick={() => rollStat("SD")}
-						>
+						<button type="button" onClick={() => rollStat("SD")}>
 							SD
 						</button>
-						<button
-							className="btn btn-sm btn-primary btn-outline"
-							type="button"
-							onClick={() => rollStat("AG")}
-						>
+						<button type="button" onClick={() => rollStat("AG")}>
 							AG
 						</button>
-						<button
-							className="btn btn-sm btn-primary btn-outline"
-							type="button"
-							onClick={() => rollStat("ME")}
-						>
+						<button type="button" onClick={() => rollStat("ME")}>
 							ME
 						</button>
-						<button
-							className="btn btn-sm btn-primary btn-outline"
-							type="button"
-							onClick={() => rollStat("RE")}
-						>
+						<button type="button" onClick={() => rollStat("RE")}>
 							RE
 						</button>
-						<button
-							className="btn btn-sm btn-primary btn-outline"
-							type="button"
-							onClick={() => rollStat("ST")}
-						>
+						<button type="button" onClick={() => rollStat("ST")}>
 							ST
 						</button>
-						<button
-							className="btn btn-sm btn-primary btn-outline"
-							type="button"
-							onClick={() => rollStat("QU")}
-						>
+						<button type="button" onClick={() => rollStat("QU")}>
 							QU
 						</button>
-						<button
-							className="btn btn-sm btn-primary btn-outline"
-							type="button"
-							onClick={() => rollStat("PR")}
-						>
+						<button type="button" onClick={() => rollStat("PR")}>
 							PR
 						</button>
-						<button
-							className="btn btn-sm btn-primary btn-outline"
-							type="button"
-							onClick={() => rollStat("IN")}
-						>
+						<button type="button" onClick={() => rollStat("IN")}>
 							IN
 						</button>
-						<button
-							className="btn btn-sm btn-primary btn-outline"
-							type="button"
-							onClick={() => rollStat("EM")}
-						>
+						<button type="button" onClick={() => rollStat("EM")}>
 							EM
 						</button>
 					</div>
-					<h2 className="text-2xl font-bold">Roll Skills</h2>
-					<div className="grid grid-flow-row grid-cols-2 gap-4 pb-4">
+					<h2>Roll Skills</h2>
+					<div>
 						{((faldrin as Character)?.skills || [])
 							.filter((skill) => skill.button)
 							.map((skill) => (
 								<button
 									key={skill.name}
-									className={classNames("btn btn-sm btn-primary btn-outline", {
-										"col-span-2": skill.name === "General Perception",
-									})}
 									type="button"
 									onClick={() => rollSkill(skill.name)}
 								>

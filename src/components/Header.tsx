@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { useApp } from "../contexts/AppContext";
 import { useRPG } from "../contexts/RPGContext";
-import Menu from "./Menu";
 
 const Header = () => {
 	const {
@@ -24,20 +23,23 @@ const Header = () => {
 	}
 
 	return (
-		<>
-			<header className="p-4 pt-5 select-none z-20 flex items-center justify-between bg-primary text-base-100">
-				<h1 className="">{title}</h1>
-				{!resetComplete && (
-					<button onClick={resetHandler} type="button">
-						<FontAwesomeIcon
-							className="transition-colors duration-300"
-							icon={byPrefixAndName.fas["trash-alt"]}
-						/>
-					</button>
-				)}
-			</header>
-			<Menu />
-		</>
+		<header className="min-h-max w-full flex justify-between items-end pb-2 mb-2 border-b-2 border-b-primary min-h-[50px]">
+			<h1 className="font-bold bg-primary text-base-100 px-2 text-xl">
+				{title}
+			</h1>
+			{!resetComplete && (
+				<button
+					onClick={resetHandler}
+					className="btn btn-outline btn-primary"
+					type="button"
+				>
+					<FontAwesomeIcon
+						fixedWidth={true}
+						icon={byPrefixAndName.fas["trash-alt"]}
+					/>
+				</button>
+			)}
+		</header>
 	);
 };
 

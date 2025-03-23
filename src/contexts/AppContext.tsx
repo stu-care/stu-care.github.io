@@ -4,6 +4,7 @@ import { createContext, useContext, useState } from "react";
 export interface IAppContext {
 	display: {
 		showHeader: boolean;
+		showMenu: boolean;
 		title: React.ReactNode;
 		breadcrumbs: {
 			list: Breadcrumb[];
@@ -13,10 +14,12 @@ export interface IAppContext {
 		showFooter: boolean;
 		setDisplay: ({
 			showHeader,
+			showMenu,
 			title,
 			showFooter,
 		}: {
 			showHeader?: boolean;
+			showMenu?: boolean;
 			title?: React.ReactNode;
 			showFooter?: boolean;
 		}) => void;
@@ -31,6 +34,7 @@ export type Breadcrumb = { url: string; label: React.ReactNode };
 const defaultContext: IAppContext = {
 	display: {
 		showHeader: false,
+		showMenu: false,
 		title: "",
 		breadcrumbs: {
 			list: [],
@@ -49,19 +53,23 @@ export const useApp = () => useContext(AppContext);
 export const AppProvider = ({ children }: IAppProvider) => {
 	const [showHeader, setShowHeader] = useState<boolean>(false);
 	const [showFooter, setShowFooter] = useState<boolean>(false);
+	const [showMenu, setShowMenu] = useState<boolean>(false);
 	const [title, setTitle] = useState<React.ReactNode>("");
 	const [breadcrumbs, setBreadcrumbs] = useState<Breadcrumb[]>([]);
 
 	const setDisplay = ({
 		showHeader = true,
+		showMenu = true,
 		title = "",
 		showFooter = true,
 	}: {
 		showHeader?: boolean;
+		showMenu?: boolean;
 		title?: React.ReactNode;
 		showFooter?: boolean;
 	}) => {
 		setShowHeader(showHeader);
+		setShowMenu(showMenu);
 		setTitle(showHeader ? title : "");
 		setShowFooter(showFooter);
 	};
@@ -77,6 +85,7 @@ export const AppProvider = ({ children }: IAppProvider) => {
 	const value = {
 		display: {
 			showHeader: showHeader,
+			showMenu: showMenu,
 			title,
 			breadcrumbs: {
 				list: breadcrumbs,

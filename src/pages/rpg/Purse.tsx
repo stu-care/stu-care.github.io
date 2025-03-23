@@ -12,7 +12,7 @@ import { homeTitle } from "../Home";
 import { rpgTitle } from "../RPG";
 
 export const purseTitle = (
-	<span className="leading-none flex items-baseline gap-2">
+	<span className="flex items-center gap-1 w-max">
 		<FontAwesomeIcon
 			fixedWidth={true}
 			icon={byPrefixAndName.fas["sack-dollar"]}
@@ -144,10 +144,10 @@ const PursePage = () => {
 	};
 
 	return (
-		<main className="relative p-4 flex flex-col h-full ">
-			<div className="grid grid-flow-row auto-rows-auto gap-4">
+		<main>
+			<div>
 				{denominations.map((abbr, index) => (
-					<div key={abbr} className="flex flex-row items-center ">
+					<div key={abbr}>
 						<input
 							id={abbr}
 							type="number"
@@ -155,21 +155,14 @@ const PursePage = () => {
 							onChange={(e) =>
 								handleCurrencyChange(abbr, Number.parseInt(e.target.value))
 							}
-							className="flex-grow input w-full input-bordered rounded-e-none focus-within:input-primary dark:bg-slate-700"
 							min="0"
 							step={1}
 						/>
-						<label
-							htmlFor={abbr}
-							className="flex bg-slate-300 w-12 last:rounded-e h-full items-center justify-center dark:bg-slate-500 dark:text-base-200"
-						>
-							{abbr}
-						</label>
+						<label htmlFor={abbr}>{abbr}</label>
 						{index > 0 && (
 							<button
 								type="button"
 								onClick={() => handleTransferFromHigherDenomination(abbr)}
-								className="btn btn-sm rounded-s-none btn-primary h-full"
 							>
 								<FontAwesomeIcon
 									fixedWidth={true}
@@ -180,16 +173,15 @@ const PursePage = () => {
 					</div>
 				))}
 			</div>
-			<div className="flex flex-grow items-center justify-center text-3xl">
+			<div>
 				{total.toLocaleString()} {totalCurrency}
 			</div>
-			<div className="mb-4">
+			<div>
 				<select
 					value={totalCurrency}
 					onChange={(e) =>
 						setTotalCurrency(e.target.value as CoinDenominations)
 					}
-					className="select w-full select-bordered focus-within:select-primary dark:bg-slate-700"
 				>
 					{denominations.map((abbr) => (
 						<option key={abbr} value={abbr}>
@@ -198,12 +190,8 @@ const PursePage = () => {
 					))}
 				</select>
 			</div>
-			<div className="mb-4">
-				<button
-					type="button"
-					onClick={tidyUp}
-					className="btn btn-primary w-full"
-				>
+			<div>
+				<button type="button" onClick={tidyUp}>
 					Tidy Up
 				</button>
 			</div>

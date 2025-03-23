@@ -13,12 +13,12 @@ import type {
 import PropertyUpdaterRow from "../../components/PropertyUpdaterRow";
 
 export const sheetTitle = (
-	<span className="leading-none flex items-baseline gap-2">
+	<span className="flex items-center gap-1 w-max">
 		<FontAwesomeIcon
 			fixedWidth={true}
 			icon={byPrefixAndName.fas["file-spreadsheet"]}
 		/>
-		Character Sheet
+		Sheet
 	</span>
 );
 
@@ -98,7 +98,7 @@ const SheetPage = () => {
 	};
 
 	return (
-		<main className="grid grid-flow-row auto-rows-auto p-4 gap-4 relative">
+		<main>
 			<h2>{faldrin.character.name}</h2>
 
 			<h3>Level</h3>
@@ -424,7 +424,7 @@ const SheetPage = () => {
 			{faldrin.skills.map((skill, index) => {
 				return (
 					<Fragment key={skill.name}>
-						<h4 className="flex items-baseline justify-between">
+						<h4>
 							{skill.name}
 							<small>
 								[{skill.stats.map((s) => s.toUpperCase()).join(", ")}]
@@ -527,9 +527,9 @@ const SheetPage = () => {
 					</Fragment>
 				);
 			})}
-			<div className="w-full overflow-hidden  whitespace-pre-wrap break-all">
+			<div>
 				<code>
-					<pre className="select-all">{JSON.stringify(faldrin)}</pre>
+					<pre>{JSON.stringify(faldrin)}</pre>
 				</code>
 			</div>
 		</main>

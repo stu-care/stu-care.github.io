@@ -12,27 +12,25 @@ const PropertyUpdaterRow: React.FC<IPropertyUpdaterRowProps> = ({
 	updater,
 }) => {
 	return (
-		<div className="grid grid-cols-10 items-center auto-cols-fr gap-2">
-			<div className="col-span-4 z-2 text-end text-sm font-semibold leading-[1em]">
-				{label}:
-			</div>
+		<div className="">
+			<div className="">{label}:</div>
 			{updater && (
 				<>
 					<input
-						className="input col-span-4 input-sm"
+						className=""
 						type="number"
 						value={value}
 						onChange={(e) => updater(Number.parseInt(e.target.value, 10))}
 					/>
 					<button
-						className="btn btn-sm"
+						className=""
 						type="button"
 						onClick={(e) => updater(value + 1)}
 					>
 						+
 					</button>
 					<button
-						className="btn btn-sm"
+						className=""
 						type="button"
 						onClick={(e) => updater(value - 1)}
 					>
@@ -40,14 +38,7 @@ const PropertyUpdaterRow: React.FC<IPropertyUpdaterRowProps> = ({
 					</button>
 				</>
 			)}
-			{!updater && (
-				<input
-					readOnly={true}
-					className="input col-span-6 input-sm bg-slate-100 text-slate-800/50"
-					type="number"
-					value={value}
-				/>
-			)}
+			{!updater && <input readOnly={true} value={value} />}
 		</div>
 	);
 };

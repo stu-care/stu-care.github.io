@@ -8,7 +8,7 @@ import { useRPG } from "../contexts/RPGContext";
 import { homeTitle } from "./Home";
 
 export const rpgTitle = (
-	<span className="leading-none flex items-baseline gap-2">
+	<span className="flex items-center gap-1">
 		<FontAwesomeIcon fixedWidth={true} icon={byPrefixAndName.fas["dice-d20"]} />
 		RPG
 	</span>
@@ -36,27 +36,21 @@ const RPGPage = () => {
 	}, []);
 
 	return (
-		<main className="p-4 h-full w-full grid auto-rows-auto grid-flow-row gap-4 select-none ">
-			<img
-				src={faldrin.img.src}
-				alt={faldrin.img.alt}
-				className="w-full max-h-96 object-cover rounded"
-			/>
-			<div className="flex gap-4 flex-row">
+		<main>
+			{/* <img src={faldrin.img.src} alt={faldrin.img.alt} /> */}
+			<div>
 				<h2>{faldrin.character.name}</h2>
-				<div className="border-b-4 border-b-primary grow -translate-y-[calc(50%-2px)]" />
+				<div />
 			</div>
-			<div className="flex items-center justify-between font-light">
+			<div>
 				<span>{faldrin.character.race}</span>
 				<span>{faldrin.character.profession}</span>
 			</div>
-			<div className="grid grid-cols-11 bg-primary rounded p-4 mb-8 text-sm text-center text-primary-content">
+			<div>
 				{Object.keys((faldrin as Character).stats).map((stat) => (
-					<div className="font-bold uppercase" key={stat}>
-						{stat}
-					</div>
+					<div key={stat}>{stat}</div>
 				))}
-				<div className="font-bold uppercase">ap</div>
+				<div>ap</div>
 				{Object.keys((faldrin as Character).stats).map((stat) => (
 					<div key={stat}>
 						{

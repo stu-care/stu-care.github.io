@@ -15,21 +15,9 @@ import SkillsPage from "./pages/rpg/Skills";
 import TimelinePage from "./pages/rpg/Timeline";
 import Faldrin from "./pages/rpg/Faldrin";
 import Dice from "./pages/rpg/Dice";
-import Withering from "./withering/layout/Withering";
-import witheringRouter from "./withering/router";
-import { WithieringProvider } from "./withering/contexts/WitheringContext";
 import SheetPage from "./pages/rpg/Sheet";
 
 export const router = createHashRouter([
-	{
-		path: "/withering",
-		element: (
-			<WithieringProvider>
-				<Withering />
-			</WithieringProvider>
-		),
-		children: witheringRouter,
-	},
 	{
 		path: "/",
 		element: (

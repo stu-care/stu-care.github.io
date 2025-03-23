@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useApp } from "../contexts/AppContext";
 
 export const homeTitle = (
-	<span className="leading-none flex items-baseline gap-2">
+	<span className="flex items-center gap-1">
 		{/* biome-ignore lint/complexity/useLiteralKeys: <explanation> */}
 		<FontAwesomeIcon fixedWidth={true} icon={byPrefixAndName.fas["house"]} />
 		Home
@@ -23,7 +23,7 @@ const HomePage = () => {
 		breadcrumbs.add({ url: "/home", label: homeTitle });
 	}, []);
 
-	return <main className="p-4 h-full w-full select-none" />;
+	return <main />;
 };
 
 export default HomePage;
