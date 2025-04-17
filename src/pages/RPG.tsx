@@ -36,27 +36,27 @@ const RPGPage = () => {
 	}, []);
 
 	return (
-		<main className="p-4 h-full w-full grid auto-rows-auto grid-flow-row gap-4 select-none ">
+		<main className="p-4 h-full w-full grid auto-rows-auto grid-flow-row gap-4 select-none">
 			<img
 				src={faldrin.img.src}
 				alt={faldrin.img.alt}
 				className="w-full max-h-96 object-cover rounded"
 			/>
-			<div className="flex gap-4 flex-row">
+			<div className="flex gap-4 flex-row text-primary">
 				<h2>{faldrin.character.name}</h2>
-				<div className="border-b-4 border-b-primary grow -translate-y-[calc(50%-2px)]" />
+				<div className="border-b-4 grow -translate-y-[calc(50%-2px)] border-primary" />
 			</div>
 			<div className="flex items-center justify-between font-light">
 				<span>{faldrin.character.race}</span>
 				<span>{faldrin.character.profession}</span>
 			</div>
-			<div className="grid grid-cols-11 bg-primary rounded p-4 mb-8 text-sm text-center text-primary-content">
+			<div className="grid grid-cols-11 rounded p-2 mb-8 text-sm text-center">
 				{Object.keys((faldrin as Character).stats).map((stat) => (
-					<div className="font-bold uppercase" key={stat}>
+					<div className="font-bold uppercase text-primary" key={stat}>
 						{stat}
 					</div>
 				))}
-				<div className="font-bold uppercase">ap</div>
+				<div className="font-bold uppercase text-primary">ap</div>
 				{Object.keys((faldrin as Character).stats).map((stat) => (
 					<div key={stat}>
 						{

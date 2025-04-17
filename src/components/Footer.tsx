@@ -11,7 +11,7 @@ const Footer = () => {
 	}
 
 	return (
-		<div className=" px-4 py-2 flex border-t rounded-t overflow-hidden items-center justify-between">
+		<div className=" px-4 py-2 flex border-t overflow-hidden items-center justify-between border-base-content/20 bg-base-300/50">
 			<Breadcrumbs />
 			<footer className="p-2 mt-auto text-center text-xs">
 				&copy; {new Date().getFullYear()}

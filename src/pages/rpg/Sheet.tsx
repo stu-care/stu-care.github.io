@@ -527,7 +527,7 @@ const SheetPage = () => {
 					</Fragment>
 				);
 			})}
-			<div className="w-full overflow-hidden  whitespace-pre-wrap break-all">
+			<div className="w-full overflow-hidden whitespace-pre-wrap break-all">
 				<code>
 					<pre className="select-all">{JSON.stringify(faldrin)}</pre>
 				</code>

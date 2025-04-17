@@ -25,14 +25,14 @@ const PropertyUpdaterRow: React.FC<IPropertyUpdaterRowProps> = ({
 						onChange={(e) => updater(Number.parseInt(e.target.value, 10))}
 					/>
 					<button
-						className="btn btn-sm"
+						className="btn btn-sm btn-primary"
 						type="button"
 						onClick={(e) => updater(value + 1)}
 					>
 						+
 					</button>
 					<button
-						className="btn btn-sm"
+						className="btn btn-sm btn-primary"
 						type="button"
 						onClick={(e) => updater(value - 1)}
 					>
@@ -43,7 +43,7 @@ const PropertyUpdaterRow: React.FC<IPropertyUpdaterRowProps> = ({
 			{!updater && (
 				<input
 					readOnly={true}
-					className="input col-span-6 input-sm bg-slate-100 text-slate-800/50 dark:bg-slate-900/20 dark:text-slate-100/20"
+					className="input col-span-6 input-sm bg-base-200 text-base-content/40"
 					type="number"
 					value={value}
 				/>

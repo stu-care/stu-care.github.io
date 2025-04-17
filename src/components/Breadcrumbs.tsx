@@ -9,7 +9,7 @@ const Breadcrumbs = () => {
 
 	return (
 		<nav className="breadcrumbs text-sm overflow-hidden">
-			<ul className="select-none justify-center">
+			<ul className="select-none justify-center text-secondary">
 				{breadcrumbs.list.map((breadcrumb, index) => (
 					<li key={breadcrumb.url}>
 						<NavLink className={navLink} to={breadcrumb.url} end>

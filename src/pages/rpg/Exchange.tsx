@@ -116,20 +116,20 @@ const ExchangePage = () => {
 
 	return (
 		<main className="relative grid grid-flow-row auto-rows-auto p-4 gap-4 ">
-			<div className="grid grid-cols-2 *:py-1 *:px-2 border border-slate-300 dark:border-slate-700 border-b-0">
-				<div className="text-lg border-b border-slate-300 bg-slate-300 dark:border-slate-700 dark:bg-slate-700">
+			<div className="grid grid-cols-2 *:py-1 *:px-2 border border-b-0 bg-base-100 border-base-content/20">
+				<div className="text-lg border-b border-base-content/20 bg-primary text-primary-content font-bold">
 					Currency
 				</div>
-				<div className="text-lg border-b border-slate-300 bg-slate-300 dark:border-slate-700 dark:bg-slate-700">
+				<div className="text-lg border-b border-base-content/20 bg-primary text-primary-content font-bold">
 					Rate
 				</div>
 				{Object.entries(currency.rates).map(([abbreviation, rate]) => (
 					<React.Fragment key={abbreviation}>
-						<div className="border-r border-b border-slate-300 dark:border-slate-700">
+						<div className="border-r border-b border-base-content/20">
 							{currency.abbreviations[abbreviation as keyof Rates]} (
 							{abbreviation})
 						</div>
-						<div className="border-b border-slate-300  dark:border-slate-700">
+						<div className="border-b border-base-content/20">
 							{/* biome-ignore lint/complexity/useLiteralKeys: <explanation> */}
 							{rate["bp"].toLocaleString()} bp
 						</div>
@@ -145,13 +145,13 @@ const ExchangePage = () => {
 					value={inputValue}
 					onChange={(e) => handleChange(e.target.value)}
 					placeholder="Enter value (e.g., 10sp)"
-					className="input w-full input-bordered focus-within:input-primary dark:bg-slate-700"
+					className="input w-full input-bordered focus-within:input-primary"
 				/>
 				<div className="flex items-center justify-between gap-4">
 					<select
 						value={fromCurrency}
 						onChange={(e) => setFromCurrency(e.target.value as keyof Rates)}
-						className="select flex-grow select-bordered focus-within:select-primary dark:bg-slate-700"
+						className="select flex-grow select-bordered focus-within:select-primary"
 					>
 						<option value="-1" disabled>
 							Select From
@@ -174,7 +174,7 @@ const ExchangePage = () => {
 					<select
 						value={toCurrency}
 						onChange={(e) => setToCurrency(e.target.value as keyof Rates)}
-						className="select flex-grow select-bordered focus-within:select-primary dark:bg-slate-700"
+						className="select flex-grow select-bordered focus-within:select-primary"
 					>
 						<option value="-1" disabled>
 							Select To

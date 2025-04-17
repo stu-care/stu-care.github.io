@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useApp } from "../contexts/AppContext";
 import { Link } from "react-router-dom";
+import Logo from "../components/Logo";
 
 const LandingPage = () => {
 	const {
@@ -16,15 +17,13 @@ const LandingPage = () => {
 		<>
 			<main className="p-4 h-full w-full flex items-center justify-center select-none">
 				<div className="flex flex-col">
-					<span>i am</span>
 					<Link
 						to="/home"
 						className="text-4xl transition-colors duration-500 ease-in-out hover:text-primary"
 					>
-						stu
-						<span className="text-primary">.care</span>
+						<Logo className="h-20 hover:fill-primary" />
 					</Link>
-					<span className="self-end">a developer</span>
+					<p className="text-2xl font-extralight">Ideas built beautifully.</p>
 				</div>
 			</main>
 		</>

@@ -72,7 +72,7 @@ const OBPage = () => {
 				{rollVals[0].total <= 4 && (
 					<span className="text-red-500 font-black">FUMBLE</span>
 				)}
-				<div className="text-sm font-mono text-base-content/30 dark:text-base-100/30  flex items-center justify-center gap-2">
+				<div className="text-sm font-mono  flex items-center justify-center gap-2">
 					(
 					{rollVals.map((roll, i) => (
 						// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
@@ -107,7 +107,7 @@ const OBPage = () => {
 						<div className="flex w-full justify-center text-2xl gap-12 font-bold">
 							<span>{open}</span> {open !== closed && <span>{closed}</span>}
 						</div>
-						<div className="text-sm font-mono text-base-content/30 dark:text-base-100/30 flex items-center justify-center gap-2">
+						<div className="text-sm font-mono flex items-center justify-center gap-2 text-base-content/40">
 							(
 							{rollVals.map((roll, i) => (
 								// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
@@ -150,7 +150,7 @@ const OBPage = () => {
 						}}
 						onFocus={(e) => e.target.select()}
 						step={5}
-						className="input input-bordered focus-within:input-primary w-1/4 dark:bg-slate-700"
+						className="input input-bordered focus-within:input-primary w-1/4"
 					/>
 				</div>
 			</div>
@@ -179,7 +179,7 @@ const OBPage = () => {
 						}}
 						onFocus={(e) => e.target.select()}
 						value={movement}
-						className="input input-bordered focus-within:input-primary w-1/4 dark:bg-slate-700"
+						className="input input-bordered focus-within:input-primary w-1/4"
 					/>
 				</div>
 			</div>
@@ -206,7 +206,7 @@ const OBPage = () => {
 							setTotalOb(Number.parseInt(e.target.value));
 						}}
 						onFocus={(e) => e.target.select()}
-						className="input input-bordered focus-within:input-primary w-1/4 dark:bg-slate-700"
+						className="input input-bordered focus-within:input-primary w-1/4"
 					/>
 				</div>
 			</div>
@@ -215,7 +215,7 @@ const OBPage = () => {
 					<button
 						type="button"
 						key={weapon.short}
-						className="btn btn-primary btn-outline flex-1"
+						className="btn btn-primary btn-outline h-16 flex-1"
 						onClick={() => {
 							setTotalOb(weapon.bonuses.total);
 						}}

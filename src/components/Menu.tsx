@@ -35,11 +35,11 @@ const Menu = () => {
 				className="drawer-toggle"
 				ref={checkboxRef}
 			/>
-			<nav className="drawer-content select-none transition-colors duration-300 cursor-pointer border-b border-b-primary/20">
+			<nav className="drawer-content select-none transition-colors duration-300 cursor-pointer border-b border-base-content/20">
 				<label
 					htmlFor="nav-drawer"
 					aria-label="open sidebar"
-					className="flex p-4 justify-between items-center cursor-pointer"
+					className="flex p-4 justify-between items-center cursor-pointer bg-base-300 text-base-content"
 				>
 					<div className="flex-1">Menu</div>
 					<div className="flex-none ">
@@ -53,7 +53,7 @@ const Menu = () => {
 				<label
 					htmlFor="nav-drawer"
 					aria-label="close sidebar"
-					className="drawer-overlay !bg-base-100/90"
+					className="drawer-overlay !bg-base-100/80"
 				></label>
 				<ul className="menu min-h-full w-5/6 py-5 z-30">
 					{/* Sidebar content here */}

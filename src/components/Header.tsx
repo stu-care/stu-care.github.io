@@ -25,7 +25,7 @@ const Header = () => {
 
 	return (
 		<>
-			<header className="p-4 pt-5 select-none z-20 flex items-center justify-between bg-primary text-base-100">
+			<header className="p-4 pt-5 select-none z-20 flex items-center justify-between bg-primary/90 text-primary-content">
 				<h1 className="">{title}</h1>
 				{!resetComplete && (
 					<button onClick={resetHandler} type="button">
