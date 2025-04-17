@@ -13,7 +13,7 @@ export const skillsTitle = (
 	<span className="leading-none flex items-baseline gap-2">
 		{/* biome-ignore lint/complexity/useLiteralKeys: <explanation> */}
 		<FontAwesomeIcon fixedWidth={true} icon={byPrefixAndName.fas["bolt"]} />
-		Skills
+		{/* Skills */}
 	</span>
 );
 

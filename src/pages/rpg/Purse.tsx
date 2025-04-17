@@ -17,7 +17,7 @@ export const purseTitle = (
 			fixedWidth={true}
 			icon={byPrefixAndName.fas["sack-dollar"]}
 		/>
-		Purse
+		{/* Purse */}
 	</span>
 );
 

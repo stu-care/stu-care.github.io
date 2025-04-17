@@ -18,7 +18,7 @@ export const sheetTitle = (
 			fixedWidth={true}
 			icon={byPrefixAndName.fas["file-spreadsheet"]}
 		/>
-		Character Sheet
+		{/* Character Sheet */}
 	</span>
 );
 

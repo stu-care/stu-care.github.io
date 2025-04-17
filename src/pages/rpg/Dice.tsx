@@ -10,7 +10,7 @@ import { rollDice } from "../../helpers/dice";
 export const diceTitle = (
 	<span className="leading-none flex items-baseline gap-2">
 		<FontAwesomeIcon fixedWidth={true} icon={byPrefixAndName.fas["dice-d10"]} />
-		Dice Check
+		{/* Dice Check */}
 	</span>
 );
 

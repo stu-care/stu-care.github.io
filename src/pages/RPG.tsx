@@ -10,7 +10,7 @@ import { homeTitle } from "./Home";
 export const rpgTitle = (
 	<span className="leading-none flex items-baseline gap-2">
 		<FontAwesomeIcon fixedWidth={true} icon={byPrefixAndName.fas["dice-d20"]} />
-		RPG
+		{/* RPG */}
 	</span>
 );
 

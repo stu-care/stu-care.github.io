@@ -16,153 +16,45 @@ import { diceTitle } from "../pages/rpg/Dice";
 import { sheetTitle } from "../pages/rpg/Sheet";
 
 export const navLink = ({ isActive }: { isActive: boolean }) =>
-	isActive ? "link-primary" : "text-base-content";
+	isActive ? "tab tab-active text-base-content" : "tab";
 
 const Menu = () => {
-	const checkboxRef = useRef<HTMLInputElement>(null);
-
-	const closeDrawer = () => {
-		if (checkboxRef.current) {
-			checkboxRef.current.checked = false;
-		}
-	};
-
 	return (
-		<div className="drawer">
-			<input
-				id="nav-drawer"
-				type="checkbox"
-				className="drawer-toggle"
-				ref={checkboxRef}
-			/>
-			<nav className="drawer-content select-none transition-colors duration-300 cursor-pointer border-b border-base-content/20">
-				<label
-					htmlFor="nav-drawer"
-					aria-label="open sidebar"
-					className="flex p-4 justify-between items-center cursor-pointer bg-base-300 text-base-content"
-				>
-					<div className="flex-1">Menu</div>
-					<div className="flex-none ">
-						{/* biome-ignore lint/complexity/useLiteralKeys: <explanation> */}
-						<FontAwesomeIcon icon={byPrefixAndName.fas["plus"]} />
-					</div>
-				</label>
-			</nav>
-			<div className="drawer-side absolute z-20">
-				{/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
-				<label
-					htmlFor="nav-drawer"
-					aria-label="close sidebar"
-					className="drawer-overlay !bg-base-100/80"
-				></label>
-				<ul className="menu min-h-full w-5/6 py-5 z-30">
-					{/* Sidebar content here */}
-					<li>
-						<NavLink to={"/home"} className={navLink} onClick={closeDrawer}>
-							{homeTitle}
-						</NavLink>
-					</li>
-					<li>
-						<NavLink to={"/rpg"} className={navLink} onClick={closeDrawer}>
-							{rpgTitle}
-						</NavLink>
-						<ul>
-							<li>
-								<NavLink
-									to={"/rpg/info"}
-									className={navLink}
-									onClick={closeDrawer}
-								>
-									{keyInfoTitle}
-								</NavLink>
-							</li>
-							<li>
-								<NavLink
-									to={"/rpg/timeline"}
-									className={navLink}
-									onClick={closeDrawer}
-								>
-									{timelineTitle}
-								</NavLink>
-							</li>
-							<li>
-								<NavLink
-									to={"/rpg/skills"}
-									className={navLink}
-									onClick={closeDrawer}
-								>
-									{skillsTitle}
-								</NavLink>
-							</li>
-							<li>
-								<NavLink
-									to={"/rpg/herbs"}
-									className={navLink}
-									onClick={closeDrawer}
-								>
-									{herbsTitle}
-								</NavLink>
-							</li>
-							<li>
-								<NavLink
-									to={"/rpg/exchange"}
-									className={navLink}
-									onClick={closeDrawer}
-								>
-									{exchangeTitle}
-								</NavLink>
-							</li>
-							<li>
-								<NavLink
-									to={"/rpg/purse"}
-									className={navLink}
-									onClick={closeDrawer}
-								>
-									{purseTitle}
-								</NavLink>
-							</li>
-							<li>
-								<NavLink
-									to={"/rpg/ob"}
-									className={navLink}
-									onClick={closeDrawer}
-								>
-									{obTitle}
-								</NavLink>
-							</li>
-							<li>
-								<NavLink
-									to={"/rpg/faldrin"}
-									className={navLink}
-									onClick={closeDrawer}
-								>
-									{faldrinTitle}
-								</NavLink>
-							</li>
-
-							<li>
-								<NavLink
-									to={"/rpg/sheet"}
-									className={navLink}
-									onClick={closeDrawer}
-								>
-									{sheetTitle}
-								</NavLink>
-							</li>
-							<li>
-								<NavLink
-									to={"/rpg/dice"}
-									className={navLink}
-									onClick={closeDrawer}
-								>
-									{diceTitle}
-								</NavLink>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-		</div>
+		<nav className="bg-base-100/70 backdrop-blur-sm rounded-lg shadow-xl overflow-auto grid grid-flow-col auto-cols-max overflow-x-auto p-1 sm:p-2 min-h-12">
+			<NavLink to={"/rpg"} role="tab" end={true} className={navLink}>
+				{rpgTitle}
+			</NavLink>
+			<NavLink to={"/rpg/timeline"} role="tab" className={navLink}>
+				{timelineTitle}
+			</NavLink>
+			<NavLink to={"/rpg/ob"} role="tab" className={navLink}>
+				{obTitle}
+			</NavLink>
+			<NavLink to={"/rpg/purse"} role="tab" className={navLink}>
+				{purseTitle}
+			</NavLink>
+			<NavLink to={"/rpg/faldrin"} role="tab" className={navLink}>
+				{faldrinTitle}
+			</NavLink>
+			<NavLink to={"/rpg/sheet"} role="tab" className={navLink}>
+				{sheetTitle}
+			</NavLink>
+			<NavLink to={"/rpg/info"} className={navLink}>
+				{keyInfoTitle}
+			</NavLink>
+			<NavLink to={"/rpg/skills"} role="tab" className={navLink}>
+				{skillsTitle}
+			</NavLink>
+			<NavLink to={"/rpg/herbs"} role="tab" className={navLink}>
+				{herbsTitle}
+			</NavLink>
+			<NavLink to={"/rpg/exchange"} role="tab" className={navLink}>
+				{exchangeTitle}
+			</NavLink>
+			<NavLink to={"/rpg/dice"} role="tab" className={navLink}>
+				{diceTitle}
+			</NavLink>
+		</nav>
 	);
 };
 

@@ -17,7 +17,7 @@ export const faldrinTitle = (
 			fixedWidth={true}
 			icon={byPrefixAndName.fas["hammer-war"]}
 		/>
-		Faldrin Skills
+		{/* Faldrin Skills */}
 	</span>
 );
 

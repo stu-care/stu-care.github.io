@@ -13,7 +13,7 @@ export const timelineTitle = (
 			// biome-ignore lint/complexity/useLiteralKeys: consistency
 			icon={byPrefixAndName.fas["timeline"]}
 		/>
-		Timeline
+		{/* Timeline */}
 	</span>
 );
 

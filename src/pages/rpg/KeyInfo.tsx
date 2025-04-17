@@ -13,7 +13,7 @@ export const keyInfoTitle = (
 			fixedWidth={true}
 			icon={byPrefixAndName.fas["user-beard-bolt"]}
 		/>
-		Key Info
+		{/* Key Info */}
 	</span>
 );
 

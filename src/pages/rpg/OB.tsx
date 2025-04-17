@@ -17,7 +17,7 @@ export const obTitle = (
 			// biome-ignore lint/complexity/useLiteralKeys: <explanation>
 			icon={byPrefixAndName.fas["calculator"]}
 		/>
-		OB Calc
+		{/* OB Calc */}
 	</span>
 );
 

@@ -14,19 +14,14 @@ const LandingPage = () => {
 	}, []);
 
 	return (
-		<>
-			<main className="p-4 h-full w-full flex items-center justify-center select-none">
-				<div className="flex flex-col">
-					<Link
-						to="/home"
-						className="text-4xl transition-colors duration-500 ease-in-out hover:text-primary"
-					>
-						<Logo className="h-20 hover:fill-primary" />
-					</Link>
-					<p className="text-2xl font-extralight">Ideas built beautifully.</p>
-				</div>
-			</main>
-		</>
+		<main className="flex flex-col items-center justify-center h-full">
+			<div>
+				<Logo className="h-20" />
+				<p className="text-2xl font-extralight">
+					Ideas built beautifully<span className="text-primary">.</span>
+				</p>
+			</div>
+		</main>
 	);
 };
 
