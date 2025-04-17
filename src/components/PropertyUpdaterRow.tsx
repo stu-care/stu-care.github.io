@@ -43,7 +43,7 @@ const PropertyUpdaterRow: React.FC<IPropertyUpdaterRowProps> = ({
 			{!updater && (
 				<input
 					readOnly={true}
-					className="input col-span-6 input-sm bg-slate-100 text-slate-800/50"
+					className="input col-span-6 input-sm bg-slate-100 text-slate-800/50 dark:bg-slate-900/20 dark:text-slate-100/20"
 					type="number"
 					value={value}
 				/>
