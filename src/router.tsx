@@ -16,6 +16,9 @@ import TimelinePage from "./pages/rpg/Timeline";
 import Faldrin from "./pages/rpg/Faldrin";
 import Dice from "./pages/rpg/Dice";
 import SheetPage from "./pages/rpg/Sheet";
+import DnD from "./layouts/DnD";
+import DnDLandingPage from "./pages/dnd/DnDLandingPage";
+import DnDCheatSheetPage from "./pages/dnd/DnDCheatSheetPage";
 
 export const router = createHashRouter([
 	{
@@ -83,6 +86,26 @@ export const router = createHashRouter([
 			{
 				path: "*",
 				element: <Error404 />,
+			},
+		],
+	},
+	{
+		path: "/dnd",
+		element: (
+			<AppProvider>
+				<RPGProvider>
+					<DnD />
+				</RPGProvider>
+			</AppProvider>
+		),
+		children: [
+			{
+				path: "/dnd/",
+				element: <DnDLandingPage />,
+			},
+			{
+				path: "/dnd/cs",
+				element: <DnDCheatSheetPage />,
 			},
 		],
 	},

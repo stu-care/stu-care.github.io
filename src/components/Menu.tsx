@@ -14,6 +14,7 @@ import { timelineTitle } from "../pages/rpg/Timeline";
 import { faldrinTitle } from "../pages/rpg/Faldrin";
 import { diceTitle } from "../pages/rpg/Dice";
 import { sheetTitle } from "../pages/rpg/Sheet";
+import { dndLandingTitle } from "../pages/dnd/DnDLandingPage";
 
 export const navLink = ({ isActive }: { isActive: boolean }) =>
 	isActive ? "tab tab-active text-base-content" : "tab";
@@ -53,6 +54,9 @@ const Menu = () => {
 			</NavLink>
 			<NavLink to={"/rpg/dice"} role="tab" className={navLink}>
 				{diceTitle}
+			</NavLink>
+			<NavLink to={"/dnd"} role="tab" end={true} className={navLink}>
+				{dndLandingTitle}
 			</NavLink>
 		</nav>
 	);
