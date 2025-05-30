@@ -21,7 +21,7 @@ export const navLink = ({ isActive }: { isActive: boolean }) =>
 
 const Menu = () => {
 	return (
-		<nav className="bg-base-100/70 backdrop-blur-sm rounded-lg shadow-xl overflow-auto grid grid-flow-col auto-cols-max overflow-x-auto p-1 sm:p-2 min-h-12">
+		<nav className="bg-base-100/70 backdrop-blur-sm rounded-lg shadow-xl overflow-auto grid grid-flow-col auto-cols-max overflow-x-auto p-1 sm:p-1 min-h-12">
 			<NavLink to={"/rpg"} role="tab" end={true} className={navLink}>
 				{rpgTitle}
 			</NavLink>
