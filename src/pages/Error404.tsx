@@ -1,16 +1,6 @@
 import { useEffect } from "react";
-import { useApp } from "../contexts/AppContext";
 
 const Error404Page = () => {
-	const {
-		display: { setDisplay },
-	} = useApp();
-
-	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
-	useEffect(() => {
-		setDisplay({ showHeader: false, showFooter: false });
-	}, []);
-
 	return (
 		<main className="p-4 h-full w-full flex items-center justify-center select-none">
 			<div className="flex flex-col">
