@@ -1,0 +1,9 @@
+# SECURITY.TXT
+
+Contact: security@example.com
+Encryption: https://example.com/pgp-key.txt
+Acknowledgments: https://example.com/hall-of-fame.html
+Expires: 2024/12/31
+
+# Please report any security vulnerabilities to the email address above.
+# For more information, visit the acknowledgments page.
