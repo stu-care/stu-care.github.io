@@ -14,8 +14,8 @@ const LandingPage = () => {
 	}, []);
 
 	return (
-		<main className="flex flex-col items-center justify-center h-full">
-			<div>
+		<main className="relative h-[100dvh] w-full overflow-hidden">
+			<div className="fixed top-0 left-0 right-0 bottom-0 flex flex-col items-end justify-end p-5 sm:p-10 md:p-20 bg-stone-50">
 				<Logo className="h-20" />
 				<p className="text-2xl font-extralight">
 					Ideas built beautifully<span className="text-primary">.</span>

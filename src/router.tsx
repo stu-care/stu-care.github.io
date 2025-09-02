@@ -24,91 +24,99 @@ export const router = createHashRouter([
 	{
 		path: "/",
 		element: (
-			<AppProvider>
-				<RPGProvider>
-					<Root />
-				</RPGProvider>
-			</AppProvider>
+			<LandingPage />
 		),
-		children: [
-			{
-				path: "/",
-				element: <LandingPage />,
-			},
-			{
-				path: "/home",
-				element: <HomePage />,
-			},
-			{
-				path: "/rpg",
-				element: <RPGPage />,
-			},
-			{
-				path: "/rpg/skills",
-				element: <SkillsPage />,
-			},
-			{
-				path: "/rpg/herbs",
-				element: <HerbsPage />,
-			},
-			{
-				path: "/rpg/purse",
-				element: <PursePage />,
-			},
-			{
-				path: "/rpg/exchange",
-				element: <ExchangePage />,
-			},
-			{
-				path: "/rpg/ob",
-				element: <OBPage />,
-			},
-			{
-				path: "/rpg/info",
-				element: <KeyInfoPage />,
-			},
-			{
-				path: "/rpg/timeline",
-				element: <TimelinePage />,
-			},
-			{
-				path: "/rpg/faldrin",
-				element: <Faldrin />,
-			},
-			{
-				path: "/rpg/dice",
-				element: <Dice />,
-			},
-			{
-				path: "/rpg/sheet",
-				element: <SheetPage />,
-			},
-			{
-				path: "*",
-				element: <Error404 />,
-			},
-		],
-	},
-	{
-		path: "/dnd",
-		element: (
-			<AppProvider>
-				<RPGProvider>
-					<DnD />
-				</RPGProvider>
-			</AppProvider>
-		),
-		children: [
-			{
-				path: "/dnd/",
-				element: <DnDLandingPage />,
-			},
-			{
-				path: "/dnd/cs",
-				element: <DnDCheatSheetPage />,
-			},
-		],
-	},
-]);
+	}]);
+
+// export const router = createHashRouter([
+// 	{
+// 		path: "/",
+// 		element: (
+// 			<AppProvider>
+// 				<RPGProvider>
+// 					<Root />
+// 				</RPGProvider>
+// 			</AppProvider>
+// 		),
+// 		children: [
+// 			{
+// 				path: "/",
+// 				element: <LandingPage />,
+// 			},
+// 			{
+// 				path: "/home",
+// 				element: <HomePage />,
+// 			},
+// 			{
+// 				path: "/rpg",
+// 				element: <RPGPage />,
+// 			},
+// 			{
+// 				path: "/rpg/skills",
+// 				element: <SkillsPage />,
+// 			},
+// 			{
+// 				path: "/rpg/herbs",
+// 				element: <HerbsPage />,
+// 			},
+// 			{
+// 				path: "/rpg/purse",
+// 				element: <PursePage />,
+// 			},
+// 			{
+// 				path: "/rpg/exchange",
+// 				element: <ExchangePage />,
+// 			},
+// 			{
+// 				path: "/rpg/ob",
+// 				element: <OBPage />,
+// 			},
+// 			{
+// 				path: "/rpg/info",
+// 				element: <KeyInfoPage />,
+// 			},
+// 			{
+// 				path: "/rpg/timeline",
+// 				element: <TimelinePage />,
+// 			},
+// 			{
+// 				path: "/rpg/faldrin",
+// 				element: <Faldrin />,
+// 			},
+// 			{
+// 				path: "/rpg/dice",
+// 				element: <Dice />,
+// 			},
+// 			{
+// 				path: "/rpg/sheet",
+// 				element: <SheetPage />,
+// 			},
+// 			{
+// 				path: "*",
+// 				element: <Error404 />,
+// 			},
+// 		],
+// 	},
+// 	{
+// 		path: "/dnd",
+// 		element: (
+// 			<AppProvider>
+// 				<RPGProvider>
+// 					<DnD />
+// 				</RPGProvider>
+// 			</AppProvider>
+// 		),
+// 		children: [
+// 			{
+// 				path: "/dnd/",
+// 				element: <DnDLandingPage />,
+// 			},
+// 			{
+// 				path: "/dnd/cs",
+// 				element: <DnDCheatSheetPage />,
+// 			},
+// 		],
+// 	},
+// ]);
 
 export default router;
