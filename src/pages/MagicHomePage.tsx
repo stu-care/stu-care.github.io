@@ -34,18 +34,20 @@ export type MTGCard = {
   id: string;
   name: string;
 
-  // Type line parts (categorical-ish)
-  superType?: SuperType; // e.g. Legendary
-  type?: CardType; // e.g. Creature
-  subtype1?: string; // e.g. Elf
-  subtype2?: string; // e.g. Druid
+  superType?: SuperType;
+  type?: CardType;
+  subtype1?: string;
+  subtype2?: string;
 
   mana?: string[];
   power?: number;
   toughness?: number;
   count: number;
+
   color?: "white" | "red" | "blue" | "green" | "black" | "multicoloured" | "uncoloured";
   colorShort?: "W" | "U" | "B" | "R" | "G" | "M" | "C";
+
+  keywords?: string[]; // NEW
 };
 
 export const superTypeOptions: SuperType[] = ["None", "Basic", "Legendary", "Snow", "World", "Ongoing", "Token", "Elite"];
@@ -61,6 +63,26 @@ export const typeOptions: CardType[] = [
   "Battle",
   "Tribal",
 ];
+
+export const keywordSuggestions = [
+  "Flying",
+  "First strike",
+  "Double strike",
+  "Deathtouch",
+  "Trample",
+  "Haste",
+  "Vigilance",
+  "Lifelink",
+  "Menace",
+  "Reach",
+  "Hexproof",
+  "Ward",
+  "Defender",
+  "Flash",
+  "Indestructible",
+  "Prowess",
+];
+
 
 // Light suggestions (kept small on purpose (big subtype lists get unwieldy))
 export const subtypeSuggestions = [
@@ -247,7 +269,7 @@ const MagicHomePage = () => {
 
               <button className="btn btn-primary" onClick={() => setModalOpen(true)}>
                 <FontAwesomeIcon icon={byPrefixAndName.fas.plus} />
-                Add Card
+                Add Card <kbd className="kbd bg-base-100/20">⌘</kbd><kbd className="kbd bg-base-100/20">⏎</kbd>
               </button>
             </div>
           </div>

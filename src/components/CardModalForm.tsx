@@ -9,6 +9,7 @@ import {
     subtypeSuggestions,
     getCardManaCount,
     formatTypeLine,
+    keywordSuggestions,
 } from "../pages/MagicHomePage";
 
 interface CardModalFormProps {
@@ -18,14 +19,20 @@ interface CardModalFormProps {
     onCancel: () => void;
 }
 
-type StepId = 0 | 1 | 2 | 3 | 4;
+type StepId = 0 | 1 | 2 | 3 | 4 | 5;
+
 
 function normaliseSubtype(s: string) {
     return s.trim().replace(/\s+/g, " ");
 }
 
+function normaliseKeyword(s: string) {
+    return normaliseSubtype(s).replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
 function Stepper({ step }: { step: StepId }) {
-    const labels = ["Basics", "Type line", "Mana", "Stats", "Review"];
+    const labels = ["Basics", "Type line", "Mana", "Stats", "Keywords", "Review"];
+
     return (
         <ul className="steps w-full">
             {labels.map((l, i) => (
@@ -168,6 +175,8 @@ const CardModalForm: React.FC<CardModalFormProps> = ({ open, card, onSave, onCan
     const [toughness, setToughness] = useState<number | undefined>(card?.toughness);
     const [count, setCount] = useState(card?.count || 1);
     const [color, setColor] = useState<MTGCard["color"]>(card?.color || undefined);
+    const [keywords, setKeywords] = useState<string[]>(card?.keywords || []);
+    const [keywordInput, setKeywordInput] = useState("");
 
     const [superType, setSuperType] = useState<MTGCard["superType"]>(card?.superType || "None");
     const [type, setType] = useState<MTGCard["type"]>(card?.type || "None");
@@ -203,6 +212,9 @@ const CardModalForm: React.FC<CardModalFormProps> = ({ open, card, onSave, onCan
         setSubtype2(card?.subtype2 || "");
         setSubtype1Free("");
         setSubtype2Free("");
+        setKeywords(card?.keywords || []);
+        setKeywordInput("");
+
     }, [open, card?.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
     // Modal backdrop and esc close logic
@@ -473,8 +485,9 @@ const CardModalForm: React.FC<CardModalFormProps> = ({ open, card, onSave, onCan
             type,
             subtype1: effectiveSubtype1 || undefined,
             subtype2: effectiveSubtype2 || undefined,
+            keywords: keywords.length ? keywords : undefined,
         }),
-        [card?.id, name, count, mana, power, toughness, color, superType, type, effectiveSubtype1, effectiveSubtype2],
+        [card?.id, name, count, mana, power, toughness, color, superType, type, effectiveSubtype1, effectiveSubtype2, keywords],
     );
 
     const canNext = useMemo(() => {
@@ -482,7 +495,7 @@ const CardModalForm: React.FC<CardModalFormProps> = ({ open, card, onSave, onCan
         return true;
     }, [step, name, count]);
 
-    const goNext = useCallback(() => setStep((s) => (s < 4 ? ((s + 1) as StepId) : s)), []);
+    const goNext = useCallback(() => setStep((s) => (s < 5 ? ((s + 1) as StepId) : s)), []);
     const goBack = useCallback(() => setStep((s) => (s > 0 ? ((s - 1) as StepId) : s)), []);
 
     const saveCurrent = useCallback(() => {
@@ -500,8 +513,9 @@ const CardModalForm: React.FC<CardModalFormProps> = ({ open, card, onSave, onCan
             type,
             subtype1: effectiveSubtype1 || undefined,
             subtype2: effectiveSubtype2 || undefined,
+            keywords: keywords.length ? keywords : undefined,
         });
-    }, [onSave, card?.id, name, mana, power, toughness, count, color, superType, type, effectiveSubtype1, effectiveSubtype2]);
+    }, [onSave, card?.id, name, mana, power, toughness, count, color, superType, type, effectiveSubtype1, effectiveSubtype2, keywords]);
 
     // Cmd/Ctrl + Enter: next step (0-3), save on step 4
     useEffect(() => {
@@ -513,7 +527,7 @@ const CardModalForm: React.FC<CardModalFormProps> = ({ open, card, onSave, onCan
 
             e.preventDefault();
 
-            if (step < 4) {
+            if (step < 5) {
                 if (!canNext) return;
                 goNext();
                 return;
@@ -770,6 +784,114 @@ const CardModalForm: React.FC<CardModalFormProps> = ({ open, card, onSave, onCan
                         )}
 
                         {step === 4 && (
+  <div className="space-y-4">
+    <div className="rounded-2xl border border-base-200 p-4 space-y-3">
+      <div className="flex items-center justify-between">
+        <div className="font-semibold">Keywords</div>
+        <div className="text-sm opacity-70">{keywords.length ? `${keywords.length} selected` : "None"}</div>
+      </div>
+
+      {/* Keyboard hint */}
+      <div className="rounded-xl bg-base-200/40 p-3 text-sm flex flex-col gap-2">
+        <div className="font-bold">Keyboard shortcuts</div>
+        <div className="text-sm">
+          Type a keyword and press <kbd className="kbd">Enter</kbd> to add. Use <kbd className="kbd">Backspace</kbd> on an empty input to remove the last keyword.
+        </div>
+      </div>
+
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+        <input
+          className="input input-bordered w-full"
+          placeholder="e.g. Flying, Trample…"
+          value={keywordInput}
+          onChange={(e) => setKeywordInput(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              e.preventDefault();
+              const v = normaliseKeyword(keywordInput.trim());
+              if (!v) return;
+              setKeywords((prev) => (prev.includes(v) ? prev : [...prev, v]));
+              setKeywordInput("");
+              return;
+            }
+
+            if (e.key === "Backspace" && !keywordInput.trim()) {
+              setKeywords((prev) => (prev.length ? prev.slice(0, -1) : prev));
+            }
+          }}
+          autoFocus
+        />
+
+        <button
+          type="button"
+          className="btn btn-secondary"
+          onClick={() => {
+            const v = normaliseKeyword(keywordInput.trim());
+            if (!v) return;
+            setKeywords((prev) => (prev.includes(v) ? prev : [...prev, v]));
+            setKeywordInput("");
+          }}
+          disabled={!keywordInput.trim()}
+        >
+          Add
+        </button>
+
+        <button
+          type="button"
+          className="btn btn-ghost"
+          onClick={() => {
+            setKeywords([]);
+            setKeywordInput("");
+          }}
+          disabled={!keywords.length && !keywordInput.trim()}
+        >
+          Clear
+        </button>
+      </div>
+
+      {/* Suggestions */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+        {keywordSuggestions.map((k) => {
+          const picked = keywords.includes(k);
+          return (
+            <button
+              key={k}
+              type="button"
+              className={`btn btn-xs ${picked ? "btn-secondary" : ""}`}
+              onClick={() => {
+                setKeywords((prev) => (prev.includes(k) ? prev.filter((x) => x !== k) : [...prev, k]));
+              }}
+              title={picked ? "Remove" : "Add"}
+            >
+              {k}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Selected */}
+      <div className="flex flex-wrap gap-2 justify-center">
+        {keywords.length ? (
+          keywords.map((k) => (
+            <button
+              key={k}
+              type="button"
+              className="btn btn-xs btn-secondary"
+              onClick={() => setKeywords((prev) => prev.filter((x) => x !== k))}
+              title="Remove keyword"
+            >
+              {k} ×
+            </button>
+          ))
+        ) : (
+          <span className="opacity-50">No keywords set</span>
+        )}
+      </div>
+    </div>
+  </div>
+)}
+
+                        {step === 5 && (
                             <div className="rounded-2xl border border-base-200 p-4 space-y-3">
                                 <div className="text-sm opacity-70">Review</div>
 
@@ -809,6 +931,11 @@ const CardModalForm: React.FC<CardModalFormProps> = ({ open, card, onSave, onCan
                                         <div className="text-xs opacity-70">Colour</div>
                                         <div className="font-semibold">{previewCard.color ?? "—"}</div>
                                     </div>
+
+                                    <div className="rounded-xl bg-base-200/40 p-3 md:col-span-2">
+  <div className="text-xs opacity-70">Keywords</div>
+  <div className="font-semibold">{previewCard.keywords?.length ? previewCard.keywords.join(", ") : "—"}</div>
+</div>
                                 </div>
                             </div>
                         )}
@@ -827,13 +954,13 @@ const CardModalForm: React.FC<CardModalFormProps> = ({ open, card, onSave, onCan
                                 Back
                             </button>
 
-                            {step < 4 ? (
+                            {step < 5 ? (
                                 <button type="button" className="btn btn-primary" onClick={goNext} disabled={!canNext}>
-                                    Next
+                                    Next <kbd className="kbd bg-base-100/20">⌘</kbd><kbd className="kbd bg-base-100/20">⏎</kbd>
                                 </button>
                             ) : (
                                 <button type="button" className="btn btn-primary" onClick={saveCurrent} disabled={!name.trim()}>
-                                    {card ? "Save" : "Add"}
+                                    {card ? "Save" : "Add"} <kbd className="kbd bg-base-100/20">⌘</kbd><kbd className="kbd bg-base-100/20">⏎</kbd>
                                 </button>
                             )}
                         </div>
