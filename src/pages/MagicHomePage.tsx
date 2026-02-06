@@ -45,6 +45,7 @@ export type MTGCard = {
   toughness?: number;
   count: number;
   color?: "white" | "red" | "blue" | "green" | "black" | "multicoloured" | "uncoloured";
+  colorShort?: "W" | "U" | "B" | "R" | "G" | "M" | "C";
 };
 
 export const superTypeOptions: SuperType[] = ["None", "Basic", "Legendary", "Snow", "World", "Ongoing", "Token", "Elite"];
@@ -90,7 +91,7 @@ export const subtypeSuggestions = [
   "Swamp",
 ];
 
-export const manaOptions = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "W", "U", "B", "R", "G"];
+export const manaOptions = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "W", "U", "B", "R", "G"];
 
 export function formatTypeLine(card: MTGCard) {
   const st = card.superType && card.superType !== "None" ? `${card.superType} ` : "";
@@ -140,6 +141,29 @@ const MagicHomePage = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [editCard, setEditCard] = useState<MTGCard | null>(null);
   const { pageTitle, setters } = useApp();
+
+  useEffect(() => {
+  const onKeyDown = (e: KeyboardEvent) => {
+    const isCmdEnter = (e.metaKey || e.ctrlKey) && e.key === "Enter";
+    if (!isCmdEnter) return;
+
+    // Don't hijack while user is typing in a field
+    const el = e.target as HTMLElement | null;
+    const tag = el?.tagName?.toLowerCase();
+    const isTyping =
+      tag === "input" || tag === "textarea" || tag === "select" || (el as any)?.isContentEditable;
+
+    if (isTyping) return;
+    if (modalOpen) return;
+
+    e.preventDefault();
+    setEditCard(null);
+    setModalOpen(true);
+  };
+
+  window.addEventListener("keydown", onKeyDown);
+  return () => window.removeEventListener("keydown", onKeyDown);
+}, [modalOpen]);
 
   setters.pageTitle();
 

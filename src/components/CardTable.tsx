@@ -60,12 +60,12 @@ const CardTable: React.FC<CardTableProps> = ({
               </tr>
             ) : (
               pagedCards.map((card) => (
-                <tr key={card.id}>
+                <tr key={card.id} onClick={(e) => {openEditModal(card);}} className="cursor-pointer hover:bg-base-200">
                   <td>
                     <div className="flex justify-center items-center gap-2">
                       <button
                         className="btn btn-secondary btn-soft btn-xs btn-circle"
-                        onClick={() => decreaseCount(card.id)}
+                        onClick={(e) => {e.stopPropagation(); decreaseCount(card.id)}}
                         aria-label="Decrease count"
                       >
                         <FontAwesomeIcon icon={byPrefixAndName.fas.minus} />
@@ -73,7 +73,7 @@ const CardTable: React.FC<CardTableProps> = ({
                       <span className="font-semibold tabular-nums">{card.count}</span>
                       <button
                         className="btn btn-secondary btn-soft btn-xs btn-circle"
-                        onClick={() => increaseCount(card.id)}
+                        onClick={(e) => {e.stopPropagation(); increaseCount(card.id)}}
                         aria-label="Increase count"
                       >
                         <FontAwesomeIcon icon={byPrefixAndName.fas.plus} />
@@ -124,14 +124,14 @@ const CardTable: React.FC<CardTableProps> = ({
                     <div className="flex justify-center items-center gap-2">
                       <button
                         className="btn btn-info btn-soft btn-xs btn-circle"
-                        onClick={() => openEditModal(card)}
+                        onClick={(e) => {e.stopPropagation(); openEditModal(card);}}
                         aria-label="Edit card"
                       >
                         <FontAwesomeIcon icon={byPrefixAndName.fas.edit} />
                       </button>
                       <button
                         className="btn btn-error btn-soft btn-xs btn-circle"
-                        onClick={() => removeCard(card.id)}
+                        onClick={(e) => {e.stopPropagation(); removeCard(card.id);}}
                         aria-label="Remove card"
                       >
                         <FontAwesomeIcon icon={byPrefixAndName.fas["trash-alt"]} />
