@@ -1,7 +1,10 @@
-import type { Rates } from "./helpers/currency";
-
-declare global {
-	interface String {
-		to(abbr: keyof Rates): string;
-	}
+export type LogoProps = {
+  fill?: {
+    svg?: string;
+    stu?: string;
+    dot?: string;
+    care?: string;
+    icon?: string;
+  };
+  [key: string]: any;
 }
