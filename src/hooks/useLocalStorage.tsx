@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 export function useLocalStorage<T>(
 	key: string,
 	initialValue: T,
-): [T, (value: T) => void, () => void] {
+): [T, React.Dispatch<React.SetStateAction<T>>, () => void] {
 	// State to store our value
 	const [storedValue, setStoredValue] = useState<T>(() => {
 		try {
@@ -18,16 +18,13 @@ export function useLocalStorage<T>(
 	});
 
 	// Function to update local storage
-	function setValue(value: T) {
-		try {
-			// Save to state
-			setStoredValue(value);
-			// Save to local storage
-			window.localStorage.setItem(key, JSON.stringify(value));
-		} catch (error) {
-			console.error(error);
-		}
-	}
+	const setValue: React.Dispatch<React.SetStateAction<T>> = (value) => {
+		setStoredValue((prev) => {
+			const valueToStore = value instanceof Function ? value(prev) : value;
+			window.localStorage.setItem(key, JSON.stringify(valueToStore));
+			return valueToStore;
+		});
+	};
 
 	// Function to clear local storage for the specified key
 	function clearValue() {

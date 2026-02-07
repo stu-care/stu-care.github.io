@@ -46,7 +46,7 @@ const CardTable: React.FC<CardTableProps> = ({
               <th className="min-w-[220px]">Type</th>
               <th className="min-w-[170px]">Mana</th>
               <th className="w-[100px] text-center">P/T</th>
-              <th className="w-[120px] text-center">Mana Total</th>
+              <th className="w-[120px] text-center">Mana Cost</th>
               <th className="w-[110px] text-center">Actions</th>
             </tr>
           </thead>

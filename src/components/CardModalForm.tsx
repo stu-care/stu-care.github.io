@@ -16,6 +16,7 @@ interface CardModalFormProps {
     currentSearchTerm: string;
     open: boolean;
     card: MTGCard | null;
+    cards: MTGCard[];
     onSave: (card: MTGCard) => void;
     onCancel: () => void;
 }
@@ -167,7 +168,7 @@ function digitToNumberPip(digit: number, shift: boolean) {
     return shift ? 10 + digit : digit;
 }
 
-const CardModalForm: React.FC<CardModalFormProps> = ({ currentSearchTerm, open, card, onSave, onCancel }) => {
+const CardModalForm: React.FC<CardModalFormProps> = ({ currentSearchTerm, open, card, cards, onSave, onCancel }) => {
     const [step, setStep] = useState<StepId>(0);
 
     const [name, setName] = useState(card?.name || currentSearchTerm || "");
@@ -201,7 +202,7 @@ const CardModalForm: React.FC<CardModalFormProps> = ({ currentSearchTerm, open, 
     useEffect(() => {
         if (!open) return;
         setStep(0);
-        setName(card?.name || "");
+        setName(card?.name || currentSearchTerm || "");
         setMana(card?.mana || []);
         setPower(card?.power);
         setToughness(card?.toughness);
@@ -216,7 +217,7 @@ const CardModalForm: React.FC<CardModalFormProps> = ({ currentSearchTerm, open, 
         setKeywords(card?.keywords || []);
         setKeywordInput("");
 
-    }, [open, card?.id]); // eslint-disable-line react-hooks/exhaustive-deps
+    }, [open, card?.id, currentSearchTerm]); // eslint-disable-line react-hooks/exhaustive-deps
 
     // Modal backdrop and esc close logic
     const modalBgRef = useRef<HTMLDivElement>(null);
@@ -492,11 +493,29 @@ const CardModalForm: React.FC<CardModalFormProps> = ({ currentSearchTerm, open, 
     );
 
     const canNext = useMemo(() => {
-        if (step === 0) return name.trim().length > 0 && count >= 1;
+        if (step === 0) return name.trim().length > 0;
         return true;
-    }, [step, name, count]);
+    }, [step, name]);
 
-    const goNext = useCallback(() => setStep((s) => (s < 5 ? ((s + 1) as StepId) : s)), []);
+
+    const normaliseCardName = (s: string) => s.trim().replace(/\s+/g, " ").toLowerCase();
+
+    const existingCardMatch = useMemo(() => {
+        if (card) return null; // editing (don’t auto-increment)
+        const n = normaliseCardName(name);
+        if (!n) return null;
+        return cards.find((c) => normaliseCardName(c.name) === n) ?? null;
+    }, [cards, name, card]);
+
+    const goNext = useCallback(() => {
+        // Step 0 is the “Basics” step in your UI (Title + Count)
+        if (step === 0 && existingCardMatch) {
+            onSave({ ...existingCardMatch, count: (existingCardMatch.count || 0) + 1 });
+            return; // parent will close modal via onSave handler
+        }
+
+        setStep((s) => (s < 5 ? ((s + 1) as StepId) : s));
+    }, [step, existingCardMatch, onSave]);
     const goBack = useCallback(() => setStep((s) => (s > 0 ? ((s - 1) as StepId) : s)), []);
 
     const saveCurrent = useCallback(() => {
@@ -530,7 +549,7 @@ const CardModalForm: React.FC<CardModalFormProps> = ({ currentSearchTerm, open, 
 
             if (step < 5) {
                 if (!canNext) return;
-                goNext();
+                goNext(); // ✅ so it also increments on step 0
                 return;
             }
 
@@ -785,112 +804,112 @@ const CardModalForm: React.FC<CardModalFormProps> = ({ currentSearchTerm, open, 
                         )}
 
                         {step === 4 && (
-  <div className="space-y-4">
-    <div className="rounded-2xl border border-base-200 p-4 space-y-3">
-      <div className="flex items-center justify-between">
-        <div className="font-semibold">Keywords</div>
-        <div className="text-sm opacity-70">{keywords.length ? `${keywords.length} selected` : "None"}</div>
-      </div>
+                            <div className="space-y-4">
+                                <div className="rounded-2xl border border-base-200 p-4 space-y-3">
+                                    <div className="flex items-center justify-between">
+                                        <div className="font-semibold">Keywords</div>
+                                        <div className="text-sm opacity-70">{keywords.length ? `${keywords.length} selected` : "None"}</div>
+                                    </div>
 
-      {/* Keyboard hint */}
-      <div className="rounded-xl bg-base-200/40 p-3 text-sm flex flex-col gap-2">
-        <div className="font-bold">Keyboard shortcuts</div>
-        <div className="text-sm">
-          Type a keyword and press <kbd className="kbd">Enter</kbd> to add. Use <kbd className="kbd">Backspace</kbd> on an empty input to remove the last keyword.
-        </div>
-      </div>
+                                    {/* Keyboard hint */}
+                                    <div className="rounded-xl bg-base-200/40 p-3 text-sm flex flex-col gap-2">
+                                        <div className="font-bold">Keyboard shortcuts</div>
+                                        <div className="text-sm">
+                                            Type a keyword and press <kbd className="kbd">Enter</kbd> to add. Use <kbd className="kbd">Backspace</kbd> on an empty input to remove the last keyword.
+                                        </div>
+                                    </div>
 
-      <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
-        <input
-          className="input input-bordered w-full"
-          placeholder="e.g. Flying, Trample…"
-          value={keywordInput}
-          onChange={(e) => setKeywordInput(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              e.preventDefault();
-              const v = normaliseKeyword(keywordInput.trim());
-              if (!v) return;
-              setKeywords((prev) => (prev.includes(v) ? prev : [...prev, v]));
-              setKeywordInput("");
-              return;
-            }
+                                    <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+                                        <input
+                                            className="input input-bordered w-full"
+                                            placeholder="e.g. Flying, Trample…"
+                                            value={keywordInput}
+                                            onChange={(e) => setKeywordInput(e.target.value)}
+                                            onKeyDown={(e) => {
+                                                if (e.key === "Enter") {
+                                                    e.preventDefault();
+                                                    const v = normaliseKeyword(keywordInput.trim());
+                                                    if (!v) return;
+                                                    setKeywords((prev) => (prev.includes(v) ? prev : [...prev, v]));
+                                                    setKeywordInput("");
+                                                    return;
+                                                }
 
-            if (e.key === "Backspace" && !keywordInput.trim()) {
-              setKeywords((prev) => (prev.length ? prev.slice(0, -1) : prev));
-            }
-          }}
-          autoFocus
-        />
+                                                if (e.key === "Backspace" && !keywordInput.trim()) {
+                                                    setKeywords((prev) => (prev.length ? prev.slice(0, -1) : prev));
+                                                }
+                                            }}
+                                            autoFocus
+                                        />
 
-        <button
-          type="button"
-          className="btn btn-secondary"
-          onClick={() => {
-            const v = normaliseKeyword(keywordInput.trim());
-            if (!v) return;
-            setKeywords((prev) => (prev.includes(v) ? prev : [...prev, v]));
-            setKeywordInput("");
-          }}
-          disabled={!keywordInput.trim()}
-        >
-          Add
-        </button>
+                                        <button
+                                            type="button"
+                                            className="btn btn-secondary"
+                                            onClick={() => {
+                                                const v = normaliseKeyword(keywordInput.trim());
+                                                if (!v) return;
+                                                setKeywords((prev) => (prev.includes(v) ? prev : [...prev, v]));
+                                                setKeywordInput("");
+                                            }}
+                                            disabled={!keywordInput.trim()}
+                                        >
+                                            Add
+                                        </button>
 
-        <button
-          type="button"
-          className="btn btn-ghost"
-          onClick={() => {
-            setKeywords([]);
-            setKeywordInput("");
-          }}
-          disabled={!keywords.length && !keywordInput.trim()}
-        >
-          Clear
-        </button>
-      </div>
+                                        <button
+                                            type="button"
+                                            className="btn btn-ghost"
+                                            onClick={() => {
+                                                setKeywords([]);
+                                                setKeywordInput("");
+                                            }}
+                                            disabled={!keywords.length && !keywordInput.trim()}
+                                        >
+                                            Clear
+                                        </button>
+                                    </div>
 
-      {/* Suggestions */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
-        {keywordSuggestions.map((k) => {
-          const picked = keywords.includes(k);
-          return (
-            <button
-              key={k}
-              type="button"
-              className={`btn btn-xs ${picked ? "btn-secondary" : ""}`}
-              onClick={() => {
-                setKeywords((prev) => (prev.includes(k) ? prev.filter((x) => x !== k) : [...prev, k]));
-              }}
-              title={picked ? "Remove" : "Add"}
-            >
-              {k}
-            </button>
-          );
-        })}
-      </div>
+                                    {/* Suggestions */}
+                                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+                                        {keywordSuggestions.map((k) => {
+                                            const picked = keywords.includes(k);
+                                            return (
+                                                <button
+                                                    key={k}
+                                                    type="button"
+                                                    className={`btn btn-xs ${picked ? "btn-secondary" : ""}`}
+                                                    onClick={() => {
+                                                        setKeywords((prev) => (prev.includes(k) ? prev.filter((x) => x !== k) : [...prev, k]));
+                                                    }}
+                                                    title={picked ? "Remove" : "Add"}
+                                                >
+                                                    {k}
+                                                </button>
+                                            );
+                                        })}
+                                    </div>
 
-      {/* Selected */}
-      <div className="flex flex-wrap gap-2 justify-center">
-        {keywords.length ? (
-          keywords.map((k) => (
-            <button
-              key={k}
-              type="button"
-              className="btn btn-xs btn-secondary"
-              onClick={() => setKeywords((prev) => prev.filter((x) => x !== k))}
-              title="Remove keyword"
-            >
-              {k} ×
-            </button>
-          ))
-        ) : (
-          <span className="opacity-50">No keywords set</span>
-        )}
-      </div>
-    </div>
-  </div>
-)}
+                                    {/* Selected */}
+                                    <div className="flex flex-wrap gap-2 justify-center">
+                                        {keywords.length ? (
+                                            keywords.map((k) => (
+                                                <button
+                                                    key={k}
+                                                    type="button"
+                                                    className="btn btn-xs btn-secondary"
+                                                    onClick={() => setKeywords((prev) => prev.filter((x) => x !== k))}
+                                                    title="Remove keyword"
+                                                >
+                                                    {k} ×
+                                                </button>
+                                            ))
+                                        ) : (
+                                            <span className="opacity-50">No keywords set</span>
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
+                        )}
 
                         {step === 5 && (
                             <div className="rounded-2xl border border-base-200 p-4 space-y-3">
@@ -934,9 +953,9 @@ const CardModalForm: React.FC<CardModalFormProps> = ({ currentSearchTerm, open, 
                                     </div>
 
                                     <div className="rounded-xl bg-base-200/40 p-3 md:col-span-2">
-  <div className="text-xs opacity-70">Keywords</div>
-  <div className="font-semibold">{previewCard.keywords?.length ? previewCard.keywords.join(", ") : "—"}</div>
-</div>
+                                        <div className="text-xs opacity-70">Keywords</div>
+                                        <div className="font-semibold">{previewCard.keywords?.length ? previewCard.keywords.join(", ") : "—"}</div>
+                                    </div>
                                 </div>
                             </div>
                         )}
