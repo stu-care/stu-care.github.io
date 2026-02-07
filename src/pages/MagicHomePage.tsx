@@ -243,8 +243,8 @@ const MagicHomePage = () => {
     };
 
     return (
-        <main className="p-4">
-            <div className="mx-auto max-w-6xl">
+        <main className="p-4 grow flex flex-col gap-4">
+            <div className="mx-auto grow max-w-6xl">
                 <div className="mb-4 rounded-2xl bg-base-100 shadow p-4">
                     <div className="flex flex-col sm:flex-row gap-3 md:flex-row md:items-center md:justify-between">
                         <div>
@@ -274,7 +274,7 @@ const MagicHomePage = () => {
                     </div>
                 </div>
 
-                <div className="rounded-2xl bg-base-300 shadow">
+                <div className="rounded-2xl bg-base-200 shadow">
                     <CardTable
                         filteredCards={filteredCards}
                         increaseCount={increaseCount}
@@ -315,7 +315,9 @@ const MagicHomePage = () => {
                     />
                 )}
             </div>
-            {version}
+            <div className="w-full text-center text-xs text-base-content/50">
+            <span className="block mb-4">v{version}</span>
+            </div>
         </main>
     );
 };
