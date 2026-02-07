@@ -113,7 +113,7 @@ export const subtypeSuggestions = [
     "Swamp",
 ];
 
-export const manaOptions = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "W", "U", "B", "R", "G"];
+export const manaOptions = ["X", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "W", "U", "B", "R", "G"];
 
 export function formatTypeLine(card: MTGCard) {
     const st = card.superType && card.superType !== "None" ? `${card.superType} ` : "";
@@ -150,6 +150,7 @@ export function getCardManaCount(card: MTGCard | null | undefined): number {
   if (!card?.mana?.length) return 0;
 
   return card.mana.reduce((acc, m) => {
+    if (m === "X") return acc; // min is 0 (treat as 0)
     const n = parseInt(m, 10);
     return acc + (Number.isNaN(n) ? 1 : n);
   }, 0);

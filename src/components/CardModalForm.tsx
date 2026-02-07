@@ -160,7 +160,7 @@ function SubtypePicker({
 
 // --- helpers for mana keyboard input ---
 const COLOUR_KEYS = new Set(["W", "U", "B", "R", "G"]);
-const isNumericPip = (m: string) => /^\d+$/.test(m);
+const isNumericPip = (m: string) => m === "X" || /^\d+$/.test(m);
 
 function digitToNumberPip(digit: number, shift: boolean) {
     // digits: 0-9. Base: 0-9. Shift: 10-19
@@ -412,8 +412,17 @@ const CardModalForm: React.FC<CardModalFormProps> = ({ currentSearchTerm, open, 
                 return;
             }
 
-            // W/U/B/R/G (repeatable)
             const k = e.key.toUpperCase();
+
+            // X (numeric)
+            if (k === "X") {
+                if (hasNumeric) return;
+                e.preventDefault();
+                setMana((prev) => [...prev, "X"]);
+                return;
+            }
+            
+            // W/U/B/R/G (repeatable)
             if (COLOUR_KEYS.has(k)) {
                 e.preventDefault();
                 addColourPip(k);
