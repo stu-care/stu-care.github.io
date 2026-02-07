@@ -13,6 +13,7 @@ import {
 } from "../pages/MagicHomePage";
 
 interface CardModalFormProps {
+    currentSearchTerm: string;
     open: boolean;
     card: MTGCard | null;
     onSave: (card: MTGCard) => void;
@@ -166,10 +167,10 @@ function digitToNumberPip(digit: number, shift: boolean) {
     return shift ? 10 + digit : digit;
 }
 
-const CardModalForm: React.FC<CardModalFormProps> = ({ open, card, onSave, onCancel }) => {
+const CardModalForm: React.FC<CardModalFormProps> = ({ currentSearchTerm, open, card, onSave, onCancel }) => {
     const [step, setStep] = useState<StepId>(0);
 
-    const [name, setName] = useState(card?.name || "");
+    const [name, setName] = useState(card?.name || currentSearchTerm || "");
     const [mana, setMana] = useState<string[]>(card?.mana || []);
     const [power, setPower] = useState<number | undefined>(card?.power);
     const [toughness, setToughness] = useState<number | undefined>(card?.toughness);

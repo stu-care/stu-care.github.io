@@ -264,6 +264,7 @@ const MagicHomePage = () => {
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   aria-label="Search cards"
+                  autoFocus={!modalOpen}
                 />
               </label>
 
@@ -292,6 +293,7 @@ const MagicHomePage = () => {
         {/* Add/Edit Card Modal */}
         {modalOpen && (
           <CardModalForm
+            currentSearchTerm={search}
             open={modalOpen}
             card={editCard}
             onSave={(card) => {
