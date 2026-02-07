@@ -160,7 +160,7 @@ const MagicHomePage = () => {
     const [search, setSearch] = useState("");
     const [modalOpen, setModalOpen] = useState(false);
     const [editCard, setEditCard] = useState<MTGCard | null>(null);
-    const { pageTitle, setters } = useApp();
+    const { pageTitle, setters, version } = useApp();
 
     useEffect(() => {
         const onKeyDown = (e: KeyboardEvent) => {
@@ -315,6 +315,7 @@ const MagicHomePage = () => {
                     />
                 )}
             </div>
+            {version}
         </main>
     );
 };
