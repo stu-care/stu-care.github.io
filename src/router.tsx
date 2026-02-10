@@ -1,29 +1,18 @@
 import { createBrowserRouter } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
-import Headerless from "./layouts/Headerless";
-import Headered from "./layouts/Headered";
-import MagicHomePage from "./pages/MagicHomePage";
-import { AppProvider } from "./contexts/AppContext";
+import Root from "./layouts/Root";
+import NotFoundPage from "./pages/NotFoundPage";
 
 export const router = createBrowserRouter([
-
 	{
-		Component: Headerless,
+		path: "/",
+		Component: Root,
 		children: [
+			{ index: true, Component: LandingPage },
 			{
-				index: true,
-				Component: LandingPage,
+				path: "/*",
+				Component: NotFoundPage
 			},
-		],
-	},
-	{
-		path: "/mtg",
-		Component: () => <AppProvider><Headered /></AppProvider>,
-		children: [
-			{
-				index: true,
-				Component: MagicHomePage,
-			}
 		],
 	},
 ]);
